@@ -1,7 +1,7 @@
 <%-- 
     Document   : t_emergencia
     Created on : 23-sep-2018, 2:13:10
-    Author     : lenovo
+    Author     : edison
 --%>
 
 <%@page import="modelo.consultas"%>

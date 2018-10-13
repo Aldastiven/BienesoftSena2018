@@ -4,7 +4,7 @@
     Author     : equipo
 --%>
 
-<%@page import="modelo.Consulta"%>
+<%@page import="modelo.consultas"%>
 <%@page import="modelo.patrocinioSG"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,7 +28,7 @@
         
         <%
             ArrayList <patrocinioSG> consultas = new ArrayList<>();
-            Consulta con=new Consulta();
+            consultas con=new consultas();
             consultas = con.consultarTabla();
             patrocinioSG x = new patrocinioSG();
             
