@@ -1,10 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controlador;
 
+import static controlador.ServletHabitacion.camDispon;
+import static controlador.ServletHabitacion.camTotal;
+import static controlador.ServletHabitacion.numHabitacion;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,14 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.crudFicha;
+import modelo.crudHabitacion;
 import modelo.fichaSG;
+import modelo.habitacionSG;
 
-/**
- *
- * @author Edison
- */
+
+
 @WebServlet(name = "ServletFicha", urlPatterns = {"/ServletFicha"})
 public class ServletFicha extends HttpServlet {
+    //GLOBAL VARS
+    String nombre,jornada,inicio_etapa,fin_etapa;
+    int numero;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,28 +39,20 @@ public class ServletFicha extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         
-        //GUARDAR DATOS FICHA
-        
+        //GUARDAR FICHA
         if(request.getParameter("btn_guardar")!=null){
-        this.guardarFicha(request,response);
-        }else if(request.getParameter("btn_guardar")!=null){
-        this.guardarFicha(request,response);   
+            this.guardarFicha(request,response);
         }
         
         //Actualizar Datos Ficha
         if(request.getParameter("btn_actualizar")!=null){
-        this.actualizarFicha(request,response);
-        }else if(request.getParameter("btn_actualizar")!=null){
-        this.actualizarFicha(request,response); 
-        
+            this.actualizarFicha(request,response);
         }
         
-        //Elimunar Datos Ficha
+       
+        //Eliminar Datos Ficha
         if(request.getParameter("btn_eliminar")!=null){
-        this.eliminarFicha(request,response);
-        }else if(request.getParameter("btn_eliminar")!=null){
-        this.eliminarFicha(request,response); 
-        
+            this.eliminarFicha(request,response);
         }
             
     }    
@@ -104,81 +98,62 @@ public class ServletFicha extends HttpServlet {
     }// </editor-fold>
 
     
-    //METODO GUARDAR FICHA
-    
+    //GUARDAR FICHA
     private void guardarFicha(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        
-        if(request.getParameter("btn_guardar")!=null){
-            
-        String Nombre,Jornada,inicio_etapa,fin_etapa;
-        int Numero;
-     
-        Numero=Integer.parseInt(request.getParameter("f_n_ficha"));
-        Nombre=request.getParameter("f_nombre");
-        Jornada=request.getParameter("f_jornada");
+        numero=Integer.parseInt(request.getParameter("f_n_ficha"));
+        nombre=request.getParameter("f_nombre");
+        jornada=request.getParameter("f_jornada");
         inicio_etapa=request.getParameter("f_Fic_inicio_etapa");
-        fin_etapa=request.getParameter("f_Fic_fin_etapa");
+        fin_etapa=request.getParameter("f_Fic_fin_etapa"); 
         
-        fichaSG setget=new fichaSG( Numero, Nombre, Jornada,inicio_etapa,fin_etapa);
+        fichaSG setget=new fichaSG(numero, nombre, jornada, inicio_etapa, fin_etapa); 
         crudFicha crud=new crudFicha();
         crud.guardar_ficha(setget);
         response.sendRedirect("f_ficha.jsp");
-        }
+        
     }
-
     
-    //METODO ACTUALIZAR FICHA
     
-   private void actualizarFicha(HttpServletRequest request, HttpServletResponse response)
+    
+    //ACTUALIZAR
+    private void actualizarFicha(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
+        numero=Integer.parseInt(request.getParameter("t_n_ficha"));
+        nombre=request.getParameter("t_nombre");
+        jornada=request.getParameter("t_jornada");
+        inicio_etapa=request.getParameter("t_Fic_inicio_etapa");
+        fin_etapa=request.getParameter("t_Fic_fin_etapa");
         
-        if(request.getParameter("btn_actualizar")!=null){
-            
-        String Nombre,Jornada,inicio_etapa,fin_etapa;
-        int Numero;
-     
-        Numero=Integer.parseInt(request.getParameter("t_n_ficha"));
-        Nombre=request.getParameter("t_nombre");
-        Jornada=request.getParameter("t_jornada");
-        inicio_etapa=request.getParameter("Fic_inicio_etapa");
-        fin_etapa=request.getParameter("Fic_fin_etapa");
-        
-        fichaSG setget=new fichaSG( Numero, Nombre, Jornada,inicio_etapa,fin_etapa);
+        fichaSG setget=new fichaSG(numero, nombre, jornada, inicio_etapa, fin_etapa); 
         crudFicha crud=new crudFicha();
         crud.actualizar_ficha(setget);
-        response.sendRedirect("t_ficha.jsp");
-        }
+        response.sendRedirect("t_ficha.jsp");  
     }
    
-   private void eliminarFicha(HttpServletRequest request, HttpServletResponse response)
+    //ELIMINAR
+    private void eliminarFicha(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
+        numero=Integer.parseInt(request.getParameter("t_n_ficha"));
+        nombre=request.getParameter("t_nombre");
+        jornada=request.getParameter("t_jornada");
+        inicio_etapa=request.getParameter("t_Fic_inicio_etapa");
+        fin_etapa=request.getParameter("t_Fic_fin_etapa");
         
-        if(request.getParameter("btn_eliminar")!=null){
-            
-         String Nombre,Jornada,inicio_etapa,fin_etapa;
-        int Numero;
-     
-        Numero=Integer.parseInt(request.getParameter("t_n_ficha"));
-        Nombre=request.getParameter("t_nombre");
-        Jornada=request.getParameter("t_jornada");
-        inicio_etapa=request.getParameter("Fic_inicio_etapa");
-        fin_etapa=request.getParameter("Fic_fin_etapa");
-        
-        fichaSG setget=new fichaSG( Numero, Nombre, Jornada,inicio_etapa,fin_etapa);
+        fichaSG setget=new fichaSG(numero, nombre, jornada, inicio_etapa, fin_etapa); 
         crudFicha crud=new crudFicha();
         crud.eliminar_ficha(setget);
         response.sendRedirect("t_ficha.jsp");
-        }
+        
     }
 
 

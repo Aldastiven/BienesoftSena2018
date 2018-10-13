@@ -1,10 +1,7 @@
-<%-- 
-    Document   : t_ficha
-    Created on : 22-sep-2018, 11:08:02
-    Author     : lenovo
---%>
 
-<%@page import="modelo.Consulta"%>
+
+<%@page import="modelo.consultas"%>
+<%@page import="java.sql.Date"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.fichaSG"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,48 +12,48 @@
         <title>t_ficha</title>
     </head>
     <body>
-        
-        <table>
-            <thead>
-                <tr>
+        <table align="center" border="1" width="800">
+            <tr bgcolor="#A9CCE3" border="1">
+                <th colspan="9" class="center">Tabla ficha</th>
+            </tr>
+            <tr bgcolor="skyblue">
+                <th>Numero</th>
+                <th>Nombre Programa</th>
+                <th>Jornada</th>
+                <th>Fic_inicio_etapa_electiva</th>
+                <th>Fic_fin_etapa_electiva</th>
+            </tr>
+            <%
                 
-                    <th>Numero</th>
-                    <th>Nombre Programa</th>
-                    <th>Jornada</th>
-                    <th>Fic_inicio_etapa_electiva</th>
-                    <th>Fic_fin_etapa_electiva</th>
-                </tr>
-            </thead>
-              <%
-                  ArrayList <fichaSG> consultas=new ArrayList<>();
-                  Consulta con=new Consulta();
-                  consultas=con.consultarTablaFicha();
-                  fichaSG x=new fichaSG();
-                  
-                    for(int i=0; i<consultas.size();i++){
-                        x=consultas.get(i);
-                    
-              %>  
+                
+                ArrayList<fichaSG> listdat=new ArrayList<>(); 
+                consultas con=new consultas();
+                listdat=con.consultaFicha();
+                fichaSG igs=new fichaSG();
+                
+                for(int i=0; i<listdat.size(); i++){
+                    igs=listdat.get(i);
+
+            %>  
               
-              <tr>
-              <form action="ServletFicha" method="post">
-                 
-                  <td><input type="number" name="t_n_ficha" value="<%=x.getFic_numero()%>"></td>
-                  <td><input type="text" name="t_nombre" value="<%=x.getFic_nombrePrograma()%>"></td>
-                  <td><input type="text" name="t_jornada" value="<%=x.getFic_jornada()%>"></td>
-                  <td><input type="date" name="Fic_inicio_etapa" value="<%=x.getFic_inicio_etapa()%>"></td>
-                  <td><input type="date" name="Fic_fin_etapa" value="<%=x.getFic_fin_etapa()%>"></td>
-                  <td>
-                    <input type="submit" name="btn_actualizar" value="Actualizar">
-                    <input type="submit" name="btn_eliminar" value="Eliminar">
-                  </td>
-               </form>
-            
-                </tr> 
+              
+            <form action="ServletFicha">
+
+                <td><input  name="t_n_ficha" value="<%=igs.getFic_numero()%>"></td>
+                <td><input  name="t_nombre" value="<%=igs.getFic_nombrePrograma()%>"></td>
+                <td><input  name="t_jornada" value="<%=igs.getFic_jornada()%>"></td>
+                <td><input  name="Fic_inicio_etapa" value="<%=igs.getFic_inicio_etapa()%>"></td>
+                <td><input  name="Fic_fin_etapa" value="<%=igs.getFic_fin_etapa()%>"></td>
                 
-                <%
-                    }
-                %>
+                <td><input type="submit" name="btn_actualizar" value="Actualizar"></td>
+                <td><input type="submit" name="btn_eliminar" value="Eliminar"></td>
+            </form>
+            
+                 
+                
+            <%
+                }
+            %>
         </table>
     </body>
 </html>

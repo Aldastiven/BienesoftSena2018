@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import controlador.conexion;
@@ -11,10 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Edison
- */
+
 public class crudFicha {
     conexion con=new conexion();
     Connection cnn=con.conexiondb();
@@ -22,6 +15,7 @@ public class crudFicha {
     ResultSet rs=null;
     
     
+    //GUARDAR
     public void guardar_ficha(fichaSG ing){
         try{
            ps=cnn.prepareStatement("INSERT INTO ficha VALUES(?,?,?,?,?)");
@@ -30,8 +24,8 @@ public class crudFicha {
            ps.setInt(1,ing.getFic_numero());
            ps.setString(2,ing.getFic_nombrePrograma());
            ps.setString(3,ing.getFic_jornada());
-           ps.setString(3,ing.getFic_inicio_etapa());
-           ps.setString(4,ing.getFic_fin_etapa());
+           ps.setString(4,ing.getFic_inicio_etapa());
+           ps.setString(5,ing.getFic_fin_etapa());
            ps.executeUpdate();
            
            JOptionPane.showMessageDialog(null, "Registro Realizado");

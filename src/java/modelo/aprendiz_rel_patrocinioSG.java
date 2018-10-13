@@ -1,30 +1,35 @@
 
 package modelo;
 
-/**
- *
- * @author Aldair
- */
+
 public class aprendiz_rel_patrocinioSG {
     
    
+    private int Patrocinio_Pat_ID;
     private int pat_Aprendiz_Apr_documento;
     private int Pat_numeroContrato;
     private String Pat_estado;
     private String Pat_fechaContrato;
     
     //contructor vacio
-
     public aprendiz_rel_patrocinioSG() {
     }
     
     //constructor
-
-    public aprendiz_rel_patrocinioSG(int pat_Aprendiz_Apr_documento, int Pat_numeroContrato, String Pat_estado, String Pat_fechaContrato) {
+    public aprendiz_rel_patrocinioSG(int Patrocinio_Pat_ID, int pat_Aprendiz_Apr_documento, int Pat_numeroContrato, String Pat_estado, String Pat_fechaContrato) {
+        this.Patrocinio_Pat_ID = Patrocinio_Pat_ID;
         this.pat_Aprendiz_Apr_documento = pat_Aprendiz_Apr_documento;
         this.Pat_numeroContrato = Pat_numeroContrato;
         this.Pat_estado = Pat_estado;
         this.Pat_fechaContrato = Pat_fechaContrato;
+    }
+
+    public int getPatrocinio_Pat_ID() {
+        return Patrocinio_Pat_ID;
+    }
+
+    public void setPatrocinio_Pat_ID(int Patrocinio_Pat_ID) {
+        this.Patrocinio_Pat_ID = Patrocinio_Pat_ID;
     }
 
     public int getPat_Aprendiz_Apr_documento() {
@@ -58,6 +63,13 @@ public class aprendiz_rel_patrocinioSG {
     public void setPat_fechaContrato(String Pat_fechaContrato) {
         this.Pat_fechaContrato = Pat_fechaContrato;
     }
+    
+    
+    
+    
+    
+    
+    
 
    
     

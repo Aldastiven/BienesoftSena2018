@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 /**
@@ -17,15 +13,13 @@ public class fichaSG {
     private String Fic_inicio_etapa;
     private String Fic_fin_etapa;
 
-//CONSTRUCTOR VACIO
 
+    //CONSTRUCTOR VACIO
     public fichaSG() {
     }
     
     //CONSTRUCTOR
-
     public fichaSG(int Fic_numero, String Fic_nombrePrograma, String Fic_jornada, String Fic_inicio_etapa, String Fic_fin_etapa) {
-       
         this.Fic_numero = Fic_numero;
         this.Fic_nombrePrograma = Fic_nombrePrograma;
         this.Fic_jornada = Fic_jornada;
@@ -74,13 +68,15 @@ public class fichaSG {
     public void setFic_fin_etapa(String Fic_fin_etapa) {
         this.Fic_fin_etapa = Fic_fin_etapa;
     }
-
-  
+    
+    
+    
+    
 
     
  
 
-    }
+}
     
     
 

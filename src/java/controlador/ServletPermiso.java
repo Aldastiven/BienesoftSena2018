@@ -108,12 +108,12 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
             String evidenciaAdjunta="";
             
            Part fot =request.getPart("f_evidenciaAdjunta");
-        String nomfoto=fot.getSubmittedFileName();
+           String nomfoto=fot.getSubmittedFileName();
         
             int i = nomfoto.lastIndexOf("\\");
             nomfoto = nomfoto.substring(i+1);
             String nombre=documento+"_"+nomfoto;
-            String Url="C:\\Users\\lenovo\\Documents\\NetBeansProjects\\BieneSoft_Aldair_ultimo\\web\\img\\"+nombre;
+            String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
             evidenciaAdjunta="img/"+nombre;
             InputStream file=fot.getInputStream();
             File f=new File(Url);

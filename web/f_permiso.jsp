@@ -9,7 +9,7 @@
     </head>
     <body>
         <div>
-            <h1>formulario Permisos</h1>
+            <h1>formulario Permiso</h1>
             
             <form action="ServletPermiso"enctype="multipart/form-data"method="post">
                 <td><input type="number" name="f_NumeroDocumento" placeholder="documento del aprendiz"></td>

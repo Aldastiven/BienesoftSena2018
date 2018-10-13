@@ -17,17 +17,16 @@ public class crudAprendiz_rel_Patrocinio {
     PreparedStatement ps = null;
     ResultSet rs = null;
     
-    //GUARDAR REGISTRO APRENDIZ
-    
+    //GUARDAR REGISTRO APRENDIZ-REL-PATROCINIO
     public void guardarAprendiz_rel_Patrocinio(aprendiz_rel_patrocinioSG ing){
         try {
-            ps=cnn.prepareStatement("INSERT INTO patrocinio_relacion_aprendiz VALUES (?,?,?,?)");
+            ps=cnn.prepareStatement("INSERT INTO patrocinio_relacion_aprendiz VALUES (?,?,?,?,?)");
             
-          
-            ps.setInt(1,ing.getPat_Aprendiz_Apr_documento());
-            ps.setInt(2,ing.getPat_numeroContrato());
-            ps.setString(3, ing.getPat_estado());
-            ps.setString(4, ing.getPat_fechaContrato());
+            ps.setInt(1,ing.getPatrocinio_Pat_ID());
+            ps.setInt(2,ing.getPat_Aprendiz_Apr_documento());
+            ps.setInt(3, ing.getPat_numeroContrato());
+            ps.setString(4, ing.getPat_estado());
+            ps.setString(5, ing.getPat_fechaContrato());
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Registro realizado");
          
@@ -37,23 +36,38 @@ public class crudAprendiz_rel_Patrocinio {
     }
     
     
-    public int actualizarAprendiz_rel_Patrocinio (aprendiz_rel_patrocinioSG ing){
+    
+    //METODO MODIFICAR
+    public int actualizarAprendiz_rel_Patrocinio(aprendiz_rel_patrocinioSG ing){
+        
+        int dat=0;
+
         try {
-            ps=cnn.prepareStatement("UPDATE patrocinio_relacion_aprendiz SET    pat_Aprendiz_Apr_documento= '"+ing.getPat_Aprendiz_Apr_documento()+"', Pat_numeroContrato='"+ing.getPat_numeroContrato()+"',  Pat_estado='"+ing.getPat_estado()+"', Pat_fechaContrato='"+ing.getPat_fechaContrato()+"' WHERE pat_Aprendiz_Apr_documento= '"+ing.getPat_Aprendiz_Apr_documento()+"' " );
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Registro actualizado");
+            ps=cnn.prepareStatement("UPDATE  patrocinio_relacion_aprendiz  SET  Pat_numeroContrato='"+ing.getPat_numeroContrato()+"', Pat_estado='"+ing.getPat_estado()+"', Pat_fechaContrato='"+ing.getPat_fechaContrato()+"' WHERE Patrocinio_Pat_ID='"+ing.getPatrocinio_Pat_ID()+"' AND  pat_Aprendiz_Apr_documento='"+ing.getPat_Aprendiz_Apr_documento()+"' " );
+            dat=ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Datos actualizados");
+        
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"no se pudo actualizar" +e);
+            
+            JOptionPane.showMessageDialog(null, "Error!!" +e);
         }
-        return 0;
+        
+        return dat;
+    
     }
     
     
+    
+    
+    //ELIMINAR
     public int eliminarAprendiz_rel_Patrocinio (aprendiz_rel_patrocinioSG ing){
         try {
-            ps=cnn.prepareStatement("DELETE FROM  patrocinio_relacion_aprendiz WHERE pat_Aprendiz_Apr_documento=?");
-            ps.setInt(1, ing.getPat_Aprendiz_Apr_documento());
+            //ps=cnn.prepareStatement("DELETE FROM  patrocinio_relacion_aprendiz WHERE pat_Aprendiz_Apr_documento=?");
+            ps=cnn.prepareStatement("DELETE FROM patrocinio_relacion_aprendiz WHERE Patrocinio_Pat_ID=? ");
+            ps.setInt(1, ing.getPatrocinio_Pat_ID());
             ps.executeUpdate();
+            
             JOptionPane.showMessageDialog(null,"Registro eliminado");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"no se elimino   " +e);

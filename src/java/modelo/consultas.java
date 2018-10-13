@@ -137,7 +137,7 @@ public class consultas {
     
     
      //CONSULTA aprendiz_rel_patrocinioSG
-    public ArrayList<aprendiz_rel_patrocinioSG> consultarTablaAprendiz_rel_Patricinio(){
+    public ArrayList<aprendiz_rel_patrocinioSG> consultaAprendiz_rel_Patricinio(){
         ArrayList<aprendiz_rel_patrocinioSG>arreglo= new ArrayList<aprendiz_rel_patrocinioSG>();
         
         try {
@@ -145,8 +145,8 @@ public class consultas {
             rs=ps.executeQuery();
             
             while(rs.next()){
-                //aprendiz_rel_patrocinioSG setget = new aprendiz_rel_patrocinioSG(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5),rs.getString(6));
-                //arreglo.add (setget);
+                aprendiz_rel_patrocinioSG setget = new aprendiz_rel_patrocinioSG(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5));
+                arreglo.add (setget);
 
             }
         } catch (Exception e) {
@@ -156,23 +156,25 @@ public class consultas {
     }
     
     
+    
+   
     //CONSULTA FICHA
-    public ArrayList<fichaSG>consultarTablaFicha(){
-       ArrayList<fichaSG>arreglo=new ArrayList<fichaSG>();
-      
+    public ArrayList<fichaSG> consultaFicha() {
+        ArrayList<fichaSG> fic = new ArrayList<>();
+        
         try {
-            ps=cnn.prepareStatement("SELECT*FROM ficha");
-            rs=ps.executeQuery();
+            ps = cnn.prepareStatement("SELECT * FROM ficha");
+            rs = ps.executeQuery();
             
-            while (rs.next()){
-                fichaSG setget=new fichaSG (rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
-                arreglo.add(setget);
+            while(rs.next()) {
+                fichaSG ficha = new fichaSG (rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+                fic.add(ficha);
             }
             
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "no se puede mostrar contenido de la tabla"+e);
+        }catch(SQLException e) {
+            JOptionPane.showMessageDialog(null,"ERROR: "+e);
         }
-        return arreglo;
+        return fic;
     }
     
     

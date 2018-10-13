@@ -13,14 +13,14 @@
     </head>
     <body>
         <div>
-            <form action="ServletAprendiz_rel_Patrocinio" method="post">
+            <form action="ServletAprendiz_rel_Patrocinio">
                 <input type="number" name="f_patrocinio_pat_id" placeholder="ID patrocinio">
-                <input type="number" name="f_aprendiz_apr_documento" placeholder="ID aprendiz">
+                <input type="number" name="f_aprendiz_apr_documento" placeholder="Documento aprendiz">
                 <input type="number" name="f_numeroContrato" placeholder="numero de contrato">
                 <input type="text" name="f_estado" placeholder="estado">
                 <input type="date" name="f_fechaContrato" placeholder="fecha de contrato">
                 
-                <input type="submit" name="btn_guardar">
+                <input type="submit" name="btn_guardar" value="Guardar">
 
             </form>
         </div>

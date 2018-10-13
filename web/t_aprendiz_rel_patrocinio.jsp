@@ -1,8 +1,4 @@
-<%-- 
-    Document   : t_aprendiz_rel_patrocinio
-    Created on : 23-sep-2018, 11:30:53
-    Author     : equipo
---%>
+
 
 <%@page import="modelo.consultas"%>
 <%@page import="java.util.ArrayList"%>
@@ -15,44 +11,48 @@
         <title>t_aprendiz_rel_patrocinio</title>
     </head>
     <body>
+        <h1>Tabla Aprendiz-rel-Patrocinio</h1>
         <table>
-            <thead>
-            <th>Numero registro</th>   
-            <th>ID del patrocinio</th>
-            <th>ID aprendiz</th>
-            <th>Numero de contrato</th>
-            <th>Estado</th>
-            <th>Fecha de contrato</th>
-            </thead>
+            <tr bgcolor="#A9CCE3" border="1">
+                <th colspan="9" class="center">Tabla habitacion</th>
+            </tr>
+            <tr bgcolor="skyblue">
+                <th class="center">Pat id</th>
+                <th class="center">Documento</th>
+                <th class="center">Numero contrato</th>
+                <th class="center">Estado</th>
+                <th class="center">Fecha de contrato</th>
+            </tr>
             
             <%
-                ArrayList<aprendiz_rel_patrocinioSG> consultas = new ArrayList<>();
+                ArrayList<aprendiz_rel_patrocinioSG> listdat = new ArrayList<>();
                 consultas con=new consultas();
-                consultas = con.consultarTablaAprendiz_rel_Patricinio();
+                listdat = con.consultaAprendiz_rel_Patricinio();
                 aprendiz_rel_patrocinioSG x= new aprendiz_rel_patrocinioSG();
-                for (int i = 0; i< consultas.size(); i++ ){
-                x = consultas.get(i);
+                
+                for (int i = 0; i< listdat.size(); i++ ){
+                    x = listdat.get(i);
+                
             %>
             
+            <form action="ServletAprendiz_rel_Patrocinio">
             <tr>
-            <form action="ServletAprendiz_rel_Patrocinio" method="post">
-                <td><input type="number" name="t_ID" value="<%=x.getPatrocinio_Rel_Aprendiz_ID()%>" readonly></td>
-                <td><input type="number" name="t_patrocinio_pat_id" value="<%=x.getPatrocinio_Pat_ID()%>"></td>
-                <td><input type="number" name="t_aprendiz_apr_documento" value="<%=x.getPat_Aprendiz_Apr_documento()%>"></td>
-                <td><input type="number" name="t_numeroContrato" value="<%=x.getPat_numeroContrato()%>"></td>
-                <td><input type="text" name="t_estado" value="<%=x.getPat_estado()%>" ></td>
-                <td><input type="date" name="t_fechaContrato" value="<%=x.getPat_fechaContrato()%>"></td>
+                <td><input name="t_patrocinio_pat_id" value="<%=x.getPatrocinio_Pat_ID()%>"></td>
+                <td><input name="t_aprendiz_apr_documento" value="<%=x.getPat_Aprendiz_Apr_documento()%>"></td>
+                <td><input name="t_numeroContrato" value="<%=x.getPat_numeroContrato()%>"></td>
+                <td><input name="t_estado" value="<%=x.getPat_estado()%>" ></td>
+                <td><input name="t_fechaContrato" value="<%=x.getPat_fechaContrato()%>"></td>
                 
-                <td>
-                    <input type="submit" name="btn_actualizar" value="Actualizar">
-                    <input type="submit" name="btn_eliminar" value="Eliminar">
-                </td>
+                <td><input type="submit" name="btn_actualizar" value="Actualizar"></td>
+                
+                <td><input type="submit" name="btn-eliminar" value="Eliminar"></td>
+            </tr>   
             </form> 
-        </tr>
         
-        <%
-            }
-        %>
+        
+            <%
+                }
+            %>
         </table>
     </body>
 </html>

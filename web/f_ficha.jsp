@@ -17,7 +17,7 @@
             
             <form action="ServletFicha">
                 <input type="number" name="f_n_ficha" placeholder="Numero">
-                <input type="text" name="f_nombre" placeholder="Nombre">
+                <input type="text" name="f_nombre" placeholder="Nombre programa">
                 <input type="text" name="f_jornada" placeholder="Jornada">
                 <input type="date" name="f_Fic_inicio_etapa" >
                 <input type="date" name="f_Fic_fin_etapa" >
