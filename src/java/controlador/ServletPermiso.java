@@ -19,12 +19,12 @@ import modelo.permisoSG;
 
 
 @WebServlet(name = "ServletPermiso", urlPatterns = {"/ServletPermiso"})
-@MultipartConfig
+@MultipartConfig//servidor espera este tipo de formatos img
 public class ServletPermiso extends HttpServlet {
         //VARS GLOBAL
         int Id,documento;
         String tipo, fecha_salida, fecha_ingreso,hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada,motivo,
-                      estado, autoriza;
+        estado, autoriza;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -102,7 +102,7 @@ public class ServletPermiso extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
                
-        //Id=Integer.parseInt(request.getParameter("f_Id"));
+        
         documento=Integer.parseInt(request.getParameter("f_numerodocumento"));
         tipo=request.getParameter("f_tipo");
         fecha_salida=request.getParameter("f_fechsal");
@@ -148,15 +148,16 @@ public class ServletPermiso extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-               
+        
+        Id=Integer.parseInt(request.getParameter("t_Id"));   
         documento=Integer.parseInt(request.getParameter("t_numerodocumento"));
         tipo=request.getParameter("t_tipo");
         fecha_salida=request.getParameter("t_fechsal");
         fecha_ingreso=request.getParameter("t_fechingre");
         hora_Salida=request.getParameter("t_horasal");
         hora_ingreso=request.getParameter("t_horaingre");
-        fecha_ingresoReal=request.getParameter("t_Hfreal");
-        hora_ingresoReal=request.getParameter("t_Hfreal");
+        fecha_ingresoReal=request.getParameter("t_freal");
+        hora_ingresoReal=request.getParameter("t_hreal");
         observacion_permiso_llegada=request.getParameter("t_obser");
         motivo=request.getParameter("t_moti");
         estado=request.getParameter("t_estado");
@@ -181,7 +182,7 @@ public class ServletPermiso extends HttpServlet {
             num=file.read();
         }
             
-        permisoSG setget = new permisoSG(documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+        permisoSG setget = new permisoSG(Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
         crudPermisos crud = new crudPermisos();
         crud.actualizar_permiso(setget);
         request.getRequestDispatcher("t_permiso.jsp").forward(request, response);
@@ -194,7 +195,8 @@ public class ServletPermiso extends HttpServlet {
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-           
+        
+        Id=Integer.parseInt(request.getParameter("t_Id"));
         documento=Integer.parseInt(request.getParameter("t_numerodocumento"));
         tipo=request.getParameter("t_tipo");
         fecha_salida=request.getParameter("t_fechsal");
@@ -210,7 +212,7 @@ public class ServletPermiso extends HttpServlet {
             
             String evidenciaAdjunta="";
             
-            Part fot =request.getPart("f_evidenciaAdjunta");
+            Part fot =request.getPart("t_evidenciaAdjunta");
             String nomfoto=fot.getSubmittedFileName();
             if(!nomfoto.equals("")) {
                 int i = nomfoto.lastIndexOf("\\");

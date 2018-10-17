@@ -35,17 +35,17 @@
             </tr>
             
             <%
-                ArrayList <permisoSG> consulta = new ArrayList<>();
+                ArrayList <permisoSG> listdat = new ArrayList<>();
                 consultas con = new consultas();
-                consulta = con.consultarPermiso();
+                listdat = con.consultarPermiso();
                 permisoSG x = new permisoSG();
                 
-                for(int i = 0; i< consulta.size(); i++){
-                x = consulta.get(i);
+                for(int i = 0; i< listdat.size(); i++){
+                x = listdat.get(i);
             %>
             
            
-            <form action="ServletPermiso" enctype="multipart/form-data">
+            <form action="ServletPermiso" enctype="multipart/form-data" method="post">
                 <tr>
                 <td><input type="number" name="t_Id" value="<%=x.getPer_ID()%>" readonly></td>
                 <td><input type="number" name="t_numerodocumento" value="<%=x.getPer_Aprendiz_Apr_documento()%>"></td>
@@ -61,10 +61,10 @@
                 <td><input type="text" name="t_estado" value="<%=x.getPer_estado()%>" readonly></td>
                 <td><input type="text" name="t_autoriza" value="<%=x.getPer_autoriza()%>"></td> 
                 <th><img src="<%=x.getPer_evidenciaAdjunta()%>" width="60" height="60"/></th>
-                <td style="display: none;"><input type="text" name="Evide" value="<%=x.getPer_evidenciaAdjunta()%>"></td>
+                <td style="display: none;"><input type="text" value="<%=x.getPer_evidenciaAdjunta()%>"></td>
                 <td><input type="file" name="t_evidenciaAdjunta" accept="imagen/*"></td>
                 
-                <td><input type="submit" name="btn-actualizar" value="Actulizar"></td>
+                <td><input type="submit" name="btn-actualizar" value="Actualizar"></td>
                 <td><input type="submit" name="btn-eliminar" value="Eliminar"></td>
                 
                 </tr>
