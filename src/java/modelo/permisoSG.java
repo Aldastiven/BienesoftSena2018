@@ -27,7 +27,6 @@ public class permisoSG {
     }
     
     //CONSTRUCTOR
-
     public permisoSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_Fecha_ingresoReal, String per_Hora_ingresoReal, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta) {
         this.per_ID = per_ID;
         this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;

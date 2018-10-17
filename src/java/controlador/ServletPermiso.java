@@ -1,3 +1,4 @@
+
 package controlador;
 
 import java.io.File;
@@ -12,32 +13,48 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import javax.swing.JOptionPane;
 import modelo.crudPermisos;
 import modelo.permisoSG;
+
+
 
 @WebServlet(name = "ServletPermiso", urlPatterns = {"/ServletPermiso"})
 @MultipartConfig
 public class ServletPermiso extends HttpServlet {
-
-protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+        //VARS GLOBAL
+        int Id,documento;
+        String tipo, fecha_salida, fecha_ingreso,hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada,motivo,
+                      estado, autoriza;
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        //GUARDAR DATOS APRENDIZ
         
-        if(request.getParameter("guardar") != null){
-            JOptionPane.showMessageDialog(null,"Guardandojiji");
-           this.guardarPermiso(request,response);
-
-        }else if(request.getParameter("btn_actualizar")!=null){
-          this.actualizarPermiso(request,response);
-          
-        }else if(request.getParameter("btn_eliminar")!=null){
-          this.eliminarPermiso(request,response);
-          
+        //GUARDAR
+        if(request.getParameter("btn-guardar") != null){
+         this.guardarPermiso(request,response);
         }
+        //ACTUALIZAR
+        if(request.getParameter("btn-actualizar") != null){
+         this.actualizarPermiso(request,response);
+        }
+        //ELIMINAR
+        if(request.getParameter("btn-eliminar") != null){
+         this.eliminarPermiso(request,response);
+        }
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -78,175 +95,157 @@ protected void processRequest(HttpServletRequest request, HttpServletResponse re
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
     
-    //METODO PARA GUARDAR
-    
-    private void guardarPermiso(HttpServletRequest request, HttpServletResponse response) 
-        throws ServletException, IOException {
+    //METODO GUARDAR
+    private void guardarPermiso(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            
-            int Id, documento;
-            
-            String tipo, fecha_salida, fecha_ingreso,hora_Salida, hora_ingreso, Fecha_ingresoReal,Hora_ingresoReal, observacion_permiso_llegada,motivo,
-                      estado, autoriza;
-            Id=Integer.parseInt(request.getParameter("f_Id"));
-            documento=Integer.parseInt(request.getParameter("f_NumeroDocumento"));
-            tipo=request.getParameter("f_Tipo");
-            fecha_salida=request.getParameter("f_Fechsal");
-            fecha_ingreso=request.getParameter("f_Fechingre");
-            hora_Salida=request.getParameter("f_Horasal");
-            hora_ingreso=request.getParameter("f_Horaingre");
-            Fecha_ingresoReal=request.getParameter("f_Hfreal");
-            Hora_ingresoReal=request.getParameter("f_Hfreal");
-            observacion_permiso_llegada=request.getParameter("f_Obser");
-            motivo=request.getParameter("f_Moti");
-            estado=request.getParameter("f_Estado");
-            autoriza=request.getParameter("f_Atoriza");
-            
-            String evidenciaAdjunta="";
-            
-           Part fot =request.getPart("f_evidenciaAdjunta");
-           String nomfoto=fot.getSubmittedFileName();
+               
+        //Id=Integer.parseInt(request.getParameter("f_Id"));
+        documento=Integer.parseInt(request.getParameter("f_numerodocumento"));
+        tipo=request.getParameter("f_tipo");
+        fecha_salida=request.getParameter("f_fechsal");
+        fecha_ingreso=request.getParameter("f_fechingre");
+        hora_Salida=request.getParameter("f_horasal");
+        hora_ingreso=request.getParameter("f_horaingre");
+        fecha_ingresoReal=request.getParameter("f_Hfreal");
+        hora_ingresoReal=request.getParameter("f_Hfreal");
+        observacion_permiso_llegada=request.getParameter("f_obser");
+        motivo=request.getParameter("f_moti");
+        estado=request.getParameter("f_estado");
+        autoriza=request.getParameter("f_autoriza");
         
-            int i = nomfoto.lastIndexOf("\\");
-            nomfoto = nomfoto.substring(i+1);
-            String nombre=documento+"_"+nomfoto;
-            String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
-            evidenciaAdjunta="img/"+nombre;
-            InputStream file=fot.getInputStream();
-            File f=new File(Url);
-            FileOutputStream sal = new FileOutputStream(f);
-            int num=file.read();
-            while(num != -1){
-                sal.write(num);
-                num=file.read();
-            }    
-            permisoSG setget = new permisoSG(Id, documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, Fecha_ingresoReal,Hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-            crudPermisos crud = new crudPermisos();
-            crud.guardar_permiso(setget);
-            request.getRequestDispatcher("f_Permisos.jsp").forward(request, response);
-    }
-
-    
-    //METODO PARA ACTUALIZAR
-    
-     private void actualizarPermiso(HttpServletRequest request, HttpServletResponse response) 
-        throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-           
-         int Id, documento;
-            
-            String tipo, fecha_salida, fecha_ingreso,hora_Salida, hora_ingreso, Fecha_ingresoReal,Hora_ingresoReal, observacion_permiso_llegada,motivo,
-                      estado, autoriza;
-            
-            Id=Integer.parseInt(request.getParameter("Id"));
-            documento=Integer.parseInt(request.getParameter("NumeroDocumento"));
-            tipo=request.getParameter("Tipo");
-            fecha_salida=request.getParameter("Fechsal");
-            fecha_ingreso=request.getParameter("Fechingre");
-            hora_Salida=request.getParameter("Horasal");
-            hora_ingreso=request.getParameter("Horaingre");
-            Fecha_ingresoReal=request.getParameter("freal");
-            Hora_ingresoReal=request.getParameter("Hreal");
-            observacion_permiso_llegada=request.getParameter("Obser");
-            motivo=request.getParameter("Moti");
-            estado=request.getParameter("Estado");
-            autoriza=request.getParameter("Atoriza");
-            
-            String evidenciaAdjunta="";
-            
-           Part fot =request.getPart("EvidenciaAdjunta");
+        String evidenciaAdjunta="";
+        
+        Part fot =request.getPart("f_evidenciaAdjunta");
         String nomfoto=fot.getSubmittedFileName();
-        if(!nomfoto.equals("")) {
-            int i = nomfoto.lastIndexOf("\\");
-            nomfoto = nomfoto.substring(i+1);
-            String nombre=documento+"_"+nomfoto;
-            String Url="C:\\Users\\lenovo\\Documents\\NetBeansProjects\\BieneSoft_Aldair_ultimo\\web\\img\\"+nombre;
-            evidenciaAdjunta="img/"+nombre;
-            InputStream file=fot.getInputStream();
-            File f=new File(Url);
-            FileOutputStream sal = new FileOutputStream(f);
-            int num=file.read();
-            while(num != -1){
-                sal.write(num);
-                num=file.read();
-            }
-        }else {
-            evidenciaAdjunta = request.getParameter("Evide");
-        }
-           
-            
-            permisoSG setget = new permisoSG(Id, documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, Fecha_ingresoReal,Hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-            crudPermisos crud = new crudPermisos();
-            crud.actualizar_permisos(setget);
-            response.sendRedirect("t_permisos.jsp");
-        
-            
 
-     
-     }
-     //METODO PARA ELIMINAR APRENDIZ
-     
+        int i = nomfoto.lastIndexOf("\\");
+        nomfoto = nomfoto.substring(i+1);
+        String nombre=documento+"_"+nomfoto;
+        String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
+        evidenciaAdjunta="img/"+nombre;
+        InputStream file=fot.getInputStream();
+        File f=new File(Url);
+        FileOutputStream sal = new FileOutputStream(f);
+        int num=file.read();
+        while(num != -1){
+            sal.write(num);
+            num=file.read();
+        }
+            
+        permisoSG setget = new permisoSG(Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+        crudPermisos crud = new crudPermisos();
+        crud.guardar_permiso(setget);
+        request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
+    }
+    
+    
+    
+    //METODO ACTUALIZAR
+    private void actualizarPermiso(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+               
+        documento=Integer.parseInt(request.getParameter("t_numerodocumento"));
+        tipo=request.getParameter("t_tipo");
+        fecha_salida=request.getParameter("t_fechsal");
+        fecha_ingreso=request.getParameter("t_fechingre");
+        hora_Salida=request.getParameter("t_horasal");
+        hora_ingreso=request.getParameter("t_horaingre");
+        fecha_ingresoReal=request.getParameter("t_Hfreal");
+        hora_ingresoReal=request.getParameter("t_Hfreal");
+        observacion_permiso_llegada=request.getParameter("t_obser");
+        motivo=request.getParameter("t_moti");
+        estado=request.getParameter("t_estado");
+        autoriza=request.getParameter("t_autoriza");
+        
+        String evidenciaAdjunta="";
+        
+        Part fot =request.getPart("t_evidenciaAdjunta");
+        String nomfoto=fot.getSubmittedFileName();
+
+        int i = nomfoto.lastIndexOf("\\");
+        nomfoto = nomfoto.substring(i+1);
+        String nombre=documento+"_"+nomfoto;
+        String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
+        evidenciaAdjunta="img/"+nombre;
+        InputStream file=fot.getInputStream();
+        File f=new File(Url);
+        FileOutputStream sal = new FileOutputStream(f);
+        int num=file.read();
+        while(num != -1){
+            sal.write(num);
+            num=file.read();
+        }
+            
+        permisoSG setget = new permisoSG(documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+        crudPermisos crud = new crudPermisos();
+        crud.actualizar_permiso(setget);
+        request.getRequestDispatcher("t_permiso.jsp").forward(request, response);
+    }
+    
+    
+    
+    //METODO PARA ELIMINAR 
         private void eliminarPermiso(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
            
-        int Id, documento;
-            
-            String tipo, fecha_salida, fecha_ingreso,hora_Salida, hora_ingreso, Fecha_ingresoReal,Hora_ingresoReal, observacion_permiso_llegada,motivo,
-                      estado, autoriza;
-            
-           Id=Integer.parseInt(request.getParameter("Id"));
-            documento=Integer.parseInt(request.getParameter("NumeroDocumento"));
-            tipo=request.getParameter("Tipo");
-            fecha_salida=request.getParameter("Fechsal");
-            fecha_ingreso=request.getParameter("Fechingre");
-            hora_Salida=request.getParameter("Horasal");
-            hora_ingreso=request.getParameter("Horaingre");
-            Fecha_ingresoReal=request.getParameter("Hfreal");
-            Hora_ingresoReal=request.getParameter("Hfreal");
-            observacion_permiso_llegada=request.getParameter("Obser");
-            motivo=request.getParameter("Moti");
-            estado=request.getParameter("Estado");
-            autoriza=request.getParameter("Atoriza");
+        documento=Integer.parseInt(request.getParameter("t_numerodocumento"));
+        tipo=request.getParameter("t_tipo");
+        fecha_salida=request.getParameter("t_fechsal");
+        fecha_ingreso=request.getParameter("t_fechingre");
+        hora_Salida=request.getParameter("t_horasal");
+        hora_ingreso=request.getParameter("t_horaingre");
+        fecha_ingresoReal=request.getParameter("t_Hfreal");
+        hora_ingresoReal=request.getParameter("t_Hfreal");
+        observacion_permiso_llegada=request.getParameter("t_obser");
+        motivo=request.getParameter("t_moti");
+        estado=request.getParameter("t_estado");
+        autoriza=request.getParameter("t_autoriza");
             
             String evidenciaAdjunta="";
             
-           Part fot =request.getPart("f_evidenciaAdjunta");
-        String nomfoto=fot.getSubmittedFileName();
-        if(!nomfoto.equals("")) {
-            int i = nomfoto.lastIndexOf("\\");
-            nomfoto = nomfoto.substring(i+1);
-            String nombre=documento+"_"+nomfoto;
-            String Url="C:\\Users\\lenovo\\Documents\\NetBeansProjects\\BieneSoft_Aldair_ultimo\\web\\img\\"+nombre;
-            evidenciaAdjunta="img/"+nombre;
-            InputStream file=fot.getInputStream();
-            File f=new File(Url);
-            FileOutputStream sal = new FileOutputStream(f);
-            int num=file.read();
-            while(num != -1){
-                sal.write(num);
-                num=file.read();
+            Part fot =request.getPart("f_evidenciaAdjunta");
+            String nomfoto=fot.getSubmittedFileName();
+            if(!nomfoto.equals("")) {
+                int i = nomfoto.lastIndexOf("\\");
+                nomfoto = nomfoto.substring(i+1);
+                String nombre=documento+"_"+nomfoto;
+                String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
+                evidenciaAdjunta="img/"+nombre;
+                InputStream file=fot.getInputStream();
+                File f=new File(Url);
+                FileOutputStream sal = new FileOutputStream(f);
+                int num=file.read();
+                while(num != -1){
+                    sal.write(num);
+                    num=file.read();
+                }
+            }else {
+                evidenciaAdjunta = request.getParameter("Evide");
             }
-        }else {
-            evidenciaAdjunta = request.getParameter("Evide");
-        }
            
             
-            permisoSG setget = new permisoSG(Id, documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, Fecha_ingresoReal,Hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+            permisoSG setget = new permisoSG(Id, documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
             crudPermisos crud = new crudPermisos();
-            crud.eliminar_permisos(setget);
-            response.sendRedirect("t_permisos.jsp");
+            crud.eliminar_permiso(setget);
+            response.sendRedirect("t_permiso.jsp");
         
         }
-
-   
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
-
-
-

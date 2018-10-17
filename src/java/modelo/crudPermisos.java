@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import controlador.conexion;
@@ -11,10 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author lenovo
- */
+
 public class crudPermisos {
  
     conexion con=new conexion();
@@ -22,7 +15,7 @@ public class crudPermisos {
     PreparedStatement ps=null;
     ResultSet rs=null;
     
-    //GUARDAR REGISTRO PATROCINIO
+    //GUARDAR 
     
     public void guardar_permiso(permisoSG ing){
         try{          
@@ -50,11 +43,11 @@ public class crudPermisos {
     }
     
     
-    //ACTUALIZAR REGISTRO PATROCINIO
-    
-    public int actualizar_permisos(permisoSG ing){
+    //ACTUALIZAR 
+    public int actualizar_permiso(permisoSG ing){
         try {
-            ps=cnn.prepareStatement("UPDATE permiso SET per_ID='"+ing.getPer_ID()+"', per_Aprendiz_Apr_documento= '"+ing.getPer_Aprendiz_Apr_documento()+"', per_tipo= '"+ing.getPer_tipo()+"', per_fecha_salida= '"+ing.getPer_fecha_salida()+"', per_fecha_ingreso= '"+ing.getPer_fecha_ingreso()+"', per_hora_Salida= '"+ing.getPer_hora_Salida()+"', per_hora_ingreso= '"+ing.getPer_hora_ingreso()+"', per_Fecha_ingresoReal= '"+ing.getPer_Fecha_ingresoReal()+"', per_hora_ingresoReal= '"+ing.getPer_Hora_ingresoReal()+"', per_observacion_llegada= '"+ing.getPer_observacion_permiso_llegada()+"', per_motivo= '"+ing.getPer_motivo()+"', per_estado= '"+ing.getPer_estado()+"', per_autoriza= '"+ing.getPer_autoriza()+"', per_evidenciaAdjunta= '"+ing.getPer_evidenciaAdjunta()+"' WHERE   per_ID='"+ing.getPer_ID()+"' ");
+            //ps=cnn.prepareStatement("UPDATE permiso SET per_ID='"+ing.getPer_ID()+"', per_Aprendiz_Apr_documento= '"+ing.getPer_Aprendiz_Apr_documento()+"', per_tipo= '"+ing.getPer_tipo()+"', per_fecha_salida= '"+ing.getPer_fecha_salida()+"', per_fecha_ingreso= '"+ing.getPer_fecha_ingreso()+"', per_hora_Salida= '"+ing.getPer_hora_Salida()+"', per_hora_ingreso= '"+ing.getPer_hora_ingreso()+"', per_Fecha_ingresoReal= '"+ing.getPer_Fecha_ingresoReal()+"', per_hora_ingresoReal= '"+ing.getPer_Hora_ingresoReal()+"', per_observacion_llegada= '"+ing.getPer_observacion_permiso_llegada()+"', per_motivo= '"+ing.getPer_motivo()+"', per_estado= '"+ing.getPer_estado()+"', per_autoriza= '"+ing.getPer_autoriza()+"', per_evidenciaAdjunta= '"+ing.getPer_evidenciaAdjunta()+"' WHERE   per_ID='"+ing.getPer_ID()+"' ");
+            ps=cnn.prepareStatement("UPDATE permiso SET per_Aprendiz_Apr_documento= '"+ing.getPer_Aprendiz_Apr_documento()+"', per_tipo= '"+ing.getPer_tipo()+"', per_fecha_salida= '"+ing.getPer_fecha_salida()+"', per_fecha_ingreso= '"+ing.getPer_fecha_ingreso()+"', per_hora_Salida= '"+ing.getPer_hora_Salida()+"', per_hora_ingreso= '"+ing.getPer_hora_ingreso()+"', per_Fecha_ingresoReal= '"+ing.getPer_Fecha_ingresoReal()+"', per_hora_ingresoReal= '"+ing.getPer_Hora_ingresoReal()+"', per_observacion_llegada= '"+ing.getPer_observacion_permiso_llegada()+"', per_motivo= '"+ing.getPer_motivo()+"', per_estado= '"+ing.getPer_estado()+"', per_autoriza= '"+ing.getPer_autoriza()+"', per_evidenciaAdjunta= '"+ing.getPer_evidenciaAdjunta()+"' WHERE   per_Aprendiz_Apr_documento= '"+ing.getPer_Aprendiz_Apr_documento()+"' ");
             ps.executeUpdate();           
             JOptionPane.showMessageDialog(null,"Registro actualizado");
             
@@ -64,9 +57,10 @@ public class crudPermisos {
         return 0;       
     } 
     
-    //ELIMINAR REGISTRO PATROCINIO
     
-    public int eliminar_permisos(permisoSG ing){
+    
+    //ELIMINAR 
+    public int eliminar_permiso(permisoSG ing){
         try {
             ps=cnn.prepareStatement("DELETE FROM permiso WHERE per_ID=?");
             ps.setInt(1, ing.getPer_ID());

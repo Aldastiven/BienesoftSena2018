@@ -1,8 +1,4 @@
-<%-- 
-    Document   : t_emergencia
-    Created on : 23-sep-2018, 2:13:10
-    Author     : edison
---%>
+
 
 <%@page import="modelo.consultas"%>
 <%@page import="java.util.ArrayList"%>
@@ -13,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>t_emergencia</title>
+        <title>Tabla emergencia</title>
     </head>
     <body>
         
