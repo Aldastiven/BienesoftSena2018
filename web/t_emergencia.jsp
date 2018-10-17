@@ -30,13 +30,13 @@
                 </tr>
             </thead>
               <%
-                  ArrayList <emergenciaSG> consultas=new ArrayList<>();
+                  ArrayList <emergenciaSG> listdat=new ArrayList<>();
                   consultas con=new consultas();
-                  consultas=con.consultarEmergencia();
+                  listdat=con.consultarEmergencia();
                   emergenciaSG x=new emergenciaSG();
                   
-                    for(int i=0; i<consultas.size();i++){
-                        x=consultas.get(i);
+                    for(int i=0; i<listdat.size();i++){
+                        x=listdat.get(i);
                        
                     
               %>  

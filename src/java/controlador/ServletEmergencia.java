@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controlador;
 
 import java.io.File;
@@ -27,7 +23,11 @@ import modelo.emergenciaSG;
 @WebServlet(name = "ServletEmergencia", urlPatterns = {"/ServletEmergencia"})
 @MultipartConfig
 public class ServletEmergencia extends HttpServlet {
-
+    
+    //VARS GLOBAL
+    int Id,Documento,DocumentoAcompaniante;
+    String MotivoEmergente,FechaSalida,FechaIngreso,Autoriza,HoraSalida,HoraIngreso;
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -53,17 +53,17 @@ public class ServletEmergencia extends HttpServlet {
         
         //Actualizar Datos Emergencia
         if(request.getParameter("btn_actualizar")!=null){
-        this.actualizarEmergencia(request,response);
+            this.actualizarEmergencia(request,response);
         }else if(request.getParameter("btn_actualizar")!=null){
-        this.actualizarEmergencia(request,response); 
+            this.actualizarEmergencia(request,response); 
         
         }
         
         //Elimunar Datos Emergencia
         if(request.getParameter("btn_eliminar")!=null){
-        this.eliminarEmergencia(request,response);
+            this.eliminarEmergencia(request,response);
         }else if(request.getParameter("btn_eliminar")!=null){
-        this.eliminarEmergencia(request,response); 
+            this.eliminarEmergencia(request,response); 
         
         }
             
@@ -120,9 +120,8 @@ public class ServletEmergencia extends HttpServlet {
         
         if(request.getParameter("btn_guardar")!=null){
             
-       String MotivoEmergente,FechaSalida,FechaIngreso,Autoriza,HoraSalida,HoraIngreso;
-        int Id,Documento,DocumentoAcompaniante;
-        Id=Integer.parseInt(request.getParameter("e_Id"));
+       
+        //Id=Integer.parseInt(request.getParameter("e_Id"));
         Documento=Integer.parseInt(request.getParameter("e_doc"));
         MotivoEmergente=request.getParameter("e_moti");
         FechaSalida=request.getParameter("e_f_sal");
@@ -135,13 +134,13 @@ public class ServletEmergencia extends HttpServlet {
        
         String Url2="";
             
-           Part fot =request.getPart("EvidenciaAdjunta");
+        Part fot =request.getPart("e_e_adjun");
         String nomfoto=fot.getSubmittedFileName();
         if(!nomfoto.equals("")) {
             int i = nomfoto.lastIndexOf("\\");
             nomfoto = nomfoto.substring(i+1);
             String nombre=Id+"_"+nomfoto;
-            String Url="C:\\Users\\lenovo\\Documents\\NetBeansProjects\\BieneSoft_Edison\\web\\img\\"+nombre;
+            String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
             Url2="img/"+nombre;
             InputStream file=fot.getInputStream();
             File f=new File(Url);
@@ -152,7 +151,7 @@ public class ServletEmergencia extends HttpServlet {
                 num=file.read();
             }
         }else {
-            Url2 = request.getParameter("Evidencia");
+            Url2 = request.getParameter("e_e_adjun");
         }
         
         emergenciaSG setget=new emergenciaSG(Id, Documento, MotivoEmergente, FechaSalida, FechaIngreso,HoraSalida,HoraIngreso, DocumentoAcompaniante, Autoriza,Url2);
@@ -190,13 +189,13 @@ public class ServletEmergencia extends HttpServlet {
        
             String Url2="";
             
-           Part fot =request.getPart("EvidenciaAdjunta");
+        Part fot =request.getPart("EvidenciaAdjunta");
         String nomfoto=fot.getSubmittedFileName();
         if(!nomfoto.equals("")) {
             int i = nomfoto.lastIndexOf("\\");
             nomfoto = nomfoto.substring(i+1);
             String nombre=Id+"_"+nomfoto;
-            String Url="C:\\Users\\lenovo\\Documents\\NetBeansProjects\\BieneSoft_Edison\\web\\img\\"+nombre;
+            String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
             Url2="img/"+nombre;
             InputStream file=fot.getInputStream();
             File f=new File(Url);
@@ -239,15 +238,15 @@ public class ServletEmergencia extends HttpServlet {
         DocumentoAcompaniante=Integer.parseInt(request.getParameter("t_e_d_acompa"));
         Autoriza=request.getParameter("t_e_autoriza");
         
-            String Url2="";
+        String Url2="";
             
-           Part fot =request.getPart("EvidenciaAdjunta");
+        Part fot =request.getPart("EvidenciaAdjunta");
         String nomfoto=fot.getSubmittedFileName();
         if(!nomfoto.equals("")) {
             int i = nomfoto.lastIndexOf("\\");
             nomfoto = nomfoto.substring(i+1);
             String nombre=Id+"_"+nomfoto;
-            String Url="C:\\Users\\lenovo\\Documents\\NetBeansProjects\\BieneSoft_Edison\\web\\img\\"+nombre;
+            String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
             Url2="img/"+nombre;
             InputStream file=fot.getInputStream();
             File f=new File(Url);
