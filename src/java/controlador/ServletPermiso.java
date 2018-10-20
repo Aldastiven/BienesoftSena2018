@@ -23,7 +23,7 @@ import modelo.permisoSG;
 public class ServletPermiso extends HttpServlet {
         //VARS GLOBAL
         int Id,documento;
-        String tipo, fecha_salida, fecha_ingreso,hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada,motivo,
+        String tipo, fecha_salida, fecha_ingreso,hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal,observacion_permiso_llegada,motivo,
         estado, autoriza;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -102,15 +102,16 @@ public class ServletPermiso extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
                
-        
         documento=Integer.parseInt(request.getParameter("f_numerodocumento"));
         tipo=request.getParameter("f_tipo");
         fecha_salida=request.getParameter("f_fechsal");
         fecha_ingreso=request.getParameter("f_fechingre");
         hora_Salida=request.getParameter("f_horasal");
         hora_ingreso=request.getParameter("f_horaingre");
-        fecha_ingresoReal=request.getParameter("f_Hfreal");
-        hora_ingresoReal=request.getParameter("f_Hfreal");
+        fecha_ingresoReal=request.getParameter("f_fireal");
+        hora_ingresoReal=request.getParameter("f_hireal");
+        fecha_salidaReal=request.getParameter("f_fsreal");
+        hora_salidaReal=request.getParameter("f_hsreal");
         observacion_permiso_llegada=request.getParameter("f_obser");
         motivo=request.getParameter("f_moti");
         estado=request.getParameter("f_estado");
@@ -135,7 +136,7 @@ public class ServletPermiso extends HttpServlet {
             num=file.read();
         }
             
-        permisoSG setget = new permisoSG(Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+        permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
         crudPermisos crud = new crudPermisos();
         crud.guardar_permiso(setget);
         request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
@@ -156,8 +157,10 @@ public class ServletPermiso extends HttpServlet {
         fecha_ingreso=request.getParameter("t_fechingre");
         hora_Salida=request.getParameter("t_horasal");
         hora_ingreso=request.getParameter("t_horaingre");
-        fecha_ingresoReal=request.getParameter("t_freal");
-        hora_ingresoReal=request.getParameter("t_hreal");
+        fecha_ingresoReal=request.getParameter("f_fireal");
+        hora_ingresoReal=request.getParameter("f_hireal");
+        fecha_salidaReal=request.getParameter("f_fsreal");
+        hora_salidaReal=request.getParameter("f_hsreal");
         observacion_permiso_llegada=request.getParameter("t_obser");
         motivo=request.getParameter("t_moti");
         estado=request.getParameter("t_estado");
@@ -182,7 +185,7 @@ public class ServletPermiso extends HttpServlet {
             num=file.read();
         }
             
-        permisoSG setget = new permisoSG(Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+        permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
         crudPermisos crud = new crudPermisos();
         crud.actualizar_permiso(setget);
         request.getRequestDispatcher("t_permiso.jsp").forward(request, response);
@@ -203,8 +206,10 @@ public class ServletPermiso extends HttpServlet {
         fecha_ingreso=request.getParameter("t_fechingre");
         hora_Salida=request.getParameter("t_horasal");
         hora_ingreso=request.getParameter("t_horaingre");
-        fecha_ingresoReal=request.getParameter("t_Hfreal");
-        hora_ingresoReal=request.getParameter("t_Hfreal");
+        fecha_ingresoReal=request.getParameter("f_fireal");
+        hora_ingresoReal=request.getParameter("f_hireal");
+        fecha_salidaReal=request.getParameter("f_fsreal");
+        hora_salidaReal=request.getParameter("f_hsreal");
         observacion_permiso_llegada=request.getParameter("t_obser");
         motivo=request.getParameter("t_moti");
         estado=request.getParameter("t_estado");
@@ -233,7 +238,7 @@ public class ServletPermiso extends HttpServlet {
             }
            
             
-            permisoSG setget = new permisoSG(Id, documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+            permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
             crudPermisos crud = new crudPermisos();
             crud.eliminar_permiso(setget);
             response.sendRedirect("t_permiso.jsp");

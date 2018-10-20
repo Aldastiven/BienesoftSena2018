@@ -1,10 +1,7 @@
 
 package modelo;
 
-/**
- *
- * @author equipo
- */
+
 public class permisoSG {
     private int per_ID;
     private int per_Aprendiz_Apr_documento;
@@ -13,21 +10,22 @@ public class permisoSG {
     private String per_fecha_ingreso;
     private String per_hora_Salida;
     private String per_hora_ingreso;
-    private String per_Fecha_ingresoReal;
-    private String per_Hora_ingresoReal;
-    private String  per_observacion_permiso_llegada;
+    private String per_fecha_ingresoReal;
+    private String per_hora_ingresoReal;
+    private String per_fecha_salidaReal;
+    private String per_hora_salidaReal;
+    private String per_observacion_permiso_llegada;
     private String per_motivo;
     private String per_estado;
     private String per_autoriza;
     private String per_evidenciaAdjunta;
     
     //CONSTRUCTOR VACIO 
-
     public permisoSG() {
     }
     
     //CONSTRUCTOR
-    public permisoSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_Fecha_ingresoReal, String per_Hora_ingresoReal, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta) {
+    public permisoSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_fecha_ingresoReal, String per_hora_ingresoReal, String per_fecha_salidaReal, String per_hora_salidaReal, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta) {
         this.per_ID = per_ID;
         this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
         this.per_tipo = per_tipo;
@@ -35,14 +33,17 @@ public class permisoSG {
         this.per_fecha_ingreso = per_fecha_ingreso;
         this.per_hora_Salida = per_hora_Salida;
         this.per_hora_ingreso = per_hora_ingreso;
-        this.per_Fecha_ingresoReal = per_Fecha_ingresoReal;
-        this.per_Hora_ingresoReal = per_Hora_ingresoReal;
+        this.per_fecha_ingresoReal = per_fecha_ingresoReal;
+        this.per_hora_ingresoReal = per_hora_ingresoReal;
+        this.per_fecha_salidaReal = per_fecha_salidaReal;
+        this.per_hora_salidaReal = per_hora_salidaReal;
         this.per_observacion_permiso_llegada = per_observacion_permiso_llegada;
         this.per_motivo = per_motivo;
         this.per_estado = per_estado;
         this.per_autoriza = per_autoriza;
         this.per_evidenciaAdjunta = per_evidenciaAdjunta;
     }
+    
 
     public int getPer_ID() {
         return per_ID;
@@ -100,20 +101,36 @@ public class permisoSG {
         this.per_hora_ingreso = per_hora_ingreso;
     }
 
-    public String getPer_Fecha_ingresoReal() {
-        return per_Fecha_ingresoReal;
+    public String getPer_fecha_ingresoReal() {
+        return per_fecha_ingresoReal;
     }
 
-    public void setPer_Fecha_ingresoReal(String per_Fecha_ingresoReal) {
-        this.per_Fecha_ingresoReal = per_Fecha_ingresoReal;
+    public void setPer_fecha_ingresoReal(String per_fecha_ingresoReal) {
+        this.per_fecha_ingresoReal = per_fecha_ingresoReal;
     }
 
-    public String getPer_Hora_ingresoReal() {
-        return per_Hora_ingresoReal;
+    public String getPer_hora_ingresoReal() {
+        return per_hora_ingresoReal;
     }
 
-    public void setPer_Hora_ingresoReal(String per_Hora_ingresoReal) {
-        this.per_Hora_ingresoReal = per_Hora_ingresoReal;
+    public void setPer_hora_ingresoReal(String per_hora_ingresoReal) {
+        this.per_hora_ingresoReal = per_hora_ingresoReal;
+    }
+
+    public String getPer_fecha_salidaReal() {
+        return per_fecha_salidaReal;
+    }
+
+    public void setPer_fecha_salidaReal(String per_fecha_salidaReal) {
+        this.per_fecha_salidaReal = per_fecha_salidaReal;
+    }
+
+    public String getPer_hora_salidaReal() {
+        return per_hora_salidaReal;
+    }
+
+    public void setPer_hora_salidaReal(String per_hora_salidaReal) {
+        this.per_hora_salidaReal = per_hora_salidaReal;
     }
 
     public String getPer_observacion_permiso_llegada() {
@@ -155,22 +172,12 @@ public class permisoSG {
     public void setPer_evidenciaAdjunta(String per_evidenciaAdjunta) {
         this.per_evidenciaAdjunta = per_evidenciaAdjunta;
     }
+    
 
-    public permisoSG(int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_Fecha_ingresoReal, String per_Hora_ingresoReal, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta) {
-        this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
-        this.per_tipo = per_tipo;
-        this.per_fecha_salida = per_fecha_salida;
-        this.per_fecha_ingreso = per_fecha_ingreso;
-        this.per_hora_Salida = per_hora_Salida;
-        this.per_hora_ingreso = per_hora_ingreso;
-        this.per_Fecha_ingresoReal = per_Fecha_ingresoReal;
-        this.per_Hora_ingresoReal = per_Hora_ingresoReal;
-        this.per_observacion_permiso_llegada = per_observacion_permiso_llegada;
-        this.per_motivo = per_motivo;
-        this.per_estado = per_estado;
-        this.per_autoriza = per_autoriza;
-        this.per_evidenciaAdjunta = per_evidenciaAdjunta;
-    }
+    
+    
+    
+   
 
    
     
