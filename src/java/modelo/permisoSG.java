@@ -173,7 +173,21 @@ public class permisoSG {
         this.per_evidenciaAdjunta = per_evidenciaAdjunta;
     }
     
-
+    //Datos que necesito para permiso       
+    public permisoSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta) {
+        this.per_ID = per_ID;
+        this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
+        this.per_tipo = per_tipo;
+        this.per_fecha_salida = per_fecha_salida;
+        this.per_fecha_ingreso = per_fecha_ingreso;
+        this.per_hora_Salida = per_hora_Salida;
+        this.per_hora_ingreso = per_hora_ingreso;
+        this.per_observacion_permiso_llegada = per_observacion_permiso_llegada;
+        this.per_motivo = per_motivo;
+        this.per_estado = per_estado;
+        this.per_autoriza = per_autoriza;
+        this.per_evidenciaAdjunta = per_evidenciaAdjunta;
+    }
     
     
     

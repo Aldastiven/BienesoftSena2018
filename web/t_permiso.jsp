@@ -24,11 +24,11 @@
                 <th class="center">Fecha de ingreso</th>
                 <th class="center">Hora de salida</th>
                 <th class="center">Hora de ingreso</th>
-                <th class="center">Fecha de ingreso real</th>
-                <th class="center">Hora ingreso real</th>
-                <th class="center">Fecha de salida real</th>
-                <th class="center">Hora de salida real</th>
-                <th class="center">Observacion</th>
+                <!--<th class="center">Fecha de ingreso real</th>-->
+                <!--<th class="center">Hora ingreso real</th>-->
+                <!--<th class="center">Fecha de salida real</th>-->
+                <!--<th class="center">Hora de salida real</th>-->
+                <!--<th class="center">Observacion</th>>-->
                 <th class="center">Motivo</th>
                 <th class="center">Estado</th>
                 <th class="center">Autoriza</th>
@@ -55,11 +55,6 @@
                 <td><input type="date" name="t_fechingre" value="<%=x.getPer_fecha_ingreso()%>"></td>
                 <td><input type="time" name="t_horasal" value="<%=x.getPer_hora_Salida()%>"></td>
                 <td><input type="time" name="t_horaingre" value="<%=x.getPer_hora_ingreso()%>"></td>
-                <!--<td><input type="data" name="t_freal" value="<%=x.getPer_fecha_salida()%>" readonly></td>-->
-                <!--<td><input type="time" name="t_hreal" value="<%=x.getPer_fecha_ingreso()%>" readonly></td>-->
-                <!--<td><input type="data" name="t_fsreal" value="<%=x.getPer_hora_Salida()%>" readonly></td>-->
-                <!--<td><input type="time" name="t_hsreal" value="<%=x.getPer_hora_ingreso()%>" readonly></td>-->
-                <td><input type="text" name="t_obser" value="<%=x.getPer_observacion_permiso_llegada()%>" readonly></td>
                 <td><input type="text" name="t_moti" value="<%=x.getPer_motivo()%>"></td>
                 <td><input type="text" name="t_estado" value="<%=x.getPer_estado()%>" readonly></td>
                 <td><input type="text" name="t_autoriza" value="<%=x.getPer_autoriza()%>"></td> 
