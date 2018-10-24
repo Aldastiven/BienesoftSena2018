@@ -1,0 +1,16 @@
+SMAP
+t_005femergencia_jsp.java
+JSP
+*S JSP
+*F
++ 0 t_emergencia.jsp
+t_emergencia.jsp
+*L
+5,32:48
+37,10:81
+46,4:91
+50,11:95,3
+61,11:128
+72,2:140
+73,24:142
+*E

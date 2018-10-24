@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.swing.JOptionPane;
 import modelo.crudPermisos;
 import modelo.permisoSG;
+import modulo_permisos.semana;
 
 
 
@@ -52,8 +54,10 @@ public class ServletPermiso extends HttpServlet {
         if(request.getParameter("btn-eliminar") != null){
          this.eliminarPermiso(request,response);
         }
-        
-        
+        //REDIRECCION TIPO DE PERMISO
+        if(request.getParameter("btn-permiso") != null){
+         this.tipo_permiso(request,response);
+        }
         
     }
 
@@ -247,7 +251,33 @@ public class ServletPermiso extends HttpServlet {
     
     
     
-    
+        //TIPO DE PERMISO
+        private void tipo_permiso(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        
+      String dato;
+      dato=request.getParameter("select_tipo"); 
+        
+      if(dato.equals("semana")){
+          
+          semana sem = new semana();
+          sem.metodo_semana(dato);
+          JOptionPane.showMessageDialog(null, "entra metodo servlet permiso semana");
+      
+      }
+      else if(dato.equals("fsemana")){
+          
+          semana sem = new semana();
+          sem.metodo_fsemana(dato);
+          JOptionPane.showMessageDialog(null, "entra metodo servlet permiso Fin de semana");
+      
+      }
+
+        
+
+    }
     
     
     

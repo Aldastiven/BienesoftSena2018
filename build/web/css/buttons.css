@@ -1,0 +1,52 @@
+#div_buttom{
+    background: #bdbdbd;
+    margin-bottom: -10px;
+    margin-top: -20px;
+    border-top: 4px solid gray;
+} 
+
+#btn_action_guardar{
+    background: #00897b;
+    height: 50px;
+    width: 180px;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 50px;
+    border: none;
+}
+#btn_action_guardar:hover{
+    cursor:pointer;
+}
+
+#btn_action_eliminar{
+    background: #ef5350;
+    height: 50px;
+    width: 180px;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    border: none;
+}
+#btn_action_eliminar:hover{
+    cursor:pointer;
+}
+
+#btn_container{
+    padding-left: 15%;
+}
+
+#txt_buttom{
+    color: white;
+    position: relative;
+    top: -8px;
+}
+
+#img_buttom{
+    width: 20px;
+    position: relative;
+    top: 4px;
+}
+

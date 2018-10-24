@@ -1,0 +1,10 @@
+#footer_form {
+    position: relative;
+    bottom: 0%;
+    font-size: 15px;
+    padding-bottom: 50px;
+    background-color: black;
+    text-align: center;
+    margin: 50px 10px 0px 10px;
+}
+

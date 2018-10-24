@@ -1,0 +1,84 @@
+#img_user_index{
+    background: rgba(0,0,0, .1);
+    width: 200px;
+    height: 200px;
+    border-radius: 150px 150px 150px 150px;
+    border: 3px solid black;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+#user_text_index_tipo{
+    font-size: 25px;
+    padding-left: 90px;
+}
+
+#user_text_index_nombre{
+    font-size: 20px;
+    padding-left: 90px;
+    margin-top: -5px;  
+}
+
+#footer-user-index{
+    overflow: hidden;
+    background: #757575;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    bottom: -1%;
+}
+
+#btn_consultar_perfil{
+    float: left;
+    background: rgba(0,0,0, .1);
+    width: 50%;
+    border-right: 1px solid white;
+}
+
+#btn_consultar_perfil:hover{
+    background: rgba(0,0,0, .3);
+    cursor: pointer;
+}
+
+#btn_consultar_aprendiz{
+    float: left;
+    background: rgba(0,0,0, .1);
+    width: 50%;
+}
+
+#btn_consultar_aprendiz:hover{
+    background: rgba(0,0,0, .3);
+    cursor: pointer;
+    color:#80d8ff;
+}
+
+#txt-btn-perfil{
+    color: white;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+#txt-btn-perfil:hover{
+    color:#448aff;
+}
+
+#btn_crear_permiso{
+    float: left;
+    background: #0277bd;
+    width: 100%;
+}
+
+#btn_crear_permiso:hover{
+    background : #01579b;
+    cursor: pointer;
+    color:white;
+}
+
+#txt-btn-crear{
+    color: white ;
+    margin-left: 100px;
+    font-size: 25px;
+    position: relative;
+    top: -20px;
+}
+

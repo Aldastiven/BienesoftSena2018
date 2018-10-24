@@ -85,6 +85,18 @@ private HttpServletResponse pass;
                   nom.setAttribute("datico", nombre);
                   //Muestra Rol en pantalla
                   nom.setAttribute("rol", in.getUsurol());
+                  
+                  //Htttp session para traer datos del perfil
+                  String foto=log.consultanombreusuario(in.getUsufoto());
+//                  String nomb=log.consultanombreusuario(in.getUsunom());
+//                  String ape=log.consultanombreusuario(in.getUsuape());
+//                  String email=log.consultanombreusuario(in.getUsuemail());
+//                  String cla=log.consultanombreusuario(in.getUsuclave());
+//                  String rol=log.consultanombreusuario(in.getUsurol());
+                  
+                  HttpSession fot=request.getSession();
+                  //enviar datos
+                  fot.setAttribute("fotico", in.getUsufoto());
                     
                     
                     if(r.equals("Coordinador")){

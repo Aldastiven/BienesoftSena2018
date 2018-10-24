@@ -1,0 +1,64 @@
+
+#container-login {
+    position: relative;
+    top: -20px;
+    background: white;
+}
+
+#header-login{
+    background: #0D47A1;
+    color: white;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#txt_user{
+    background-color: #EEEEEE;
+    border: 1px solid #b2bec3;
+    font-size: 15px;
+    height: 30px;
+    width: 100%;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#login_input_msg{
+    position: relative;
+    left: 20px;
+    font-size: 20px;
+    color: #0277BD;
+    margin-bottom: -15px;
+}
+
+#btn-Ingreso{
+    background-color: #1976D2;
+    width: 80%;
+    border: 3px solid #0D47A1;
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    left: 10%;
+    margin-top: 10%;
+    margin-bottom: 20px;
+}
+
+#btn-Ingreso:hover{
+    background-color: #0D47A1;
+    cursor: pointer;
+}
+
+#msg-btn{
+    color : white;
+    font-size: 20px;
+    margin: 10px;
+}
+
+#msg-remember{
+    text-align: center;
+    color: #0D47A1;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+#msg-remember:hover{
+    cursor: pointer;
+    border-bottom: 4px solid #0D47A1;
+}

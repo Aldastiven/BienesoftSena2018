@@ -118,7 +118,7 @@ public class ServletUsuario extends HttpServlet {
         //Upload foto
         String nomfoto=ufoto.getSubmittedFileName();
         String nombre=unom+"_"+nomfoto;
-        String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
+        String Url="C:\\Users\\equipo\\Documents\\BIENESOFT 1.0\\Neatbeans\\Bienesoft1.0\\web\\img\\"+nombre;
         String imageurl="img/"+nombre;
         //Upload foto
         InputStream file = ufoto.getInputStream();

@@ -155,7 +155,7 @@ public class ServletAprendiz extends HttpServlet {
             int i = nomfoto.lastIndexOf("\\");
             nomfoto = nomfoto.substring(i+1);
             String nombre=documento+"_"+nomfoto;
-            String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\BieneSoft1.0\\web\\img\\"+nombre;
+            String Url="C:\\Users\\equipo\\Documents\\NetBeansProjects\\BieneSoft1.0\\web\\img\\"+nombre;
             hojavida="img/"+nombre;
             InputStream file=fot.getInputStream();
             File f=new File(Url);
@@ -231,7 +231,7 @@ public class ServletAprendiz extends HttpServlet {
             int i = nomfoto.lastIndexOf("\\");
             nomfoto = nomfoto.substring(i+1);
             String nombre=documento+"_"+nomfoto;
-            String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\BieneSoft1.0\\web\\img\\"+nombre;
+            String Url="C:\\Users\\equipo\\Documents\\BIENESOFT 1.0\\Neatbeans\\Bienesoft1.0\\web\\img\\"+nombre;
             hojavida="img/"+nombre;
             InputStream file=fot.getInputStream();
             File f=new File(Url);

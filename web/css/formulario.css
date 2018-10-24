@@ -1,0 +1,82 @@
+
+#menu_form{
+    background-color: transparent;
+    width: 10%;
+    position: relative;
+    left: 87%;
+}
+#btn_form_float_menu{
+    position: relative;
+    left: 20%;
+}
+
+#title_container{
+    background-color: #0277BD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 70px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+#input_txt{
+    background-color: #EEEEEE;
+    border: 1px solid #b2bec3;
+    font-size: 15px;
+    height: 30px;
+    width: 90%;
+}
+
+#input_msg{
+    margin: -4%;
+    position: relative;
+    left: 20px;
+    font-size: 15px;
+    color: black;
+}
+
+#select_form{
+    background-color: #EEEEEE;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px 10px 10px 10px;
+    margin: 10px 30px 30px 10px;
+}
+
+#container_form_small{
+    padding-top: 20px;
+    background-color: #fff;
+    margin-top: -5%;
+    height: 200px;
+}
+
+#container_form_large{
+    padding-top: 20px;
+    background-color: #fff;
+    margin-top: -5%;
+    height: 800px;
+    overflow: scroll;
+}
+
+#btn_form{
+    background-color: #03A9F4;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    font-size: 40px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#btn_form:hover{
+    background-color: #0277BD;
+}
+
+#btn_form_float{
+    margin-bottom: 20px;
+    position: relative;
+    left: 40%;
+}
+
