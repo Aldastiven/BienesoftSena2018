@@ -70,9 +70,6 @@ public class aprendizSG {
     }
     
     //SETGET
-
-  
-
     public int getApr_documento() {
         return apr_documento;
     }
@@ -280,8 +277,15 @@ public class aprendizSG {
     public void setApr_ficha_fic_numero(int apr_ficha_fic_numero) {
         this.apr_ficha_fic_numero = apr_ficha_fic_numero;
     }
+
+    public aprendizSG(int apr_documento) {
+        this.apr_documento = apr_documento;
+    }
     
-    //CONSTRUCTOR PARA QUE NO TOME EL VALOR DE AUTOINCREMENT
+    
+    
+    
+    
 
   
 } 

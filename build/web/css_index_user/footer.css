@@ -1,0 +1,12 @@
+#footer_form {
+    position: absolute;
+    bottom: auto;
+    width: 100%;
+    background-color: black;
+    padding: 20px;
+}
+
+.text_footer{
+    color: white;
+    text-align:center;
+}

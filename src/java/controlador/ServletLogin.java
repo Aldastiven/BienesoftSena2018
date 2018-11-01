@@ -69,6 +69,7 @@ private HttpServletResponse pass;
             arreglo=log.loguin(in);
             
             
+            
                         
             if(arreglo.size()>0){
                 
@@ -81,24 +82,25 @@ private HttpServletResponse pass;
                   //Htttp session para traer nombre
                   String nombre=log.consultanombreusuario(in.getUsunom()); 
                   HttpSession nom=request.getSession();
+                  //Muestra la identificacion en pantalla
+                  nom.setAttribute("iden", in.getUsudoc());
                   //Muestra nombre en pantalla
                   nom.setAttribute("datico", nombre);
+                  //Muestra el apellido en pantalla
+                  nom.setAttribute("apellido", in.getUsuape());
+                  //Muestra el celular en pantalla
+                  nom.setAttribute("celular", in.getUsucel());
+                  //Muestra el e-mail en pantalla
+                  nom.setAttribute("mail", in.getUsuemail());
+                  //Muestra la foto en pantalla
+                  nom.setAttribute("foto", in.getUsufoto());
+                  //Muestra la contraseña en pantalla
+                  nom.setAttribute("clave", in.getUsuclave());
                   //Muestra Rol en pantalla
                   nom.setAttribute("rol", in.getUsurol());
+
                   
-                  //Htttp session para traer datos del perfil
-                  String foto=log.consultanombreusuario(in.getUsufoto());
-//                  String nomb=log.consultanombreusuario(in.getUsunom());
-//                  String ape=log.consultanombreusuario(in.getUsuape());
-//                  String email=log.consultanombreusuario(in.getUsuemail());
-//                  String cla=log.consultanombreusuario(in.getUsuclave());
-//                  String rol=log.consultanombreusuario(in.getUsurol());
-                  
-                  HttpSession fot=request.getSession();
-                  //enviar datos
-                  fot.setAttribute("fotico", in.getUsufoto());
-                    
-                    
+                 
                     if(r.equals("Coordinador")){
                         HttpSession session=request.getSession(true);
                         session.setAttribute("Bienvenido", u);
@@ -109,7 +111,7 @@ private HttpServletResponse pass;
                     }else if(r.equals("Monitor")){
                         response.sendRedirect("monitor.jsp");
                     }else if(r.equals("Seguridad")){
-                        response.sendRedirect("seguridad.jsp");
+                        response.sendRedirect("t_permiso_seguridad.jsp");
                     }else{
                         request.getRequestDispatcher("admin.jsp").forward(request, response);
                     }

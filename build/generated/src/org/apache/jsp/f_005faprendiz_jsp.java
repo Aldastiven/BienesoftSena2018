@@ -54,7 +54,7 @@ public final class f_005faprendiz_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("        <div>\n");
       out.write("            <h1>formulario aprendiz</h1>\n");
       out.write("            \n");
-      out.write("            <form action=\"ServletAprendiz\"enctype=\"multipart/form-data\"method=\"post\">\n");
+      out.write("            <form action=\"ServletAprendiz\" method=\"post\">\n");
       out.write("                <td><input type=\"number\" name=\"f_NumeroDocumento\" placeholder=\"documento del aprendiz\"></td>\n");
       out.write("                <td><input type=\"text\" name=\"f_TipoDocumento\" placeholder=\"tipo de documento\"></td>\n");
       out.write("                <td><input type=\"text\" name=\"f_Nombres\" placeholder=\"nombres\"></td>\n");

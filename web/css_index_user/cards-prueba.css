@@ -1,0 +1,141 @@
+
+/****************contenedor de perfil********/
+.contenedor-perfil{
+    background: white;;
+    height: 180px;
+    width: 150px;
+    position: absolute;
+    left: 50px;
+    margin-right: 3px;
+    margin-top: 40px;
+    border-top: 5px solid #42A5F5;
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+}
+
+.img_foto{
+    background: rgba(0,0,0,0.10);
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.cont_name{
+    background: black;
+    height: 60px;
+}
+
+.msg_user{
+    margin-left: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+.user_text_nombre{
+    margin-left: 10px;
+    color: white;
+    font-size: 15px;
+    margin-top: -5px;
+}
+
+/*************************botones coordinador************/
+
+.contenedor_btn{
+    background: white;
+    width: 155px;
+    height: 100px;
+    position: absolute;
+    top: 300px;
+    left: 50px;
+}
+
+.btn_ver_perfil{
+    width: 150px;
+    height: 40px;
+    background: #CFD8DC;
+    border-left: 2px solid #FFB74D;
+    padding-left: 5px;
+    padding-top: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.btn_ver_perfil:hover{
+    background: #B0BEC5;
+    cursor: pointer;
+}
+
+.btn_ver_usuarios{
+    width: 150px;
+    height: 40px;
+    background: #CFD8DC;
+    border-left: 2px solid #FFB74D;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.btn_ver_usuarios:hover{
+    background: #B0BEC5;
+    cursor: pointer;
+}
+
+/*************************botones aprendiz************/
+
+.contenedor_btn_apr{
+    background: white;
+    width: 150px;
+    height: 50px;
+    position: absolute;
+    top: 300px;
+    left: 50px;
+}
+
+.btn_ver_perfil_apr{
+    width: 120px;
+    height: 40px;
+    background: red;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+/**********contenedor de menu**************/
+.contenedor-principal{
+    background: white;
+    height: auto;
+    margin-right: 15px;
+    padding: 20px;
+    margin-bottom: 110px;
+    margin-top: 48px;
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+    border-top: 5px solid #42A5F5;
+}
+
+/***************opciones****************/
+.option_menu{
+    background: white; 
+    margin-right: 20px;
+    margin-bottom: 10px;
+    height: 250px;
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+    border-bottom: 3px solid #FFB74D;
+}
+
+.head_info{
+    background: #FFB74D;
+    text-align: center;
+    color: black;
+    margin-top: -1px;
+    width: 100%;
+}
+
+.option_menu:hover{
+    box-shadow: 4px 10px 46px -9px rgba(0,0,0,0.75);
+    cursor:pointer;
+}
+
+.info_text_menu{
+    color: #9E9E9E;
+    font-size: 13px;
+    border-top: 2px solid #BDBDBD;
+}

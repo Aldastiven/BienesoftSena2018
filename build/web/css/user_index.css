@@ -1,22 +1,26 @@
 #img_user_index{
     background: rgba(0,0,0, .1);
-    width: 200px;
-    height: 200px;
-    border-radius: 150px 150px 150px 150px;
-    border: 3px solid black;
-    margin-left: 25px;
-    margin-top: 10px;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px 60px 60px 60px;
+    border: 5px solid rgba(0,0,0, .10);
+    margin-left: 15px;
+    margin-top: 3px;
+}
+
+#datos_index{
+    background: white;
+    padding-left: 5px;
+    border-top: 3px solid rgba(0,0,0,0.20);
 }
 
 #user_text_index_tipo{
-    font-size: 25px;
-    padding-left: 90px;
+    font-size: 20px;
 }
 
 #user_text_index_nombre{
-    font-size: 20px;
-    padding-left: 90px;
-    margin-top: -5px;  
+    font-size: 15px;
+    margin-top: -5px;      
 }
 
 #footer-user-index{
@@ -31,8 +35,7 @@
 #btn_consultar_perfil{
     float: left;
     background: rgba(0,0,0, .1);
-    width: 50%;
-    border-right: 1px solid white;
+    width: 100%;
 }
 
 #btn_consultar_perfil:hover{
@@ -40,26 +43,10 @@
     cursor: pointer;
 }
 
-#btn_consultar_aprendiz{
-    float: left;
-    background: rgba(0,0,0, .1);
-    width: 50%;
-}
-
-#btn_consultar_aprendiz:hover{
-    background: rgba(0,0,0, .3);
-    cursor: pointer;
-    color:#80d8ff;
-}
-
 #txt-btn-perfil{
     color: white;
-    margin-left: 8px;
+    text-align: center;
     font-size: 14px;
-}
-
-#txt-btn-perfil:hover{
-    color:#448aff;
 }
 
 #btn_crear_permiso{

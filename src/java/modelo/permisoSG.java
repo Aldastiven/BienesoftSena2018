@@ -189,9 +189,34 @@ public class permisoSG {
         this.per_evidenciaAdjunta = per_evidenciaAdjunta;
     }
     
+    //tipo permiso
+    public permisoSG(String per_tipo) {
+        this.per_tipo = per_tipo;
+    }
     
     
-   
+    //PERMISO ID AUTORIZACION
+    public permisoSG(int per_ID) {
+        this.per_ID = per_ID;
+    }
+    
+    
+    //DATOS DE 4 TIPOS PARA SALIDA REAL Y ESTIPULADA APR
+    public permisoSG(String per_fecha_salida, String per_hora_Salida, String per_fecha_salidaReal, String per_hora_salidaReal) {
+        this.per_fecha_salida = per_fecha_salida;
+        this.per_hora_Salida = per_hora_Salida;
+        this.per_fecha_salidaReal = per_fecha_salidaReal;
+        this.per_hora_salidaReal = per_hora_salidaReal;
+    }
+    
+    
+    //Fechas estipuladas
+    public permisoSG(String per_fecha_salida, String per_fecha_ingreso) {
+        this.per_fecha_salida = per_fecha_salida;
+        this.per_fecha_ingreso = per_fecha_ingreso;
+    }
+    
+    
 
    
     

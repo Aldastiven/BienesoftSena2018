@@ -3,7 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import modulo_permisos.semana;
+import modulo_permisos.tipopermiso;
 import modelo.aprendizSG;
 import java.util.ArrayList;
 
@@ -226,7 +226,7 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\n");
       out.write("                    <h1 id=\"title_container\">REGISTRO PERMISO</h1>\n");
       out.write("\n");
-      out.write("                           <form action=\"ServletAlimentacion\"> \n");
+      out.write("                           <form action=\"ServletPermiso\"> \n");
       out.write("                                        <div class=\"row\" id=\"container_form_large\"  style=\"height: 420px;\">\n");
       out.write("                                                           <div class=\"input-field col s12 m6 l6\">\n");
       out.write("                                                               <p id=\"input_msg\">Documento del aprendiz</p>\n");
@@ -310,7 +310,7 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        <!--------------------------------------------------------------------------------------------------->\n");
       out.write("        \n");
       out.write("         <!--***************FOOTER*********************-->\n");
-      out.write("        <footer class=\"page-footer\" id=\"footer_form\">\n");
+      out.write("       <!-- <footer class=\"page-footer\" id=\"footer_form\">\n");
       out.write("\n");
       out.write("                    <div class=\"container white-text center\">\n");
       out.write("                    © 2018 Biene-Soft\n");
@@ -318,7 +318,7 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                    Todos los derechos reservados\n");
       out.write("                    </div>\n");
       out.write("                    \n");
-      out.write("        </footer>\n");
+      out.write("        </footer>-->\n");
       out.write("        <!------------------------------------------------------------------------------------------------------>\n");
       out.write("        \n");
       out.write("                <!--importando funciones para los objetos-->    \n");

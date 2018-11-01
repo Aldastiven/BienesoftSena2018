@@ -1,5 +1,5 @@
 
-<%@page import="modulo_permisos.semana"%>
+<%@page import="modulo_permisos.tipopermiso"%>
 <%@page import="modelo.aprendizSG"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -46,7 +46,7 @@
 
     <body>
         
-       <!-- 
+    <!--   
         <div>
             <h1>formulario Permiso aprendiz</h1>
            
@@ -54,7 +54,7 @@
                 <td><input type="number" name="f_numerodocumento" placeholder="documento del aprendiz"></td>
                 
                 
-                <select name="select_tipo">  
+                <select name="tipoper">  
                     <option>elige el tipo de permiso</option>
                     <option>semana</option>
                     <option>fsemana</option>
@@ -140,18 +140,10 @@
         <!--nav secundario (opciones)--->
         
         <nav id="nav_menu" class="hide-on-med-and-down" >
-                        <a href="f agencia.jsp">
-                            <input id="opc_menu_2" type="submit" value="Aprendices"/>
-                        </a>
-                    
-                    
-                        <a href="f aspirante.jsp">
-                            <input id="opc_menu_2" type="submit" value="Alimentacion"/>
-                        </a>
-            
-                        <a href="f agencia.jsp">
-                            <input id="opc_menu_2" type="submit" value="Aprendices"/>
-                        </a>     
+                        <a href="aprendiz.jsp">
+                            <input id="opc_menu_2" type="submit" value="Inicio"/>
+                            <img src="iconos_nav_bar/home.png" style="width: 19px; position: relative; left: -40px; top: -8px;"/>
+                        </a>   
         </nav>
         <!--**************************************************************************************************-->
 
@@ -164,6 +156,7 @@
             <%
                 HttpSession rnombre=request.getSession();
                 String nom=(String)rnombre.getAttribute("datico");
+     
              %>
         <p id="user_text" class="user_text hide-on-med-and-down"><%=nom%></p>
 
@@ -171,25 +164,28 @@
  <!--*********************************************************-->    
         
         <!--------FORMULARIO------------------------------------->
+        
+        <div class="container" style="margin-bottom:15px;">
+            
+            <div class="container_form_small">
+                <h1 id="title_container">REGISTRO PERMISO</h1>
 
-        <div class="container" style="margin-bottom:15px;">       
-
-                    <h1 id="title_container">REGISTRO PERMISO</h1>
-
-                           <form action="ServletAlimentacion"> 
+                <form action="ServletPermiso" enctype="multipart/form-data" method="post"> 
                                         <div class="row" id="container_form_large"  style="height: 420px;">
                                                            <div class="input-field col s12 m6 l6">
                                                                <p id="input_msg">Documento del aprendiz</p>
                                                                <br>
-                                                               <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz">
+                                                               <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz" value="<%=nom%>">
                                                            </div>   
 
                                                                 <div class="row">
                                                                     <div class="input-field col s12 l6 m6">
-                                                                        <select name="select_tipo">  
-                                                                             <option>elige el tipo de permiso</option>
-                                                                             <option>semana</option>
-                                                                             <option>fsemana</option>
+                                                                        <select name="tipoper">
+                                                                            <option >elige el tipo de permiso</option>
+                                                                            <option value="semana morning">semana mañana</option>
+                                                                            <option value="semana tarde">semana tarde</option>
+                                                                            <option value="fin de semana">fin de semana</option>
+                                                                            <option value="Extra">Extra</option>
                                                                          </select>
                                                                     </div>
                                                                 </div>
@@ -238,29 +234,44 @@
                                        <div id="div_buttom" class="div_buttom col  s12">
                                            
                                                <div id="btn_container" class="btn_container row ">                                               
-                                                            <button type="submit" name="btn-guardar" id="btn_action_guardar" class="btn_action_guardar l12  m12 s12">
-                                                                <p id="txt_buttom" class="txt_buttom">
-                                                                    Guardar
-                                                                    <img id="img_buttom" class="img_buttom" src="icons/actualizar.png" />
-                                                                </p>   
-                                                            </button>  
+                                                    <button type="submit" name="btn-guardar" id="btn_action_guardar" class="btn_action_guardar l12  m12 s12">
+                                                        <p id="txt_buttom" class="txt_buttom">
+                                                            Enviar
+                                                            <img id="img_buttom" class="img_buttom" src="icon_acciones/enviar.png" />
+                                                        </p>   
+                                                    </button>  
 
-                                                             <button type="submit" name="" id="btn_action_eliminar" class="btn_action_eliminar l12  m12 s12">
+                                                   <a>
+                                                       <button type="submit" name="" id="btn_action_eliminar" class="btn_action_eliminar l12  m12 s12">
                                                                 <p id="txt_buttom" class="txt_buttom">
                                                                     Cancelar
-                                                                    <img id="img_buttom" class="img_buttom" src="icons/eliminar.png" />
+                                                                    <img id="img_buttom" class="img_buttom" src="icon_acciones/cancelar.png" />
                                                                 </p>   
-                                                            </button>                                     
+                                                            </button> 
+                                                   </a>
+                                                                                                 
                                                </div>
                                            
                                          </div> 
 <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                            </form>
+            </div>
+
+                    
                </div>   
         <!--------------------------------------------------------------------------------------------------->
         
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        
          <!--***************FOOTER*********************-->
-        <footer class="page-footer" id="footer_form">
+       <footer class="page-footer" id="footer_form">
 
                     <div class="container white-text center">
                     © 2018 Biene-Soft

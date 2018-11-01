@@ -1,46 +1,38 @@
 
-
 /*****TABLA*******/
 
 #table{
     margin-top: 50px;
-    height: 300px;
-    overflow: scroll;
-}
-
-
-#thead{
-    background-color: #616161;
-    border-bottom: solid 4px #616161;
-    color: #fff;
-    text-align: right;
-    margin-bottom: 10px;
-    padding-bottom: 2px;
+    height: 230px;
+    overflow-y: scroll;
+    box-shadow: 0px 3px 5px 0px rgba(115,115,115,1);
 }
 
 #th_thead{
     text-align: center;
+    background: black;
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+    border-left: 1px solid gray;
 }
 
-td {
-    margin: -10%;
-    padding-right: 0px;
-}
 
-th {
-    text-align: center;
+tr:nth-child(odd) {	
+    background-color: #e0e0e0;	
 }
-
-tr:nth-last-child(even){
-    background-color: #EEEEEE;
-}
-
-tr:nth-child(even){
-    background-color: white;
+	
+tr:nth-child(even) {	
+    background-color:#fbfbfb;	
 }
 
 tr:hover td{
-    background-color: #BDBDBD; 
+    background-color: #bdbdbd; 
+    cursor: pointer;
+}
+
+td{
+    padding: -5px -5px;
 }
 
 input{
@@ -49,77 +41,17 @@ input{
     background-color: transparent;
     text-align: center;
     margin: 0%;
+    height: -10px;
 }
+
 
 .text_mod{
     width: 50%;
-    background-color: transparent;
+    background-color: yellow;
     text-align: center;
     border: solid 1px #485460;
 }
 
-#btn-consulta-tabla{
-    background: black;
-    opacity: 0.5;
-    border-radius: 50px 50px 50px 50px;
-    width: 40px;
-    height: 40px;
-    padding: 6px;
-    cursor: pointer;
-}
 
 /******************************************/
 
-/*****MODAL******/
-
-#modal{
-    z-index: 1;
-    width: 70%;
-    margin-top: -10%;
-    box-shadow: 0px 11px 300px -7px rgba(0,0,0,0.75);
-}
-
-#header_modal{
-    background-color: #0277BD;
-    color: white;
-    text-align: center;
-    font-size: 300%;
-}
-
-#modal_footer{
-    background-color: #E0E0E0;
-}
-
-#input_txt{
-    background-color: #EEEEEE;
-    border: 1px solid #b2bec3;
-    font-size: 15px;
-    height: 30px;
-    width: 100%;
-}
-
-#input_msg{
-    margin: 1%;
-    position: relative;
-    left: 20px;
-    font-size: 15px;
-    color: #0277BD;
-}
-
-#btn-consulta-2{
-    background-color: red;
-    height: 200px;
-}
-
-#btn-consulta-cerrar{
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-}
-
-
-#btn_action{
-    background: transparent;
-    border: none;
-    margin-right: 15%;
-}

@@ -1,22 +1,20 @@
 $(document).ready(function(){
 
     $(".btn-consulta-cerrar").hide();
-    $(".modal-prueba-1").hide();
+    $(".modal-background").hide    ();
     
         $(".btn-consulta-tabla").click(function (){
 
            var pos=$(".btn-consulta-tabla").index(this);
-           var asi=$(".modal-prueba-cont").eq(pos);
+           var asi=$(".modal-background").eq(pos);
+           asi.slideToggle();
 
-           $(".btn-consulta-cerrar").show();
-           $(".modal-prueba-1").show();
-           $(".modal-prueba-cont").show();
-           
         });   
         
-        $(".btn-consulta-cerrar").click(function (){
-            $(".modal").hide();
-            $(".btn-consulta-cerrar").hide();
+        $(".btn-cerrar_modal").click(function (){
+            $(".modal-background").hide();
+            $(".btn_salida").show();
+            $(".btn_entrada").hide();
         });
         
 });

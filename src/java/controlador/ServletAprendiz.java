@@ -10,15 +10,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import javax.swing.JOptionPane;
+import modelo.Login;
 import modelo.aprendizSG;
+import modelo.consultas;
 import modelo.crudAprendiz;
+import modelo.usuarioSG;
 
 /**
  *
@@ -155,7 +161,8 @@ public class ServletAprendiz extends HttpServlet {
             int i = nomfoto.lastIndexOf("\\");
             nomfoto = nomfoto.substring(i+1);
             String nombre=documento+"_"+nomfoto;
-            String Url="C:\\Users\\equipo\\Documents\\NetBeansProjects\\BieneSoft1.0\\web\\img\\"+nombre;
+            String Url="C:\\Users\\equipo\\Documents\\NetBeansProjects\\Bienesoft-oficial\\web\\img\\"+nombre;
+            //C:\Users\equipo\Documents\NetBeansProjects\Bienesoft-oficial\web\img
             hojavida="img/"+nombre;
             InputStream file=fot.getInputStream();
             File f=new File(Url);
@@ -198,6 +205,9 @@ public class ServletAprendiz extends HttpServlet {
                       tipoAprendiz, nombrePadre,nombreMadre, telefonoPadre, telefonoMadre, departamento, ciudad, barrio, direccion,
                     antecedente,email,acta;
             
+            //CAPTURA DE DATOS CON HTTPSESSION
+            
+            
             
          
             documento=Integer.parseInt(request.getParameter("t_NumeroDocumento"));
@@ -231,7 +241,7 @@ public class ServletAprendiz extends HttpServlet {
             int i = nomfoto.lastIndexOf("\\");
             nomfoto = nomfoto.substring(i+1);
             String nombre=documento+"_"+nomfoto;
-            String Url="C:\\Users\\equipo\\Documents\\BIENESOFT 1.0\\Neatbeans\\Bienesoft1.0\\web\\img\\"+nombre;
+            String Url="C:\\Users\\equipo\\Documents\\NetBeansProjects\\Bienesoft-oficial\\web\\img\\"+nombre;
             hojavida="img/"+nombre;
             InputStream file=fot.getInputStream();
             File f=new File(Url);
@@ -256,10 +266,7 @@ public class ServletAprendiz extends HttpServlet {
             crudAprendiz crud = new crudAprendiz();
             crud.actualizar_aprendiz(setget);
             response.sendRedirect("t_aprendiz.jsp");
-        
-            
 
-     
      }
      //METODO PARA ELIMINAR APRENDIZ
      
@@ -307,7 +314,7 @@ public class ServletAprendiz extends HttpServlet {
             int i = nomfoto.lastIndexOf("\\");
             nomfoto = nomfoto.substring(i+1);
             String nombre=documento+"_"+nomfoto;
-            String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\BieneSoft1.0\\web\\img\\"+nombre;
+            String Url="C:\\Users\\equipo\\Documents\\NetBeansProjects\\Bienesoft-oficial\\web\\img\\"+nombre;
             hojavida="img/"+nombre;
             InputStream file=fot.getInputStream();
             File f=new File(Url);
@@ -331,7 +338,9 @@ public class ServletAprendiz extends HttpServlet {
             response.sendRedirect("t_aprendiz.jsp");
         
     }
-    
-    }
+        
+}
 
+
+        
 
