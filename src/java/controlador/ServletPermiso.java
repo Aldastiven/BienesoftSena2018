@@ -146,7 +146,7 @@ public class ServletPermiso extends HttpServlet {
         int i = nomfoto.lastIndexOf("\\");
         nomfoto = nomfoto.substring(i+1);
         String nombre=documento+"_"+nomfoto;
-        String Url="C:\\Users\\equipo\\Documents\\BIENESOFT 1.0\\Neatbeans\\Bienesoft1.0\\web\\img\\"+nombre;
+        String Url="C:\\Users\\equipo\\Documents\\BIENESOFT1.0\\Neatbeans\\Bienesoft1.0\\web\\img-login\\"+nombre;
         //C:\\Users\\equipo\\Documents\\BIENESOFT 1.0\\Neatbeans\\Bienesoft1.0\\web\\img\\
         evidenciaAdjunta="img/"+nombre;
         InputStream file=fot.getInputStream();

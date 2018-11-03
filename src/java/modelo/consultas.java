@@ -119,21 +119,57 @@ public class consultas {
     }
     
     //CONSULTA APRENDIZ
-    public ArrayList<aprendizSG>consultarTablaAprendiz(){
+//    public ArrayList<aprendizSG>consultarTablaAprendiz(){
+//        ArrayList<aprendizSG> arreglo = new ArrayList<aprendizSG>();
+//        try {
+//            ps = cnn.prepareStatement("SELECT * FROM aprendiz");
+//            rs = ps.executeQuery();
+//            
+//            while(rs.next()){
+//                aprendizSG getset = new aprendizSG( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),  rs.getString(21), rs.getString(22), rs.getString(23), rs.getInt(24), rs.getInt(25), rs.getInt(26) );
+//                arreglo.add(getset);
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null,"error" +e);
+//        }
+//        return arreglo;
+//    }
+    
+  
+        public ArrayList<aprendizSG>consultarTablaAprendiz(String dato, String prof, String gen) {
         ArrayList<aprendizSG> arreglo = new ArrayList<aprendizSG>();
-        try {
-            ps = cnn.prepareStatement("SELECT * FROM aprendiz");
-            rs = ps.executeQuery();
+        
+        try{
+            
+            if(dato==null & prof==null & gen==null){
+              ps = cnn.prepareStatement("SELECT * FROM aprendiz");  
+            }else if(prof==null & gen==null){
+                 ps = cnn.prepareStatement("SELECT * FROM aspirante where asp_nombre like '"+dato+"%'");
+            }else if(prof!=null & gen!=null) {
+                ps = cnn.prepareStatement("SELECT * FROM aspirante JOIN profesion ON(pro_id=asp_cod_prof) WHERE pro_nombre='"+prof+"'"
+                        + " AND asp_genero='"+gen+"' ");
+            }else if(prof!=null) {
+                ps = cnn.prepareStatement("SELECT * FROM aspirante JOIN profesion ON(pro_id=asp_cod_prof) WHERE pro_nombre='"+prof+"' ");
+            }else if(gen !=null) {
+                ps = cnn.prepareStatement("SELECT * FROM aspirante WHERE asp_genero='"+gen+"' ");
+            }
+            
+           
+            rs= ps.executeQuery();
             
             while(rs.next()){
                 aprendizSG getset = new aprendizSG( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),  rs.getString(21), rs.getString(22), rs.getString(23), rs.getInt(24), rs.getInt(25), rs.getInt(26) );
                 arreglo.add(getset);
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"error" +e);
+            
+            
+        }catch (Exception e){
+            System.out.println("Error de consulta: "+e);
         }
         return arreglo;
+       
     }
+
     
     
      //CONSULTA aprendiz_rel_patrocinioSG

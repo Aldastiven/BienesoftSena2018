@@ -191,14 +191,37 @@
                     </thead>
                                
                     <%
-                        ArrayList <aprendizSG> listdat = new ArrayList<>();
+                        /*ArrayList <aprendizSG> listdat = new ArrayList<>();
                         consultas con = new consultas();
                         listdat = con.consultarTablaAprendiz();
                         aprendizSG x = new aprendizSG();
 
                         for(int i = 0; i< listdat.size(); i++){
-                        x = listdat.get(i);
+                        x = listdat.get(i);*/
                     %>
+                    
+                     <%
+                    ArrayList<aprendizSG> lisdat = new ArrayList<>();
+                    consultas con = new consultas();
+                    
+                    String dato=request.getParameter("dato");
+                    String prof = request.getParameter("prof");
+                    String gen = request.getParameter("gen");
+                    if(prof!=null & gen!=null) {
+                        if(prof.equalsIgnoreCase("Profesión")) {
+                        prof = null;
+                        }
+                        if(gen.equalsIgnoreCase("Género")) {
+                            gen = null;
+                        }
+                    }
+                    
+                    lisdat = con.consultarTablaAprendiz(dato,prof,gen);
+                    aprendizSG x = new aprendizSG();
+                    int i;
+                    for(i=0; i<lisdat.size(); i++){
+                        x= lisdat.get(i);
+                %>
           
                     <tr style="padding: 0px;">
         <form action="ServletAprendiz" enctype="multipart/form-data" method="post">
@@ -469,10 +492,10 @@
     <h1 id="title">consulta aprendices</h1>
             <div id="div_principal" class="">              
                     <%
-                            ArrayList <aprendizSG> consulta = new ArrayList<>();
-                            consulta = con.consultarTablaAprendiz();
-                            for (int i = 0; i< consulta.size(); i++ ){
-                            x= consulta.get(i);
+                            ArrayList <aprendizSG> consultas = new ArrayList<>();
+                            consultas = con.consultarTablaAprendiz(dato, prof, gen);
+                            for (int a = 0; a< consultas.size(); a++ ){
+                            x= consultas.get(a);
                     %>
                             <div class="divuno" id="divuno">
                                 <input class="browser-default" id="txt" type="text"  value=" <%=x.getApr_documento()%> " readonly>

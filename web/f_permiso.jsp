@@ -156,6 +156,7 @@
             <%
                 HttpSession rnombre=request.getSession();
                 String nom=(String)rnombre.getAttribute("datico");
+                int id=(int)rnombre.getAttribute("iden");
      
              %>
         <p id="user_text" class="user_text hide-on-med-and-down"><%=nom%></p>
@@ -171,16 +172,16 @@
                 <h1 id="title_container">REGISTRO PERMISO</h1>
 
                 <form action="ServletPermiso" enctype="multipart/form-data" method="post"> 
-                                        <div class="row" id="container_form_large"  style="height: 420px;">
+                                        <div class="row" id="container_form_small"  style="height: 420px;">
                                                            <div class="input-field col s12 m6 l6">
                                                                <p id="input_msg">Documento del aprendiz</p>
                                                                <br>
-                                                               <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz" value="<%=nom%>">
+                                                               <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz" value="<%=id%>">
                                                            </div>   
 
                                                                 <div class="row">
                                                                     <div class="input-field col s12 l6 m6">
-                                                                        <select name="tipoper">
+                                                                        <select name="tipoper" class="browser-default">
                                                                             <option >elige el tipo de permiso</option>
                                                                             <option value="semana morning">semana mañana</option>
                                                                             <option value="semana tarde">semana tarde</option>

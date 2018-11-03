@@ -1,0 +1,21 @@
+.div_container{
+    width:100%;
+    height:auto;
+    background: red;
+    color: white;
+    margin-top: 80px;
+    padding: 10px;
+}
+
+#txt_dato{
+    border-bottom: none;
+    background: white;
+    text-align: center;
+    float: right;
+    margin-left:0px;
+}
+.msg_sss{
+    background: yellow;
+    font-size: 13px;
+    width: auto;
+}
