@@ -50,8 +50,11 @@ public class Autorizacion {
     public boolean AutorizaSeguridad(String estado){
         if(estado.equals("Autorizado")){
             return true;        
-        }        
+        }else if(estado.equals("Denegado")){
+            return false;
+        }
         return false;
+        
     }
 
     
@@ -101,6 +104,17 @@ public class Autorizacion {
             JOptionPane.showMessageDialog(null,HEap[1]);
         }
         
+        
+        //fecha
+        if(Integer.parseInt(FEap[2]) <= 9){
+            FEap[2] = FEap[2].substring(1);
+            JOptionPane.showMessageDialog(null,"Día: "+FEap[2]);
+        }
+        if(Integer.parseInt(FEap[1]) <= 9){
+            FEap[1] = FEap[1].substring(1);
+            JOptionPane.showMessageDialog(null,FEap[1]);
+        }
+        
         JOptionPane.showMessageDialog(null,"Fecha real: "+FR[0]+"-"+FR[1]+"-"+FR[2]);
         JOptionPane.showMessageDialog(null,"Fecha estipulada: "+FEap[0]+"-"+FEap[1]+"-"+FEap[2]);
         
@@ -108,11 +122,16 @@ public class Autorizacion {
         JOptionPane.showMessageDialog(null,"Hora estipulada: "+HEap[0]+":"+HEap[1]);
 
         
-        if(FR[0].equals(FEap[0]) && FR[1].equals(FEap[1]) && FR[2].equals(FEap[2])) { 
+        if(FR[0].equals(FEap[0]) && FR[1].equals(FEap[1]) && FR[2].equals(FEap[2])  ) { 
             
-            if( HR[0].equals(HEap[0]) && Integer.parseInt(HR[1]) <= (Integer.parseInt(HEap[1]) + 10)) {//mas los 10 minutos
-                JOptionPane.showMessageDialog(null,"Fecha y hora estipulada correcta");
-                return true;
+            if( Integer.parseInt(HR[0]) ==  Integer.parseInt(HEap[0])) {//mas los 10 minutos
+                if(Integer.parseInt(HR[1]) <= Integer.parseInt(HEap[1]) + 10) {
+                    JOptionPane.showMessageDialog(null,"Fecha y hora estipulada correcta");
+                    return true;
+                }
+            } else if(Integer.parseInt(HR[0]) <  Integer.parseInt(HEap[0])) {
+                    JOptionPane.showMessageDialog(null,"Fecha y hora estipulada correcta");
+                    return true;
             }
             JOptionPane.showMessageDialog(null,"La hora no coincide con la estipulada por el aprendiz");
             
@@ -122,7 +141,6 @@ public class Autorizacion {
         
         return false;        
     }
-    
     
     
     

@@ -1,5 +1,16 @@
 
-#modal-background{
+#modal-background-coordinador{
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+    min-height: 100%;
+    height: auto !important;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 3;
+}
+
+#modal-background-seguridad{
     background-color: rgba(0, 0, 0, .5);
     width: 100%;
     min-height: 100%;

@@ -69,7 +69,7 @@
             <div class="row contenedor-perfil hide-on-med-and-down">
                              <%
                                 HttpSession rnombre=request.getSession();
-                                String nom=(String)rnombre.getAttribute("datico");
+                                String nom=(String)rnombre.getAttribute("nombre");
                                 String fot=(String)rnombre.getAttribute("foto");
                              %>
 
@@ -86,12 +86,14 @@
             <!----------------------botones de usuario---------------------------------->                 
             
             <div class="contenedor_btn hide-on-med-and-down"  id="contenedor_btn">
-                
-                <div class="btn_ver_perfil" id="btn_ver_perfil">
+                <a href="mi_perfil.jsp">
+                    <div class="btn_ver_perfil" id="btn_ver_perfil">
                     ver perfil
                     <img style="width: 20px;" src="css_index_user/icons/coordinador/btn_user.png" />
-                </div>
+                    </div>
             
+                </a>
+                
                 <div class="btn_ver_usuarios" id="btn_ver_usuarios">
                     consultar usuarios
                     <img style="width: 20px;" src="css_index_user/icons/coordinador/btn_users.png" />

@@ -24,7 +24,7 @@ import modelo.usuarioSG;
 @WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
 public class ServletLogin extends HttpServlet {
 //variables
-private String c,r;
+private String c,r,e;
 public  int u,d;
 private HttpServletRequest user;
 private HttpServletResponse pass;
@@ -77,15 +77,17 @@ private HttpServletResponse pass;
                     u = in.getUsudoc();
                     c = in.getUsuclave();
                     r=in.getUsurol();
+                    e=in.getUsuemail();
                     JOptionPane.showMessageDialog(null,"Rol: "+ r);
                     
                   //Htttp session para traer nombre
                   String nombre=log.consultanombreusuario(in.getUsunom()); 
                   HttpSession nom=request.getSession();
+                  HttpSession servirnombre=request.getSession();
                   //Muestra la identificacion en pantalla
                   nom.setAttribute("iden", in.getUsudoc());
                   //Muestra nombre en pantalla
-                  nom.setAttribute("datico", nombre);
+                  nom.setAttribute("nombre", nombre);
                   //Muestra el apellido en pantalla
                   nom.setAttribute("apellido", in.getUsuape());
                   //Muestra el celular en pantalla

@@ -38,7 +38,7 @@ public class crudUsuario {
             
         } catch (Exception e) {
             
-            JOptionPane.showMessageDialog(null, "No fueron insertados los datos");
+            JOptionPane.showMessageDialog(null, "No fueron insertados los datos" +e);
         }
     }
     

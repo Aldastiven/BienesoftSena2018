@@ -56,22 +56,13 @@ public class ServletPermiso extends HttpServlet {
         if(request.getParameter("btn-actualizar") != null){
          this.actualizarPermiso(request,response);
         }
-        //ACTUALIZAR COORDINADOR
-        if(request.getParameter("btn-coordupdate") != null){
-         this.actualizarPermisoCoord(request,response);
-        }
-        
+       
         //ELIMINAR
         if(request.getParameter("btn-eliminar") != null){
          this.eliminarPermiso(request,response);
         }
-        
-        //ELIMINAR VISTA COORDINADOR
-        if(request.getParameter("btn-coordeliminar") != null){
-         this.eliminarPermisoCoord(request,response);
-        }
-        
-        //SELECCIONA TIPO DE PERMISO
+   
+        //SELECCIONA  SEGURIDAD
         if(request.getParameter("btn-autorizado") != null){
          this.permisoAutorizado(request,response);
         }
@@ -117,7 +108,7 @@ public class ServletPermiso extends HttpServlet {
         return "Short description";
     }// </editor-fold>
     
-    //METODO GUARDAR
+    //METODO GUARDAR VISTA APRENDIZ
     private void guardarPermiso(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -146,8 +137,7 @@ public class ServletPermiso extends HttpServlet {
         int i = nomfoto.lastIndexOf("\\");
         nomfoto = nomfoto.substring(i+1);
         String nombre=documento+"_"+nomfoto;
-        String Url="C:\\Users\\equipo\\Documents\\BIENESOFT 1.0\\Neatbeans\\Bienesoft1.0\\web\\img\\"+nombre;
-        //C:\\Users\\equipo\\Documents\\BIENESOFT 1.0\\Neatbeans\\Bienesoft1.0\\web\\img\\
+        String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
         evidenciaAdjunta="img/"+nombre;
         InputStream file=fot.getInputStream();
         File f=new File(Url);
@@ -169,38 +159,8 @@ public class ServletPermiso extends HttpServlet {
     
     
     
-    //METODO ACTUALIZAR FORMULARIO VISTA FORM GENERAL
-    private void actualizarPermiso(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-        Id=Integer.parseInt(request.getParameter("t_Id"));   
-        documento=Integer.parseInt(request.getParameter("t_numerodocumento"));
-        tipo=request.getParameter("t_tipo");
-        fecha_salida=request.getParameter("t_fechsal");
-        fecha_ingreso=request.getParameter("t_fechingre");
-        hora_Salida=request.getParameter("t_horasal");
-        hora_ingreso=request.getParameter("t_horaingre");
-        fecha_ingresoReal=request.getParameter("f_fireal");
-        hora_ingresoReal=request.getParameter("f_hireal");
-        fecha_salidaReal=request.getParameter("f_fsreal");
-        hora_salidaReal=request.getParameter("f_hsreal");
-        observacion_permiso_llegada=request.getParameter("t_obser");
-        motivo=request.getParameter("t_moti");
-        estado=request.getParameter("t_estado");
-        autoriza=request.getParameter("t_autoriza");
-        evidenciaAdjunta=request.getParameter("t_evidenciaAdjunta");
-            
-        permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-        crudPermisos crud = new crudPermisos();
-        crud.actualizar_permiso(setget);
-        request.getRequestDispatcher("t_permiso.jsp").forward(request, response);
-    }
-    
-    
     //METODO ACTUALIZAR VISTA COORDINADOR
-    private void actualizarPermisoCoord(HttpServletRequest request, HttpServletResponse response)
+    private void actualizarPermiso(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
@@ -230,8 +190,7 @@ public class ServletPermiso extends HttpServlet {
     
     
     
-    
-    //METODO PARA ELIMINAR 
+    //METODO PARA ELIMINAR VISTA COORDINADOR 
         private void eliminarPermiso(HttpServletRequest request, HttpServletResponse response) 
         throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -258,68 +217,13 @@ public class ServletPermiso extends HttpServlet {
             permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
             crudPermisos crud = new crudPermisos();
             crud.eliminar_permiso(setget);
-            response.sendRedirect("t_permiso_seguridad.jsp");
-        
-        }
-        
-        
-        //ELIMINAR VISTA COORDIADOR
-        private void eliminarPermisoCoord(HttpServletRequest request, HttpServletResponse response) 
-        throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-        Id=Integer.parseInt(request.getParameter("t_Id"));
-        documento=Integer.parseInt(request.getParameter("t_numerodocumento"));
-        tipo=request.getParameter("tipoper");
-        fecha_salida=request.getParameter("t_fechsal");
-        fecha_ingreso=request.getParameter("t_fechingre");
-        hora_Salida=request.getParameter("t_horasal");
-        hora_ingreso=request.getParameter("t_horaingre");
-        fecha_ingresoReal=request.getParameter("f_fireal");
-        hora_ingresoReal=request.getParameter("f_hireal");
-        fecha_salidaReal=request.getParameter("f_fsreal");
-        hora_salidaReal=request.getParameter("f_hsreal");
-        observacion_permiso_llegada=request.getParameter("t_obser");
-        motivo=request.getParameter("t_moti");
-        estado=request.getParameter("t_estado");
-        autoriza=request.getParameter("t_autoriza");
-            
-            String evidenciaAdjunta="";
-            
-            Part fot =request.getPart("t_evidenciaAdjunta");
-            String nomfoto=fot.getSubmittedFileName();
-            if(!nomfoto.equals("")) {
-                int i = nomfoto.lastIndexOf("\\");
-                nomfoto = nomfoto.substring(i+1);
-                String nombre=documento+"_"+nomfoto;
-                String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
-                evidenciaAdjunta="img/"+nombre;
-                InputStream file=fot.getInputStream();
-                File f=new File(Url);
-                FileOutputStream sal = new FileOutputStream(f);
-                int num=file.read();
-                while(num != -1){
-                    sal.write(num);
-                    num=file.read();
-                }
-            }else {
-                evidenciaAdjunta = request.getParameter("Evide");
-            }
-           
-            
-            permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-            crudPermisos crud = new crudPermisos();
-            crud.eliminar_permiso(setget);
             response.sendRedirect("t_permiso_coordinador.jsp");
         
         }
     
+    
+        //AUTORIZACION DE SEGURIDAD---------------------******PERMISOS SALIDA/ENTRADA***************************
         
-    
-    
-    
-        //AUTORIZACION DE SEGURIDAD
         private void permisoAutorizado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -410,7 +314,7 @@ public class ServletPermiso extends HttpServlet {
                         tipoper.metodo_insertpersemana(setget.getPer_ID(), fechaReal, horaReal,campo1, campo2);//update para campos
                         //Termina proceso de salida o de entrada
                         //guardar hora de fecha y salidaReal a la BD
-                        response.sendRedirect("t_permisoSeguridad.jsp");
+                        response.sendRedirect("t_permiso_seguridad.jsp");
                     } else {
                         JOptionPane.showMessageDialog(null, "No puede salir");
                     }

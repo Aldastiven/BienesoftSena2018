@@ -183,7 +183,7 @@
                     <td><input class="browser-default" readonly type="date" name="t_fechingre" value="<%=x.getPer_fecha_ingreso()%>"></td>
 
                      <td>  
-                         <div id="ver_modal" class="ver_modal" title="consultar aprendiz">
+                         <div name="btn-autorizado" id="btn-ver-permiso-seguridad" class="btn-ver-permiso-seguridad" title="consultar aprendiz">
                              <img src="icon_acciones/ver.png" style="padding-left: 15px" />
                         </div>
                      </td>
@@ -193,7 +193,7 @@
 
                            <!--MODAL-->
 
-<div class="modal-background" id="modal-background">
+<div class="modal-background-seguridad" id="modal-background-seguridad">
     
     <div class="btn-cerrar_modal" id="btn-cerrar_modal">
         <img src="icon_acciones/icon_eliminar.png" />
@@ -315,9 +315,9 @@
                 <div id="div_buttom" class="div_buttom col  s12">
 
                         <div id="btn_container" class="btn_container row ">                                               
-                                    <button type="submit" name="btn_actualizar" id="btn_action_salida" class="btn_action_salida l12  m12 s12">
+                                    <button type="submit" name="btn-autorizado" id="btn_action_salida" class="btn_action_salida l12  m12 s12">
                                         <p id="txt_buttom" class="txt_buttom">
-                                            Salida
+                                            OK
                                         </p>   
                                     </button>                                      
                         </div>

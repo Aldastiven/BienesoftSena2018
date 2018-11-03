@@ -17,7 +17,7 @@ public class conexion {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             cnn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/bienesoft","root","1234");
-            //JOptionPane.showMessageDialog(null, "conexion ok");
+            
         
         } catch (Exception e) {
             

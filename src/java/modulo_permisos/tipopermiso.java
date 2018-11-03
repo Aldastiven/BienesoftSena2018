@@ -35,11 +35,11 @@ public class tipopermiso {
         int minutos = Integer.parseInt(horario[1]);
         
         if(tipoPermiso.equals("semana morning")){
-            if( (hora >= 8 && hora < 13)) return true;
-            if(hora==13 && minutos <= 10) return true;
+            if( (hora >= 8 && hora < 11)) return true;
+            if(hora==11 && minutos <= 10) return true;
         } else if(tipoPermiso.equals("semana tarde")) {
-            if( (hora >= 14 && hora < 17)) return true;
-            if(hora==17 && minutos <= 10) return true;
+            if( (hora >= 14 && hora < 18)) return true;
+            if(hora==18 && minutos <= 10) return true;
         }
       return false;
     }
@@ -51,9 +51,9 @@ public class tipopermiso {
         if(fechaReal.equals(fechaReal) && horaReal.equals(horaReal) ){
             //FECHA Y HORA DE SALIDA para poder salir del cba
             try {
-                ps = cnn.prepareStatement("UPDATE permiso SET '"+campo1+"'='"+fechaReal+"' AND  '"+campo2+"'='"+horaReal+"'"+
+                ps = cnn.prepareStatement("UPDATE permiso SET "+campo1+"='"+fechaReal+"' , "+campo2+"='"+horaReal+"'"+
                         " WHERE per_ID='"+id+"' ");
-//                ps = cnn.prepareStatement("UPDATE  permiso  SET  campo1='"+fechaReal+"' AND  campo2='"+horaReal+"' WHERE per_ID='"+id+"' ");     
+
                ps.executeUpdate();
   
             } catch (Exception e) {

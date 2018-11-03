@@ -66,7 +66,7 @@
                     </i>
                     
                         <ul class="right hide-on-med-and-down">
-                        <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
+                            <lu id="li" title="cerrar cesion"><a href="index.jsp"><img style="width: 25px; margin-top: 10px;" src="icon_acciones/salida.png" /></a></lu>
                         </ul>
                 </a>
                 
@@ -132,7 +132,7 @@
         <label id="user_text" class="user_text hide-on-med-and-down">Coordinador</label> 
             <%
                 HttpSession rnombre=request.getSession();
-                String nom=(String)rnombre.getAttribute("datico");
+                String nom=(String)rnombre.getAttribute("nombre");
              %>
         <p id="user_text" class="user_text hide-on-med-and-down"><%=nom%></p>
 
@@ -208,7 +208,7 @@
                     <td><input class="browser-default" readonly type="date" name="t_fechingre" value="<%=x.getPer_fecha_ingreso()%>"></td>
 
                      <td>  
-                         <div id="ver_modal" class="ver_modal" title="consultar aprendiz">
+                         <div id="btn-ver-permiso-coordinador" class="btn-ver-permiso-coordinador" title="consultar aprendiz">
                              <img src="icon_acciones/ver.png" style="padding-left: 15px" />
                         </div>
                      </td>
@@ -216,9 +216,11 @@
             
 </tr>
 
-                           <!--MODAL-->
+<!--MODAL------------------------------------------------------------------------------------->
 
-<div class="modal-background" id="modal-background">
+<div class="modal-background-coordinador" id="modal-background-coordinador">
+    
+
     
     <div class="btn-cerrar_modal" id="btn-cerrar_modal">
         <img src="icon_acciones/icon_eliminar.png" />
@@ -240,7 +242,7 @@
                         
                         <div class="input-field col s12 l6 m6">
                            <p id="input_msg_modal">Tipo de permiso</p>
-                           <input id="input_txt_modal" readonly type="text" name="t_tipo" value="<%=x.getPer_tipo()%>">
+                           <input id="input_txt_modal" readonly type="text" name="tipoper" value="<%=x.getPer_tipo()%>">
                        </div>     
                 </div>
                 
@@ -314,12 +316,19 @@
                 <div class="row">                    
                         <div class="input-field col s12 l6 m6">
                             <p id="input_msg_modal">Estado</p>
-                            <input id="input_txt_modal" type="text" name="t_estado" value="<%=x.getPer_estado()%>" readonly>
+                             <select name="t_estado" class="browser-default">
+                                <option>Respuesta a permiso</option>
+                                <option value="Autorizado">Autorizar</option>
+                                <option value="Denegado">Denegar</option>
+                             </select>
                         </div>
                     
                         <div class="input-field col s12 l6 m6">
+                            
+                            <%//String servirnombre=(String)rnombre.getAttribute("nombre");%>
+                            
                             <p id="input_msg_modal">Autoriza</p>
-                            <input id="input_txt_modal" type="text" name="t_autoriza" value="<%=x.getPer_autoriza()%>">
+                            <input id="input_txt_modal" type="text" name="t_autoriza" value="<%=nom%>" readonly>
                         </div>
                 </div>
                         
@@ -340,9 +349,15 @@
                 <div id="div_buttom" class="div_buttom col  s12">
 
                         <div id="btn_container" class="btn_container row ">                                               
-                                    <button type="submit" name="btn_actualizar" id="btn_action_salida" class="btn_action_salida l12  m12 s12">
+                                    <button type="submit" name="btn-actualizar" id="btn_action_salida" class="btn_action_salida l12  m12 s12">
                                         <p id="txt_buttom" class="txt_buttom">
-                                            Salida
+                                            Enviar
+                                        </p>   
+                                    </button>   
+                            
+                                    <button type="submit" name="btn-eliminar" id="btn_action_eliminar" class="btn_action_salida l12  m12 s12">
+                                        <p id="txt_buttom" class="txt_buttom">
+                                            Eliminar
                                         </p>   
                                     </button>                                      
                         </div>
@@ -386,7 +401,7 @@
                                 Consultar
                             </div>
                             
-                            <div class="modal-background-acordion" id="modal-background">
+                            <div class="" id="">
                                 
                                 
                                         <div class="btn-cerrar_modal-acordion" id="btn-cerrar_modal-acordion">
@@ -511,9 +526,15 @@
                         <div id="btn_container" class="btn_container row ">                                               
                                     <button type="submit" name="btn_actualizar" id="btn_action_salida" class="btn_action_salida l12  m12 s12">
                                         <p id="txt_buttom" class="txt_buttom">
-                                            Salida
+                                            Enviar
                                         </p>   
-                                    </button>                                      
+                                    </button>   
+                            
+                                    <button type="submit" name="btn-eliminar" id="btn_action_eliminar" class="btn_action_salida l12  m12 s12">
+                                        <p id="txt_buttom" class="txt_buttom">
+                                            Eliminar
+                                        </p>   
+                                    </button> 
                         </div>
 
                 </div>

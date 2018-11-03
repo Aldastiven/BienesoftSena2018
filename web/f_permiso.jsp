@@ -45,54 +45,8 @@
 
 
     <body>
-        
-    <!--   
-        <div>
-            <h1>formulario Permiso aprendiz</h1>
-           
-            <form action="ServletPermiso" enctype="multipart/form-data" method="post">
-                <td><input type="number" name="f_numerodocumento" placeholder="documento del aprendiz"></td>
-                
-                
-                <select name="tipoper">  
-                    <option>elige el tipo de permiso</option>
-                    <option>semana</option>
-                    <option>fsemana</option>
-                </select>
-                
-                <td><input type="date" name="f_fechsal" placeholder="Fecha salida"></td>
-                <td><input type="date" name="f_fechingre" placeholder="Fecha ingreso"><td>
-                <td><input type="time" name="f_horasal" placeholder="Hora salida"></td>
-                <td><input type="time" name="f_horaingre" placeholder="Hora ingreso"></td>
-                <td><input type="text" name="f_moti" placeholder="Motivo"></td>
-                <td><input type="file" name="f_evidenciaAdjunta" accept="imagen/*"><br><br></td>
-                
-                
-                <input type="submit" name="btn-guardar" value="Guardar">
-                
-               
-                    
-                <div>
-                    <input type="submit" name="btn-permiso" value="btn_permiso">
-                </div>
-                    
-            </form>
-                
-           
-        </div>
-      -->          
-                
-                <!--MODULO PARA LLAMAR METODO DE UNA CLASE-->
-                
-                <!--<form action="ServletPrueba" method="post">
-                    
-                    <div>
-                        <input type="submit" name="btn-permiso" value="btn_permiso">
-                    </div>
-                    
-                </form>-->
-                
-                <!--*******************************OBJETO NAV RESPONSIVE***************************-->
+  
+        <!--*******************************OBJETO NAV RESPONSIVE***************************-->
         
         <!--nav principal--->
         
@@ -171,16 +125,22 @@
                 <h1 id="title_container">REGISTRO PERMISO</h1>
 
                 <form action="ServletPermiso" enctype="multipart/form-data" method="post"> 
-                                        <div class="row" id="container_form_large"  style="height: 420px;">
+                    
+        <%
+            int id=(int)rnombre.getAttribute("iden");
+
+        %>
+                    
+                                        <div class="row" id="container_form_small"  style="height: 420px;">
                                                            <div class="input-field col s12 m6 l6">
                                                                <p id="input_msg">Documento del aprendiz</p>
                                                                <br>
-                                                               <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz" value="<%=nom%>">
+                                                               <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz" value="<%=id%>" readonly>
                                                            </div>   
 
                                                                 <div class="row">
                                                                     <div class="input-field col s12 l6 m6">
-                                                                        <select name="tipoper">
+                                                                        <select name="tipoper" class="browser-default">
                                                                             <option >elige el tipo de permiso</option>
                                                                             <option value="semana morning">semana mañana</option>
                                                                             <option value="semana tarde">semana tarde</option>

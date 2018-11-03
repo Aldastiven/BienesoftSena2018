@@ -50,7 +50,7 @@
                     </i>
                     
                         <ul class="right hide-on-med-and-down">
-                        <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
+                            <lu id="li" title="cerrar cesion"><a href="index.jsp"><img style="width: 25px; margin-top: 10px;" src="icon_acciones/salida.png" /></a></lu>
                         </ul>
                 </a>
                 
