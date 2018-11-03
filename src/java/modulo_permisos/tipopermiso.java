@@ -38,8 +38,8 @@ public class tipopermiso {
             if( (hora >= 8 && hora < 11)) return true;
             if(hora==11 && minutos <= 10) return true;
         } else if(tipoPermiso.equals("semana tarde")) {
-            if( (hora >= 14 && hora < 18)) return true;
-            if(hora==18 && minutos <= 10) return true;
+            if( (hora >= 14 && hora < 17)) return true;
+            if(hora==17 && minutos <= 10) return true;
         }
       return false;
     }
