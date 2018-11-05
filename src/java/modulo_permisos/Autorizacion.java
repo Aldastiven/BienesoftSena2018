@@ -3,6 +3,7 @@
  */
 package modulo_permisos;
 
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -134,6 +135,7 @@ public class Autorizacion {
                     return true;
             }
             JOptionPane.showMessageDialog(null,"La hora no coincide con la estipulada por el aprendiz");
+            
             
         } else {
             JOptionPane.showMessageDialog(null,"La fecha no coincide con la estipulada por el aprendiz");

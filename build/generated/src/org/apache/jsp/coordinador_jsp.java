@@ -113,7 +113,7 @@ public final class coordinador_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                             ");
 
                                 HttpSession rnombre=request.getSession();
-                                String nom=(String)rnombre.getAttribute("datico");
+                                String nom=(String)rnombre.getAttribute("nombre");
                                 String fot=(String)rnombre.getAttribute("foto");
                              
       out.write("\n");
@@ -135,12 +135,14 @@ public final class coordinador_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <!----------------------botones de usuario---------------------------------->                 \n");
       out.write("            \n");
       out.write("            <div class=\"contenedor_btn hide-on-med-and-down\"  id=\"contenedor_btn\">\n");
-      out.write("                \n");
-      out.write("                <div class=\"btn_ver_perfil\" id=\"btn_ver_perfil\">\n");
+      out.write("                <a href=\"mi_perfil.jsp\">\n");
+      out.write("                    <div class=\"btn_ver_perfil\" id=\"btn_ver_perfil\">\n");
       out.write("                    ver perfil\n");
       out.write("                    <img style=\"width: 20px;\" src=\"css_index_user/icons/coordinador/btn_user.png\" />\n");
-      out.write("                </div>\n");
+      out.write("                    </div>\n");
       out.write("            \n");
+      out.write("                </a>\n");
+      out.write("                \n");
       out.write("                <div class=\"btn_ver_usuarios\" id=\"btn_ver_usuarios\">\n");
       out.write("                    consultar usuarios\n");
       out.write("                    <img style=\"width: 20px;\" src=\"css_index_user/icons/coordinador/btn_users.png\" />\n");

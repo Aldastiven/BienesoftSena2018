@@ -112,7 +112,7 @@ public final class t_005fpermiso_005fcoordinador_jsp extends org.apache.jasper.r
       out.write("                    </i>\n");
       out.write("                    \n");
       out.write("                        <ul class=\"right hide-on-med-and-down\">\n");
-      out.write("                        <lu id=\"li\" title=\"cerrar cesion\"><a href=\"\"><img style=\"width: 25px; margin-top: 10px;\" src=\"\" /></a></lu>\n");
+      out.write("                            <lu id=\"li\" title=\"cerrar cesion\"><a href=\"index.jsp\"><img style=\"width: 25px; margin-top: 10px;\" src=\"icon_acciones/salida.png\" /></a></lu>\n");
       out.write("                        </ul>\n");
       out.write("                </a>\n");
       out.write("                \n");
@@ -179,7 +179,7 @@ public final class t_005fpermiso_005fcoordinador_jsp extends org.apache.jasper.r
       out.write("            ");
 
                 HttpSession rnombre=request.getSession();
-                String nom=(String)rnombre.getAttribute("datico");
+                String nom=(String)rnombre.getAttribute("nombre");
              
       out.write("\n");
       out.write("        <p id=\"user_text\" class=\"user_text hide-on-med-and-down\">");
@@ -282,6 +282,8 @@ public final class t_005fpermiso_005fcoordinador_jsp extends org.apache.jasper.r
       out.write("\n");
       out.write("<div class=\"modal-background-coordinador\" id=\"modal-background-coordinador\">\n");
       out.write("    \n");
+      out.write("\n");
+      out.write("    \n");
       out.write("    <div class=\"btn-cerrar_modal\" id=\"btn-cerrar_modal\">\n");
       out.write("        <img src=\"icon_acciones/icon_eliminar.png\" />\n");
       out.write("    </div>\n");
@@ -304,7 +306,7 @@ public final class t_005fpermiso_005fcoordinador_jsp extends org.apache.jasper.r
       out.write("                        \n");
       out.write("                        <div class=\"input-field col s12 l6 m6\">\n");
       out.write("                           <p id=\"input_msg_modal\">Tipo de permiso</p>\n");
-      out.write("                           <input id=\"input_txt_modal\" readonly type=\"text\" name=\"t_tipo\" value=\"");
+      out.write("                           <input id=\"input_txt_modal\" readonly type=\"text\" name=\"tipoper\" value=\"");
       out.print(x.getPer_tipo());
       out.write("\">\n");
       out.write("                       </div>     \n");
@@ -402,16 +404,23 @@ public final class t_005fpermiso_005fcoordinador_jsp extends org.apache.jasper.r
       out.write("                <div class=\"row\">                    \n");
       out.write("                        <div class=\"input-field col s12 l6 m6\">\n");
       out.write("                            <p id=\"input_msg_modal\">Estado</p>\n");
-      out.write("                            <input id=\"input_txt_modal\" type=\"text\" name=\"t_estado\" value=\"");
-      out.print(x.getPer_estado());
-      out.write("\">\n");
+      out.write("                             <select name=\"t_estado\" class=\"browser-default\">\n");
+      out.write("                                <option>Respuesta a permiso</option>\n");
+      out.write("                                <option value=\"Autorizado\">Autorizar</option>\n");
+      out.write("                                <option value=\"Denegado\">Denegar</option>\n");
+      out.write("                             </select>\n");
       out.write("                        </div>\n");
       out.write("                    \n");
       out.write("                        <div class=\"input-field col s12 l6 m6\">\n");
+      out.write("                            \n");
+      out.write("                            ");
+//String servirnombre=(String)rnombre.getAttribute("nombre");
+      out.write("\n");
+      out.write("                            \n");
       out.write("                            <p id=\"input_msg_modal\">Autoriza</p>\n");
       out.write("                            <input id=\"input_txt_modal\" type=\"text\" name=\"t_autoriza\" value=\"");
-      out.print(x.getPer_autoriza());
-      out.write("\">\n");
+      out.print(nom);
+      out.write("\" readonly>\n");
       out.write("                        </div>\n");
       out.write("                </div>\n");
       out.write("                        \n");
@@ -436,7 +445,7 @@ public final class t_005fpermiso_005fcoordinador_jsp extends org.apache.jasper.r
       out.write("                <div id=\"div_buttom\" class=\"div_buttom col  s12\">\n");
       out.write("\n");
       out.write("                        <div id=\"btn_container\" class=\"btn_container row \">                                               \n");
-      out.write("                                    <button type=\"submit\" name=\"btn_actualizar\" id=\"btn_action_salida\" class=\"btn_action_salida l12  m12 s12\">\n");
+      out.write("                                    <button type=\"submit\" name=\"btn-actualizar\" id=\"btn_action_salida\" class=\"btn_action_salida l12  m12 s12\">\n");
       out.write("                                        <p id=\"txt_buttom\" class=\"txt_buttom\">\n");
       out.write("                                            Enviar\n");
       out.write("                                        </p>   \n");

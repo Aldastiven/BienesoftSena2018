@@ -35,6 +35,9 @@
             
             <!--estilo footer-->
             <link type="text/css" rel="stylesheet" href="css/footer.css"  media="screen,projection"/>
+            
+            <!--estilo watch(Reloj)-->
+            <link type="text/css" rel="stylesheet" href="css/timePicker.css"  media="screen,projection"/>
 
             <!--estilo materialize.css-->
             <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>    
@@ -166,13 +169,13 @@
                                                            <div class="input-field col s12 l6 m6">
                                                                <p id="input_msg">Hora de salida</p>
                                                                <br>
-                                                               <input id="input_txt" type="time" name="f_horasal" placeholder="Hora salida">
+                                                               <input id="input_txt" type="time" name="f_horasal" class="time-picker form-control" name="3" placeholder="Hora salida" value="08:00">
                                                            </div>
                                             
                                                            <div class="input-field col s12 l6 m6">
                                                                <p id="input_msg">Hora de ingreso</p>
                                                                <br>
-                                                               <input id="input_txt" type="time" name="f_horaingre" placeholder="Hora ingreso">
+                                                               <input id="input_txt" type="time" name="f_horaingre" class="time-picker form-control" name="3" placeholder="Hora ingreso" value="11:00">
                                                            </div>
                                             
                                                            <div class="input-field col s12 l6 m6">
@@ -251,6 +254,8 @@
         
             <!--JavaScript at end of body for optimized loading-->
             <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+            <!--JS plugin Reloj-->
+            <script type="text/javascript" src="js/watch/jquery-timepicker.js"></script>
                 
     </body>
 </html>

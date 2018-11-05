@@ -93,7 +93,7 @@ public final class aprendiz_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </i>\n");
       out.write("                    \n");
       out.write("                        <ul class=\"right hide-on-med-and-down\">\n");
-      out.write("                        <lu id=\"li\" title=\"cerrar cesion\"><a href=\"\"><img style=\"width: 25px; margin-top: 10px;\" src=\"\" /></a></lu>\n");
+      out.write("                            <lu id=\"li\" title=\"cerrar cesion\"><a href=\"index.jsp\"><img style=\"width: 25px; margin-top: 10px;\" src=\"icon_acciones/salida.png\" /></a></lu>\n");
       out.write("                        </ul>\n");
       out.write("                </a>\n");
       out.write("                \n");

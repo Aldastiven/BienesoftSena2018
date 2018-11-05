@@ -205,7 +205,7 @@
             
             <h1 id="title" style="margin-bottom: 5px;">acerca del permiso</h1>
   
-        <div class="modal-cont l12 s12 m12" id="modal-cont" >
+        <div class="modal-cont l12 s12 m12" id="modal-cont">
             
                             <div class="row">
                         <div class="input-field col s12 l6 m6">
