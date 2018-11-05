@@ -81,6 +81,9 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("            \n");
       out.write("            <!--estilo footer-->\n");
       out.write("            <link type=\"text/css\" rel=\"stylesheet\" href=\"css/footer.css\"  media=\"screen,projection\"/>\n");
+      out.write("            \n");
+      out.write("            <!--estilo watch(Reloj)-->\n");
+      out.write("            <link type=\"text/css\" rel=\"stylesheet\" href=\"css/timePicker.css\"  media=\"screen,projection\"/>\n");
       out.write("\n");
       out.write("            <!--estilo materialize.css-->\n");
       out.write("            <link type=\"text/css\" rel=\"stylesheet\" href=\"materialize/css/materialize.min.css\"  media=\"screen,projection\"/>    \n");
@@ -220,13 +223,13 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                                           <div class=\"input-field col s12 l6 m6\">\n");
       out.write("                                                               <p id=\"input_msg\">Hora de salida</p>\n");
       out.write("                                                               <br>\n");
-      out.write("                                                               <input id=\"input_txt\" type=\"time\" name=\"f_horasal\" placeholder=\"Hora salida\">\n");
+      out.write("                                                               <input id=\"input_txt\" type=\"time\" name=\"f_horasal\" class=\"time-picker form-control\" name=\"3\" placeholder=\"Hora salida\" value=\"08:00\">\n");
       out.write("                                                           </div>\n");
       out.write("                                            \n");
       out.write("                                                           <div class=\"input-field col s12 l6 m6\">\n");
       out.write("                                                               <p id=\"input_msg\">Hora de ingreso</p>\n");
       out.write("                                                               <br>\n");
-      out.write("                                                               <input id=\"input_txt\" type=\"time\" name=\"f_horaingre\" placeholder=\"Hora ingreso\">\n");
+      out.write("                                                               <input id=\"input_txt\" type=\"time\" name=\"f_horaingre\" class=\"time-picker form-control\" name=\"3\" placeholder=\"Hora ingreso\" value=\"11:00\">\n");
       out.write("                                                           </div>\n");
       out.write("                                            \n");
       out.write("                                                           <div class=\"input-field col s12 l6 m6\">\n");
@@ -305,6 +308,8 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        \n");
       out.write("            <!--JavaScript at end of body for optimized loading-->\n");
       out.write("            <script type=\"text/javascript\" src=\"materialize/js/materialize.min.js\"></script>\n");
+      out.write("            <!--JS plugin Reloj-->\n");
+      out.write("            <script type=\"text/javascript\" src=\"js/watch/jquery-timepicker.js\"></script>\n");
       out.write("                \n");
       out.write("    </body>\n");
       out.write("</html>\n");
