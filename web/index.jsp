@@ -44,31 +44,26 @@
         <!--nav principal--->
         
         <nav class="nav-wrapper" id="nav_principal">
-            
-            
-            
             <div class="container">
+                <a id="logo_encab"  href="#" class="brand-logo hide-on-small-only">BieneSoft</a>
 
-                
-                <a id="logo_encab"  href="#" class="brand-logo hide-on-small-only">Biene-Soft</a>
+                <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
+                    <ul  class="right hide-on-med-and-down">
+                        <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
+                    </ul>
+                </a>
 
-                    <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
-                        <ul  class="right hide-on-med-and-down">
-                            <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
-                        </ul>
-                    </a>
-                
-                    <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
-                        <ul  class="right hide-on-med-and-down">
-                            <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
-                        </ul>
-                    </a>
-                
-                    <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
-                        <ul  class="right hide-on-med-and-down">
-                            <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
-                        </ul>
-                    </a>
+                <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
+                    <ul  class="right hide-on-med-and-down">
+                        <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
+                    </ul>
+                </a>
+
+                <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
+                    <ul  class="right hide-on-med-and-down">
+                        <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
+                    </ul>
+                </a>
             </div>  
         </nav> 
         
@@ -97,7 +92,7 @@
                             <form action="ServletLogin">
 
                              <div id="container-login" class="container-login l12 m12 s12">
-                                 <h4 class="header-login" id="header-login" >ingresa</h4>
+                                 <h4 class="header-login" id="header-login" >Ingresa</h4>
 
                             
                            <div class="col l12 m12 s12">

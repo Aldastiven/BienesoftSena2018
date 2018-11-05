@@ -56,7 +56,7 @@
         <nav class="nav-wrapper" id="nav_principal">
             <div class="container">
 
-                <a id="logo_encab"  href="#" class="brand-logo hide-on-small-only black-text">Biene-Soft</a>
+                <a id="logo_encab"  href="#" class="brand-logo hide-on-small-only white-text">BieneSoft</a>
                 
                 <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
                     <i>
@@ -97,10 +97,10 @@
         <!--nav secundario (opciones)--->
         
         <nav id="nav_menu" class="hide-on-med-and-down" >
-                        <a href="aprendiz.jsp">
-                            <input id="opc_menu_2" type="submit" value="Inicio"/>
-                            <img src="iconos_nav_bar/home.png" style="width: 19px; position: relative; left: -40px; top: -8px;"/>
-                        </a>   
+            <a href="aprendiz.jsp">
+                <input id="opc_menu_2" type="submit" value="Inicio"/>
+                <img src="iconos_nav_bar/home.png" style="width: 19px; position: relative; left: -40px; top: -8px;"/>
+            </a>   
         </nav>
         <!--**************************************************************************************************-->
 
@@ -112,7 +112,7 @@
         <label id="user_text" class="user_text hide-on-med-and-down">Aprendiz</label> 
             <%
                 HttpSession rnombre=request.getSession();
-                String nom=(String)rnombre.getAttribute("datico");
+                String nom=(String)rnombre.getAttribute("nombre");
      
              %>
         <p id="user_text" class="user_text hide-on-med-and-down"><%=nom%></p>
@@ -120,7 +120,7 @@
 
  <!--*********************************************************-->    
         
-        <!--------FORMULARIO------------------------------------->
+    <!----------------------FORMULARIO--------------------------->
         
         <div class="container" style="margin-bottom:15px;">
             
@@ -134,90 +134,90 @@
 
         %>
                     
-                                        <div class="row" id="container_form_small"  style="height: 420px;">
-                                                           <div class="input-field col s12 m6 l6">
-                                                               <p id="input_msg">Documento del aprendiz</p>
-                                                               <br>
-                                                               <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz" value="<%=id%>" readonly>
-                                                           </div>   
+    <div class="row" id="container_form_small"  style="height: 420px;">
+        <div class="input-field col s12 m6 l6">
+            <p id="input_msg">Documento del aprendiz</p>
+            <br>
+            <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz" value="<%=id%>" readonly>
+        </div>   
 
-                                                                <div class="row">
-                                                                    <div class="input-field col s12 l6 m6">
-                                                                        <select name="tipoper" class="browser-default">
-                                                                            <option >elige el tipo de permiso</option>
-                                                                            <option value="semana morning">semana mañana</option>
-                                                                            <option value="semana tarde">semana tarde</option>
-                                                                            <option value="fin de semana">fin de semana</option>
-                                                                            <option value="Extra">Extra</option>
-                                                                         </select>
-                                                                    </div>
-                                                                </div>
-                                                           
-                                            
-                                                            <div class="input-field col s12 l6 m6">
-                                                               <p id="input_msg">Fecha de salida</p>
-                                                               <br>
-                                                               <input id="input_txt" type="date" name="f_fechsal" placeholder="Fecha salida">
-                                                           </div>
-                                            
-                                                            <div class="input-field col s12 l6 m6">
-                                                               <p id="input_msg">Fecha de ingreso</p>
-                                                               <br>
-                                                               <input id="input_txt" type="date" name="f_fechingre" placeholder="Fecha ingreso">
-                                                           </div>
-                                                           
-                                                           <div class="input-field col s12 l6 m6">
-                                                               <p id="input_msg">Hora de salida</p>
-                                                               <br>
-                                                               <input id="input_txt" type="time" name="f_horasal" class="time-picker form-control" name="3" placeholder="Hora salida" value="08:00">
-                                                           </div>
-                                            
-                                                           <div class="input-field col s12 l6 m6">
-                                                               <p id="input_msg">Hora de ingreso</p>
-                                                               <br>
-                                                               <input id="input_txt" type="time" name="f_horaingre" class="time-picker form-control" name="3" placeholder="Hora ingreso" value="11:00">
-                                                           </div>
-                                            
-                                                           <div class="input-field col s12 l6 m6">
-                                                               <p id="input_msg">Motivo</p>
-                                                               <br>
-                                                               <input id="input_txt" type="text" name="f_moti" placeholder="Motivo">
-                                                           </div>
-                                            
-                                                           <div class="input-field col s12 l6 m6">
-                                                               <p id="input_msg">Evidencia</p>
-                                                               <br>
-                                                               <input type="file" name="f_evidenciaAdjunta" accept="imagen/*">
-                                                           </div>
-                                       </div>
+             <div class="row">
+                 <div class="input-field col s12 l6 m6">
+                     <select name="tipoper" class="browser-default">
+                         <option >elige el tipo de permiso</option>
+                         <option value="semana morning">semana mañana</option>
+                         <option value="semana tarde">semana tarde</option>
+                         <option value="fin de semana">fin de semana</option>
+                         <option value="Extra">Extra</option>
+                      </select>
+                 </div>
+             </div>
+
+
+         <div class="input-field col s12 l6 m6">
+            <p id="input_msg">Fecha de salida</p>
+            <br>
+            <input id="input_txt" type="date" name="f_fechsal" placeholder="Fecha salida">
+        </div>
+
+         <div class="input-field col s12 l6 m6">
+            <p id="input_msg">Fecha de ingreso</p>
+            <br>
+            <input id="input_txt" type="date" name="f_fechingre" placeholder="Fecha ingreso">
+        </div>
+
+        <div class="input-field col s12 l6 m6">
+            <p id="input_msg">Hora de salida</p>
+            <br>
+            <input id="input_txt" type="time" name="f_horasal" class="time-picker form-control" name="3" placeholder="Hora salida" value="08:00">
+        </div>
+
+        <div class="input-field col s12 l6 m6">
+            <p id="input_msg">Hora de ingreso</p>
+            <br>
+            <input id="input_txt" type="time" name="f_horaingre" class="time-picker form-control" name="3" placeholder="Hora ingreso" value="11:00">
+        </div>
+
+        <div class="input-field col s12 l6 m6">
+            <p id="input_msg">Motivo</p>
+            <br>
+            <input id="input_txt" type="text" name="f_moti" placeholder="Motivo">
+        </div>
+
+        <div class="input-field col s12 l6 m6">
+            <p id="input_msg">Evidencia</p>
+            <br>
+            <input type="file" name="f_evidenciaAdjunta" accept="imagen/*">
+        </div>
+   </div>
                                
                                
 <!----------------------------***********ESTILOS DE LOS BOTONES EN (buttons.css)*******************************---------------------------------------------------------->
 
-                                       <div id="div_buttom" class="div_buttom col  s12">
-                                           
-                                               <div id="btn_container" class="btn_container row ">                                               
-                                                    <button type="submit" name="btn-guardar" id="btn_action_guardar" class="btn_action_guardar l12  m12 s12">
-                                                        <p id="txt_buttom" class="txt_buttom">
-                                                            Enviar
-                                                            <img id="img_buttom" class="img_buttom" src="icon_acciones/enviar.png" />
-                                                        </p>   
-                                                    </button>  
+    <div id="div_buttom" class="div_buttom col  s12">
 
-                                                   <a>
-                                                       <button type="submit" name="" id="btn_action_eliminar" class="btn_action_eliminar l12  m12 s12">
-                                                                <p id="txt_buttom" class="txt_buttom">
-                                                                    Cancelar
-                                                                    <img id="img_buttom" class="img_buttom" src="icon_acciones/cancelar.png" />
-                                                                </p>   
-                                                            </button> 
-                                                   </a>
-                                                                                                 
-                                               </div>
-                                           
-                                         </div> 
+            <div id="btn_container" class="btn_container row ">                                               
+                 <button type="submit" name="btn-guardar" id="btn_action_guardar" class="btn_action_guardar l12  m12 s12">
+                     <p id="txt_buttom" class="txt_buttom">
+                         Enviar
+                         <img id="img_buttom" class="img_buttom" src="icon_acciones/enviar.png" />
+                     </p>   
+                 </button>  
+
+                <a>
+                    <button type="submit" name="" id="btn_action_eliminar" class="btn_action_eliminar l12  m12 s12">
+                             <p id="txt_buttom" class="txt_buttom">
+                                 Cancelar
+                                 <img id="img_buttom" class="img_buttom" src="icon_acciones/cancelar.png" />
+                             </p>   
+                         </button> 
+                </a>
+
+            </div>
+
+      </div> 
 <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-                           </form>
+    </form>
             </div>
 
                     

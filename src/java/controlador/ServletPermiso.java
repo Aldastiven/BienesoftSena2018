@@ -62,7 +62,7 @@ public class ServletPermiso extends HttpServlet {
          this.eliminarPermiso(request,response);
         }
    
-        //SELECCIONA  SEGURIDAD
+        //SEGURIDAD
         if(request.getParameter("btn-autorizado") != null){
          this.permisoAutorizado(request,response);
         }
@@ -198,7 +198,7 @@ public class ServletPermiso extends HttpServlet {
         
         Id=Integer.parseInt(request.getParameter("t_Id"));
         documento=Integer.parseInt(request.getParameter("t_numerodocumento"));
-        tipo=request.getParameter("tipoper");
+        tipo=request.getParameter("t_tipo");
         fecha_salida=request.getParameter("t_fechsal");
         fecha_ingreso=request.getParameter("t_fechingre");
         hora_Salida=request.getParameter("t_horasal");
@@ -214,10 +214,10 @@ public class ServletPermiso extends HttpServlet {
         evidenciaAdjunta=request.getParameter("t_evidenciaAdjunta");
      
         
-            permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-            crudPermisos crud = new crudPermisos();
-            crud.eliminar_permiso(setget);
-            response.sendRedirect("t_permiso_coordinador.jsp");
+        permisoSG setget = new permisoSG(Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+        crudPermisos crud = new crudPermisos();
+        crud.eliminar_permiso(setget);
+        response.sendRedirect("t_permiso_coordinador.jsp");
         
         }
     

@@ -27,7 +27,6 @@
             <!--estilo de la tabla--> 
             <link type="text/css" rel="stylesheet" href="css/tabla.css"  media="screen,projection"/>
             
-            
             <!--estilo modal-->
             <link type="text/css" rel="stylesheet" href="css/modal.css" media="screen,projection"/>
             
@@ -58,30 +57,15 @@
         <!--nav principal--->
         
         <nav class="nav-wrapper" id="nav_principal">
-            <div class="container">
-
-                
+            <div class="container"> 
                 <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
                     <i>
                         <img style="width: 25px; margin-top: 10px;" src="materialize/icons/white/menu.png" />
                     </i>
-                    
-                        <ul class="right hide-on-med-and-down">
-                        <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
-                        </ul>
-                </a>
-                
-                    <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
-                        <ul  class="right hide-on-med-and-down">
-                            <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
-                        </ul>
-                    </a>
-                
-                    <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
-                        <ul  class="right hide-on-med-and-down">
-                            <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
-                        </ul>
-                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <lu id="li" title="cerrar cesion"><a href="index.jsp"><img style="width: 25px; margin-top: 10px;" src="icon_acciones/salida.png" /></a></lu>
+                    </ul>
+                </a> 
             </div>  
         </nav> 
         
@@ -105,14 +89,10 @@
         <label id="user_text" class="user_text hide-on-med-and-down">Seguridad</label> 
             <%
                 HttpSession rnombre=request.getSession();
-                String nom=(String)rnombre.getAttribute("datico");
+                String nom=(String)rnombre.getAttribute("nombre");
              %>
         <p id="user_text" class="user_text hide-on-med-and-down"><%=nom%></p>
 
-
-          <!--*********************************************************-->
-        
-        
         <!--*******************************OBJETO  MODULO CONSULTAS***************************-->
         
         <div class="container hide-on-small-only">
@@ -139,9 +119,6 @@
         
         
          <!--**************************************************************************************************-->
-         
-
-
 
  <!--*******************************OBJETO TABLA***************************-->
         

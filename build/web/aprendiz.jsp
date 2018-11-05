@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bienesoft | home Coordinador</title>
+    <title>Bienesoft | Home aprendiz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
@@ -49,9 +49,9 @@
                         <img style="width: 25px; margin-top: 10px;" src="materialize/icons/white/menu.png" />
                     </i>
                     
-                        <ul class="right hide-on-med-and-down">
-                            <lu id="li" title="cerrar cesion"><a href="index.jsp"><img style="width: 25px; margin-top: 10px;" src="icon_acciones/salida.png" /></a></lu>
-                        </ul>
+                    <ul class="right hide-on-med-and-down">
+                        <lu id="li" title="cerrar cesion"><a href="index.jsp"><img style="width: 25px; margin-top: 10px;" src="icon_acciones/salida.png" /></a></lu>
+                    </ul>
                 </a>
                 
                     <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
@@ -84,21 +84,21 @@
             <!--------------------objeto perfil--------------------------------------------------->
 
             <div class="row contenedor-perfil hide-on-med-and-down">
-                             <%
-                                HttpSession rnombre=request.getSession();
-                                String nom=(String)rnombre.getAttribute("datico");
-                                String fot=(String)rnombre.getAttribute("foto");
-                                int id=(int)rnombre.getAttribute("iden");
-                             %>
+                <%
+                   HttpSession rnombre=request.getSession();
+                   String nom=(String)rnombre.getAttribute("nombre");
+                   String fot=(String)rnombre.getAttribute("foto");
+                   int id=(int)rnombre.getAttribute("iden");
+                %>
 
-                             <img id="img_foto" class="img_foto" src="<%=fot%>" />
-                             
-                             <div id="cont_name" class="cont_name">
-                                    <label id="msg_user" class="msg_user">Aprendiz</label>
+                <img id="img_foto" class="img_foto" src="<%=fot%>" />
 
-                                    <p id="user_text_nombre" class="user_text_nombre"><%=nom%></p>
-                                    <p id="user_text_nombre" class="user_text_nombre"><%=id%></p>
-                             </div>
+                <div id="cont_name" class="cont_name">
+                    <label id="msg_user" class="msg_user">Aprendiz</label>
+
+                    <p id="user_text_nombre" class="user_text_nombre"><%=nom%></p>
+                    <p id="user_text_nombre" class="user_text_nombre"><%=id%></p>
+                </div>
                              
             </div>
                              
@@ -117,43 +117,41 @@
                     
        
 
-            <!------------------objeto opciones-------------------------------------------->
-            <div class=" contenedor-principal container row l12 m12 s12">
+    <!------------------objeto opciones-------------------------------------------->
+    <div class=" contenedor-principal container row l12 m12 s12">
 
-                <div class="row">
-                    
-                    <a href="f_permiso.jsp">
-                        <div class="option_menu col s12 l6 m12">
-                            <p class="head_info" id="head_info">crear permiso</p>
-                            <img src="css_index_user/icons/coordinador/menu_permiso.png" style="width: 120px;"/>
-                            <p class="info_text_menu" id="info_text_menu">Crea tu permiso aqui</p>
-                        </div>
-                    </a>
-                    
-                    <a href="t_aprendiz.jsp">
-                        <div class="option_menu col s12 l5 m12">
-                            <p class="head_info" id="head_info"> consultar datos como aprendiz </p>
-                            <img src="css_index_user/icons/aprendiz/mochila.png" style="width: 120px;" />
-                            <p class="info_text_menu" id="info_text_menu">Consulta tu informacion como aprendiz aqui</p>
-                        </div>
-                    </a>
-                    
-                    
+        <div class="row">
+
+            <a href="f_permiso.jsp">
+                <div class="option_menu col s12 l6 m12">
+                    <p class="head_info" id="head_info">crear permiso</p>
+                    <img src="css_index_user/icons/coordinador/menu_permiso.png" style="width: 120px;"/>
+                    <p class="info_text_menu" id="info_text_menu">Crea tu permiso aqui</p>
                 </div>
+            </a>
 
-            </div>
+            <a href="t_aprendiz.jsp">
+                <div class="option_menu col s12 l5 m12">
+                    <p class="head_info" id="head_info"> consultar datos como aprendiz </p>
+                    <img src="css_index_user/icons/aprendiz/mochila.png" style="width: 120px;" />
+                    <p class="info_text_menu" id="info_text_menu">Consulta tu informacion como aprendiz aqui</p>
+                </div>
+            </a>
 
-         <!--***************FOOTER*********************-->
-        <footer class="page-footer" id="footer_form">
 
-                    <div class="container white-text center">
-                    © 2018 Biene-Soft
-                    <br>
-                    Todos los derechos reservados
-                    </div>
-                    
-        </footer>
-        <!------------------------------------------------------------------------------------------------------>
+        </div>
+
+    </div>
+
+    <!--***************FOOTER*********************-->
+    <footer class="page-footer" id="footer_form">
+        <div class="container white-text center">
+        © 2018 BieneSoft
+        <br>
+        Todos los derechos reservados
+        </div>
+    </footer>
+    <!------------------------------------------------------------------------------------------------------>
             
 
 

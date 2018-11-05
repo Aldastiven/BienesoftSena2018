@@ -93,7 +93,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"container\">\n");
       out.write("\n");
       out.write("                \n");
-      out.write("                <a id=\"logo_encab\"  href=\"#\" class=\"brand-logo hide-on-small-only\">Biene-Soft</a>\n");
+      out.write("                <a id=\"logo_encab\"  href=\"#\" class=\"brand-logo hide-on-small-only\">BieneSoft</a>\n");
       out.write("\n");
       out.write("                    <a href=\"#\" data-target=\"menu-responsive\" class=\"sidenav-trigger\"> \n");
       out.write("                        <ul  class=\"right hide-on-med-and-down\">\n");
@@ -140,7 +140,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <form action=\"ServletLogin\">\n");
       out.write("\n");
       out.write("                             <div id=\"container-login\" class=\"container-login l12 m12 s12\">\n");
-      out.write("                                 <h4 class=\"header-login\" id=\"header-login\" >ingresa</h4>\n");
+      out.write("                                 <h4 class=\"header-login\" id=\"header-login\" >Ingresa</h4>\n");
       out.write("\n");
       out.write("                            \n");
       out.write("                           <div class=\"col l12 m12 s12\">\n");
