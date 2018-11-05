@@ -521,23 +521,23 @@
     </div>
 
     <!-----**************************FOOTER MODAL*********************----------->
-                <div id="div_buttom" class="div_buttom col  s12">
+            <div id="div_buttom" class="div_buttom col  s12">
 
-                        <div id="btn_container" class="btn_container row ">                                               
-                                    <button type="submit" name="btn_actualizar" id="btn_action_salida" class="btn_action_salida l12  m12 s12">
-                                        <p id="txt_buttom" class="txt_buttom">
-                                            Enviar
-                                        </p>   
-                                    </button>   
-                            
-                                    <button type="submit" name="btn-eliminar" id="btn_action_eliminar" class="btn_action_salida l12  m12 s12">
-                                        <p id="txt_buttom" class="txt_buttom">
-                                            Eliminar
-                                        </p>   
-                                    </button> 
-                        </div>
+                <div id="btn_container" class="btn_container row ">                                               
+                    <button type="submit" name="btn_actualizar" id="btn_action_salida" class="btn_action_salida l12  m12 s12">
+                        <p id="txt_buttom" class="txt_buttom">
+                            Enviar
+                        </p>   
+                    </button>   
 
+                    <button type="submit" name="btn-eliminar" id="btn_action_eliminar" class="btn_action_salida l12  m12 s12">
+                        <p id="txt_buttom" class="txt_buttom">
+                            Eliminar
+                        </p>   
+                    </button> 
                 </div>
+
+            </div>
 
 </div>
 
