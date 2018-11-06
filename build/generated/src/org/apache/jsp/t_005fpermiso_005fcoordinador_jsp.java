@@ -647,8 +647,8 @@ public final class t_005fpermiso_005fcoordinador_jsp extends org.apache.jasper.r
       out.write("                </p>   \n");
       out.write("            </button>   \n");
       out.write("            <button type=\"submit\" name=\"btn-eliminar\" id=\"btn_action_eliminar\" class=\"btn_action_salida l12  m12 s12\">\n");
-      out.write("                <p id=\"txt_buttom\" class=\"txt_buttom\">\n");
-      out.write("                    Eliminar\n");
+      out.write("                <p id=\"txt_buttom\" class=\"txt_buttom\" >\n");
+      out.write("                    <input name=\"btn-eliminar\">Eliminar\n");
       out.write("                </p>   \n");
       out.write("            </button> \n");
       out.write("        </div>\n");

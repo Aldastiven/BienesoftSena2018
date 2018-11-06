@@ -67,6 +67,11 @@ public class ServletPermiso extends HttpServlet {
          this.permisoAutorizado(request,response);
         }
         
+        //BTN CANCELAR PERMISO
+        if(request.getParameter("btn-cancel") != null){
+          this.cancelPermiso(request,response);
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -220,7 +225,20 @@ public class ServletPermiso extends HttpServlet {
         response.sendRedirect("t_permiso_coordinador.jsp");
         
         }
-    
+        
+        
+        //CANCELA PERMISO
+        private void cancelPermiso(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+
+            response.sendRedirect("f_permiso.jsp");
+        
+        }
+        
+        
+       
     
         //AUTORIZACION DE SEGURIDAD---------------------******PERMISOS SALIDA/ENTRADA***************************
         

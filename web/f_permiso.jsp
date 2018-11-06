@@ -127,7 +127,7 @@
             <div class="container_form_small">
                 <h1 id="title_container">REGISTRO PERMISO</h1>
 
-                <form action="ServletPermiso" enctype="multipart/form-data" method="post"> 
+    <form action="ServletPermiso" enctype="multipart/form-data" method="post"> 
                     
         <%
             int id=(int)rnombre.getAttribute("iden");
@@ -205,12 +205,12 @@
                  </button>  
 
                 <a>
-                    <button type="submit" name="" id="btn_action_eliminar" class="btn_action_eliminar l12  m12 s12">
-                             <p id="txt_buttom" class="txt_buttom">
-                                 Cancelar
-                                 <img id="img_buttom" class="img_buttom" src="icon_acciones/cancelar.png" />
-                             </p>   
-                         </button> 
+                    <button type="submit" name="btn-cancel" id="btn_action_eliminar" class="btn_action_eliminar l12  m12 s12">
+                        <p id="txt_buttom" class="txt_buttom">
+                            Cancelar
+                            <img id="img_buttom" class="img_buttom" src="icon_acciones/cancelar.png" />
+                        </p>   
+                    </button> 
                 </a>
 
             </div>
