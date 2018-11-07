@@ -111,18 +111,12 @@ public class tipopermiso {
         JOptionPane.showConfirmDialog(null,d);
         //MES: subindice
         int m= Integer.parseInt(FR[1]);
-        
-        
-        
-        
-        
-        
         //Ciclo
-//        for(int i=0; i<festivos.length; i++){
-//            for(int j=0; j<festivos[i].length; j++){
-//                JOptionPane.showMessageDialog(null, "Colombia: "+festivos[i][j]);
-//            }
-//        }
+        for(int i=0; i<festivos.length; i++){
+            for(int j=0; j<festivos[i].length; j++){
+                JOptionPane.showMessageDialog(null, "Colombia: "+festivos[i][j]);
+            }
+        }
 
         
         

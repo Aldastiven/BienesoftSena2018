@@ -9,17 +9,6 @@
     height: 40px;
     line-height: 20px;
     box-shadow: none;
-}   
-
-#img_user{
-    background: rgba(0,0,0, .1);
-    width: 60px;
-    height: 60px;
-    border-radius: 50px 50px 50px 50px;
-    border: 2px solid white;
-    position: absolute;
-    top: 5px;
-    left: 10px;
 }
 
 #img_user:hover{

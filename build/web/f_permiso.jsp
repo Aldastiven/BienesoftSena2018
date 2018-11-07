@@ -62,21 +62,23 @@
                     <i>
                         <img style="width: 25px; margin-top: 10px;" src="materialize/icons/white/menu.png" />
                     </i>
-                    
+          
                         <ul class="right hide-on-med-and-down">
-                        <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="materialize/icons/white/menu.png" /></a></lu>
+                            <lu id="li" title="cerrar cesion"><a href="index.jsp"><img style="width: 25px; margin-top: 10px;" src="icon_acciones/salida.png" /></a></lu>
                         </ul>
+                    
+                        
                 </a>
                 
                     <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
                         <ul  class="right hide-on-med-and-down">
-                            <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="materialize/icons/white/menu.png" /></a></lu>
+                            <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
                         </ul>
                     </a>
                 
                     <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
                         <ul  class="right hide-on-med-and-down">
-                            <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="materialize/icons/white/menu.png" /></a></lu>
+                            <lu id="li" title="cerrar cesion"><a href=""><img style="width: 25px; margin-top: 10px;" src="" /></a></lu>
                         </ul>
                     </a>
             </div>  
@@ -124,7 +126,7 @@
         
         <div class="container" style="margin-bottom:15px;">
             
-            <div class="container_form_small">
+            <div class="contenedor_blanco">
                 <h1 id="title_container">REGISTRO PERMISO</h1>
 
     <form action="ServletPermiso" enctype="multipart/form-data" method="post"> 
@@ -134,7 +136,7 @@
 
         %>
                     
-    <div class="row" id="container_form_small"  style="height: 420px;">
+    <div class="row" id="container_form_large"  style="height: 420px;">
         <div class="input-field col s12 m6 l6">
             <p id="input_msg">Documento del aprendiz</p>
             <br>

@@ -21,6 +21,11 @@
     margin-bottom: 15px;
 }
 
+.contenedor_blanco{
+    background: red;
+    height: auto;
+}
+
 #input_txt{
     background-color: #EEEEEE;
     border: 1px solid #b2bec3;
@@ -48,7 +53,7 @@
     padding-top: 20px;
     background-color: #fff;
     margin-top: -5%;
-    height: 200px;
+    height: auto;
 }
 
 #container_form_large{

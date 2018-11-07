@@ -105,8 +105,6 @@
         <nav id="nav_menu" class="hide-on-med-and-down" >
             <a href="coordinador.jsp">
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
-                <!--<i class="material-icons">add</i>-->
-                <img src="iconos_nav_bar/home.png" style="width: 19px; position: absolute; left: 196px; top: 48px;"/>
             </a>
             <a href="t_permiso_coordinador.jsp">
                 <input id="opc_menu_2" type="submit" value="Permisos"/>
@@ -392,10 +390,8 @@
                     Consultar
                 </div>
 
-                <div class="" id="">
-                    <div class="btn-cerrar_modal-acordion" id="btn-cerrar_modal-acordion">
-                        <img src="icon_acciones/icon_eliminar.png" />
-                    </div>
+                <div class="modal-background-acordion" id="modal-background-acordion">
+                    
                 <div class="container">
                     <h1 id="title" style="margin-bottom: 5px;">acerca del permiso</h1>
 
@@ -512,7 +508,7 @@
             </button>   
             <button type="submit" name="btn-eliminar" id="btn_action_eliminar" class="btn_action_salida l12  m12 s12">
                 <p id="txt_buttom" class="txt_buttom" >
-                    <input name="btn-eliminar">Eliminar
+                    Eliminar
                 </p>   
             </button> 
         </div>
@@ -520,7 +516,7 @@
 
 </div>
 
-    </form>
+</form>
 
             </div>
         <%

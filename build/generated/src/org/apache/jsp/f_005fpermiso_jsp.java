@@ -174,7 +174,7 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        \n");
       out.write("        <div class=\"container\" style=\"margin-bottom:15px;\">\n");
       out.write("            \n");
-      out.write("            <div class=\"container_form_small\">\n");
+      out.write("            <div class=\"contenedor_blanco\">\n");
       out.write("                <h1 id=\"title_container\">REGISTRO PERMISO</h1>\n");
       out.write("\n");
       out.write("    <form action=\"ServletPermiso\" enctype=\"multipart/form-data\" method=\"post\"> \n");
@@ -186,7 +186,7 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
         
       out.write("\n");
       out.write("                    \n");
-      out.write("    <div class=\"row\" id=\"container_form_small\"  style=\"height: 420px;\">\n");
+      out.write("    <div class=\"row\" id=\"container_form_large\"  style=\"height: 420px;\">\n");
       out.write("        <div class=\"input-field col s12 m6 l6\">\n");
       out.write("            <p id=\"input_msg\">Documento del aprendiz</p>\n");
       out.write("            <br>\n");

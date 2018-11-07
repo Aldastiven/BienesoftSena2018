@@ -20,9 +20,16 @@
     <!--estilo materialize.css-->
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>    
 
-    <!--estilo encabezado-->
-    <link type="text/css" rel="stylesheet" href="css_index_user/encabezado.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css_index_user/cards-prueba.css"  media="screen,projection"/>
 
+    <!--importando--->
+            <script src="js/jquery.js"></script>
+
+</head>
+<body>
+
+        
+        <!--*******************
     <!--estilo footer-->
     <link type="text/css" rel="stylesheet" href="css_index_user/footer.css"  media="screen,projection"/>
 
@@ -145,12 +152,14 @@
 
     <!--***************FOOTER*********************-->
     <footer class="page-footer" id="footer_form">
-        <div class="container white-text center">
-        © 2018 BieneSoft
-        <br>
-        Todos los derechos reservados
-        </div>
-    </footer>
+
+                    <div class="container white-text center">
+                    © 2018 Biene-Soft
+                    <br>
+                    Todos los derechos reservados
+                    </div>
+                    
+        </footer>
     <!------------------------------------------------------------------------------------------------------>
             
 
