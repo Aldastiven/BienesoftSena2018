@@ -16,7 +16,6 @@ public class crudPermisos {
     ResultSet rs=null;
     
     //GUARDAR 
-    
     public void guardar_permiso(permisoSG ing){
         try{          
             ps=cnn.prepareStatement("INSERT INTO permiso VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");   
@@ -66,7 +65,10 @@ public class crudPermisos {
         int x=0;
         
         try {
-            ps=cnn.prepareStatement("DELETE FROM permiso WHERE per_ID='"+ing.getPer_ID()+"' ");
+            ps=cnn.prepareStatement("DELETE FROM permiso WHERE  per_ID=?  AND per_Aprendiz_Apr_documento=? ");
+            ps.setInt(1,ing.getPer_ID());
+            ps.setInt(2,ing.getPer_Aprendiz_Apr_documento());
+            
             x=ps.executeUpdate();          
             JOptionPane.showMessageDialog(null,"Registro eliminado");
             
@@ -77,6 +79,7 @@ public class crudPermisos {
         return x;
     }
 
+    
    
     
 }

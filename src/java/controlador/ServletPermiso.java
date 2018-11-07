@@ -337,8 +337,8 @@ public class ServletPermiso extends HttpServlet {
                         JOptionPane.showMessageDialog(null, "No puede salir");
                     }
                 }else if(setget.getPer_tipo().equals("fin de semana")){
-                    //tipoper.metodo_finsemana(fechaReal, horaReal,setget.getPer_tipo());//horareal y tipopermiso
-                    
+                    //tipoper.metodo_finsemana(fechaReal, horaReal,setget.getPer_tipo());//fechaReal,horaReal y tipopermiso
+                    boolean findesemana = tipoper.metodo_finsemana(fechaReal,horaReal);
                     
                 }
             }
@@ -356,6 +356,35 @@ public class ServletPermiso extends HttpServlet {
         
         
         
+        
+        //FIN DE SEMANA
+//        private void finDeSemana(HttpServletRequest request, HttpServletResponse response) 
+//        throws ServletException, IOException {
+//        response.setContentType("text/html;charset=UTF-8");
+//        PrintWriter out = response.getWriter();
+//        
+//        
+//            
+//            int id= Integer.parseInt(request.getParameter("t_Id"));
+//            fecha_salida=request.getParameter("t_fechsal");
+//            fecha_ingreso=request.getParameter("t_fechingre");
+//            hora_Salida=request.getParameter("t_horasal");
+//            hora_ingreso=request.getParameter("t_horaingre");
+//            fecha_ingresoReal=request.getParameter("f_fireal");
+//            hora_ingresoReal=request.getParameter("f_hireal");
+//            fecha_salidaReal=request.getParameter("f_fsreal");
+//            hora_salidaReal=request.getParameter("f_hsreal");
+//            response.sendRedirect("f_permiso.jsp");
+//            
+//            permisoSG setget = new permisoSG();
+//            tipopermiso fs=new tipopermiso();
+//            
+//            //Llamar al metodo de finsemana
+//            if(fs.metodo_finsemana(setget.getPer_fecha_ingreso() )){
+//                JOptionPane.showMessageDialog(null, fs);
+//            }
+//        
+//        }
         
     
     
