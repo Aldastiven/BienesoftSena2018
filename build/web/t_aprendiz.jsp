@@ -105,25 +105,28 @@
         <!--nav secundario (opciones)--->
         
         <nav id="nav_menu" class="hide-on-med-and-down" >
-                        <a href="t_permiso_coordinador.jsp">
-                            <input id="opc_menu_2" type="submit" value="Permisos"/>
-                        </a>
-                                  
-                        <a href="t_aprendiz.jsp">
-                            <input id="opc_menu_2" type="submit" value="Aprendices"/>
-                        </a>
-            
-                        <a href="t_ficha.jsp">
-                            <input id="opc_menu_2" type="submit" value="Fichas"/>
-                        </a>    
-            
-                        <a href="t_aprendiz_rel_patrocinio.jsp">
-                            <input id="opc_menu_2" type="submit" value="Patrocinio"/>
-                        </a>
-            
-                        <a href="t_habitacion.jsp">
-                            <input id="opc_menu_2" type="submit" value="Habitaciones"/>
-                        </a>
+            <a href="coordinador.jsp">
+                <input id="opc_menu_2" type="submit" value="Inicio"/>
+            </a>
+            <a href="t_permiso_coordinador.jsp">
+                <input id="opc_menu_2" type="submit" value="Permisos"/>
+            </a>
+
+            <a href="t_aprendiz.jsp">
+                <input id="opc_menu_2" type="submit" value="Aprendices"/>
+            </a>
+
+            <a href="t_ficha.jsp">
+                <input id="opc_menu_2" type="submit" value="Fichas"/>
+            </a>    
+
+            <a href="t_aprendiz_rel_patrocinio.jsp">
+                <input id="opc_menu_2" type="submit" value="Patrocinio"/>
+            </a>
+
+            <a href="t_habitacion.jsp">
+                <input id="opc_menu_2" type="submit" value="Habitaciones"/>
+            </a>
         </nav>
         <!--**************************************************************************************************-->
         
@@ -199,7 +202,7 @@
                         for(int i = 0; i< listdat.size(); i++){
                         x = listdat.get(i);
                     %>
-          
+         
                     <tr style="padding: 0px;">
         <form action="ServletAprendiz" enctype="multipart/form-data" method="post">
 
@@ -211,17 +214,17 @@
                     <td><input class="browser-default" type="number" name="t_numeroFicha" value="<%=x.getApr_ficha_fic_numero()%>"></td>
         
                      <td>  
-                         <div id="ver_modal" class="ver_modal" title="consultar aprendiz">
-                             <img src="icon_acciones/ver.png" style="padding-left: 15px" />
-                        </div>
-                     </td>
+                    <div id="btn-ver-permiso-coordinador" class="btn-ver-permiso-coordinador" title="consultar aprendiz">
+                        <img src="icon_acciones/ver.png" style="padding-left: 15px" />
+                    </div>
+                </td>
 
             
 </tr>
 
-                           <!--MODAL-->
+<!--MODAL-->
 
-<div class="modal-background" id="modal-background">
+<div class="modal-background-coordinador" id="modal-background-coordinador">
     
     <div class="btn-cerrar_modal" id="btn-cerrar_modal">
         <img src="icon_acciones/icon_eliminar.png" />

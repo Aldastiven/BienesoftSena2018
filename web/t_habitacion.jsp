@@ -112,25 +112,28 @@ Author     : equipo
     <!--nav secundario (opciones)--->
     
     <nav id="nav_menu" class="hide-on-med-and-down" >
-                        <a href="t_permiso_coordinador.jsp">
-                            <input id="opc_menu_2" type="submit" value="Permisos"/>
-                        </a>
-                                  
-                        <a href="t_aprendiz.jsp">
-                            <input id="opc_menu_2" type="submit" value="Aprendices"/>
-                        </a>
-            
-                        <a href="t_ficha.jsp">
-                            <input id="opc_menu_2" type="submit" value="Fichas"/>
-                        </a>    
-            
-                        <a href="t_aprendiz_rel_patrocinio.jsp">
-                            <input id="opc_menu_2" type="submit" value="Patrocinio"/>
-                        </a>
-            
-                        <a href="t_habitacion.jsp">
-                            <input id="opc_menu_2" type="submit" value="Habitaciones"/>
-                        </a>
+            <a href="coordinador.jsp">
+                <input id="opc_menu_2" type="submit" value="Inicio"/>
+            </a>
+            <a href="t_permiso_coordinador.jsp">
+                <input id="opc_menu_2" type="submit" value="Permisos"/>
+            </a>
+
+            <a href="t_aprendiz.jsp">
+                <input id="opc_menu_2" type="submit" value="Aprendices"/>
+            </a>
+
+            <a href="t_ficha.jsp">
+                <input id="opc_menu_2" type="submit" value="Fichas"/>
+            </a>    
+
+            <a href="t_aprendiz_rel_patrocinio.jsp">
+                <input id="opc_menu_2" type="submit" value="Patrocinio"/>
+            </a>
+
+            <a href="t_habitacion.jsp">
+                <input id="opc_menu_2" type="submit" value="Habitaciones"/>
+            </a>
         </nav>
     
     <!--**************************************************************************************************-->

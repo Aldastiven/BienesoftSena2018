@@ -12,13 +12,18 @@
 
 #title_container{
     background-color: #3498db;
-    padding-top: 20px;
+    padding-top: 8px;
     padding-bottom: 20px;
     height: 70px;
     font-size: 20px;
     text-align: center;
     color: #fff;
     margin-bottom: 15px;
+}
+
+.contenedor_blanco{
+    background: red;
+    height: auto;
 }
 
 #input_txt{
@@ -48,7 +53,7 @@
     padding-top: 20px;
     background-color: #fff;
     margin-top: -5%;
-    height: 200px;
+    height: auto;
 }
 
 #container_form_large{

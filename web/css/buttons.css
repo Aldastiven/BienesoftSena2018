@@ -3,6 +3,7 @@
     margin-bottom: 10px;
     margin-top: -20px;
     border-top: 4px solid gray;
+    text-align: center;
 } 
 
 #btn_action_guardar{
@@ -50,7 +51,7 @@
 }
 
 #btn_container{
-    padding-left: 15%;
+    /*padding-left: 15%;*/
 }
 
 #txt_buttom{
