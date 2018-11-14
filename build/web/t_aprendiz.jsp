@@ -184,7 +184,14 @@
   <!--*******************************OBJETO TABLA***************************-->
         
  <div class="container l12 m12 s12 hide-on-small-only">
-     <h1 id="title_container">APRENDICES</h1>
+    <div class="header_conte">
+        <figcaption class="vicon">
+            <img src="css_index_user/icons/coordinador/vaprendiz.png" height="75px"/> 
+        </figcaption>
+        <div class="prueba">
+            <h1 class="titulonly">APRENDICES</h1>
+        </div>
+    </div>
  
          <div id="table"  class="table" style="margin-top: -10px;">
      

@@ -44,5 +44,12 @@
     width: 19px;
     position: relative;
     top: -8px;
-    right: 34px;
+    right: 39px;
+}
+
+.icon-home{
+    width: 19px;
+    position: relative;
+    right: 185px;
+    top: -8px; 
 }

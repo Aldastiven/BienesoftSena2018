@@ -10,15 +10,42 @@
     left: 20%;
 }
 
-#title_container{
+/*#title_container{
     background-color: #3498db;
-    padding-top: 8px;
+    padding-top: 25px;
     padding-bottom: 20px;
     height: 70px;
     font-size: 20px;
     text-align: center;
     color: #fff;
     margin-bottom: 15px;
+}*/
+
+.titulonly{
+    font-size: 23px;
+    align-self: center;
+    position: relative;
+    left: 328px;
+    color: white;
+}
+
+.prueba{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.vicon{
+    align-self: flex-start;
+}
+
+.header_conte{
+    background-color: #3498db;
+    display: flex;
+    height: 13vh;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .contenedor_blanco{

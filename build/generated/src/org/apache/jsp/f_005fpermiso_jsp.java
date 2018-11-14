@@ -64,6 +64,9 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("            <!--estilo body-->\r\n");
       out.write("            <link type=\"text/css\" rel=\"stylesheet\" href=\"css/body.css\" media=\"screen,projection\"/>\r\n");
       out.write("            \r\n");
+      out.write("            <!--iconos--> \r\n");
+      out.write("            <link type=\"text/css\" rel=\"stylesheet\" href=\"css/styleicons.css\"/>\r\n");
+      out.write("            \r\n");
       out.write("            <!--estilo encabezado-->\r\n");
       out.write("            <link type=\"text/css\" rel=\"stylesheet\" href=\"css/encabezado.css\"  media=\"screen,projection\"/>\r\n");
       out.write("\r\n");
@@ -147,8 +150,12 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        <nav id=\"nav_menu\" class=\"hide-on-med-and-down\" >\r\n");
       out.write("            <a href=\"aprendiz.jsp\">\r\n");
       out.write("                <input id=\"opc_menu_2\" type=\"submit\" value=\"Inicio\"/>\r\n");
-      out.write("                <img src=\"iconos_nav_bar/home.png\"/>\r\n");
-      out.write("            </a>   \r\n");
+      out.write("                <img class=\"icon-h\" src=\"iconos_nav_bar/home.png\"/>\r\n");
+      out.write("            </a>\r\n");
+      out.write("            <a href=\"aprendiz.jsp\">\r\n");
+      out.write("                <input id=\"opc_menu_2\" type=\"submit\" value=\"Inicio\"/>\r\n");
+      out.write("                <img class=\"icon-b\" src=\"iconos_nav_bar/profile.png\"/>\r\n");
+      out.write("            </a>\r\n");
       out.write("        </nav>\r\n");
       out.write("        <!--**************************************************************************************************-->\r\n");
       out.write("\r\n");

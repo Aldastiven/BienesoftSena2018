@@ -104,8 +104,12 @@
         <nav id="nav_menu" class="hide-on-med-and-down" >
             <a href="aprendiz.jsp">
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
-                <img class="icon-h" src="iconos_nav_bar/home.png"/>
-            </a>   
+                <img class="icon-h" src="iconos_nav_bar/profile.png"/>
+            </a>
+            <a href=""><!--FALTA-->
+                <input id="opc_menu_2" type="submit" value="Perfil"/>
+                <img class="icon-home" src="iconos_nav_bar/home.png"/>
+            </a>
         </nav>
         <!--**************************************************************************************************-->
 

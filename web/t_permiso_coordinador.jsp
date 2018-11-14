@@ -111,7 +111,6 @@
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
             </a>
             <a href="t_permiso_coordinador.jsp">
-                <!--<span class="icon-office"></span>-->
                 <img class="icon-b" src="iconos_nav_bar/permisos.png"/>
                 <input id="opc_menu_2" type="submit" value="Permisos"/>
             </a>
@@ -199,8 +198,15 @@
   <!--*******************************OBJETO TABLA***************************-->
         
  <div class="container l12 m12 s12 hide-on-small-only">
-    <h1 id="title_container">PERMISOS</h1>
- 
+    <!--<h1 id="title_container">PERMISOS</h1>-->
+    <div class="header_conte">
+        <figcaption class="vicon">
+            <img src="css_index_user/icons/coordinador/vpermiso.png" height="75px"/> 
+        </figcaption>
+        <div class="prueba">
+            <h1 class="titulonly">PERMISOS</h1>
+        </div>
+    </div>
          <div id="table"  class="table" style="margin-top: -10px;">
      
                 <table class="table scrolling">
