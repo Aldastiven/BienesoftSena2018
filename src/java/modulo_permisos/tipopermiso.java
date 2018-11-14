@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.websocket.SendResult;
 import modelo.aprendizSG;
 import modelo.consultas;
+import modelo.festivoSG;
 import modelo.permisoSG;
 
 /**
@@ -82,41 +83,60 @@ public class tipopermiso {
         int dia, mes, ano;
         //OBTENIENDO DATOS
         dia = calendario.get(Calendar.DAY_OF_WEEK);
-        
+        //fecha
         String FR[] = fechaReal.split("-"); 
+        //hora
+        String horario[] = horaReal.split(":");
+        int hora = Integer.parseInt(horario[0]);
+        int minutos = Integer.parseInt(horario[1]);
         
+        festivoSG fest=new festivoSG();
+        if(fechaReal == fest.getFes_fecha()){
+            JOptionPane.showMessageDialog(null, "Es festivo");
+            //hora
+            if(hora >=8 && hora <18)return true;
+            if(hora==18 && minutos <= 10) return true;
+        }else if(fechaReal != fest.getFes_fecha()){
+            JOptionPane.showMessageDialog(null, "No es festivo");
+            if( (hora >= 8 && hora < 18)) return true;
+            if(hora==18 && minutos <= 10) return true;
+        }
+        //Indicando festivo
+        //No festivo
+        
+
         //Matriz con fila de mes y fila dias festivos
          //mes y dias festivos colombia
-        int[][] festivos = {
-            {1, 1, 8},//enero 
-            {3, 19, 29, 30},//marzo 
-            {5, 1, 14},//mayo
-            {6, 4, 11},//junio
-            {7, 2, 20},//julio
-            {8, 7, 20},//agosto
-            {10, 15},//octubre
-            {11, 5, 12},//noviembre
-            {12, 8, 25},//diciembre
-        };
+//        int[][] festivos = {
+//            {1, 1, 7},//enero 
+//            {19, 29, 30},//marzo 
+//            {5, 1, 14},//mayo
+//            {6, 4, 11},//junio
+//            {7, 2, 20},//julio
+//            {8, 7, 20},//agosto
+//            {10, 15},//octubre
+//            {11, 5, 12},//noviembre
+//            {12, 8, 25},//diciembre
+//        };
         
         //DIA: dias de salida del aprendiz
-        int d= Integer.parseInt(FR[2]);
-        if(dia==4){//dia jueves
-            d+=4;//aumenta 4 dias
-        }else if(dia==6){//dia viernes
-            d+=3;
-        }else if(dia==7){//dia sabado
-            d+=2;
-        }
-        JOptionPane.showConfirmDialog(null,d);
-        //MES: subindice
-        int m= Integer.parseInt(FR[1]);
+//        int d= Integer.parseInt(FR[2]);
+//        if(dia==5){//dia jueves
+//            d+=5;//aumenta 4 dias
+//        }else if(dia==6){//dia viernes
+//            d+=3;
+//        }else if(dia==7){//dia sabado
+//            d+=2;
+//        }
+//        JOptionPane.showConfirmDialog(null,d);
+//        //MES: subindice
+//        int m= Integer.parseInt(FR[1]);
         //Ciclo
-        for(int i=0; i<festivos.length; i++){
-            for(int j=0; j<festivos[i].length; j++){
-                JOptionPane.showMessageDialog(null, "Colombia: "+festivos[i][j]);
-            }
-        }
+//        for(int i=0; i<festivos.length; i++){
+//            for(int j=0; j<festivos[i].length; j++){
+//                JOptionPane.showMessageDialog(null, "Colombia: "+festivos[i][j]);
+//            }
+//        }
 
         
         
@@ -142,27 +162,7 @@ public class tipopermiso {
 //            JOptionPane.showMessageDialog(null, "Sabado" );
 //        }
         
-//        if(fechaInApr.equals(fechaTotal)  &&  dia==Calendar.SUNDAY){
-//            JOptionPane.showMessageDialog(null, "Domingo");
-//        }
-//        if(fechaInApr.equals(fechaTotal)  &&  dia==Calendar.MONDAY){
-//            JOptionPane.showMessageDialog(null, "Lunes");
-//        }
-//        if(fechaInApr.equals(fechaTotal)  &&  dia==Calendar.TUESDAY){
-//            JOptionPane.showMessageDialog(null, "Martes" );
-//        }
-//        if(fechaInApr.equals(fechaTotal)  &&  dia==Calendar.WEDNESDAY){
-//            JOptionPane.showMessageDialog(null, "Miercoles" );
-//        }
-//        if(fechaInApr.equals(fechaTotal)  &&  dia==Calendar.THURSDAY){
-//            JOptionPane.showMessageDialog(null, "Jueves" );
-//        }
-//        if(fechaInApr.equals(fechaTotal)  &&  dia==Calendar.FRIDAY){
-//            JOptionPane.showMessageDialog(null, "Viernes" );
-//        }
-//        if(fechaInApr.equals(fechaTotal)  &&  dia==Calendar.SATURDAY){
-//            JOptionPane.showMessageDialog(null, "Sabado" );
-//        }
+
         
         return false;
       

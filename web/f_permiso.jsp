@@ -10,13 +10,16 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
             
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+ 
             <!--importando imagen y texto en pestaña-->
             <link rel="shortcut icon" type="image/x-icon" href="materialize/icons/black/ver_lista.png" />
             <title>BieneSoft | Permiso</title>
 
             <!--estilo body-->
             <link type="text/css" rel="stylesheet" href="css/body.css" media="screen,projection"/>
+            
+            <!--iconos--> 
+            <link type="text/css" rel="stylesheet" href="css/styleicons.css"/>
             
             <!--estilo encabezado-->
             <link type="text/css" rel="stylesheet" href="css/encabezado.css"  media="screen,projection"/>
@@ -101,7 +104,7 @@
         <nav id="nav_menu" class="hide-on-med-and-down" >
             <a href="aprendiz.jsp">
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
-                <img src="iconos_nav_bar/home.png" style="width: 19px; position: relative; left: -40px; top: -8px;"/>
+                <img class="icon-h" src="iconos_nav_bar/home.png"/>
             </a>   
         </nav>
         <!--**************************************************************************************************-->

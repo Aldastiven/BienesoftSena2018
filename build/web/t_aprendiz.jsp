@@ -11,6 +11,9 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
             
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            
+            <!--iconos--> 
+            <link type="text/css" rel="stylesheet" href="css/styleicons.css"/>
 
             <!--importando imagen y texto en pestaña-->
             <link rel="shortcut icon" type="image/x-icon" href="materialize/icons/black/ver_lista.png" />
@@ -103,28 +106,34 @@
         <!--------------------------------------------------->
 
         <!--nav secundario (opciones)--->
-        
         <nav id="nav_menu" class="hide-on-med-and-down" >
             <a href="coordinador.jsp">
+                <img class="icon-a" src="iconos_nav_bar/home.png"/>
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
             </a>
             <a href="t_permiso_coordinador.jsp">
+                <!--<span class="icon-office"></span>-->
+                <img class="icon-b" src="iconos_nav_bar/permisos.png"/>
                 <input id="opc_menu_2" type="submit" value="Permisos"/>
             </a>
 
             <a href="t_aprendiz.jsp">
+                <img class="icon-c" src="iconos_nav_bar/aprendiz.png"/>
                 <input id="opc_menu_2" type="submit" value="Aprendices"/>
             </a>
 
             <a href="t_ficha.jsp">
+                <img class="icon-d" src="iconos_nav_bar/fichas.png"/>
                 <input id="opc_menu_2" type="submit" value="Fichas"/>
             </a>    
 
             <a href="t_aprendiz_rel_patrocinio.jsp">
+                <img class="icon-e" src="iconos_nav_bar/patrocinio.png"/>
                 <input id="opc_menu_2" type="submit" value="Patrocinio"/>
             </a>
 
             <a href="t_habitacion.jsp">
+                <img class="icon-f" src="iconos_nav_bar/habitaciones.png"/>
                 <input id="opc_menu_2" type="submit" value="Habitaciones"/>
             </a>
         </nav>
@@ -237,192 +246,191 @@
             <h1 id="title" style="margin-bottom: 5px;">acerca del aprendiz</h1>
   
         <div class="modal-cont l12 s12 m12" id="modal-cont" >
-            
-                                         <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">ID</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="number" name="t_NumeroDocumento" value="<%=x.getApr_documento()%>">
-                                                </div>
+            <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">ID</p>
+                       <br>
+                       <input id="input_txt_modal" type="number" name="t_NumeroDocumento" value="<%=x.getApr_documento()%>">
+                   </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Tipo de documento</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_TipoDocumento" value="<%=x.getApr_documentoTipo()%>">
-                                                 </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Tipo de documento</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_TipoDocumento" value="<%=x.getApr_documentoTipo()%>">
+                    </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                   <p id="input_msg_modal">Nombres</p>
-                                                   <br>
-                                                   <input id="input_txt_modal" type="text" name="t_Nombres" value="<%=x.getApr_nombres()%>">
-                                               </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                      <p id="input_msg_modal">Nombres</p>
+                      <br>
+                      <input id="input_txt_modal" type="text" name="t_Nombres" value="<%=x.getApr_nombres()%>">
+                  </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                   <p id="input_msg_modal">Apellidos</p>
-                                                   <br>
-                                                   <input id="input_txt_modal" type="text" name="t_Apellidos" value="<%=x.getApr_apellidos()%>">
-                                               </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                      <p id="input_msg_modal">Apellidos</p>
+                      <br>
+                      <input id="input_txt_modal" type="text" name="t_Apellidos" value="<%=x.getApr_apellidos()%>">
+                  </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Fecha de nacimiento</p>
-                                                    <br>
-                                                    <input id="input_txt_modal"  type="date" name="t_FechaNacimiento" value="<%=x.getApr_fechaNacimiento()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Fecha de nacimiento</p>
+                       <br>
+                       <input id="input_txt_modal"  type="date" name="t_FechaNacimiento" value="<%=x.getApr_fechaNacimiento()%>">
+                   </div>
 
-                                                 <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Edad</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="number" name="t_Edad" value="<%=x.getApr_edad()%>">
-                                                </div>
-                                        </div>
+                    <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Edad</p>
+                       <br>
+                       <input id="input_txt_modal" type="number" name="t_Edad" value="<%=x.getApr_edad()%>">
+                   </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Sexo</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_sexo" value="<%=x.getApr_sexo()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Sexo</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_sexo" value="<%=x.getApr_sexo()%>">
+                   </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Celular</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_celular" value="<%=x.getApr_celular()%>">
-                                                </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Celular</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_celular" value="<%=x.getApr_celular()%>">
+                   </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">eps</p>  
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_eps" value="<%=x.getApr_eps()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">eps</p>  
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_eps" value="<%=x.getApr_eps()%>">
+                   </div>
 
-                                                 <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">rh</p>   <!--falta-->
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_rh" value="<%=x.getApr_rh()%>">
-                                                </div>
-                                        </div>
+                    <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">rh</p>   <!--falta-->
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_rh" value="<%=x.getApr_rh()%>">
+                   </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Tipo de aprendiz</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_TipoAprendiz" value="<%=x.getApr_tipoAprendiz()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Tipo de aprendiz</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_TipoAprendiz" value="<%=x.getApr_tipoAprendiz()%>">
+                   </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Nombre del padres</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_NombrePadre" value="<%=x.getApr_nombrePadre()%>">
-                                                </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Nombre del padres</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_NombrePadre" value="<%=x.getApr_nombrePadre()%>">
+                   </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Telefono del padre</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="number" name="t_celularPadre" value="<%=x.getApr_telefonoPadre()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Telefono del padre</p>
+                       <br>
+                       <input id="input_txt_modal" type="number" name="t_celularPadre" value="<%=x.getApr_telefonoPadre()%>">
+                   </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Nombre de la madre</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_NombreMadre" value="<%=x.getApr_nombreMadre()%>">
-                                                </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Nombre de la madre</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_NombreMadre" value="<%=x.getApr_nombreMadre()%>">
+                   </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Telefono de la madre</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="number" name="t_celularMadre" value="<%=x.getApr_telefonoMadre()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Telefono de la madre</p>
+                       <br>
+                       <input id="input_txt_modal" type="number" name="t_celularMadre" value="<%=x.getApr_telefonoMadre()%>">
+                   </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Departamento</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_Departamento" value="<%=x.getApr_departamento()%>">
-                                                </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Departamento</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_Departamento" value="<%=x.getApr_departamento()%>">
+                   </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Ciudad</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_ciudad" value="<%=x.getApr_ciudad()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Ciudad</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_ciudad" value="<%=x.getApr_ciudad()%>">
+                   </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Barrio</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_barrio" value="<%=x.getApr_barrio()%>">
-                                                </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Barrio</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_barrio" value="<%=x.getApr_barrio()%>">
+                   </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Direccion</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_direccion" value="<%=x.getApr_direccion()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Direccion</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_direccion" value="<%=x.getApr_direccion()%>">
+                   </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Antecedentes medicos</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_AntecedenteMedico" value="<%=x.getApr_antecedente_medico()%>">
-                                                </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Antecedentes medicos</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_AntecedenteMedico" value="<%=x.getApr_antecedente_medico()%>">
+                   </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">E-mail</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_email" value="<%=x.getApr_email()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">E-mail</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_email" value="<%=x.getApr_email()%>">
+                   </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Hoja de vida</p>
-                                                    <br>
-                                                    <img src="<%=x.getApr_hojaDeVida()%>" width="60" height="60"/>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="Hoja" value="<%=x.getApr_hojaDeVida()%>">
-                                                    <br>
-                                                    <input type="file" name="HojaDeVida" accept="imagen/*">
-                                                </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Hoja de vida</p>
+                       <br>
+                       <img src="<%=x.getApr_hojaDeVida()%>" width="60" height="60"/>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="Hoja" value="<%=x.getApr_hojaDeVida()%>">
+                       <br>
+                       <input type="file" name="HojaDeVida" accept="imagen/*">
+                   </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Acta de compromiso</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="text" name="t_Acta" value="<%=x.getApr_actaCompromiso()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Acta de compromiso</p>
+                       <br>
+                       <input id="input_txt_modal" type="text" name="t_Acta" value="<%=x.getApr_actaCompromiso()%>">
+                   </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Llamados de atencion</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="number" name="t_llamadosAtencion" value="<%=x.getApr_llamadosDeAtencion()%>" readonly>
-                                                </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Llamados de atencion</p>
+                       <br>
+                       <input id="input_txt_modal" type="number" name="t_llamadosAtencion" value="<%=x.getApr_llamadosDeAtencion()%>" readonly>
+                   </div>
+           </div>
 
-                                        <div class="row">
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Numero de habitacion</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="number" name="t_numeroHabitacion" value="<%=x.getApr_numero_habitacion()%>">
-                                                </div>
+           <div class="row">
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Numero de habitacion</p>
+                       <br>
+                       <input id="input_txt_modal" type="number" name="t_numeroHabitacion" value="<%=x.getApr_numero_habitacion()%>">
+                   </div>
 
-                                                <div class="input-field col s12 l6 m6">
-                                                    <p id="input_msg_modal">Ficha</p>
-                                                    <br>
-                                                    <input id="input_txt_modal" type="number" name="t_numeroFicha" value="<%=x.getApr_ficha_fic_numero()%>">
-                                                </div>
-                                        </div>
+                   <div class="input-field col s12 l6 m6">
+                       <p id="input_msg_modal">Ficha</p>
+                       <br>
+                       <input id="input_txt_modal" type="number" name="t_numeroFicha" value="<%=x.getApr_ficha_fic_numero()%>">
+                   </div>
+           </div>
 
 
 

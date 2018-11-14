@@ -10,6 +10,9 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
             
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            
+            <!--iconos--> 
+            <link type="text/css" rel="stylesheet" href="css/styleicons.css"/>
 
             <!--importando imagen y texto en pestaña-->
             <link rel="shortcut icon" type="image/x-icon" href="materialize/icons/black/ver_lista.png" />
@@ -104,25 +107,32 @@
         <!--nav secundario (opciones)--->
         <nav id="nav_menu" class="hide-on-med-and-down" >
             <a href="coordinador.jsp">
+                <img class="icon-a" src="iconos_nav_bar/home.png"/>
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
             </a>
             <a href="t_permiso_coordinador.jsp">
+                <!--<span class="icon-office"></span>-->
+                <img class="icon-b" src="iconos_nav_bar/permisos.png"/>
                 <input id="opc_menu_2" type="submit" value="Permisos"/>
             </a>
 
             <a href="t_aprendiz.jsp">
+                <img class="icon-c" src="iconos_nav_bar/aprendiz.png"/>
                 <input id="opc_menu_2" type="submit" value="Aprendices"/>
             </a>
 
             <a href="t_ficha.jsp">
+                <img class="icon-d" src="iconos_nav_bar/fichas.png"/>
                 <input id="opc_menu_2" type="submit" value="Fichas"/>
             </a>    
 
             <a href="t_aprendiz_rel_patrocinio.jsp">
+                <img class="icon-e" src="iconos_nav_bar/patrocinio.png"/>
                 <input id="opc_menu_2" type="submit" value="Patrocinio"/>
             </a>
 
             <a href="t_habitacion.jsp">
+                <img class="icon-f" src="iconos_nav_bar/habitaciones.png"/>
                 <input id="opc_menu_2" type="submit" value="Habitaciones"/>
             </a>
         </nav>

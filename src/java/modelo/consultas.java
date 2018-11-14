@@ -245,6 +245,31 @@ public class consultas {
         return arreglo;
 
     }
+        
+        
+        
+    //CONSULTA DE TABLA CALENDARIO FESTIVOS
+    public ArrayList<festivoSG>consultarFestivos() {
+        ArrayList<festivoSG> arreglo = new ArrayList<festivoSG>();
+
+        try{
+
+            ps=cnn.prepareStatement("select * from festivos");
+            rs= ps.executeQuery();
+
+            while(rs.next()){
+                festivoSG getset = new festivoSG( rs.getString(1), rs.getString(2) );
+                arreglo.add(getset);
+            }
+
+
+        }catch (Exception e){
+            System.out.println("Error de consulta: "+e);
+        }
+        return arreglo;
+
+    }
+    
     
     
     
