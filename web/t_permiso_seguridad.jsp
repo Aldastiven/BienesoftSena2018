@@ -143,7 +143,7 @@
                     <%
                         ArrayList <permisoSG> listdat = new ArrayList<>();
                         consultas con = new consultas();
-                        listdat = con.consultarPermiso();
+                        //listdat = con.consultarPermiso();
                         permisoSG x = new permisoSG();
 
                         for(int i = 0; i< listdat.size(); i++){
@@ -326,7 +326,7 @@
             <div id="div_principal" class="">              
                     <%
                             ArrayList <permisoSG> consulta = new ArrayList<>();
-                            consulta = con.consultarPermiso();
+                            //consulta = con.consultarPermiso();
                             for (int i = 0; i< consulta.size(); i++ ){
                             x= consulta.get(i);
                     %>

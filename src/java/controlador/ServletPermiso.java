@@ -338,15 +338,9 @@ public class ServletPermiso extends HttpServlet {
                     }
                 }else if(setget.getPer_tipo().equals("fin de semana")){
                     //tipoper.metodo_finsemana(fechaReal, horaReal,setget.getPer_tipo());//fechaReal,horaReal y tipopermiso
-                    boolean findesemana = tipoper.metodo_finsemana(fechaReal,horaReal);
-                    if(findesemana){
-                        JOptionPane.showMessageDialog(null, "Salida Fin de Semana");
-                        tipoper.metodo_finsemana(fechaReal, horaReal);
-                        tipoper.metodo_insertpersemana(setget.getPer_ID(), fechaReal, horaReal,campo1, campo2);
-                        response.sendRedirect("t_permiso_seguridad.jsp");
-                    }
-                    
+                    String FechaEstiFinal = tipoper.metodo_finsemana(fechaReal,horaReal);
                 }
+
             }
             
             

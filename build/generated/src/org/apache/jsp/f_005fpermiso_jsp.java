@@ -150,11 +150,11 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        <nav id=\"nav_menu\" class=\"hide-on-med-and-down\" >\r\n");
       out.write("            <a href=\"aprendiz.jsp\">\r\n");
       out.write("                <input id=\"opc_menu_2\" type=\"submit\" value=\"Inicio\"/>\r\n");
-      out.write("                <img class=\"icon-h\" src=\"iconos_nav_bar/home.png\"/>\r\n");
+      out.write("                <img class=\"icon-h\" src=\"iconos_nav_bar/profile.png\"/>\r\n");
       out.write("            </a>\r\n");
-      out.write("            <a href=\"aprendiz.jsp\">\r\n");
-      out.write("                <input id=\"opc_menu_2\" type=\"submit\" value=\"Inicio\"/>\r\n");
-      out.write("                <img class=\"icon-b\" src=\"iconos_nav_bar/profile.png\"/>\r\n");
+      out.write("            <a href=\"\"><!--FALTA-->\r\n");
+      out.write("                <input id=\"opc_menu_2\" type=\"submit\" value=\"Perfil\"/>\r\n");
+      out.write("                <img class=\"icon-home\" src=\"iconos_nav_bar/home.png\"/>\r\n");
       out.write("            </a>\r\n");
       out.write("        </nav>\r\n");
       out.write("        <!--**************************************************************************************************-->\r\n");

@@ -1,6 +1,4 @@
-
 package modulo_permisos;
-
 import com.mysql.jdbc.Connection;
 import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.sql.PreparedStatement;
@@ -15,21 +13,14 @@ import modelo.consultas;
 import modelo.festivoSG;
 import modelo.permisoSG;
 
-/**
- *
- * @author Stefany
- */
 public class tipopermiso {
-    
     conexion con=new conexion();
     Connection cnn=con.conexiondb();
     PreparedStatement ps= null;
-    ResultSet rs=null;
+    ResultSet rs=null;    
     
-    
-    
-    //METODO SEMANA
-    public boolean metodo_semana(String horaReal, String tipoPermiso ){
+    //METODO SEMANA-->MANEJANDO HORAS GENERALES DE RESTRICCION PARA TODOS LOS PERMISOS
+    public boolean metodo_semana(String horaReal,String tipoPermiso ){
         
         String horario[] = horaReal.split(":");
         int hora = Integer.parseInt(horario[0]);
@@ -41,6 +32,22 @@ public class tipopermiso {
         } else if(tipoPermiso.equals("semana tarde")) {
             if( (hora >= 14 && hora < 17)) return true;
             if(hora==17 && minutos <= 10) return true;
+            
+        } else if(tipoPermiso.equals("fin de semana")) {
+            Calendar calendario=Calendar.getInstance();
+            int dia = calendario.get(Calendar.DAY_OF_WEEK);
+            
+            if( (dia==5) || (dia==6)){//dia jueves y viernes 
+                if( (hora >= 8 && hora < 18)) return true;
+                if(hora==18 && minutos <= 10) return true;
+            }else if(dia==7){//dia sabado
+                if( (hora >= 6 && hora < 14)) return true;
+                if(hora==14 && minutos <= 10) return true;
+                
+            } else if(dia==1){//dia domingo
+                if( (hora >= 14 && hora < 18)) return true;
+                if(hora==18 && minutos <= 10) return true;
+            }
         }
       return false;
     }
@@ -64,132 +71,83 @@ public class tipopermiso {
         
         
             return true;
-
         }
-        
-        
-        
         return false;
         
     }
     
-    
-    
+    private String fechaDomingo="";
     //METODO FIN DE SEMANA
-    public boolean metodo_finsemana(String fechaReal, String horaReal){
+    public String metodo_finsemana(String fechaReal, String horaReal){
+        String FechaEstiFinal="";
         
-        Calendar calendario=Calendar.getInstance();
+        //DETERMINAR FECHA DE INGRESO ESTIPULADA
+        String fechaLunes = cambiosDeMesAnio(fechaReal);
+        JOptionPane.showMessageDialog(null,"Fecha Lunes: "+fechaLunes);
         
-        int dia, mes, ano;
-        //OBTENIENDO DATOS
-        dia = calendario.get(Calendar.DAY_OF_WEEK);
-        //fecha
-        String FR[] = fechaReal.split("-"); 
-        //hora
-        String horario[] = horaReal.split(":");
-        int hora = Integer.parseInt(horario[0]);
-        int minutos = Integer.parseInt(horario[1]);
+        //COMPARAR FECHALUNES CON LAS FECHAS DESTIVAS DE LA BD
+        consultas con = new consultas();
+        boolean festivo = con.compararFechaLunes(fechaLunes);
         
-        festivoSG fest=new festivoSG();
-        if(fechaReal == fest.getFes_fecha()){
-            JOptionPane.showMessageDialog(null, "Es festivo");
-            //hora
-            if(hora >=8 && hora <18)return true;
-            if(hora==18 && minutos <= 10) return true;
-        }else if(fechaReal != fest.getFes_fecha()){
-            JOptionPane.showMessageDialog(null, "No es festivo");
-            if( (hora >= 8 && hora < 18)) return true;
-            if(hora==18 && minutos <= 10) return true;
-        }
-        //Indicando festivo
-        //No festivo
+        //Si retrona TRUE significa que si es festivo y se toma FechaLunes como hora de ingreso estipulada
+        //Si retrona FALSE significa que NO es festivo y se toma FechaDomingo como hora de ingreso estipulada
+        if(festivo) FechaEstiFinal =  fechaLunes;
+        else FechaEstiFinal =  fechaDomingo;
         
-
-        //Matriz con fila de mes y fila dias festivos
-         //mes y dias festivos colombia
-//        int[][] festivos = {
-//            {1, 1, 7},//enero 
-//            {19, 29, 30},//marzo 
-//            {5, 1, 14},//mayo
-//            {6, 4, 11},//junio
-//            {7, 2, 20},//julio
-//            {8, 7, 20},//agosto
-//            {10, 15},//octubre
-//            {11, 5, 12},//noviembre
-//            {12, 8, 25},//diciembre
-//        };
-        
-        //DIA: dias de salida del aprendiz
-//        int d= Integer.parseInt(FR[2]);
-//        if(dia==5){//dia jueves
-//            d+=5;//aumenta 4 dias
-//        }else if(dia==6){//dia viernes
-//            d+=3;
-//        }else if(dia==7){//dia sabado
-//            d+=2;
-//        }
-//        JOptionPane.showConfirmDialog(null,d);
-//        //MES: subindice
-//        int m= Integer.parseInt(FR[1]);
-        //Ciclo
-//        for(int i=0; i<festivos.length; i++){
-//            for(int j=0; j<festivos[i].length; j++){
-//                JOptionPane.showMessageDialog(null, "Colombia: "+festivos[i][j]);
-//            }
-//        }
-
-        
-        
-//        if(dia==Calendar.SUNDAY){
-//            JOptionPane.showMessageDialog(null, "Domingo");
-//        }
-//        if(dia==Calendar.MONDAY){
-//            JOptionPane.showMessageDialog(null, "Lunes");
-//        }
-//        if(dia==Calendar.TUESDAY){
-//            JOptionPane.showMessageDialog(null, "Martes" );
-//        }
-//        if(dia==Calendar.WEDNESDAY){
-//            JOptionPane.showMessageDialog(null, "Miercoles");
-//        }
-//        if(dia==Calendar.THURSDAY){
-//            JOptionPane.showMessageDialog(null, "Jueves" );
-//        }
-//        if(dia==Calendar.FRIDAY){
-//            JOptionPane.showMessageDialog(null, "Viernes" );
-//        }
-//        if(dia==Calendar.SATURDAY){
-//            JOptionPane.showMessageDialog(null, "Sabado" );
-//        }
-        
-
-        
-        return false;
-      
+        JOptionPane.showMessageDialog(null,"Fecha Estipulada de ingreso: "+FechaEstiFinal);
+        return FechaEstiFinal;
     }
     
+    public String cambiosDeMesAnio(String fechaReal){
+        Calendar calendario=Calendar.getInstance();
+        int dia = calendario.get(Calendar.DAY_OF_WEEK);
+        
+        String FR[] = fechaReal.split("-");
+        
+        int a = Integer.parseInt(FR[0]);
+        int m = Integer.parseInt(FR[1]);
+        int d = Integer.parseInt(FR[2]);
+        
+        int anioEsti=a, mesEsti=m, diaEsti=d,diaSum=0;
+        //SUMAR DÍAS HASTA EL LUNES (PARA SABER SI ES FESTIVO)
+        
+        if(dia==5) diaSum = 4; //dia jueves
+        else if(dia==6) diaSum=3; //dia viernes
+        else if(dia==7) diaSum=2; //dia sabado
+        
+        //Ciclo para aumentar día por día y saber si cambiael mes
+        for(int i=1; i<=diaSum; i++) {
+            diaEsti+=1;
+            String diaMes = limitedeMes(a,mesEsti,diaEsti);
+            String est[] = diaMes.split("-");
+            mesEsti = Integer.parseInt(est[0]);
+            diaEsti = Integer.parseInt(est[1]);
+            
+            if(diaSum == diaSum-1) fechaDomingo = a+"-"+mesEsti+"-"+diaEsti;
+        }
+        
+        //OBTENER FECHA DEL LUNES
+        String fechaLunes = a+"-"+mesEsti+"-"+diaEsti;
+        
+        return fechaLunes;
+    }
     
+    public String limitedeMes (int a,int mesEsti, int diaEsti){
     
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
+        if((mesEsti == 1 || mesEsti == 3 || mesEsti == 5 || mesEsti == 7 
+                || mesEsti == 8 || mesEsti == 10 || mesEsti == 12) && diaEsti > 31) {
+            mesEsti+= 1; diaEsti=1;
+        } else if((mesEsti == 4 || mesEsti == 6 || mesEsti == 9 || mesEsti == 11) && diaEsti > 30) {
+            mesEsti+= 1; diaEsti=1;
+        }else if(mesEsti == 2){
+            //Calcular año bisiesto
+            int diaFeb=28;
+            if ((a % 4 == 0) && ((a % 100 != 0) || (a % 400 == 0)))
+                diaFeb=29;
+            if(diaEsti>diaFeb) mesEsti+= 1; diaEsti=1;
+        }
+        
+        String diaMes = mesEsti+"-"+diaEsti;
+        return diaMes;
+    }
 }
