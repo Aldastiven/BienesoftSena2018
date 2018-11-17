@@ -1,21 +1,113 @@
-.div_container{
-    width:100%;
-    height:auto;
-    background: red;
-    color: white;
-    margin-top: 80px;
-    padding: 10px;
+
+#menu_form{
+    background-color: transparent;
+    width: 10%;
+    position: relative;
+    left: 87%;
+}
+#btn_form_float_menu{
+    position: relative;
+    left: 20%;
 }
 
-#txt_dato{
-    border-bottom: none;
-    background: white;
+#title_container{
+    background :none;
+    padding-top: 8px;
+    padding-bottom: 20px;
+    height: 100px;
+    font-size: 50px;
     text-align: center;
-    float: right;
-    margin-left:0px;
+    color: #000;
+    margin-bottom: 15px;
+    font-family: "Futura Bk BT";
+    background: transparent;
 }
-.msg_sss{
-    background: yellow;
-    font-size: 13px;
-    width: auto;
+
+#encab{
+    background: #448aff;
+    width: 100%;
+    height: 90px;
+    margin-bottom: 50px;
+    padding-top: 15px;
 }
+
+.contenedor_blanco{
+    background: transparent;
+    height: auto;
+}
+
+#img_fotoperfil{
+    width: 120px;
+    height: 120px;
+    border-radius: 500px 500px 500px 500px;
+    position: inherit;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#linea{
+    border-bottom:4px solid gray;
+    margin-top: -25px;
+    margin-bottom: 25px;
+}
+
+#input_txt{
+    background-color: #EEEEEE;
+    border: 1px solid #b2bec3;
+    font-size: 20px;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+#input_msg{
+    margin: -4%;
+    position: relative;
+    left: 20px;
+    font-size: 20px;
+    color: #9e9e9e;
+}
+
+#select_form{
+    background-color: #EEEEEE;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px 10px 10px 10px;
+    margin: 10px 30px 30px 10px;
+}
+
+#container_form_small{
+    padding-top: 20px;
+    background-color: #fff;
+    margin-top: -5%;
+    height: auto;
+}
+
+#container_form_large{
+    padding-bottom: 20px;
+    background-color: #fff;
+    margin-top: -5%;
+    height: auto;
+    box-shadow: 0px 1px 5px -2px rgba(0,0,0,0.75);
+}
+
+#btn_form{
+    background-color: #03A9F4;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    font-size: 40px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#btn_form:hover{
+    background-color: #0277BD;
+}
+
+#btn_form_float{
+    margin-bottom: 20px;
+    position: relative;
+    left: 40%;
+}
+

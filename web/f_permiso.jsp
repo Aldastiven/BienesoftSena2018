@@ -115,7 +115,7 @@
             <%
                 HttpSession rnombre=request.getSession();
                 String nom=(String)rnombre.getAttribute("nombre");
-     
+                int id=(int)rnombre.getAttribute("iden");
              %>
         <p id="user_text" class="user_text hide-on-med-and-down"><%=nom%></p>
 
@@ -130,12 +130,7 @@
                 <h1 id="title_container">REGISTRO PERMISO</h1>
 
     <form action="ServletPermiso" enctype="multipart/form-data" method="post"> 
-                    
-        <%
-            int id=(int)rnombre.getAttribute("iden");
-
-        %>
-                    
+        
     <div class="row" id="container_form_large"  style="height: 420px;">
         <div class="input-field col s12 m6 l6">
             <p id="input_msg">Documento del aprendiz</p>

@@ -36,6 +36,12 @@ public class aprendizSG {
 
     public aprendizSG() {
     }
+
+    public aprendizSG(String apr_tipoAprendiz) {
+        this.apr_tipoAprendiz = apr_tipoAprendiz;
+    }
+ 
+    
     
     //CONSTRUCTOR
 

@@ -16,11 +16,6 @@ import javax.swing.JOptionPane;
 import modelo.Login;
 import modelo.usuarioSG;
 
-
-/**
- *
- * @author Stefany
- */
 @WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
 public class ServletLogin extends HttpServlet {
 //variables
@@ -80,10 +75,11 @@ private HttpServletResponse pass;
                     e=in.getUsuemail();
                     JOptionPane.showMessageDialog(null,"Rol: "+ r);
                     
-                  //Htttp session para traer nombre
+                  //HTTP SESSION PARA TRAER LOS DATOS DEL PERFIL
+
                   String nombre=log.consultanombreusuario(in.getUsunom()); 
                   HttpSession nom=request.getSession();
-                  HttpSession servirnombre=request.getSession();
+                  
                   //Muestra la identificacion en pantalla
                   nom.setAttribute("iden", in.getUsudoc());
                   //Muestra nombre en pantalla

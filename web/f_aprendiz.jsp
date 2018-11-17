@@ -15,7 +15,7 @@
         <div>
             <h1>formulario aprendiz</h1>
             
-            <form action="ServletAprendiz" method="post">
+            <form action="ServletAprendiz" method="post" enctype="multipart/form-data">
                 <td><input type="number" name="f_NumeroDocumento" placeholder="documento del aprendiz"></td>
                 <td><input type="text" name="f_TipoDocumento" placeholder="tipo de documento"></td>
                 <td><input type="text" name="f_Nombres" placeholder="nombres"></td>

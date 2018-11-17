@@ -5,16 +5,26 @@ $(document).ready(function(){
 
 
     $(".btn-consulta-cerrar").hide();
-    $(".modal-background-coordinador").hide();
+    $(".modal-background-coordinador").show();
     $(".modal-background-seguridad").hide();
+    $(".prueba1").hide();
     
     //ESTE MUESTRA EL MODAL DE LA TABLA PERMISOS POR PARTE DEL COORDINADOR
         $(".btn-ver-permiso-coordinador").click(function (){
 
-           var pos=$(".btn-ver-permiso-coordinador").index(this);
-           var asi=$(".modal-background-coordinador").eq(pos);
-           asi.slideToggle();
+            var pos=$(".btn-ver-permiso-coordinador").index(this);
+           var newDiv = document.createElement("modal-cont");
+           // crea un nuevo div 
+            // y añade contenido 
+            var newDiv = document.createElement("div"); 
+            var newContent = document.createTextNode(pos); 
+            newDiv.appendChild(newContent); //añade texto al div creado. 
 
+            // añade el elemento creado y su contenido al DOM 
+            var currentDiv = document.getElementById("modal-cont"); 
+            document.body.insertBefore(newDiv, currentDiv);
+
+            asi.slideToggle();
         });   
         
     //ESTE MUESTRA EL MODAL DE LA TABLA PERMISOS POR PARTE DE SEGURIDAD

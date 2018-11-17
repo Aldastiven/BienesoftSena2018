@@ -143,7 +143,7 @@
                     <%
                         ArrayList <permisoSG> listdat = new ArrayList<>();
                         consultas con = new consultas();
-                        listdat = con.consultarPermiso();
+                        //listdat = con.consultarPermiso();
                         permisoSG x = new permisoSG();
 
                         for(int i = 0; i< listdat.size(); i++){
@@ -151,7 +151,7 @@
                     %>
           
                     <tr style="padding: 0px;">
-        <form action="ServletPermiso" enctype="multipart/form-data" method="post">
+                <form action="ServletPermiso" enctype="multipart/form-data" method="post">
 
                     <td><input class="browser-default" readonly type="number" name="t_numerodocumento" value="<%=x.getPer_Aprendiz_Apr_documento()%>"></td>
                     <td><input class="browser-default" readonly type="text" name="t_tipo" value="<%=x.getPer_tipo()%>"></td>
@@ -326,7 +326,7 @@
             <div id="div_principal" class="">              
                     <%
                             ArrayList <permisoSG> consulta = new ArrayList<>();
-                            consulta = con.consultarPermiso();
+                            //consulta = con.consultarPermiso();
                             for (int i = 0; i< consulta.size(); i++ ){
                             x= consulta.get(i);
                     %>

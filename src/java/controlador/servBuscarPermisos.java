@@ -21,47 +21,52 @@ public class servBuscarPermisos extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         String tipoPermiso = request.getParameter("tipo");
+        String buscar = request.getParameter("ventana");
         
-        out.print("<thead id='thead' class='thead>"+
-            "<th></th>"+
-            "<th id='th_thead'>ID</th>"+
-            "<th id='th_thead'>ID</th>"+
-            "<th id='th_thead'>TIPO DE PERMISO</th>"+
-            "<th id='th_thead'>MOTIVO</th>"+
-            "<th id='th_thead'>FECHA DE SALIDA</th>"+
-            "<th id='th_thead'>FECHA DE INGRESO</th>"+
-            "<th id='th_thead'>ACCIONES</th>"+
-
-        "</thead>");
-
-        ArrayList<permisoSG> lisdat = new ArrayList<>();
-        consultas con = new consultas();
-        lisdat = con.consultarPermiso(tipoPermiso, "");
-        permisoSG x = new permisoSG();
-        int i=0;
-        for(i=0; i<lisdat.size(); i++){
-            x = lisdat.get(i);
+        if(buscar != null && buscar.equals("ventana")) {
+            JOptionPane.showMessageDialog(null,"JELOU");
             
-            
-            //JOptionPane.showMessageDialog(null,x.getPer_ID());
-            out.print(    
-                "<tr>"+
-                "<form action='ServletPermiso' enctype='multipart/form-data' method='post'>"+
-                "<td><input class='browser-default' readonly type='number' name='t_numerodocumento' value="+x.getPer_Aprendiz_Apr_documento()+"></td>"+
-                "<td><input class='browser-default' readonly type='text' name='t_tipo' value="+x.getPer_tipo()+"></td>"+
-                "<td><input class='browser-default' readonly type='text' name='t_moti' value="+x.getPer_motivo()+"></td>"+
-                "<td><input class='browser-default' readonly type='date' name='t_fechsal' value="+x.getPer_fecha_salida()+"></td>"+
-                "<td><input class='browser-default' readonly type='date' name='t_fechingre' value="+x.getPer_fecha_ingreso()+"></td>"+
-                "<td>"+ 
-                "<div onclick='ver_modal()' id='btn-ver-permiso-coordinador' class='btn-ver-permiso-coordinador' title='consultar aprendiz'>"+
-                "<img src='icon_acciones/ver.png' style='padding-left: 15px'/>"+
-                "</div>"+
-                "</form>"+
-                "</td>"+
-            "</tr>");
+        } else { 
+            out.print("<thead id='thead' class='thead>"+
+                "<th></th>"+
+                "<th id='th_thead'>ID</th>"+
+                "<th id='th_thead'>ID</th>"+
+                "<th id='th_thead'>TIPO DE PERMISO</th>"+
+                "<th id='th_thead'>MOTIVO</th>"+
+                "<th id='th_thead'>FECHA DE SALIDA</th>"+
+                "<th id='th_thead'>FECHA DE INGRESO</th>"+
+                "<th id='th_thead'>ACCIONES</th>"+
+
+            "</thead>");
+
+            ArrayList<permisoSG> lisdat = new ArrayList<>();
+            consultas con = new consultas();
+            lisdat = con.consultarPermiso(tipoPermiso, "");
+            permisoSG x = new permisoSG();
+            int i=0;
+            for(i=0; i<lisdat.size(); i++){
+                x = lisdat.get(i);
+
+        out.print(  
+                    "<tr>"+
+                        "<form action='ServletPermiso' enctype='multipart/form-data' method='post'>"+
+                            "<td><input id=id"+i+" class='browser-default' readonly type='number' name='t_numerodocumento' value="+x.getPer_ID()+"></td>"+
+                            "<td><input class='browser-default' readonly type='text' name='t_tipo' value="+x.getPer_tipo()+"></td>"+
+                            "<td><input class='browser-default' readonly type='text' name='t_moti' value="+x.getPer_motivo()+"></td>"+
+                            "<td><input class='browser-default' readonly type='date' name='t_fechsal' value="+x.getPer_fecha_salida()+"></td>"+
+                            "<td><input class='browser-default' readonly type='date' name='t_fechingre' value="+x.getPer_fecha_ingreso()+"></td>"+
+                            "<td>"+ 
+                            "<div  class='btn-ver-permiso-coordinador'>"+                
+                            "<img id=p"+i+" class='ver' src='icon_acciones/ver.png' style='padding-left: 15px'/>"+     
+                            "</div>"+
+                            "</td>"+        
+                    "</tr>");
+            }
+
+
+            out.print("<script src='js/modal/modal.js'></script>");
         }
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
