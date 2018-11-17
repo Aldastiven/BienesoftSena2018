@@ -1,4 +1,5 @@
 
+<%@page import="modelo.permisoSG"%>
 <%@page import="modulo_permisos.tipopermiso"%>
 <%@page import="modelo.aprendizSG"%>
 <%@page import="java.util.ArrayList"%>
@@ -141,10 +142,9 @@
                 <h1 class="titulonly">REGISTRO PERMISO</h1>
             </div>
         </div>
-            <!--<div class="contenedor_blanco">
-                <h1 id="title_container">REGISTRO PERMISO</h1>-->
+            
 
-    <form action="ServletPermiso" enctype="multipart/form-data" method="post"> 
+    <form action="ServletPermiso" id="frm" enctype="multipart/form-data" method="post" > 
         
     <div class="row" id="container_form_large"  style="height: 420px;">
         <div class="input-field col s12 m6 l6">

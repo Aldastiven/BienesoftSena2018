@@ -1,6 +1,7 @@
 
 package controlador;
 
+import com.sun.nio.sctp.SendFailedNotification;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -113,7 +114,7 @@ public class ServletPermiso extends HttpServlet {
         return "Short description";
     }// </editor-fold>
     
-    //METODO GUARDAR VISTA APRENDIZ
+    //METODO GUARDAR PERMISO
     private void guardarPermiso(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -142,7 +143,7 @@ public class ServletPermiso extends HttpServlet {
         int i = nomfoto.lastIndexOf("\\");
         nomfoto = nomfoto.substring(i+1);
         String nombre=documento+"_"+nomfoto;
-        String Url="C:\\Users\\equipo\\Documents\\BIENESOFT1.0\\Neatbeans\\Bienesoft1.0\\web\\img\\"+nombre;
+        String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
         evidenciaAdjunta="img/"+nombre;
         InputStream file=fot.getInputStream();
         File f=new File(Url);
@@ -152,17 +153,49 @@ public class ServletPermiso extends HttpServlet {
             sal.write(num);
             num=file.read();
         }
+        
+        
+        
+        
+        //Restriccion de hora en permiso
+        Calendar calendario = Calendar.getInstance();
+        int hora, minutos, segundos, dia, mes, ano;
             
-        permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-        crudPermisos crud = new crudPermisos();
-        crud.guardar_permiso(setget);
-        request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
-
+        hora =calendario.get(Calendar.HOUR_OF_DAY);
+        minutos = calendario.get(Calendar.MINUTE);
+        segundos = calendario.get(Calendar.SECOND);
+            
+        String horaReal = hora+":"+minutos+":"+segundos;
+        
+//        permisoSG pser = new permisoSG(hora_Salida);//HORA SALIDA ESTIPULADA POR APRENDIZ
+//        String horaSalApr=pser.getPer_hora_Salida();
+ 
+        JOptionPane.showMessageDialog(null, "Hora real es:" + horaReal + " " + "Hora estipulada: "+ hora_Salida);
+        
+        String HR[] = horaReal.split(":");
+        String HEap[] = hora_Salida.split(":");
+        
+        //Condicion
+        if( Integer.parseInt(HEap[0]) <=  Integer.parseInt(HR[0]) ) {
+            
+            JOptionPane.showMessageDialog(null,"Hora es incorrecta con el sistema");
+            out.print("<script src='js/inputstyle/prueba.js'></script>");
+            
+            request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
+            
+        }else{
+            permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+            crudPermisos crud = new crudPermisos();
+            crud.guardar_permiso(setget);
+            request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
+            JOptionPane.showMessageDialog(null,"Crea PERMISOOOO!");
+        
+        } 
         
         
+        
+    
     }
-    
-    
     
     //METODO ACTUALIZAR VISTA COORDINADOR
     private void actualizarPermiso(HttpServletRequest request, HttpServletResponse response)
