@@ -21,6 +21,7 @@
     margin-bottom: 15px;
 }*/
 
+
 .titulonly{
     font-size: 23px;
     align-self: center;
@@ -33,6 +34,7 @@
     display: flex;
     align-items: flex-start;
     flex-direction: row;
+    text-align: center;
 }
 
 .vicon{
@@ -48,10 +50,10 @@
     justify-content: flex-start;
 }
 
-.contenedor_blanco{
-    background: red;
+/*.contenedor_blanco{
+    background: blue;
     height: auto;
-}
+}*/
 
 #input_txt{
     background-color: #EEEEEE;
@@ -86,7 +88,6 @@
 #container_form_large{
     padding-top: 20px;
     background-color: #fff;
-    margin-top: -5%;
     height: 800px;
     overflow: scroll;
 }

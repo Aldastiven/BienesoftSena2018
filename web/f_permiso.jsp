@@ -133,8 +133,16 @@
         
         <div class="container" style="margin-bottom:15px;">
             
-            <div class="contenedor_blanco">
-                <h1 id="title_container">REGISTRO PERMISO</h1>
+        <div class="header_conte">
+            <figcaption class="vicon">
+                <img src="css_index_user/icons/coordinador/vpermiso.png" height="75px"/> 
+            </figcaption>
+            <div class="prueba">
+                <h1 class="titulonly">REGISTRO PERMISO</h1>
+            </div>
+        </div>
+            <!--<div class="contenedor_blanco">
+                <h1 id="title_container">REGISTRO PERMISO</h1>-->
 
     <form action="ServletPermiso" enctype="multipart/form-data" method="post"> 
                     
