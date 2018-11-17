@@ -23,13 +23,13 @@ public class crudPermisos {
             ps.setInt(2, ing.getPer_Aprendiz_Apr_documento());
             ps.setString(3, ing.getPer_tipo());
             ps.setString(4, ing.getPer_fecha_salida());
-            ps.setString(5, ing.getPer_fecha_ingreso());
+            ps.setString(5, null);
             ps.setString(6, ing.getPer_hora_Salida());
             ps.setString(7, ing.getPer_hora_ingreso());
-            ps.setString(8, ing.getPer_fecha_ingresoReal());
-            ps.setString(9, ing.getPer_hora_ingresoReal());
-            ps.setString(10, ing.getPer_fecha_salidaReal());
-            ps.setString(11, ing.getPer_hora_salidaReal());
+            ps.setString(8, null);
+            ps.setString(9, null);
+            ps.setString(10,null);
+            ps.setString(11,null);
             ps.setString(12, ing.getPer_observacion_permiso_llegada());
             ps.setString(13, ing.getPer_motivo());
             ps.setString(14, ing.getPer_estado());

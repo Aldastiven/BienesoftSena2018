@@ -37,6 +37,7 @@ $(document).ready(function(){
         permisos[i].addEventListener("click", function(e){
             var per = e.target.id.substring(1);
             var perId = document.getElementById("id"+per).value;
+            console.log(perId);
             
             $.ajax({
                 url: "servBuscarPermisos",

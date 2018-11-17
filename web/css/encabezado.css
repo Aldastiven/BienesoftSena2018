@@ -43,7 +43,7 @@
 /*boton-normal color*/
 #opc_menu_2{
     color: #A9A9A9;
-    background: #FAFAFA;
+    /*background: #FAFAFA;*/
     font-size: 15px;
     cursor: pointer;
     width: 120px;
@@ -61,4 +61,6 @@
 
 /*************************************************/
 
-
+.icono{
+    width: 19px;
+}

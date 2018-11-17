@@ -178,25 +178,6 @@ public class consultas {
     }
     
     
-    
-    //CONSULTAR PERMISO
-    /*    public ArrayList<permisoSG>consultarPermiso(String cbx_tipo_per){
-        ArrayList<permisoSG>arreglo= new ArrayList<permisoSG>();
-        
-            try {
-                ps=cnn.prepareStatement("SELECT * FROM permiso");
-                rs=ps.executeQuery();
-                
-                while(rs.next()){
-                    permisoSG setget = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16));
-                    arreglo.add(setget);
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "no se puede mostrar contenido de la tabla"+e);
-            }
-        return arreglo;
-        }
-    */
     //CONSULTAR SALIDAEMERGENCIA
     public ArrayList<emergenciaSG>consultarEmergencia(){
        ArrayList<emergenciaSG>arreglo=new ArrayList<emergenciaSG>();
@@ -216,7 +197,8 @@ public class consultas {
         return arreglo;
     }
 
-     //CONSULTAR PERMISOS
+    
+    //CONSULTAR PERMISOS
         public ArrayList<permisoSG>consultarPermiso(String cbx_tipo_per, String documento) {
         ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
 
@@ -245,6 +227,52 @@ public class consultas {
         return arreglo;
 
     }
+        
+        
+        
+    //CONSULTA DE TABLA CALENDARIO FESTIVOS
+    public boolean compararFechaLunes(String fechaLunes){
+        boolean festivo=false;
+        
+        try {
+            ps=cnn.prepareStatement("SELECT*FROM festivos WHERE fes_fecha='"+fechaLunes+"'");
+            rs = ps.executeQuery();
+            
+            if(rs.next()) {
+                String fechaFest = rs.getString(2);
+                festivo=true;
+            }else {
+                JOptionPane.showMessageDialog(null,"No es festivo");
+                festivo=false;
+            }
+                    
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(null,"ERROR de consulta: "+e);
+        }
+    
+        return festivo;
+    }
+//    public ArrayList<festivoSG>consultarFestivos(festivoSG diaFestsino) {
+//        ArrayList<festivoSG> arreglo = new ArrayList<festivoSG>();
+//
+//        try{
+//
+//            ps=cnn.prepareStatement("SELECT*FROM festivos WHERE fes_fecha='"+diaFestsino.getFes_fecha()+"'");
+//            rs= ps.executeQuery();
+//
+//            while(rs.next()){
+//                festivoSG getset = new festivoSG( rs.getString(1), rs.getString(2) );
+//                arreglo.add(getset);
+//            }
+//
+//
+//        }catch (Exception e){
+//            System.out.println("Error de consulta: "+e);
+//        }
+//        return arreglo;
+//
+//    }
+    
     
     
     

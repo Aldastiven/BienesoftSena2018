@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import modelo.consultas;
 import modelo.permisoSG;
 
 /**
@@ -44,8 +45,7 @@ public class Autorizacion {
         return permisoid;
     
     }
-    
-    
+   
     
     //METODO DE AUTORIZACION DE PERMISO ACCION PARA EL GUARDA
     public boolean AutorizaSeguridad(String estado){
@@ -105,7 +105,6 @@ public class Autorizacion {
             JOptionPane.showMessageDialog(null,HEap[1]);
         }
         
-        
         //fecha
         if(Integer.parseInt(FEap[2]) <= 9){
             FEap[2] = FEap[2].substring(1);
@@ -142,19 +141,6 @@ public class Autorizacion {
         }
         
         return false;        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }  
     
 }
