@@ -64,33 +64,41 @@ $(document).ready(function(){
         
         //CREAR ELEMENTO DE LA VENTANA
         
+        //encabezado del formulario
+        var encab = crearElemento("p", {id:"ppp"}, ["Permiso"]);
+        var contencab = crearElemento("div", {id:"con-encab"}, [encab])
 
-        //Div para el Input perId
-        var inputId = crearElemento("input", {type:"number", name:"perId", class:"inputId"}, ["ID"] );
-        var labelId = crearElemento("label", {class:"labelId"}, [datos[0]]);
-        var divId = crearElemento("div", {id:"divId"}, [inputId,labelId]);
-        
-        //Nombre del aprendiz
-        var titNom = crearElemento("h2", {id:"titNom"}, [datos[1]]);
-        
-        
-        
+        var titulo=crearElemento("p", {id:"msg_tit"},["ID DEL PERMISO"]);
         var perId = crearElemento("p", {id:"input_msg_modal"}, [datos[0]]);
-        var divInput=crearElemento("div", {class:"perId"}, [perId]);
+        var divInput=crearElemento("div", {class:"perId"}, [titulo,perId]);
         
         //Div para el INPUT Documento aprendiz
-        var inputDoc = crearElemento("p", {id:"input_txt_modal"}, [datos[1]]);
-        var divDoc = crearElemento("input", {class:"perId"}, [inputDoc]);
+        var titulo=crearElemento("p", {id:"msg_tit"},["ID DEL APRENDIZ"]);
+        var inputDoc = crearElemento("p", {id:"input_msg_modal"}, [datos[1]]);
+        var divDoc = crearElemento("p", {class:"perId"}, [titulo,inputDoc]);
         
         //Div perTipo
+        var titulo=crearElemento("p", {id:"msg_tit"},["TIPO"]);
         var inputPerTipo = crearElemento("p", {class:"perId"}, [datos[2]]);
-        var divPerTipo = crearElemento("div", {class:"perId"}, [inputPerTipo]);
+    var divPerTipo = crearElemento("div", {class:"perId"}, [titulo, inputPerTipo]);
         
         //Div FechaSalida
+        var msg=crearElemento("p", {id:"msg_tit"},["FECHA DE SALIDA"]);
+        var inputFSal = crearElemento("p", {class:"perId"}, [datos[3]]);
+        var divFSal = crearElemento("div", {class:"perId"}, [inputFSal]);
+        
+        //Div FechaEntrada
+        var msg=crearElemento("p", {id:"msg_tit"},["FECHA DE ENTRADA"]);
         var inputFSal = crearElemento("p", {class:"perId"}, [datos[3]]);
         var divFSal = crearElemento("div", {class:"perId"}, [inputFSal]);
         
         //Div HoraSalida
+        var msg=crearElemento("p", {id:"msg_tit"},["FECHA DE SALIDA"]);
+        var inputHSal = crearElemento("p", {class:"perId"}, [datos[4]]);
+        var divHSal = crearElemento("div", {class:"perId"}, [inputHSal]);
+        
+        //Div HoraEntrada
+        var msg=crearElemento("p", {id:"msg_tit"},["FECHA DE ENTRADA"]);
         var inputHSal = crearElemento("p", {class:"perId"}, [datos[4]]);
         var divHSal = crearElemento("div", {class:"perId"}, [inputHSal]);
         
@@ -106,15 +114,12 @@ $(document).ready(function(){
         //Div Evidencia imagen
         var inputEvid = crearElemento("img", {class:"perId"}, [datos[6]]);
         var divEvid = crearElemento("div", {id:"divinterno"}, [inputEvid]);
-       
-        
-//        var observ= crearElemento("label", {class:"perTipo"}, [datos[7]]);//observacion
-//        var motivo= crearElemento("label", {class:"perTipo"}, [datos[8]]);//motivo
-//        var titNom = crearElemento("h2", {id:"titNom"}, [datos[0]]);
-//        var titTipo = crearElemento("p", {id:"titTipo"}, [datos[1]] );
-        
+
+
+
+
         //Ventana:almacena todos los elementos creados
-        var formulario = crearElemento("div", {id:"ventana"}, [divInput,, divDoc, divPerTipo, divFSal, divHSal,divMotivo,comboEstado,divEvid]);
+        var formulario = crearElemento("div", {id:"ventana"}, [encab, divInput, divDoc, divPerTipo, divFSal, divHSal,divMotivo,comboEstado,divEvid]);
         var contenedor = crearElemento("div", {id:"modal-background-coordinador"}, [formulario] );
         
 //        console.log(ventana);

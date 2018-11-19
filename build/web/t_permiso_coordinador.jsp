@@ -53,6 +53,9 @@
             <!--buscador-->
             <script src="js/buscadorfacil/BuscadorTabla.js"></script>
             
+            
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+            
 </head>
 
 
