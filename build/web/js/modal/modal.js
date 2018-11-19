@@ -56,28 +56,49 @@ $(document).ready(function(){
             });
             
         });
+    
     }
     
-    
+    //Función para crear la ventana modal
     //Función para crear la ventana modal
     function ventanaPermiso(datos) {
         
         //CREAR ELEMENTO DE LA VENTANA
-        var otrodiv=crearElemento("div", {id:"input_msg_modal"}, ["Hola prueba"] );
-        var perId = crearElemento("p", {class:"perId"}, [datos[0]] );
-        var aprdoc= crearElemento("p", {class:"aprDoc"},  [datos[1]]);
-        var perTip= crearElemento("p", {class:"perTipo"}, [datos[2]]);
-        var fSalid= crearElemento("p", {class:"fSalida"}, [datos[3]]);
-        var hSalid= crearElemento("p", {class:"hSalida"}, [datos[4]]);
-        var motivo= crearElemento("p", {class:"motivo"},  [datos[5]]);
+        
+        
+        //Div para el Input perId
+        var perId = crearElemento("p", {id:"input_msg_modal"}, [datos[0]]);
+        var divInput=crearElemento("div", {class:"perId"}, [perId]);
+        
+        //Div para el INPUT Documento aprendiz
+        var inputDoc = crearElemento("p", {id:"input_txt_modal"}, [datos[1]]);
+        var divDoc = crearElemento("input", {class:"perId"}, [inputDoc]);
+        
+        //Div perTipo
+        var inputPerTipo = crearElemento("p", {class:"perId"}, [datos[2]]);
+        var divPerTipo = crearElemento("div", {class:"perId"}, [inputPerTipo]);
+        
+        //Div FechaSalida
+        var inputFSal = crearElemento("p", {class:"perId"}, [datos[3]]);
+        var divFSal = crearElemento("div", {class:"perId"}, [inputFSal]);
+        
+        //Div HoraSalida
+        var inputHSal = crearElemento("p", {class:"perId"}, [datos[4]]);
+        var divHSal = crearElemento("div", {class:"perId"}, [inputHSal]);
+        
+        //Div Motivo
+        var inputMotivo = crearElemento("p", {class:"input_txt_modal"}, [datos[5]]);
+        var divMotivo = crearElemento("div", {class:"perId"}, [inputMotivo]);
 
-        var input = crearElemento("input", {id:"input"}, [perId, aprdoc, perTip, fSalid, hSalid, motivo]);
         //CREAR SELECT PARA CAMBIAR ESTADO
         var option1 = crearElemento("option", {class:"op", value:"Autorizado"}, ["Autorizado"]);
         var option2 = crearElemento("option", {class:"op", value:"Denegado"}, ["Denegado"]);
         var comboEstado = crearElemento("select", {id:"selectEstado"}, [option1,option2] );
         //CREA EVIDENCIA
-        var evidencia = crearElemento("img", {id:"imagenevidenc"}, [datos[6]] );
+        //Div Evidencia imagen
+        var inputEvid = crearElemento("img", {class:"perId"}, [datos[6]]);
+        var divEvid = crearElemento("div", {id:"divinterno"}, [inputEvid]);
+       
         
 //        var observ= crearElemento("label", {class:"perTipo"}, [datos[7]]);//observacion
 //        var motivo= crearElemento("label", {class:"perTipo"}, [datos[8]]);//motivo
@@ -85,13 +106,17 @@ $(document).ready(function(){
 //        var titTipo = crearElemento("p", {id:"titTipo"}, [datos[1]] );
         
         //Ventana:almacena todos los elementos creados
-        var ventana = crearElemento("div", {class:"modal-cont", id:"ventana"}, [otrodiv, input, comboEstado, evidencia]);
-        var divPrincipal = crearElemento("div", {class:"divPrincipal", id:"modal-background-coordinador"}, [ventana] );
+        var ventana = crearElemento("div", {class:"modal-", id:"ventana"}, [divInput, divDoc, divPerTipo, divFSal, divHSal,divMotivo,comboEstado,divEvid]);
+        var divPrincipal = crearElemento("div", {id:"modal-background-coordinador"}, [ventana] );
         
+        console.log(divPrincipal);
         //MOSTRAR VENTANA EN PANTALLA
         document.body.appendChild(divPrincipal);
         
     }
+    
+    
+    
     
 
 });
