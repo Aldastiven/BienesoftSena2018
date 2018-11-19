@@ -136,6 +136,25 @@ public class consultas {
     }
     
     
+    //CONSULTAR DATOS DEL APRENDIZ POR EL ID
+    public ArrayList<aprendizSG>consultarAprendizID(int doc){
+        ArrayList<aprendizSG> arreglo = new ArrayList<aprendizSG>();
+        
+        try {
+            ps = cnn.prepareStatement("SELECT * FROM aprendiz WHERE apr_documento='"+doc+"' ");
+            rs = ps.executeQuery();
+
+            if(rs.next()){
+                aprendizSG getset = new aprendizSG( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),  rs.getString(21), rs.getString(22), rs.getString(23), rs.getInt(24), rs.getInt(25), rs.getInt(26) );
+                arreglo.add(getset);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"error" +e);
+        }
+        return arreglo;
+    }
+    
+    
      //CONSULTA aprendiz_rel_patrocinioSG
     public ArrayList<aprendiz_rel_patrocinioSG> consultaAprendiz_rel_Patricinio(){
         ArrayList<aprendiz_rel_patrocinioSG>arreglo= new ArrayList<aprendiz_rel_patrocinioSG>();
@@ -272,6 +291,7 @@ public class consultas {
 //        return arreglo;
 //
 //    }
+    
     
     
     

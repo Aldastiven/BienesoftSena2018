@@ -92,22 +92,22 @@
         
         <ul class="sidenav" id="menu-responsive">
                     
-            <li><a href="#"> Aprendizes</a></li>
+            <li><a href="#">Aprendizes</a></li>
 
-            <li><a href="#"> Alimentacion</a></li>
+            <li><a href="#">Alimentacion</a></li>
 
-            <li><a href="#"> Permisos</a></li>        
+            <li><a href="#">Permisos</a></li>        
         </ul>
         
         <!--------------------------------------------------->
         <!--nav secundario (opciones)--->
         
         <nav id="nav_menu" class="hide-on-med-and-down" >
-            <a href="aprendiz.jsp">
+            <a href="mi_perfil.jsp">
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
                 <img class="icon-h" src="iconos_nav_bar/profile.png"/>
             </a>
-            <a href=""><!--FALTA-->
+            <a href="f_permiso.jsp">
                 <input id="opc_menu_2" type="submit" value="Perfil"/>
                 <img class="icon-home" src="iconos_nav_bar/home.png"/>
             </a>

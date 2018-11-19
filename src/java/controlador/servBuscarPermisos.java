@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
+import modelo.aprendizSG;
 import modelo.consultas;
 import modelo.permisoSG;
+import modulo_permisos.Autorizacion;
 
 @WebServlet(name = "servBuscarPermisos", urlPatterns = {"/servBuscarPermisos"})
 public class servBuscarPermisos extends HttpServlet {
@@ -21,10 +23,42 @@ public class servBuscarPermisos extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         String tipoPermiso = request.getParameter("tipo");
-        String buscar = request.getParameter("ventana");
+        String perId = request.getParameter("perId");
+        String ventana = request.getParameter("ventana");
         
-        if(buscar != null && buscar.equals("ventana")) {
-            JOptionPane.showMessageDialog(null,"JELOU");
+        if(ventana != null && ventana.equals("abrir")) {
+            //BUSCAR DATOS DEL PERMISO SELECCIONADO
+            Autorizacion con = new Autorizacion();
+            ArrayList<permisoSG> permiso = new ArrayList<>();
+            
+            //CuargarID EN LOS GETTER Y SETTER
+            permisoSG id = new permisoSG(Integer.parseInt(perId));
+            
+            //llamar consulta
+            permiso = con.consultaperID(id);
+            
+            permisoSG per = new permisoSG();
+            //GUARDAR DATOS QUE TRAJO EL ARREGLO EN LOS GETTER Y SETTER
+            per = permiso.get(0);
+            
+            //CONSULTAR NOMBRE DEL APRENDIZ
+            consultas con_ap = new consultas();
+            ArrayList<aprendizSG> aprendiz = new ArrayList<>();
+            
+            //Consulta de datos de aprendiz (ID)
+            aprendiz = con_ap.consultarAprendizID(per.getPer_Aprendiz_Apr_documento());
+
+            aprendizSG ap = new aprendizSG();
+            ap = aprendiz.get(0);
+            String aprendizNom = ap.getApr_nombres();
+            
+            //Impresion de datos del permiso
+            out.print(aprendizNom+"|"+per.getPer_ID()+"|"+ap.getApr_documento()+"|"
+                +per.getPer_tipo()+"|"+per.getPer_fecha_salida()+"|"
+                +per.getPer_hora_Salida()+"|"+per.getPer_motivo()+"|"+per.getPer_estado()+"|"+per.getPer_evidenciaAdjunta());
+            
+            
+            
             
         } else { 
             out.print("<thead id='thead' class='thead>"+

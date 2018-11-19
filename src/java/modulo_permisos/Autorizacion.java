@@ -26,11 +26,11 @@ public class Autorizacion {
     
 
     //METODO DE CONSULTA ID DE PERMISO
-    public ArrayList<permisoSG> consultaperID(permisoSG perId ){
+    public ArrayList<permisoSG> consultaperID(permisoSG id){
         ArrayList<permisoSG> permisoid = new ArrayList<>();
-
+        
         try {
-           ps = cnn.prepareStatement("SELECT*FROM permiso WHERE per_ID='"+perId.getPer_ID()+"' ");
+           ps = cnn.prepareStatement("SELECT*FROM permiso WHERE per_ID='"+id.getPer_ID()+"' ");
            rs = ps.executeQuery();
           if(rs.next()){
                 permisoSG setget = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16));

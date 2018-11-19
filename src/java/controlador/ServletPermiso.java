@@ -161,14 +161,12 @@ public class ServletPermiso extends HttpServlet {
         Calendar calendario = Calendar.getInstance();
         int hora, minutos, segundos, dia, mes, ano;
             
-        hora =calendario.get(Calendar.HOUR_OF_DAY);
+        hora = calendario.get(Calendar.HOUR_OF_DAY);
         minutos = calendario.get(Calendar.MINUTE);
         segundos = calendario.get(Calendar.SECOND);
             
         String horaReal = hora+":"+minutos+":"+segundos;
         
-//        permisoSG pser = new permisoSG(hora_Salida);//HORA SALIDA ESTIPULADA POR APRENDIZ
-//        String horaSalApr=pser.getPer_hora_Salida();
  
         JOptionPane.showMessageDialog(null, "Hora real es:" + horaReal + " " + "Hora estipulada: "+ hora_Salida);
         

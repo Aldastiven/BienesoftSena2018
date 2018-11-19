@@ -1,3 +1,14 @@
+/*#divPrincipal{
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+    min-height: 100%;
+    height: auto !important;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 3;
+}
+*/
 
 #modal-background-coordinador{
     background-color: rgba(0, 0, 0, .5);
@@ -21,7 +32,7 @@
     z-index: 3;
 }
 
-#modal-cont{
+.modal-cont{
     background: white;
     overflow-y: scroll;
     padding: 10px;
@@ -76,4 +87,9 @@
     background-color: white;
     margin-top: 1px;
     height: 60px;
+}
+
+.perId{
+    background-color: blue;
+    color: yellow;
 }

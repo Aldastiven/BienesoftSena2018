@@ -206,15 +206,15 @@
             <h1 class="titulonly">PERMISOS</h1>
         </div>
     </div>
-         <div id="table"  class="table" style="margin-top: -10px;">
+    <div id="table"  class="table" style="margin-top: -10px;">
      
-                <table class="table scrolling">
-                        <div id="datos" class="col">
-                    
-                        </div>
-                </table>
+        <table class="table scrolling">
+                <div id="datos" class="col">
+
+                </div>
+        </table>
              
-  </div>
+    </div>
 
                     
                     

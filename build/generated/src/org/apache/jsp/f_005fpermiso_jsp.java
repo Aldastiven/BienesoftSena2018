@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import modelo.permisoSG;
 import modulo_permisos.tipopermiso;
 import modelo.aprendizSG;
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -169,7 +171,7 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
 
                 HttpSession rnombre=request.getSession();
                 String nom=(String)rnombre.getAttribute("nombre");
-     
+                int id=(int)rnombre.getAttribute("iden");
              
       out.write("\r\n");
       out.write("        <p id=\"user_text\" class=\"user_text hide-on-med-and-down\">");
@@ -183,18 +185,18 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        \r\n");
       out.write("        <div class=\"container\" style=\"margin-bottom:15px;\">\r\n");
       out.write("            \r\n");
-      out.write("            <div class=\"contenedor_blanco\">\r\n");
-      out.write("                <h1 id=\"title_container\">REGISTRO PERMISO</h1>\r\n");
+      out.write("        <div class=\"header_conte\">\r\n");
+      out.write("            <figcaption class=\"vicon\">\r\n");
+      out.write("                <img src=\"css_index_user/icons/coordinador/vpermiso.png\" height=\"75px\"/> \r\n");
+      out.write("            </figcaption>\r\n");
+      out.write("            <div class=\"prueba\">\r\n");
+      out.write("                <h1 class=\"titulonly\">REGISTRO PERMISO</h1>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </div>\r\n");
+      out.write("            \r\n");
       out.write("\r\n");
-      out.write("    <form action=\"ServletPermiso\" enctype=\"multipart/form-data\" method=\"post\"> \r\n");
-      out.write("                    \r\n");
-      out.write("        ");
-
-            int id=(int)rnombre.getAttribute("iden");
-
-        
-      out.write("\r\n");
-      out.write("                    \r\n");
+      out.write("    <form action=\"ServletPermiso\" id=\"frm\" enctype=\"multipart/form-data\" method=\"post\" > \r\n");
+      out.write("        \r\n");
       out.write("    <div class=\"row\" id=\"container_form_large\"  style=\"height: 420px;\">\r\n");
       out.write("        <div class=\"input-field col s12 m6 l6\">\r\n");
       out.write("            <p id=\"input_msg\">Documento del aprendiz</p>\r\n");
@@ -223,11 +225,11 @@ public final class f_005fpermiso_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("            <input id=\"input_txt\" type=\"date\" name=\"f_fechsal\" placeholder=\"Fecha salida\">\r\n");
       out.write("        </div>\r\n");
       out.write("\r\n");
-      out.write("         <div class=\"input-field col s12 l6 m6\">\r\n");
+      out.write("        <!--<div class=\"input-field col s12 l6 m6\">\r\n");
       out.write("            <p id=\"input_msg\">Fecha de ingreso</p>\r\n");
       out.write("            <br>\r\n");
       out.write("            <input id=\"input_txt\" type=\"date\" name=\"f_fechingre\" placeholder=\"Fecha ingreso\">\r\n");
-      out.write("        </div>\r\n");
+      out.write("        </div>-->\r\n");
       out.write("\r\n");
       out.write("        <div class=\"input-field col s12 l6 m6\">\r\n");
       out.write("            <p id=\"input_msg\">Hora de salida</p>\r\n");
