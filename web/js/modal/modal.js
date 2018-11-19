@@ -13,17 +13,17 @@ $(document).ready(function(){
             let miElemento = document.createElement(element);
 
             if(children !== undefined) children.forEach(el => {
-                    if(el .nodeType){
-                        if(el .nodeType === 1 ||  el .nodeType === 11)
-                            miElemento.innerHTML += (el);                      
+                    if(el.nodeType){
+                        if(el.nodeType === 1 ||  el.nodeType === 11)
+                            miElemento.appendChild(el);                      
                     } else{
-                        miElemento.innerHTML += el;
+                        miElemento.innerHTML+= el;
                     }
             });
 
 
                 //Llamar funcion para añadir un objeto de atributos a mi elemento padre    
-                agregarAtributos (miElemento, attributes);
+                agregarAtributos(miElemento, attributes);
 
                 return miElemento;
     };
@@ -60,13 +60,21 @@ $(document).ready(function(){
     }
     
     //Función para crear la ventana modal
-    //Función para crear la ventana modal
     function ventanaPermiso(datos) {
         
         //CREAR ELEMENTO DE LA VENTANA
         
-        
+
         //Div para el Input perId
+        var inputId = crearElemento("input", {type:"number", name:"perId", class:"inputId"}, ["ID"] );
+        var labelId = crearElemento("label", {class:"labelId"}, [datos[0]]);
+        var divId = crearElemento("div", {id:"divId"}, [inputId,labelId]);
+        
+        //Nombre del aprendiz
+        var titNom = crearElemento("h2", {id:"titNom"}, [datos[1]]);
+        
+        
+        
         var perId = crearElemento("p", {id:"input_msg_modal"}, [datos[0]]);
         var divInput=crearElemento("div", {class:"perId"}, [perId]);
         
@@ -106,12 +114,15 @@ $(document).ready(function(){
 //        var titTipo = crearElemento("p", {id:"titTipo"}, [datos[1]] );
         
         //Ventana:almacena todos los elementos creados
-        var ventana = crearElemento("div", {class:"modal-", id:"ventana"}, [divInput, divDoc, divPerTipo, divFSal, divHSal,divMotivo,comboEstado,divEvid]);
-        var divPrincipal = crearElemento("div", {id:"modal-background-coordinador"}, [ventana] );
+        var formulario = crearElemento("div", {id:"ventana"}, [divInput,, divDoc, divPerTipo, divFSal, divHSal,divMotivo,comboEstado,divEvid]);
+        var contenedor = crearElemento("div", {id:"modal-background-coordinador"}, [formulario] );
         
-        console.log(divPrincipal);
+//        console.log(ventana);
+        console.log(contenedor);
         //MOSTRAR VENTANA EN PANTALLA
-        document.body.appendChild(divPrincipal);
+        //document.body.appendChild(formulario);
+        document.body.appendChild(contenedor);
+        
         
     }
     
