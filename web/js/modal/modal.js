@@ -66,10 +66,11 @@ $(document).ready(function(){
         
         //encabezado del formulario
         var encab = crearElemento("p", {id:"ppp"}, ["Permiso"]);
-        var contencab = crearElemento("div", {id:"con-encab"}, [encab])
-
         var titulo=crearElemento("p", {id:"msg_tit"},["ID DEL PERMISO"]);
         var perId = crearElemento("p", {id:"input_msg_modal"}, [datos[0]]);
+        var contencab = crearElemento("div", {id:"con-encab"}, [encab]);
+
+        
         var divInput=crearElemento("div", {class:"perId"}, [titulo,perId]);
         
         //Div para el INPUT Documento aprendiz
@@ -107,9 +108,10 @@ $(document).ready(function(){
         var divMotivo = crearElemento("div", {class:"perId"}, [inputMotivo]);
 
         //CREAR SELECT PARA CAMBIAR ESTADO
-        var option1 = crearElemento("option", {class:"op", value:"Autorizado"}, ["Autorizado"]);
-        var option2 = crearElemento("option", {class:"op", value:"Denegado"}, ["Denegado"]);
-        var comboEstado = crearElemento("select", {id:"selectEstado"}, [option1,option2] );
+        var option0 = crearElemento("option", {value:""}, ["Respuesta a permiso"]);
+        var option1 = crearElemento("option", {value:"Autorizado"}, ["Autorizar"]);
+        var option2 = crearElemento("option", {value:"Denegado"}, ["Denegar"]);
+        var comboEstado = crearElemento("select", {class:"browser-default", id:"selectEstado",name:"t_estado"}, [option0,option1,option2]);
         //CREA EVIDENCIA
         //Div Evidencia imagen
         var inputEvid = crearElemento("img", {class:"perId"}, [datos[6]]);
@@ -122,8 +124,8 @@ $(document).ready(function(){
         var formulario = crearElemento("div", {id:"ventana"}, [encab, divInput, divDoc, divPerTipo, divFSal, divHSal,divMotivo,comboEstado,divEvid]);
         var contenedor = crearElemento("div", {id:"modal-background-coordinador"}, [formulario] );
         
-//        console.log(ventana);
-        console.log(contenedor);
+        console.log(comboEstado);
+//        console.log(contenedor);
         //MOSTRAR VENTANA EN PANTALLA
         //document.body.appendChild(formulario);
         document.body.appendChild(contenedor);

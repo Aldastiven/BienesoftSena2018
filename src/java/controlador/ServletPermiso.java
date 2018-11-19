@@ -155,9 +155,14 @@ public class ServletPermiso extends HttpServlet {
         }
         
         
+//        permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+//        crudPermisos crud = new crudPermisos();
+//        crud.guardar_permiso(setget);
+//        request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
         
         
-        //Restriccion de hora en permiso
+        
+        //RESTRICCION DE HORA EN PERMISO 
         Calendar calendario = Calendar.getInstance();
         int hora, minutos, segundos, dia, mes, ano;
             

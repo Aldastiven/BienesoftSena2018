@@ -44,3 +44,8 @@
     transform: translateY(10px);
 }
 
+#selectEstado{
+    background: steelblue;
+    width: 176px;
+}
+
