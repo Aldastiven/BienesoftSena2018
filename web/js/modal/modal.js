@@ -134,15 +134,16 @@ $(document).ready(function(){
         var btnText = crearElemento("p", {id:"txt_buttom", class:"txt_buttom"},["Eliminar"]);
         var btnEliminar=crearElemento("button", {type:"submit", name:"btn-eliminar", id:"btn_action_eliminar", class:"btn_action_salida l12  m12 s12"},[btnText]);
 
-
+        
+        
         //Ventana:almacena todos los elementos creados
         var formulario = crearElemento("div", {id:"ventana"}, [encab, divInput, divDoc, divPerTipo, divFSal, divFEnt, divHSal,divHEnt, divMotivo,comboEstado,divEvid, btnEnviar, btnEliminar]);
-        var contenedor = crearElemento("div", {id:"modal-background-coordinador"}, [formulario] );
         
-        console.log(comboEstado);
-//        console.log(contenedor);
-        //MOSTRAR VENTANA EN PANTALLA
-        //document.body.appendChild(formulario);
+        //ETIQUETA FORM: para trabajar con el Servlet
+        var form = crearElemento("form", {action:"ServletPermiso", enctype:"multipart/form-data", method:"post"}, [formulario]  );
+        
+        var contenedor = crearElemento("div", {id:"modal-background-coordinador"}, [form] );
+        
         document.body.appendChild(contenedor);
         
         
