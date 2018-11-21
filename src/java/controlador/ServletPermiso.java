@@ -30,7 +30,7 @@ import modulo_permisos.tipopermiso;
 @MultipartConfig//servidor espera este tipo de formatos img
 public class ServletPermiso extends HttpServlet {
     //VARS GLOBAL
-    int Id,documento;
+    int Id, documento;
     String tipo, fecha_salida, fecha_ingreso,hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal,observacion_permiso_llegada,motivo,
     estado, autoriza,evidenciaAdjunta;
     
@@ -53,9 +53,15 @@ public class ServletPermiso extends HttpServlet {
         if(request.getParameter("btn-guardar") != null){
          this.guardarPermiso(request,response);
         }
-        //ACTUALIZAR
+        //ACTUALIZAR-admin
         if(request.getParameter("btn-actualizar") != null){
          this.actualizarPermiso(request,response);
+        }
+        
+        
+       //ACTUALIZAR ESTADO(Aprobacion) PERMISO
+        if(request.getParameter("btn-actualizaEstado") != null){
+         this.actualizarPerEstado(request,response);
         }
        
         //ELIMINAR
@@ -155,46 +161,46 @@ public class ServletPermiso extends HttpServlet {
         }
         
         
-//        permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-//        crudPermisos crud = new crudPermisos();
-//        crud.guardar_permiso(setget);
-//        request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
+        permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+        crudPermisos crud = new crudPermisos();
+        crud.guardar_permiso(setget);
+        request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
         
         
         
         //RESTRICCION DE HORA EN PERMISO 
-        Calendar calendario = Calendar.getInstance();
-        int hora, minutos, segundos, dia, mes, ano;
-            
-        hora = calendario.get(Calendar.HOUR_OF_DAY);
-        minutos = calendario.get(Calendar.MINUTE);
-        segundos = calendario.get(Calendar.SECOND);
-            
-        String horaReal = hora+":"+minutos+":"+segundos;
-        
- 
-        JOptionPane.showMessageDialog(null, "Hora real es:" + horaReal + " " + "Hora estipulada: "+ hora_Salida);
-        
-        String HR[] = horaReal.split(":");
-        String HEap[] = hora_Salida.split(":");
-        
-        //Condicion
-        if( Integer.parseInt(HEap[0]) <=  Integer.parseInt(HR[0]) ) {
-            
-            JOptionPane.showMessageDialog(null,"Hora es incorrecta con el sistema");
-            out.print("<script src='js/inputstyle/prueba.js'></script>");
-            
-            request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
-            
-        }else{
-            permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-            crudPermisos crud = new crudPermisos();
-            crud.guardar_permiso(setget);
-            request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
-            JOptionPane.showMessageDialog(null,"Crea PERMISOOOO!");
-        
-        } 
-        
+//        Calendar calendario = Calendar.getInstance();
+//        int hora, minutos, segundos, dia, mes, ano;
+//            
+//        hora = calendario.get(Calendar.HOUR_OF_DAY);
+//        minutos = calendario.get(Calendar.MINUTE);
+//        segundos = calendario.get(Calendar.SECOND);
+//            
+//        String horaReal = hora+":"+minutos+":"+segundos;
+//        
+// 
+//        JOptionPane.showMessageDialog(null, "Hora real es:" + horaReal + " " + "Hora estipulada: "+ hora_Salida);
+//        
+//        String HR[] = horaReal.split(":");
+//        String HEap[] = hora_Salida.split(":");
+//        
+//        //Condicion
+//        if( Integer.parseInt(HEap[0]) <=  Integer.parseInt(HR[0]) ) {
+//            
+//            JOptionPane.showMessageDialog(null,"Hora es incorrecta con el sistema");
+//            out.print("<script src='js/inputstyle/prueba.js'></script>");
+//            
+//            request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
+//            
+//        }else{
+//            permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+//            crudPermisos crud = new crudPermisos();
+//            crud.guardar_permiso(setget);
+//            request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
+//            JOptionPane.showMessageDialog(null,"Crea PERMISOOOO!");
+//        
+//        } 
+//        
         
         
     
@@ -206,7 +212,9 @@ public class ServletPermiso extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        Id=Integer.parseInt(request.getParameter("t_Id"));   
+        Id=Integer.parseInt(request.getParameter("t_Id")); 
+        JOptionPane.showMessageDialog(null, "Id del permiso: " + Id);
+        
         documento=Integer.parseInt(request.getParameter("t_numerodocumento"));
         tipo=request.getParameter("tipoper");
         fecha_salida=request.getParameter("t_fechsal");
@@ -223,10 +231,37 @@ public class ServletPermiso extends HttpServlet {
         autoriza=request.getParameter("t_autoriza");
         evidenciaAdjunta=request.getParameter("t_evidenciaAdjunta");
             
-        permisoSG setget = new permisoSG( Id,documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+        //permisoSG setget = new permisoSG(Id,estado);
+        permisoSG setget = new permisoSG( Id, documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
         crudPermisos crud = new crudPermisos();
         crud.actualizar_permiso(setget);
         request.getRequestDispatcher("t_permiso_coordinador.jsp").forward(request, response);
+       
+    }
+    
+    
+    
+    //METODO ACTUALIZAR PERMISO ESTADO VISTA COORDINADOR
+    private void actualizarPerEstado(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        
+        JOptionPane.showMessageDialog(null, "HE ENTRADO AL SERVLET actualizarPerEstado!! ");
+        
+        Id=Integer.parseInt(request.getParameter("t_Id")); 
+        JOptionPane.showMessageDialog(null, "Id del permiso: " + Id);
+        estado=request.getParameter("t_estado");
+        JOptionPane.showMessageDialog(null, "Estado: " + estado);
+        autoriza = request.getParameter("coordinador");
+        JOptionPane.showMessageDialog(null, "Autoriza: " + autoriza);
+           
+        permisoSG setget = new permisoSG(Id,estado,autoriza);
+        crudPermisos crud = new crudPermisos();
+        crud.actualizar_permisoEstado(setget);
+        //request.getRequestDispatcher("t_permiso_coordinador.jsp").forward(request, response);
+        response.sendRedirect("t_permiso_coordinador.jsp");
+       
     }
     
     

@@ -76,6 +76,7 @@ public class tipopermiso {
         
     }
     
+    
     private String fechaDomingo="";
     //METODO FIN DE SEMANA
     public String metodo_finsemana(String fechaReal, String horaReal){

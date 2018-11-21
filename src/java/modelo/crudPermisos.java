@@ -23,7 +23,7 @@ public class crudPermisos {
             ps.setInt(2, ing.getPer_Aprendiz_Apr_documento());
             ps.setString(3, ing.getPer_tipo());
             ps.setString(4, ing.getPer_fecha_salida());
-            ps.setString(5, null);
+            ps.setString(5, ing.getPer_fecha_ingreso());
             ps.setString(6, ing.getPer_hora_Salida());
             ps.setString(7, ing.getPer_hora_ingreso());
             ps.setString(8, null);
@@ -44,7 +44,7 @@ public class crudPermisos {
     }
     
     
-    //ACTUALIZAR 
+    //ACTUALIZAR TODOS LOS DATOS
     public int actualizar_permiso(permisoSG ing){
         try {
             ps=cnn.prepareStatement("UPDATE permiso SET per_Aprendiz_Apr_documento= '"+ing.getPer_Aprendiz_Apr_documento()+"', per_tipo= '"+ing.getPer_tipo()+"', per_fecha_salida= '"+ing.getPer_fecha_salida()+"', per_fecha_ingreso= '"+ing.getPer_fecha_ingreso()+"', per_hora_Salida= '"+ing.getPer_hora_Salida()+"', per_hora_ingreso= '"+ing.getPer_hora_ingreso()+"', per_motivo= '"+ing.getPer_motivo()+"', per_estado= '"+ing.getPer_estado()+"', per_autoriza= '"+ing.getPer_autoriza()+"', per_evidenciaAdjunta= '"+ing.getPer_evidenciaAdjunta()+"' WHERE   per_Aprendiz_Apr_documento= '"+ing.getPer_Aprendiz_Apr_documento()+"' ");
@@ -58,38 +58,37 @@ public class crudPermisos {
     } 
     
     
-    
-    //ELIMINAR 
-   /* public int eliminar_permiso(permisoSG ing){
+    //PRUEBA ACTUALIZAR SOLO PER-ESTADO
+    public int actualizar_permisoEstado(permisoSG inge){
         
-        int x=0;
         
         try {
-            ps=cnn.prepareStatement("DELETE FROM permiso WHERE  per_ID=?");
-            ps.setInt(1,ing.getPer_ID());        
-            x=ps.executeUpdate();          
-            JOptionPane.showMessageDialog(null,"Registro eliminado");
+            ps=cnn.prepareStatement("UPDATE permiso SET per_estado='"+inge.getPer_estado()+"', per_autoriza='"+inge.getPer_autoriza()+"' "
+                    + "WHERE  per_ID='"+inge.getPer_ID()+"' ");
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null,"Registro actualizado"+ " " +inge.getPer_estado());
             
         } catch (Exception e) {
-            
-            JOptionPane.showMessageDialog(null,"NO se pudo eliminar desde crud permisos "+e);
+            JOptionPane.showMessageDialog(null,"no se pudo actualizar desde crud permiso " +e);
         }
-        return x;
-    }*/
-
+        return 0;       
+    }
+    
+    
     
     public int eliminar_permiso(permisoSG ing){
-                try {
-                    ps=cnn.prepareStatement("DELETE FROM permiso WHERE per_ID=?");
-                    ps.setInt(1,ing.getPer_ID());
-                    ps.executeUpdate();
-                    JOptionPane.showMessageDialog(null,"Registro eliminado");
-                    
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null,"no se pudo eliminar desde el crud" +e);
-                }
-        return 0;
-            }
+        try {
+            ps=cnn.prepareStatement("DELETE FROM permiso WHERE per_ID=?");
+            ps.setInt(1,ing.getPer_ID());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null,"Registro eliminado");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"no se pudo eliminar desde el crud" +e);
+        }
+            return 0;
+    }
     
    
     

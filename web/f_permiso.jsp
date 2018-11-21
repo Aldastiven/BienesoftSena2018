@@ -172,11 +172,11 @@
             <input id="input_txt" type="date" name="f_fechsal" placeholder="Fecha salida">
         </div>
 
-        <!--<div class="input-field col s12 l6 m6">
+        <div class="input-field col s12 l6 m6">
             <p id="input_msg">Fecha de ingreso</p>
             <br>
             <input id="input_txt" type="date" name="f_fechingre" placeholder="Fecha ingreso">
-        </div>-->
+        </div>
 
         <div class="input-field col s12 l6 m6">
             <p id="input_msg">Hora de salida</p>

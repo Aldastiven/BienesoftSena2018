@@ -146,7 +146,7 @@
                 HttpSession rnombre=request.getSession();
                 String nom=(String)rnombre.getAttribute("nombre");
             %>
-        <p id="user_text" class="user_text hide-on-med-and-down"><%=nom%></p>
+        <p id="user_text" class="userNom hide-on-med-and-down"><%=nom%></p>
 
 
         <!--*********************************************************-->

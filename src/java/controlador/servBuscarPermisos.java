@@ -53,8 +53,17 @@ public class servBuscarPermisos extends HttpServlet {
             String aprendizNom = ap.getApr_nombres();
             
             //Impresion de datos del permiso
-            out.print(per.getPer_ID()+"|"+aprendizNom+"|"+per.getPer_Aprendiz_Apr_documento()+"|"+per.getPer_tipo()+"|"+per.getPer_fecha_salida()+"|"
-                +"|"+per.getPer_fecha_ingreso()+"|"+per.getPer_hora_Salida()+"|"+per.getPer_hora_ingreso()+"|"+per.getPer_motivo()+"|"+per.getPer_evidenciaAdjunta());
+            out.print(per.getPer_ID()+
+                "|"+aprendizNom+
+                "|"+per.getPer_Aprendiz_Apr_documento()+
+                "|"+per.getPer_tipo()+
+                "|"+per.getPer_fecha_salida()+
+                "|"+per.getPer_fecha_ingreso()+
+                "|"+per.getPer_hora_Salida()+
+                "|"+per.getPer_hora_ingreso()+
+                "|"+per.getPer_motivo()+
+                "|"+per.getPer_evidenciaAdjunta());
+
             
         } else { 
             out.print("<thead id='thead' class='thead>"+

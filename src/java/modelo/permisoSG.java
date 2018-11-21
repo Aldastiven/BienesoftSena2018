@@ -43,6 +43,12 @@ public class permisoSG {
         this.per_autoriza = per_autoriza;
         this.per_evidenciaAdjunta = per_evidenciaAdjunta;
     }
+
+    public permisoSG(int per_ID, String per_estado, String per_autoriza) {
+        this.per_ID = per_ID;
+        this.per_estado = per_estado;
+        this.per_autoriza = per_autoriza;
+    }
     
 
     public int getPer_ID() {
@@ -215,6 +221,8 @@ public class permisoSG {
         this.per_fecha_salida = per_fecha_salida;
         this.per_fecha_ingreso = per_fecha_ingreso;
     }
+    
+    
     
     
 
