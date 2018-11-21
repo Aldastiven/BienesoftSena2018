@@ -51,7 +51,7 @@
             <script src="js/jquery.js"></script>
             
             <!--buscador-->
-            <script src="js/buscadorfacil/BuscadorTabla.js"></script>
+            <script src="js/buscadorfacil/BuscadorTabla_historial.js"></script>
             
             
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
@@ -158,18 +158,16 @@
             <div id="search-container"  class="browser-default">
                 
                 <!--ComoboBox-->
-                <form action="t_permiso_coordinador.jsp" method="post">
+                <form action="t_permiso_historial.jsp" method="post">
                     
                     <!--Filtro busqueda id-->
                     <input id="searchTerm" class="searchTerm" type="text" name="documento" onkeyup="doSearch()" placeholder="busca" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
                  
                     <!--combobox--> 
-                    <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
+                    <select id="ComboFiltroHistorial" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
                         <option value="">Todo</option>
-                        <option value="semana morning">Semana - Mañana</option>
-                        <option value="semana tarde">Semana - Tarde</option>
-                        <option value="fin de semana">Fin de semana</option>
-                        <option value="extra">Extra</option>
+                        <option value="tarde">tarde</option>
+                        <option value="A tiempo">A tiempo</option>
                     </select>
                     
                     <button id="btn_ver" type="submit" value="Ingresar" name="" style="float: left; background: transparent; cursor: pointer; position:relative; bottom:10px; border:none">
@@ -212,7 +210,7 @@
     </div>
     
       <div id="table_p">
-        <table id="datos" class="table_p">
+        <table id="datos_history" class="table_p">
         </table>          
       </div>  
       

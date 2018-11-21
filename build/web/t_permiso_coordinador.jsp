@@ -164,7 +164,7 @@
                     <input id="searchTerm" class="searchTerm" type="text" name="documento" onkeyup="doSearch()" placeholder="busca" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
                  
                     <!--combobox--> 
-                        <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
+                    <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
                         <option value="">Todo</option>
                         <option value="semana morning">Semana - Mañana</option>
                         <option value="semana tarde">Semana - Tarde</option>
