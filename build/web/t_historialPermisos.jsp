@@ -17,11 +17,11 @@
         <input type="date" name="per_llegada" placeholder="Permisos de llegada"/>
         <div id="table"  class="table" style="margin-top: -10px;">
         <!--Tabla de datos--->
-        <table class="table scrolling">
-            <div id="datos" class="col">
-
-            </div>
-        </table>
+        <div id="table_p">
+            <table id="datos" class="table_p">
+                
+            </table>          
+        </div>  
              
         </div>
     </body>

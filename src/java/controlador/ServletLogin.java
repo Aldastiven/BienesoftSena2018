@@ -70,12 +70,12 @@ private HttpServletResponse pass;
             
            // Encoding string  
             String str = encoder.encodeToString(pass.getBytes());  
-            JOptionPane.showMessageDialog(null, "Encryptacion string: "+str);  
+            //JOptionPane.showMessageDialog(null, "Encryptacion string: "+str);  
             // Getting decoder  
             Base64.Decoder decoder = Base64.getDecoder();  
             // Decoding string  
             String dStr = new String(decoder.decode(str));  
-            JOptionPane.showMessageDialog(null, "Decodificacion to string: "+dStr);
+            //JOptionPane.showMessageDialog(null, "Decodificacion to string: "+dStr);
 
             
                         

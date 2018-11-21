@@ -75,20 +75,31 @@ public class crudPermisos {
         return 0;       
     }
     
-    
-    
-    public int eliminar_permiso(permisoSG ing){
-        try {
-            ps=cnn.prepareStatement("DELETE FROM permiso WHERE per_ID=?");
-            ps.setInt(1,ing.getPer_ID());
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null,"Registro eliminado");
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"no se pudo eliminar desde el crud" +e);
-        }
-            return 0;
+    public int eliminar_permiso(permisoSG ing){    
+        int x=0;
+            try {            
+                ps=(PreparedStatement) cnn.prepareStatement("DELETE FROM permiso WHERE per_ID='"+ing.getPer_ID()+"' ");
+                x=ps.executeUpdate();            
+                JOptionPane.showMessageDialog(null, "Datos Eliminados");
+                
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Datos NO Eliminados" +e);            
+            }            
+        return x;    
     }
+    
+//    public int eliminar_permiso(permisoSG ing){
+//        try {
+//            ps=cnn.prepareStatement("DELETE FROM permiso WHERE per_ID=?");
+//            ps.setInt(1,ing.getPer_ID());
+//            ps.executeUpdate();
+//            JOptionPane.showMessageDialog(null,"Registro eliminado");
+//
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null,"no se pudo eliminar desde el crud" +e);
+//        }
+//            return 0;
+//    }
     
    
     
