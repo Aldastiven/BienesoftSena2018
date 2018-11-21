@@ -9,24 +9,22 @@ $(document).ready(function(){
         var tipoPermiso = e.target.value;
         //Lamar método de ajax para buscar
         ajaxBuscar(tipoPermiso);
+  
         
     });
-    
 
     
     function ajaxBuscar(tipoPermiso) {
         $.ajax({
-        url: "servBuscarPermisos",
-        data: {
-          tipo: tipoPermiso
-        },
-        success: function( result ) {
-          $( "#datos" ).html(result);
-        }
-      });
+            url: "servBuscarPermisos",//aqui llama a la tabla coordinador
+            data: {
+              tipo: tipoPermiso
+            },
+            success: function( result ) {
+                $( "#datos" ).html(result);
+            }
+        });
     }
-        
-
 });
 
 

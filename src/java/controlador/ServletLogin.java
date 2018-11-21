@@ -6,6 +6,7 @@ package controlador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Base64;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -63,7 +64,19 @@ private HttpServletResponse pass;
             ArrayList<usuarioSG> arreglo=new ArrayList<usuarioSG>();
             arreglo=log.loguin(in);
             
+            //Encriptacion de password
+            // Getting encoder  
+            Base64.Encoder encoder = Base64.getEncoder();
             
+           // Encoding string  
+            String str = encoder.encodeToString(pass.getBytes());  
+            JOptionPane.showMessageDialog(null, "Encryptacion string: "+str);  
+            // Getting decoder  
+            Base64.Decoder decoder = Base64.getDecoder();  
+            // Decoding string  
+            String dStr = new String(decoder.decode(str));  
+            JOptionPane.showMessageDialog(null, "Decodificacion to string: "+dStr);
+
             
                         
             if(arreglo.size()>0){

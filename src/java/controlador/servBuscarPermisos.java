@@ -53,30 +53,33 @@ public class servBuscarPermisos extends HttpServlet {
             String aprendizNom = ap.getApr_nombres();
             
             //Impresion de datos del permiso
-            out.print(per.getPer_ID()+
-                "|"+aprendizNom+
-                "|"+per.getPer_Aprendiz_Apr_documento()+
-                "|"+per.getPer_tipo()+
-                "|"+per.getPer_fecha_salida()+
-                "|"+per.getPer_fecha_ingreso()+
-                "|"+per.getPer_hora_Salida()+
-                "|"+per.getPer_hora_ingreso()+
-                "|"+per.getPer_motivo()+
-                "|"+per.getPer_evidenciaAdjunta());
+            out.print(
+                    per.getPer_ID()+ //0
+                "|"+aprendizNom+ //1
+                "|"+per.getPer_Aprendiz_Apr_documento()+ //2
+                "|"+per.getPer_tipo()+ //3
+                "|"+per.getPer_fecha_salida()+ //4
+                "|"+per.getPer_fecha_ingreso()+ //5
+                "|"+per.getPer_hora_Salida()+ //6
+                "|"+per.getPer_hora_ingreso()+ //7
+                "|"+per.getPer_motivo()+ //8
+                "|"+per.getPer_estado()+ //9
+                "|"+per.getPer_autoriza()+ //10
+                "|"+per.getPer_evidenciaAdjunta()); //11
 
             
         } else { 
-            out.print("<thead id='thead' class='thead>"+
-                "<th></th>"+
-                "<th id='th_thead'>ID</th>"+
-                "<th id='th_thead'>ID</th>"+
-                "<th id='th_thead'>TIPO DE PERMISO</th>"+
-                "<th id='th_thead'>MOTIVO</th>"+
-                "<th id='th_thead'>FECHA DE SALIDA</th>"+
-                "<th id='th_thead'>FECHA DE INGRESO</th>"+
-                "<th id='th_thead'>ACCIONES</th>"+
-
-            "</thead>");
+            out.print(
+                "<thead class='thead_t'>"+                    
+                    "<tr>"+
+                    "<th id='thead_opt'>ID</th>"+
+                    "<th id='thead_opt'>TIPO DE PERMISO</th>"+
+                    "<th id='thead_opt'>MOTIVO</th>"+
+                    "<th id='thead_opt'>FECHA DE SALIDA</th>"+
+                    "<th id='thead_opt'>FECHA DE INGRESO</th>"+
+                    "<th id='thead_opt'>ACCIONES</th>"+                 
+                    "</tr>"+
+                "</thead>");
 
             ArrayList<permisoSG> lisdat = new ArrayList<>();
             consultas con = new consultas();
@@ -86,20 +89,21 @@ public class servBuscarPermisos extends HttpServlet {
             for(i=0; i<lisdat.size(); i++){
                 x = lisdat.get(i);
 
-        out.print(  
-                    "<tr>"+
-                        "<form action='ServletPermiso' enctype='multipart/form-data' method='post'>"+
-                            "<td><input id=id"+i+" class='browser-default' readonly type='number' name='t_numerodocumento' value="+x.getPer_ID()+"></td>"+
-                            "<td><input class='browser-default' readonly type='text' name='t_tipo' value="+x.getPer_tipo()+"></td>"+
-                            "<td><input class='browser-default' readonly type='text' name='t_moti' value="+x.getPer_motivo()+"></td>"+
-                            "<td><input class='browser-default' readonly type='date' name='t_fechsal' value="+x.getPer_fecha_salida()+"></td>"+
-                            "<td><input class='browser-default' readonly type='date' name='t_fechingre' value="+x.getPer_fecha_ingreso()+"></td>"+
-                            "<td>"+ 
-                            "<div  class='btn-ver-permiso-coordinador'>"+                
-                            "<img id=p"+i+" class='ver' src='icon_acciones/ver.png' style='padding-left: 15px'/>"+     
-                            "</div>"+
-                            "</td>"+        
-                    "</tr>");
+        out.print(
+                "<tr>"+
+                    "<form action='ServletPermiso' enctype='multipart/form-data' method='post'>"+
+                        "<td><input id=id"+i+" class='browser-default input_t' id='' readonly type='number' name='t_numerodocumento' value="+x.getPer_ID()+"></td>"+
+                        "<td><input class='browser-default input_t' readonly type='text' name='t_tipo' value="+x.getPer_tipo()+"></td>"+
+                        "<td><input class='browser-default input_t' readonly type='text' name='t_moti' value="+x.getPer_motivo()+"></td>"+
+                        "<td><input class='browser-default input_t' readonly type='date' name='t_fechsal' value="+x.getPer_fecha_salida()+"></td>"+
+                        "<td><input class='browser-default input_t' readonly type='date' name='t_fechingre' value="+x.getPer_fecha_ingreso()+"></td>"+
+                        "<td>"+ 
+                        "<div  class='btn-ver-permiso-coordinador'>"+                
+                        "<img id=p"+i+" class='ver' src='icon_acciones/ver.png' style='padding-left: 15px'/>"+     
+                        "</div>"+
+                        "</td>"+        
+                "</tr>"
+        );
             }
 
 

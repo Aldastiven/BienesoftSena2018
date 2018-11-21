@@ -156,6 +156,7 @@
 
         <div class="container hide-on-small-only">
             <div id="search-container"  class="browser-default">
+                
                 <!--ComoboBox-->
                 <form action="t_permiso_coordinador.jsp" method="post">
                     
@@ -163,7 +164,7 @@
                     <input id="searchTerm" class="searchTerm" type="text" name="documento" onkeyup="doSearch()" placeholder="busca" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
                  
                     <!--combobox--> 
-                    <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
+                        <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
                         <option value="">Todo</option>
                         <option value="semana morning">Semana - Mañana</option>
                         <option value="semana tarde">Semana - Tarde</option>
@@ -200,7 +201,7 @@
 
   <!--*******************************OBJETO TABLA***************************-->
         
- <div class="container l12 m12 s12 hide-on-small-only">
+  <div class="container  l12 m12 s12">
     <div class="header_conte">
         <figcaption class="vicon">
             <img src="css_index_user/icons/coordinador/vpermiso.png" height="75px"/> 
@@ -209,18 +210,14 @@
             <h1 class="titulonly">PERMISOS</h1>
         </div>
     </div>
-    <div id="table"  class="table" style="margin-top: -10px;">
-     
-        <table class="table scrolling">
-                <div id="datos" class="col">
-
-                </div>
-        </table>
-             
-    </div>
-
-                    
-                    
+    
+      <div id="table_p">
+        <table id="datos" class="table_p">
+        </table>          
+      </div>  
+      
+    
+                  
 </div>
            
   
