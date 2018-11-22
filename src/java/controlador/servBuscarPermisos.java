@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import modelo.aprendizSG;
 import modelo.consultas;
 import modelo.permisoSG;
+import modelo.usuarioSG;
 import modulo_permisos.Autorizacion;
 
 @WebServlet(name = "servBuscarPermisos", urlPatterns = {"/servBuscarPermisos"})
@@ -22,9 +23,20 @@ public class servBuscarPermisos extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
+        
         String tipoPermiso = request.getParameter("tipo");
         String perId = request.getParameter("perId");
         String ventana = request.getParameter("ventana");
+//        out.print("<script>"
+//                + "var rol = document.getElementById('user_text').innerHTML;"
+//                + "alert(rol);"
+//                + "</script>");
+        
+
+        String var_rol = request.getParameter("rol");
+        JOptionPane.showMessageDialog(null, var_rol);
+        
+        
         
         if(ventana != null && ventana.equals("abrir")) {
             //BUSCAR DATOS DEL PERMISO SELECCIONADO
@@ -45,12 +57,25 @@ public class servBuscarPermisos extends HttpServlet {
             consultas con_ap = new consultas();
             ArrayList<aprendizSG> aprendiz = new ArrayList<>();
             
+            //CONSULTA ROL
+            consultas usr = new consultas();
+            //usu = usr.consultaUsuario();
+            ArrayList<usuarioSG> usurol = new ArrayList<>();
+            usuarioSG usu=new usuarioSG();
+            
+            //Consulta rolusuario
+            usurol = usr.consultaUsuario();
+            
             //Consulta de datos de aprendiz (ID)
             aprendiz = con_ap.consultarAprendizID(per.getPer_Aprendiz_Apr_documento());
 
             aprendizSG ap = new aprendizSG();
             ap = aprendiz.get(0);
             String aprendizNom = ap.getApr_nombres();
+            //rol
+            
+            //rol = usu.getUsurol(0);
+            
             
             //Impresion de datos del permiso
             out.print(
@@ -74,9 +99,9 @@ public class servBuscarPermisos extends HttpServlet {
                     "<tr>"+
                     "<th id='thead_opt'>ID</th>"+
                     "<th id='thead_opt'>TIPO DE PERMISO</th>"+
-                    "<th id='thead_opt'>MOTIVO</th>"+
-                    "<th id='thead_opt'>FECHA DE SALIDA</th>"+
-                    "<th id='thead_opt'>FECHA DE INGRESO</th>"+
+                    "<th id='thead_opt' class='hide-on-med-and-down'>MOTIVO</th>"+
+                    "<th id='thead_opt' class='hide-on-med-and-down'>FECHA DE SALIDA</th>"+
+                    "<th id='thead_opt' class='hide-on-med-and-down'>FECHA DE INGRESO</th>"+
                     "<th id='thead_opt'>ACCIONES</th>"+                 
                     "</tr>"+
                 "</thead>");
@@ -93,10 +118,10 @@ public class servBuscarPermisos extends HttpServlet {
                 "<tr>"+
                     "<form action='ServletPermiso' enctype='multipart/form-data' method='post'>"+
                         "<td><input id=id"+i+" class='browser-default input_t' id='' readonly type='number' name='t_numerodocumento' value="+x.getPer_ID()+"></td>"+
-                        "<td><input class='browser-default input_t' readonly type='text' name='t_tipo' value="+x.getPer_tipo()+"></td>"+
-                        "<td><input class='browser-default input_t' readonly type='text' name='t_moti' value="+x.getPer_motivo()+"></td>"+
-                        "<td><input class='browser-default input_t' readonly type='date' name='t_fechsal' value="+x.getPer_fecha_salida()+"></td>"+
-                        "<td><input class='browser-default input_t' readonly type='date' name='t_fechingre' value="+x.getPer_fecha_ingreso()+"></td>"+
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getPer_tipo()+"></td>"+
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_moti' value="+x.getPer_motivo()+"></td>"+
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='date' name='t_fechsal' value="+x.getPer_fecha_salida()+"></td>"+
+                        "<td><input class='input_t' readonly type='date' name='t_fechingre' value="+x.getPer_fecha_ingreso()+"></td>"+
                         "<td>"+ 
                         "<div  class='btn-ver-permiso-coordinador'>"+                
                         "<img id=p"+i+" class='ver' src='icon_acciones/ver.png' style='padding-left: 15px'/>"+     

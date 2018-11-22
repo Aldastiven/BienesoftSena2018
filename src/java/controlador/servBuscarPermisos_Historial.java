@@ -84,7 +84,7 @@ public class servBuscarPermisos_Historial extends HttpServlet {
 
             ArrayList<permiso_historialSG> lisdat = new ArrayList<>();
             consultas con = new consultas();
-            lisdat = con.consultarPermiso_Historial();
+            lisdat = con.consultarPermiso_Historial(tipoPermiso);
             permiso_historialSG x = new permiso_historialSG();
             int i=0;
             for(i=0; i<lisdat.size(); i++){

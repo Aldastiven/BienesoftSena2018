@@ -217,14 +217,14 @@ public class consultas {
     }
 
     
-    //CONSULTAR PERMISOS
+    //CONSULTAR PERMISOS COORDINADOR
         public ArrayList<permisoSG>consultarPermiso(String cbx_tipo_per, String documento) {
         ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
 
         try{
 
             if (cbx_tipo_per.equals("") && documento.equals("")){
-                 ps = cnn.prepareStatement("SELECT * FROM permiso");
+                 ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_estado='Pendiente'  ");
             }else if(!cbx_tipo_per.equals("")){
                  ps = cnn.prepareStatement("SELECT * FROM permiso where per_tipo = '"+cbx_tipo_per+"'");
             }else {
@@ -247,13 +247,50 @@ public class consultas {
 
     }
      
+    //CONSULTAR PERMISOS SEGURIDAD
+        public ArrayList<permisoSG>consultarPermisoSeguridad(String cbx_tipo_per, String documento) {
+        ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
+
+        try{
+
+            if (cbx_tipo_per.equals("") && documento.equals("")){
+                 ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_estado='Autorizado'  ");
+            }else if(!cbx_tipo_per.equals("")){
+                 ps = cnn.prepareStatement("SELECT * FROM permiso where per_tipo = '"+cbx_tipo_per+"'");
+            }else {
+                ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_Aprendiz_Apr_documento = LIKE '"+documento+"%' ");
+            }
+
+
+            rs= ps.executeQuery();
+
+            while(rs.next()){
+                permisoSG getset = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16));
+                arreglo.add(getset);
+            }
+
+
+        }catch (Exception e){
+            System.out.println("Error de consulta: "+e);
+        }
+        return arreglo;
+
+    }
+    
         
     //CONSULTA PERMISOS HISTORIAL
-        public ArrayList<permiso_historialSG>consultarPermiso_Historial() {
+        public ArrayList<permiso_historialSG>consultarPermiso_Historial(String cbx_tipo_per_his) {
         ArrayList<permiso_historialSG> arreglo = new ArrayList<permiso_historialSG>();
 
         try{
-        ps = cnn.prepareStatement("SELECT * FROM permiso_historial");
+            
+            if (cbx_tipo_per_his.equals("")){
+                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial");
+            }else if(!cbx_tipo_per_his.equals("")){
+                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial where per_observacion_llegada = '"+cbx_tipo_per_his+"'");
+            }
+            
+        
         rs= ps.executeQuery();
 
             while(rs.next()){

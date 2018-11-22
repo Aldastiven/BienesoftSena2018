@@ -150,6 +150,7 @@
         <div class="input-field col s12 m6 l6">
             <p id="input_msg">Documento del aprendiz</p>
             <br>
+             <input id="" type="text" name="f_estado" placeholder="" value="Pendiente" readonly>
             <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz" value="<%=id%>" readonly>
         </div>   
 

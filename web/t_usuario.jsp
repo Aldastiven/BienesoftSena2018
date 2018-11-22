@@ -163,22 +163,26 @@
     <!----********************OBJETO TABLA****************---->
         
 <div class="container l12 m12 s12">
-     <h1 id="title_container">TABLA APRENDIZ_ALIMENTACION(Coordinador)</h1>
+     <div class="header_conte">
+        <div class="prueba">
+            <h1 class="titulonly">USUARIOS</h1>
+        </div>
+    </div>
  
          <div id="table"  class="table" style="margin-top: -10px;">
      
                 <table class="responsive-table scrolling">
             
             <thead id="thead" class="thead">
-                <th id="th_thead">ID</th>
-                <th id="th_thead">Nombre</th>
-                <th id="th_thead">Apellido</th>
-                <th id="th_thead">Celular</th>
-                <th id="th_thead">E-mail</th>  
-                <th id="th_thead">Foto</th> 
-                <th id="th_thead">Pasword</th> 
-                <th id="th_thead">Rol</th>    
-                <th id="th_thead">Acciones</th>  
+                <th id="thead_opt">ID</th>
+                <th id="thead_opt">Nombre</th>
+                <th id="thead_opt">Apellido</th>
+                <th id="thead_opt">Celular</th>
+                <th id="thead_opt">E-mail</th>  
+                <th id="thead_opt">Foto</th> 
+                <th id="thead_opt">Pasword</th> 
+                <th id="thead_opt">Rol</th>    
+                <th id="thead_opt">Acciones</th>  
             </thead>
             
             <%                                
