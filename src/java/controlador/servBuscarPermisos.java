@@ -27,15 +27,12 @@ public class servBuscarPermisos extends HttpServlet {
         String tipoPermiso = request.getParameter("tipo");
         String perId = request.getParameter("perId");
         String ventana = request.getParameter("ventana");
-//        out.print("<script>"
-//                + "var rol = document.getElementById('user_text').innerHTML;"
-//                + "alert(rol);"
-//                + "</script>");
         
-
-        String var_rol = request.getParameter("rol");
-        JOptionPane.showMessageDialog(null, var_rol);
-        
+        String rol = request.getParameter("rol"), estado="";
+        JOptionPane.showMessageDialog(null,rol);
+         if(rol.equals("Coordinador")) estado =  "Pendiente";
+         else estado = "Autorizado";
+         JOptionPane.showMessageDialog(null,"Estado: "+estado);
         
         
         if(ventana != null && ventana.equals("abrir")) {
@@ -108,7 +105,7 @@ public class servBuscarPermisos extends HttpServlet {
 
             ArrayList<permisoSG> lisdat = new ArrayList<>();
             consultas con = new consultas();
-            lisdat = con.consultarPermiso(tipoPermiso, "");
+            lisdat = con.consultarPermiso(tipoPermiso, "", estado);
             permisoSG x = new permisoSG();
             int i=0;
             for(i=0; i<lisdat.size(); i++){

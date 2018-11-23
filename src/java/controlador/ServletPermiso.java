@@ -437,6 +437,7 @@ public class ServletPermiso extends HttpServlet {
                 }else if(setget.getPer_tipo().equals("fin de semana")){
                     //tipoper.metodo_finsemana(fechaReal, horaReal,setget.getPer_tipo());//fechaReal,horaReal y tipopermiso
                     String FechaEstiFinal = tipoper.metodo_finsemana(fechaReal,horaReal);
+                    JOptionPane.showMessageDialog(null, "Fecha estipulada final de ingreso: "+FechaEstiFinal);
                 }
 
             }

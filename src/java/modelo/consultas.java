@@ -218,17 +218,17 @@ public class consultas {
 
     
     //CONSULTAR PERMISOS COORDINADOR
-        public ArrayList<permisoSG>consultarPermiso(String cbx_tipo_per, String documento) {
+        public ArrayList<permisoSG>consultarPermiso(String cbx_tipo_per, String documento, String estado) {
         ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
 
         try{
 
             if (cbx_tipo_per.equals("") && documento.equals("")){
-                 ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_estado='Pendiente'  ");
+                 ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_estado='"+estado+"' ");
             }else if(!cbx_tipo_per.equals("")){
-                 ps = cnn.prepareStatement("SELECT * FROM permiso where per_tipo = '"+cbx_tipo_per+"'");
+                 ps = cnn.prepareStatement("SELECT * FROM permiso where per_tipo = '"+cbx_tipo_per+"', per_estado='"+estado+"' ");
             }else {
-                ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_Aprendiz_Apr_documento = LIKE '"+documento+"%' ");
+                ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_Aprendiz_Apr_documento = LIKE '"+documento+"%', per_estado='"+estado+"'  ");
             }
 
 
@@ -254,7 +254,7 @@ public class consultas {
         try{
 
             if (cbx_tipo_per.equals("") && documento.equals("")){
-                 ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_estado='Autorizado'  ");
+                 ps = cnn.prepareStatement("select * from permiso where per_estado = 'Autorizado'");
             }else if(!cbx_tipo_per.equals("")){
                  ps = cnn.prepareStatement("SELECT * FROM permiso where per_tipo = '"+cbx_tipo_per+"'");
             }else {

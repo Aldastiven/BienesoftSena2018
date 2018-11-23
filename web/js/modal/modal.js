@@ -37,12 +37,13 @@ $(document).ready(function(){
         permisos[i].addEventListener("click", function(e){
             var per = e.target.id.substring(1);
             var perId = document.getElementById("id"+per).value;
-            
+            var rol = document.getElementById("user_text").innerHTML;
             $.ajax({
                 url: "servBuscarPermisos",
                 data: {
                   perId: perId,
-                  ventana: "abrir"
+                  ventana: "abrir",
+                  rol: rol
                 },
                     success: function( datosPermiso ) {
                     //SEPARAMOS LOS DATOS QUE TRAE EL SERVLET CON OUT.PRINT
@@ -258,7 +259,7 @@ $(document).ready(function(){
   
         
         //este es el fomr que contiene los campos a actualizar
-        var form = crearElemento("form", {action:"ServletPermiso", enctype:"multipart/form-data", method:"post"}, [divencabezado, divDoc, divPerTipo, divFSal, divFEnt, divHSal,divHEnt, divObserv, divMotivo, comboEstado, divAut, divEvid, btnEnviar]  );
+        var form = crearElemento("form", {action:"ServletPermiso", enctype:"multipart/form-data", method:"post"}, [divencabezado, divNom, divDoc, divPerTipo, divFSal, divFEnt, divHSal,divHEnt, divObserv, divMotivo, comboEstado, divAut, divEvid, btnEnviar]  );
 
         //este es el div que contiene al form
         var ventana = crearElemento("div", {id:"ventana"}, [form]);

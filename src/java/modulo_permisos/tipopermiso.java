@@ -90,8 +90,8 @@ public class tipopermiso {
         consultas con = new consultas();
         boolean festivo = con.compararFechaLunes(fechaLunes);
         
-        //Si retrona TRUE significa que si es festivo y se toma FechaLunes como hora de ingreso estipulada
-        //Si retrona FALSE significa que NO es festivo y se toma FechaDomingo como hora de ingreso estipulada
+        //Si retrona TRUE significa que si es festivo y se toma FechaLunes como fecha de ingreso estipulada
+        //Si retrona FALSE significa que NO es festivo y se toma FechaDomingo como fecha de ingreso estipulada
         if(festivo) FechaEstiFinal =  fechaLunes;
         else FechaEstiFinal =  fechaDomingo;
         
