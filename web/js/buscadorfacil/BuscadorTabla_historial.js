@@ -1,4 +1,4 @@
-/* global tipoObservacion */
+/* Buscador Tabla Historial */
 
 $(document).ready(function(){
     var tipoObservacion = "";

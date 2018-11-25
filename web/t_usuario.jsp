@@ -171,7 +171,7 @@
  
          <div id="table"  class="table" style="margin-top: -10px;">
      
-                <table class="responsive-table scrolling">
+            <table class="responsive-table scrolling">
             
             <thead id="thead" class="thead">
                 <th id="thead_opt">ID</th>
@@ -198,7 +198,7 @@
             
             
             <tr>
-            <form action="ServletUsuario" method="post">
+        <form action="ServletUsuario" method="post">
         <tr>
             <td><input class="browser-default" name="t_doc" value="<%=igs.getUsudoc()%>" type="number"></td>
             <td><input class="browser-default" name="t_nom" value="<%=igs.getUsunom()%>"  type="text"></td>

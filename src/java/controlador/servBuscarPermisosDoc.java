@@ -15,8 +15,8 @@ import modelo.permisoSG;
 import modelo.usuarioSG;
 import modulo_permisos.Autorizacion;
 
-@WebServlet(name = "servBuscarPermisos", urlPatterns = {"/servBuscarPermisos"})
-public class servBuscarPermisos extends HttpServlet {
+@WebServlet(name = "servBuscarPermisosDoc", urlPatterns = {"/servBuscarPermisosDoc"})
+public class servBuscarPermisosDoc extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -30,11 +30,11 @@ public class servBuscarPermisos extends HttpServlet {
         
         String rol = request.getParameter("rol"), estado="";
         JOptionPane.showMessageDialog(null,rol);
-         if(rol.equals("Coordinador")) estado =  "Pendiente";
-         else estado = "Autorizado";
-         JOptionPane.showMessageDialog(null,"Estado: "+estado);
+        if(rol.equals("Coordinador")) estado =  "Pendiente";
+        else estado = "Autorizado";
+        JOptionPane.showMessageDialog(null,"Estado: "+estado);
         
-        
+        //Ventana:Al momento de abrir el permiso
         if(ventana != null && ventana.equals("abrir")) {
             //BUSCAR DATOS DEL PERMISO SELECCIONADO
             Autorizacion con = new Autorizacion();
@@ -54,29 +54,17 @@ public class servBuscarPermisos extends HttpServlet {
             consultas con_ap = new consultas();
             ArrayList<aprendizSG> aprendiz = new ArrayList<>();
             
-            //CONSULTA ROL
-            consultas usr = new consultas();
-            //usu = usr.consultaUsuario();
-            ArrayList<usuarioSG> usurol = new ArrayList<>();
-            usuarioSG usu=new usuarioSG();
-            
-            //Consulta rolusuario
-            usurol = usr.consultaUsuario();
-            
             //Consulta de datos de aprendiz (ID)
             aprendiz = con_ap.consultarAprendizID(per.getPer_Aprendiz_Apr_documento());
-
+            //consulta nombre aprendiz
             aprendizSG ap = new aprendizSG();
             ap = aprendiz.get(0);
             String aprendizNom = ap.getApr_nombres();
-            //rol
-            
-            //rol = usu.getUsurol(0);
-            
+             
             
             //Impresion de datos del permiso
             out.print(
-                    per.getPer_ID()+ //0
+                    per.getPer_ID()+//0
                 "|"+aprendizNom+ //1
                 "|"+per.getPer_Aprendiz_Apr_documento()+ //2
                 "|"+per.getPer_tipo()+ //3
@@ -89,12 +77,12 @@ public class servBuscarPermisos extends HttpServlet {
                 "|"+per.getPer_autoriza()+ //10
                 "|"+per.getPer_evidenciaAdjunta()); //11
 
-            
         } else { 
             out.print(
                 "<thead class='thead_t'>"+                    
                     "<tr>"+
                     "<th id='thead_opt'>ID</th>"+
+                    "<th id='thead_opt'>DOCUMENTO APRENDIZ</th>"+
                     "<th id='thead_opt'>TIPO DE PERMISO</th>"+
                     "<th id='thead_opt' class='hide-on-med-and-down'>MOTIVO</th>"+
                     "<th id='thead_opt' class='hide-on-med-and-down'>FECHA DE SALIDA</th>"+
@@ -110,11 +98,18 @@ public class servBuscarPermisos extends HttpServlet {
             int i=0;
             for(i=0; i<lisdat.size(); i++){
                 x = lisdat.get(i);
-
+        
+        //BUSCANDO NUMERO DOCUMENTO
+//        int num_docu=Integer.parseInt(request.getParameter("val"));
+//        lisdat =con.consultarDocAprendiz(num_docu);
+                
+        
         out.print(
                 "<tr>"+
-                    "<form action='ServletPermiso' enctype='multipart/form-data' method='post'>"+
-                        "<td><input id=id"+i+" class='browser-default input_t' id='' readonly type='number' name='t_numerodocumento' value="+x.getPer_ID()+"></td>"+
+                    "<form action='ServletPermiso' enctype='multipart/form-data' name='vinform' method='post' class='default-browser'>"+
+                        "<input id='searchTerm' class='searchTerm' type='text' name='num_docu' onkeyup='searchInfo()' placeholder='Busca document' style='border: 1px solid gray; float: left; width: 170px; margin-right: 120px' class='browser-default'/>"+
+                        "<td><input id=id"+i+" class='browser-default input_t' id='' readonly type='number' name='' value="+x.getPer_ID()+"></td>"+
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_numerodocumento' value="+x.getPer_Aprendiz_Apr_documento()+"></td>"+        
                         "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getPer_tipo()+"></td>"+
                         "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_moti' value="+x.getPer_motivo()+"></td>"+
                         "<td><input class='hide-on-med-and-down input_t' readonly type='date' name='t_fechsal' value="+x.getPer_fecha_salida()+"></td>"+

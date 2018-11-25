@@ -5,7 +5,9 @@ import controlador.conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import modulo_permisos.Autorizacion;
 
 
 public class crudPermisos {
@@ -60,19 +62,44 @@ public class crudPermisos {
     
     //PRUEBA ACTUALIZAR SOLO PER-ESTADO
     public int actualizar_permisoEstado(permisoSG inge){
-        
+
+        permisoSG setget = new permisoSG(inge.getPer_estado());
+        Autorizacion aut=new Autorizacion();
+        ArrayList<permisoSG> permiso=new  ArrayList<>();
+//        boolean permiso=aut.EstadoIncompleto(setget);
+//        setget = permiso.get(0);
         
         try {
             ps=cnn.prepareStatement("UPDATE permiso SET per_estado='"+inge.getPer_estado()+"', per_autoriza='"+inge.getPer_autoriza()+"' "
                     + "WHERE  per_ID='"+inge.getPer_ID()+"' ");
             ps.executeUpdate();
             
+            if(inge.getPer_estado().equals("Pendiente")){
+                ps=cnn.prepareCall(" call tipopermiso '"+inge.getPer_estado()+"' ");
+                ps.setString(13, inge.getPer_estado());
+                ps.executeUpdate();               
+                JOptionPane.showMessageDialog(null,"Call estado:pendiente");
+            
+            }else if(inge.getPer_estado().equals("Denegado")){
+                ps=cnn.prepareCall(" call tipopermiso '"+inge.getPer_estado()+"' ");
+                ps.setString(13, inge.getPer_estado());
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Call estado: Denegado");
+                
+            }else if(inge.getPer_estado().equals("Incompleto")){
+                ps=cnn.prepareCall(" call tipopermiso '"+inge.getPer_estado()+"' ");
+                ps.setString(13, inge.getPer_estado());
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null,"Call estado: Imcompleto");
+            }
+            
             JOptionPane.showMessageDialog(null,"Registro actualizado"+ " " +inge.getPer_estado());
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"no se pudo actualizar desde crud permiso " +e);
         }
-        return 0;       
+        return 0;
+        
     }
     
     public int eliminar_permiso(permisoSG ing){    

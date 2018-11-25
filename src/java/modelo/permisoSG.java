@@ -243,6 +243,15 @@ public class permisoSG {
         this.per_fecha_salida = per_fecha_salida;
         this.per_fecha_ingreso = per_fecha_ingreso;
     }
+
+    public permisoSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_motivo, String per_estado) {
+        this.per_ID = per_ID;
+        this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
+        this.per_tipo = per_tipo;
+        this.per_motivo = per_motivo;
+        this.per_estado = per_estado;
+    }
+    
     
     
     

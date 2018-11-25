@@ -248,8 +248,8 @@ public class consultas {
     }
      
     //CONSULTAR PERMISOS SEGURIDAD
-        public ArrayList<permisoSG>consultarPermisoSeguridad(String cbx_tipo_per, String documento) {
-        ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
+    public ArrayList<permisoSG>consultarPermisoSeguridad(String cbx_tipo_per, String documento) {
+    ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
 
         try{
 
@@ -330,28 +330,30 @@ public class consultas {
     
         return festivo;
     }
-//    public ArrayList<festivoSG>consultarFestivos(festivoSG diaFestsino) {
-//        ArrayList<festivoSG> arreglo = new ArrayList<festivoSG>();
-//
-//        try{
-//
-//            ps=cnn.prepareStatement("SELECT*FROM festivos WHERE fes_fecha='"+diaFestsino.getFes_fecha()+"'");
-//            rs= ps.executeQuery();
-//
-//            while(rs.next()){
-//                festivoSG getset = new festivoSG( rs.getString(1), rs.getString(2) );
-//                arreglo.add(getset);
-//            }
-//
-//
-//        }catch (Exception e){
-//            System.out.println("Error de consulta: "+e);
-//        }
-//        return arreglo;
-//
-//    }
+
     
-    
+    //CONSULTA DE NUMERO DOCUMENTO APRENDIZ
+    public ArrayList<permisoSG>consultarDocAprendiz(int documento) {
+    ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
+
+        try{
+
+            ps = cnn.prepareStatement("select per_ID, per_Aprendiz_Apr_documento, per_tipo, per_motivo, per_estado  from permiso where per_Aprendiz_Apr_documento='"+documento+"' ");
+
+            rs= ps.executeQuery();
+
+            while(rs.next()){
+                permisoSG getset = new permisoSG(rs.getInt(1), rs.getInt(2), rs.getString(3) , rs.getString(13), rs.getString(14) );
+                arreglo.add(getset);
+            }
+
+
+        }catch (Exception e){
+            System.out.println("Error de consulta: "+e);
+        }
+        return arreglo;
+
+    }
     
     
     

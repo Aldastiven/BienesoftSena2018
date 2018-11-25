@@ -283,7 +283,7 @@ public class ServletAprendiz extends HttpServlet {
             
             
             
-                documento=Integer.parseInt(request.getParameter("t_NumeroDocumento"));
+            documento=Integer.parseInt(request.getParameter("t_NumeroDocumento"));
             tipo_documento=request.getParameter("t_TipoDocumento");
             nombres=request.getParameter("t_Nombres");
             apellidos=request.getParameter("t_Apellidos");

@@ -3,6 +3,9 @@
     Created on : 01-nov-2018, 4:44:11
     Author     : equipo
 --%>
+<%@page import="modelo.consultas"%>
+<%@page import="modelo.usuarioSG"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -39,19 +42,13 @@
         
     </head>
     <body>
-        
- 
-        
-        <%
-            HttpSession rnombre=request.getSession();
-            int id=(int)rnombre.getAttribute("iden");
-            String nom=(String)rnombre.getAttribute("nombre");
-            String ape=(String)rnombre.getAttribute("apellido");
-            int cel=(int)rnombre.getAttribute("celular");
-            String mail=(String)rnombre.getAttribute("mail");
-            String pass=(String)rnombre.getAttribute("clave");
-            String foto=(String)rnombre.getAttribute("foto");
-            String rol=(String)rnombre.getAttribute("rol");
+        <%                                
+            ArrayList<usuarioSG> listdat=new ArrayList<>(); 
+            consultas con=new consultas();
+            listdat=con.consultaUsuario();
+            usuarioSG igs=new usuarioSG();
+               
+            String photo=igs.getUsufoto();
         %>
 
 <!--*******************************OBJETO NAV RESPONSIVE***************************-->
@@ -113,77 +110,87 @@
                 <img class="icon-home" src="iconos_nav_bar/home.png"/>
             </a>
         </nav>
+        
+        <!--MODULO INFORMACION USUARIO-->
+        <label id="user_text" class="user_text hide-on-med-and-down">Usuario</label> 
+            <%
+                //HttpSession rnombre=request.getSession();
+                //String nom=(String)rnombre.getAttribute("nombre");
+                //int id=(int)rnombre.getAttribute("iden");
+             %>
+        
 
 <h1 id="title_container">Mi perfil</h1>
            
 <div class="container" style="margin-bottom:15px;">
     <div class="contenedor_blanco">
-            <form action="ServletUsuario" enctype="multipart/form-data" method="post"> 
-                <div class="row" id="container_form_large">
-                    <div class="encab" id="encab" style="alignment-adjust: central;">
-                        <img id="img_fotoperfil" class="img_fotoperfil" src="<%=foto%>"/>
-                        <input  type="file"  name="t_fot" accept="img/*" placeholder="Tu Foto">
-                    </div>
-
-                    <div class="linea" id="linea">
-                        <br>
-                    </div>
-
-
-                    <div class="input-field col s12 m6 l6">
-                        <p id="input_msg">tu numero de identificacion</p>
-                        <br>
-                        <input id="input_txt" type="number" name="t_doc" placeholder="" value="<%=id%>" readonly>
-                    </div>   
-
-                     <div class="input-field col s12 l6 m6">
-                        <p id="input_msg">Nombres</p>
-                        <br>
-                        <input id="input_txt" type="text" name="t_nom" placeholder="" value="<%=nom%>">
-                    </div>
-
-                     <div class="input-field col s12 l6 m6">
-                        <p id="input_msg">Apellidos</p>
-                        <br>
-                        <input id="input_txt" type="text" name="t_ape" placeholder="" value="<%=ape%>">
-                    </div>
-
-                    <div class="input-field col s12 m6 l6">
-                        <p id="input_msg">numero telefonico</p>
-                        <br>
-                        <input id="input_txt" type="number" name="t_cel" placeholder="" value="<%=cel%>" readonly>
-                    </div>
-
-                    <div class="input-field col s12 l6 m6">
-                        <p id="input_msg">Correo electronico</p>
-                        <br>
-                        <input id="input_txt" type="text" name="" class="" name="t_ema" placeholder="" value="<%=mail%>">
-                    </div>
-
-                    <div class="input-field col s12 l6 m6">
-                        <p id="input_msg">Contraseña</p>
-                        <br>
-                        <input id="input_txt" type="text" name="t_pas" placeholder="" value="<%=pass%>">
-                    </div>
-
-                    <div class="input-field col s12 l6 m6">
-                        <p id="input_msg">Tipo de usuario</p>
-                        <br>
-                        <input id="input_txt" type="text" name="t_rol" placeholder="" value="<%=rol%>">
-                    </div>
-
-                
-                    <div id="" class="" title="consultar aprendiz">
-                        <button name="btn-modificar" id="btn_action_guardar" class="btn_action_guardar" type="submit" style="position: inherit;display: block;margin-left: auto;margin-right: auto;">
-                            <p id="txt_buttom" >actualizar</p>
-                        </button>
-                    </div>
-               
+        
+        <form action="ServletUsuario" enctype="multipart/form-data" method="post"> 
+            <div class="row" id="container_form_large">
+                <div class="encab" id="encab" style="alignment-adjust: central;">
+                    <img src="<%=igs.getUsufoto()%>" width="60" height="60"/>
+                    <input  type="file"   name="f_fot" accept="img/*" placeholder="Tu Foto">
                 </div>
-            </form>
+
+                <div class="linea" id="linea">
+                    <br>
+                </div>
+
+                <div class="input-field col s12 m6 l6">
+                    <p id="input_msg">tu numero de identificacion</p>
+                    <br>
+                    <input id="input_txt" name="t_doc" value="<%=igs.getUsudoc()%>" type="number">
+                </div>   
+
+                 <div class="input-field col s12 l6 m6">
+                    <p id="input_msg">Nombres</p>
+                    <br>
+                    <input id="input_txt" name="t_nom" value="<%=igs.getUsunom()%>"  type="text">
+                </div>
+
+                 <div class="input-field col s12 l6 m6">
+                    <p id="input_msg">Apellidos</p>
+                    <br>
+                    <input id="input_txt" name="t_ape" value="<%=igs.getUsuape()%>" type="text">
+                </div>
+
+                <div class="input-field col s12 m6 l6">
+                    <p id="input_msg">numero telefonico</p>
+                    <br>
+                    <input id="input_txt" name="t_cel" value="<%=igs.getUsucel()%>" type="number">
+                </div>
+
+                <div class="input-field col s12 l6 m6">
+                    <p id="input_msg">Correo electronico</p>
+                    <br>
+                    <input id="input_txt" name="t_ema" value="<%=igs.getUsuemail()%>" type="email">
+                    
+                </div>
+
+                <div class="input-field col s12 l6 m6">
+                    <p id="input_msg">Contraseña</p>
+                    <br>
+                    <input id="input_txt" name="t_pas" value="<%=igs.getUsuclave()%>" type="text">
+                </div>
+
+                <div class="input-field col s12 l6 m6">
+                    <p id="input_msg">Tipo de usuario</p>
+                    <br>
+                    <input id="input_txt" name="t_rol" value="<%=igs.getUsurol()%>" type="text">
+                </div>
+
+                <td><input type="submit" name="btn-modificar" value="Modificar"></td>
+                <!--<div id="" class="" title="consultar aprendiz">
+                    <button name="btn-modificar" id="btn_action_guardar" class="btn_action_guardar" type="submit" style="position: inherit;display: block;margin-left: auto;margin-right: auto;">
+                        <p id="txt_buttom" >actualizar</p>
+                    </button>
+                </div>-->
+
+            </div>
+        </form>
     </div>   
 </div>   
-               
+              
                
 
                

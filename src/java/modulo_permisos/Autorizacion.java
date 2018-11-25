@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.consultas;
+import modelo.crudPermisos;
 import modelo.permisoSG;
 
 /**
@@ -69,6 +70,7 @@ public class Autorizacion {
         String fechaInReal = setget.getPer_fecha_ingresoReal();
         String horaInReal = setget.getPer_hora_ingresoReal();
         
+        
         if(fechaSalReal == null && horaSalReal == null && fechaInReal == null && horaInReal == null) {
             JOptionPane.showMessageDialog(null, "Es una salida");
             return "Salida";
@@ -84,6 +86,7 @@ public class Autorizacion {
     
     //METODO DE VERIFICACION DE HORAS Y FECHAS ESTIPULADAS DEL APRENDIZ CON REALES----
     public boolean fechaHoraEstipulada(String fechaReal, String horaReal, String fechaEstipulada, String horaEstipulada){
+        
         
         //Separar fecha en día, mes y año (FR[0]   F[1]   F[2])
         String FR[] = fechaReal.split("-"); 
@@ -135,6 +138,90 @@ public class Autorizacion {
             }
             JOptionPane.showMessageDialog(null,"La hora no coincide con la estipulada por el aprendiz");
             
+        } else {
+            JOptionPane.showMessageDialog(null,"La fecha no coincide con la estipulada por el aprendiz");
+        }
+        
+        return false;        
+    } 
+    
+    
+    
+    
+    public boolean EstadoIncompleto(permisoSG setget){
+        String Estado = setget.getPer_estado();
+        String fechaReal = setget.getPer_fecha_salidaReal();//Fecha salida
+        String fechaEstipulada = setget.getPer_fecha_salida();
+        
+        String horaReal = setget.getPer_hora_salidaReal();//Hora salida
+        String horaEstipulada = setget.getPer_hora_Salida();
+        
+        //Separar fecha en día, mes y año (FR[0]   F[1]   F[2])
+        String FR[] = fechaReal.split("-"); 
+        String FEap[] = fechaEstipulada.split("-");//fecha estipulada por aprendiz
+        
+        //Separar hora en hora y minutos (HR[0]   HEap[1] )
+        String HR[] = horaReal.split(":");
+        String HEap[] = horaEstipulada.split(":");
+            
+        //Si el año actual es igual al año estipulado
+        //Si el mes actual es igual al estipulado
+        //Si el día actual es igual al estipulado
+        if(Integer.parseInt(HEap[0]) <= 9){
+            HEap[0] = HEap[0].substring(1);
+            JOptionPane.showMessageDialog(null,HEap[0]);
+        }
+        if(Integer.parseInt(HEap[1]) <= 9 && Integer.parseInt(HEap[1]) > 0){
+            HEap[1] = HEap[1].substring(1);
+            JOptionPane.showMessageDialog(null,HEap[1]);
+        }
+        
+        //fecha
+        if(Integer.parseInt(FEap[2]) <= 9){
+            FEap[2] = FEap[2].substring(1);
+            JOptionPane.showMessageDialog(null,"Día: "+FEap[2]);
+        }
+        if(Integer.parseInt(FEap[1]) <= 9){
+            FEap[1] = FEap[1].substring(1);
+            JOptionPane.showMessageDialog(null,FEap[1]);
+        }
+        
+        JOptionPane.showMessageDialog(null,"Fecha real: "+FR[0]+"-"+FR[1]+"-"+FR[2]);
+        JOptionPane.showMessageDialog(null,"Fecha estipulada: "+FEap[0]+"-"+FEap[1]+"-"+FEap[2]);
+        
+        JOptionPane.showMessageDialog(null,"Hora real: "+HR[0]+":"+HR[1]);
+        JOptionPane.showMessageDialog(null,"Hora estipulada: "+HEap[0]+":"+HEap[1]);
+
+        
+        if(FR[0].equals(FEap[0]) && FR[1].equals(FEap[1]) && FR[2].equals(FEap[2])  ) { 
+            
+            if( Integer.parseInt(HR[0]) ==  Integer.parseInt(HEap[0])) {//mas los 10 minutos
+                if(Integer.parseInt(HR[1]) <= Integer.parseInt(HEap[1]) + 10) {
+                    JOptionPane.showMessageDialog(null,"Fecha y hora estipulada correcta");
+                    return true;
+                }
+            } else if(Integer.parseInt(HR[0]) <  Integer.parseInt(HEap[0])) {
+                    JOptionPane.showMessageDialog(null,"Fecha y hora estipulada correcta");
+                    return true;
+            }
+            JOptionPane.showMessageDialog(null,"La hora no coincide con la estipulada por el aprendiz");
+            JOptionPane.showMessageDialog(null,"este es el estado a tomar y cambiar "+ Estado);
+            
+            //CAPTURA DEL ESTADO ACTUAL Y CAMBIANDOLO POR "INCOMPLETO"
+            
+            String Estado_despues = Estado;
+            Estado_despues = "Incompleto";
+            
+            //INSTANCIAR EL METODO QUE ACTUALIZA EL ESTADO DEL PERMISO
+           
+            crudPermisos cp = new crudPermisos();
+            JOptionPane.showMessageDialog(null,"el nuevo valor va hacer "+ Estado_despues);
+            
+            
+           
+            
+            
+            
             
         } else {
             JOptionPane.showMessageDialog(null,"La fecha no coincide con la estipulada por el aprendiz");
@@ -142,5 +229,11 @@ public class Autorizacion {
         
         return false;        
     }  
+    
+    
+    
+    
+    
+    
     
 }

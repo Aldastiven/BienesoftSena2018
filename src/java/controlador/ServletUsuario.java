@@ -145,8 +145,6 @@ public class ServletUsuario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        JOptionPane.showMessageDialog(null,"pasa por el servlet");
-        
         userdoc=Integer.parseInt(request.getParameter("t_doc"));
         unom=request.getParameter("t_nom");
         uape=request.getParameter("t_ape");

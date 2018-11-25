@@ -160,8 +160,8 @@
                 <!--ComoboBox-->
                 <form action="t_permiso_coordinador.jsp" method="post">
                     
-                    <!--Filtro busqueda id-->
-                    <input id="searchTerm" class="searchTerm" type="text" name="documento" onkeyup="doSearch()" placeholder="busca" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
+                    <!--Filtro busqueda document-->
+                    <!--<input id="searchTerm" class="searchTerm" type="text" name="num_docu" onkeyup="searchInfo()" placeholder="Busca document" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>-->
                  
                     <!--combobox--> 
                     <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
@@ -216,9 +216,10 @@
             <h1 class="titulonly">PERMISOS</h1>
         </div>
     </div>
-    
+      
       <div id="table_p">
-        <table id="datos" class="table_p">
+        <!--tabla datos con AJAX--> 
+        <table id="datos" class="table_p">   
         </table>          
       </div>  
       
@@ -252,6 +253,8 @@
     <script src="js/tabla-acordion/main.js">
     
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>-->
-
+    
+    <script src="js/searchkey/functioninfo.js"></script>    
+    
     </body>
 </html>

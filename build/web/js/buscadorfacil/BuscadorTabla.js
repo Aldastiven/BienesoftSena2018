@@ -17,7 +17,7 @@ $(document).ready(function(){
     
     function ajaxBuscar(tipoPermiso, rol) {
         $.ajax({
-            url: "servBuscarPermisos",//aqui llama a la tabla coordinador
+            url: "servBuscarPermisosDoc",//aqui llama a la tabla coordinador
             data: {
               tipo: tipoPermiso,
               rol: rol

@@ -55,7 +55,7 @@ public class crudUsuario {
         
         } catch (Exception e) {
             
-            JOptionPane.showMessageDialog(null, "Error!!" +e);
+            JOptionPane.showMessageDialog(null, "Aca hay un bug Error!! " +e);
         }
         
         return dat;
