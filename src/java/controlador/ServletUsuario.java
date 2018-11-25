@@ -53,6 +53,12 @@ public class ServletUsuario extends HttpServlet {
         if(request.getParameter("btn-modificar") != null){
          this.modificarUsuario(request,response);
         }
+        
+        //MODIFICAR VISTA MI-PERFIL
+        if(request.getParameter("btn-modificarPerfil") != null){
+         this.modificarUsuarioPerfil(request,response);
+        }
+        
         //ELIMINAR
         if(request.getParameter("btn-eliminar") != null){
          this.eliminarUsuario(request,response);
@@ -139,7 +145,7 @@ public class ServletUsuario extends HttpServlet {
     
     
     
-    //METODO MODIFICAR
+    //METODO MODIFICAR 
     private void modificarUsuario(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -160,6 +166,50 @@ public class ServletUsuario extends HttpServlet {
         crud.modificar_usuario(setget);
         response.sendRedirect("t_usuario.jsp");
     }
+    
+    
+    
+    //METODO MODIFICAR MI PERFIL
+    private void modificarUsuarioPerfil(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        
+        userdoc=Integer.parseInt(request.getParameter("t_doc"));
+        unom=request.getParameter("t_nom");
+        uape=request.getParameter("t_ape");
+        usercel=Integer.parseInt(request.getParameter("t_cel"));
+        uema=request.getParameter("t_ema");
+        //ufoto=request.getParameter("f_fot");
+        upass=request.getParameter("t_pas");
+        urol=request.getParameter("t_rol");
+        
+        Part ufoto=request.getPart("f_fot");//fotoperfil
+        //Upload foto
+        String nomfoto=ufoto.getSubmittedFileName();
+        String nombre=unom+"_"+nomfoto;
+        String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
+        String imageurl="img/"+nombre;
+        //Upload foto
+        InputStream file = ufoto.getInputStream();
+        File f=new File(Url);
+        FileOutputStream sal = new FileOutputStream(f);
+        int num=file.read();
+            while(num != -1){
+              sal.write(num);
+              num=file.read();
+            }
+        JOptionPane.showMessageDialog(null, imageurl);
+                
+        
+        usuarioSG setget=new usuarioSG(userdoc,unom,uape,usercel,uema,imageurl,upass,urol); 
+        crudUsuario crud=new crudUsuario();
+        crud.modificar_usuario(setget);
+        response.sendRedirect("mi_perfil.jsp");
+        
+    }
+    
+    
     
     
     //METODO ELIMINAR

@@ -42,14 +42,7 @@
         
     </head>
     <body>
-        <%                                
-            ArrayList<usuarioSG> listdat=new ArrayList<>(); 
-            consultas con=new consultas();
-            listdat=con.consultaUsuario();
-            usuarioSG igs=new usuarioSG();
-               
-            String photo=igs.getUsufoto();
-        %>
+        
 
 <!--*******************************OBJETO NAV RESPONSIVE***************************-->
         
@@ -101,11 +94,11 @@
         <!--nav secundario (opciones)--->
         
         <nav id="nav_menu" class="hide-on-med-and-down" >
-            <a href="mi_perfil.jsp">
+            <a href="">
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
                 <img class="icon-h" src="iconos_nav_bar/profile.png"/>
             </a>
-            <a href="f_permiso.jsp">
+            <a href="">
                 <input id="opc_menu_2" type="submit" value="Perfil"/>
                 <img class="icon-home" src="iconos_nav_bar/home.png"/>
             </a>
@@ -113,12 +106,23 @@
         
         <!--MODULO INFORMACION USUARIO-->
         <label id="user_text" class="user_text hide-on-med-and-down">Usuario</label> 
-            <%
-                //HttpSession rnombre=request.getSession();
-                //String nom=(String)rnombre.getAttribute("nombre");
-                //int id=(int)rnombre.getAttribute("iden");
-             %>
-        
+        <%                                
+            ArrayList<usuarioSG> listdat=new ArrayList<>(); 
+            consultas con=new consultas();
+            listdat=con.consultaUsuario();
+            usuarioSG igs=new usuarioSG();
+            
+            HttpSession rnombre=request.getSession();
+            int id=(int)rnombre.getAttribute("iden");
+            String nom=(String)rnombre.getAttribute("nombre");
+            String ape=(String)rnombre.getAttribute("apellido");
+            int cel=(int)rnombre.getAttribute("celular");
+            String mail=(String)rnombre.getAttribute("mail");
+            String pass=(String)rnombre.getAttribute("clave");
+            String foto=(String)rnombre.getAttribute("foto");
+            String rol=(String)rnombre.getAttribute("rol");
+            
+        %>
 
 <h1 id="title_container">Mi perfil</h1>
            
@@ -128,8 +132,8 @@
         <form action="ServletUsuario" enctype="multipart/form-data" method="post"> 
             <div class="row" id="container_form_large">
                 <div class="encab" id="encab" style="alignment-adjust: central;">
-                    <img src="<%=igs.getUsufoto()%>" width="60" height="60"/>
-                    <input  type="file"   name="f_fot" accept="img/*" placeholder="Tu Foto">
+                    <img src="<%=foto%>" width="60" height="60"/>
+                    <input  type="file" name="f_fot" accept="img/*" placeholder="Tu Foto perfil">
                 </div>
 
                 <div class="linea" id="linea">
@@ -139,47 +143,46 @@
                 <div class="input-field col s12 m6 l6">
                     <p id="input_msg">tu numero de identificacion</p>
                     <br>
-                    <input id="input_txt" name="t_doc" value="<%=igs.getUsudoc()%>" type="number">
+                    <input id="input_txt" name="t_doc" value="<%=id%>" type="number">
                 </div>   
 
                  <div class="input-field col s12 l6 m6">
                     <p id="input_msg">Nombres</p>
                     <br>
-                    <input id="input_txt" name="t_nom" value="<%=igs.getUsunom()%>"  type="text">
+                    <input id="input_txt" name="t_nom" value="<%=nom%>"  placeholder="<%=nom%>" type="text">
                 </div>
 
                  <div class="input-field col s12 l6 m6">
                     <p id="input_msg">Apellidos</p>
                     <br>
-                    <input id="input_txt" name="t_ape" value="<%=igs.getUsuape()%>" type="text">
+                    <input id="input_txt" name="t_ape" value="<%=ape%>" type="text">
                 </div>
 
                 <div class="input-field col s12 m6 l6">
                     <p id="input_msg">numero telefonico</p>
                     <br>
-                    <input id="input_txt" name="t_cel" value="<%=igs.getUsucel()%>" type="number">
+                    <input id="input_txt" name="t_cel" value="<%=cel%>" type="number">
                 </div>
 
                 <div class="input-field col s12 l6 m6">
                     <p id="input_msg">Correo electronico</p>
                     <br>
-                    <input id="input_txt" name="t_ema" value="<%=igs.getUsuemail()%>" type="email">
-                    
+                    <input id="input_txt" name="t_ema" value="<%=mail%>" type="email">
                 </div>
 
                 <div class="input-field col s12 l6 m6">
                     <p id="input_msg">Contraseña</p>
                     <br>
-                    <input id="input_txt" name="t_pas" value="<%=igs.getUsuclave()%>" type="text">
+                    <input id="input_txt" name="t_pas" value="<%=pass%>" type="text">
                 </div>
 
                 <div class="input-field col s12 l6 m6">
                     <p id="input_msg">Tipo de usuario</p>
                     <br>
-                    <input id="input_txt" name="t_rol" value="<%=igs.getUsurol()%>" type="text">
+                    <input id="input_txt" name="t_rol" value="<%=rol%>" type="text">
                 </div>
 
-                <td><input type="submit" name="btn-modificar" value="Modificar"></td>
+                <td><input type="submit" name="btn-modificarPerfil" value="Modificar"></td>
                 <!--<div id="" class="" title="consultar aprendiz">
                     <button name="btn-modificar" id="btn_action_guardar" class="btn_action_guardar" type="submit" style="position: inherit;display: block;margin-left: auto;margin-right: auto;">
                         <p id="txt_buttom" >actualizar</p>
