@@ -226,10 +226,11 @@ public class consultas {
             if (cbx_tipo_per.equals("") && documento.equals("")){
                  ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_estado='"+estado+"' ");
             }else if(!cbx_tipo_per.equals("")){
-                 ps = cnn.prepareStatement("SELECT * FROM permiso where per_tipo = '"+cbx_tipo_per+"', per_estado='"+estado+"' ");
-            }else {
-                ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_Aprendiz_Apr_documento = LIKE '"+documento+"%', per_estado='"+estado+"'  ");
+                 ps = cnn.prepareStatement("SELECT * FROM permiso where per_tipo = '"+cbx_tipo_per+"' AND per_estado='"+estado+"' ");
             }
+            //else {
+//                ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_Aprendiz_Apr_documento = LIKE '"+documento+"%', per_estado='"+estado+"'  ");
+            //}
 
 
             rs= ps.executeQuery();

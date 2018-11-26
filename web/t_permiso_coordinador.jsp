@@ -157,11 +157,11 @@
         <div class="container hide-on-small-only">
             <div id="search-container"  class="browser-default">
                 
-                <!--ComoboBox-->
-                <form action="t_permiso_coordinador.jsp" method="post">
+                <!--Busqueda teclado-->
+                <form action="t_permiso_coordinador.jsp" name="vinform" method="post">
                     
                     <!--Filtro busqueda document-->
-                    <!--<input id="searchTerm" class="searchTerm" type="text" name="num_docu" onkeyup="searchInfo()" placeholder="Busca document" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>-->
+                    <input id="search" class="searchTerm" type="text" name="numdocu" placeholder="Busca document" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
                  
                     <!--combobox--> 
                     <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
@@ -217,11 +217,11 @@
         </div>
     </div>
       
-      <div id="table_p">
-        <!--tabla datos con AJAX--> 
-        <table id="datos" class="table_p">   
-        </table>          
-      </div>  
+    <div id="table_p">
+      <!--tabla datos con AJAX--> 
+      <table id="datos" class="table_p">   
+      </table>          
+    </div>  
       
     
                   

@@ -99,17 +99,14 @@ public class servBuscarPermisosDoc extends HttpServlet {
             for(i=0; i<lisdat.size(); i++){
                 x = lisdat.get(i);
         
-        //BUSCANDO NUMERO DOCUMENTO
-//        int num_docu=Integer.parseInt(request.getParameter("val"));
-//        lisdat =con.consultarDocAprendiz(num_docu);
                 
         
         out.print(
                 "<tr>"+
-                    "<form action='ServletPermiso' enctype='multipart/form-data' name='vinform' method='post' class='default-browser'>"+
-                        "<input id='searchTerm' class='searchTerm' type='text' name='num_docu' onkeyup='searchInfo()' placeholder='Busca document' style='border: 1px solid gray; float: left; width: 170px; margin-right: 120px' class='browser-default'/>"+
+                    "<form action='ServletPermiso' enctype='multipart/form-data' method='post' class='default-browser'>"+
+                        
                         "<td><input id=id"+i+" class='browser-default input_t' id='' readonly type='number' name='' value="+x.getPer_ID()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_numerodocumento' value="+x.getPer_Aprendiz_Apr_documento()+"></td>"+        
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='numdocu' value="+x.getPer_Aprendiz_Apr_documento()+"></td>"+        
                         "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getPer_tipo()+"></td>"+
                         "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_moti' value="+x.getPer_motivo()+"></td>"+
                         "<td><input class='hide-on-med-and-down input_t' readonly type='date' name='t_fechsal' value="+x.getPer_fecha_salida()+"></td>"+
