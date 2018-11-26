@@ -156,12 +156,28 @@ public class ServletUsuario extends HttpServlet {
         uape=request.getParameter("t_ape");
         usercel=Integer.parseInt(request.getParameter("t_cel"));
         uema=request.getParameter("t_ema");
-        ufoto=request.getParameter("t_fot");
+        Part ufoto=request.getPart("f_fot");//fotoperfil
         upass=request.getParameter("t_pas");
         urol=request.getParameter("t_rol");
+        
+        //Upload foto
+        String nomfoto=ufoto.getSubmittedFileName();
+        String nombre=unom+"_"+nomfoto;
+        String Url="C:\\Users\\Stefany\\Documents\\NetBeansProjects\\Bienesoft1.0\\web\\img\\"+nombre;
+        String imageurl="img/"+nombre;
+        //Upload foto
+        InputStream file = ufoto.getInputStream();
+        File f=new File(Url);
+        FileOutputStream sal = new FileOutputStream(f);
+        int num=file.read();
+            while(num != -1){
+              sal.write(num);
+              num=file.read();
+            }
+        JOptionPane.showMessageDialog(null, imageurl);
                 
         
-        usuarioSG setget=new usuarioSG(userdoc,unom,uape,usercel,uema,ufoto,upass,urol); 
+        usuarioSG setget=new usuarioSG(userdoc,unom,uape,usercel,uema,imageurl,upass,urol); 
         crudUsuario crud=new crudUsuario();
         crud.modificar_usuario(setget);
         response.sendRedirect("t_usuario.jsp");

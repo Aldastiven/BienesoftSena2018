@@ -80,8 +80,10 @@
             </a>
 
             <div class="btn_ver_usuarios" id="btn_ver_usuarios">
-                consultar usuarios
-                <img style="width: 20px;" src="css_index_user/icons/coordinador/btn_users.png" />
+                <a href="t_usuario.jsp">
+                    consultar usuarios
+                    <img style="width: 20px;" src="css_index_user/icons/coordinador/btn_users.png" />
+                </a>
             </div>
 
         </div>

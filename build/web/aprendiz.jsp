@@ -37,7 +37,7 @@
     <link type="text/css" rel="stylesheet" href="css_index_user/cards-prueba.css"  media="screen,projection"/>
 
     <!--importando--->
-            <script src="js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
 </head>
 <body>
@@ -112,7 +112,7 @@
     <!----------------------botones de usuario---------------------------------->                 
             
             <div class="contenedor_btn_apr hide-on-med-and-down"  id="contenedor_btn_apr">
-                <a href="mi_perfil.jsp">
+                <a href="mi_perfil_aprendiz.jsp">
                     <div class="btn_ver_perfil" id="btn_ver_perfil">
                     ver perfil
                     <img style="width: 20px;" src="css_index_user/icons/coordinador/btn_user.png" />
@@ -137,7 +137,7 @@
                 </div>
             </a>
 
-            <a href="t_aprendiz.jsp">
+            <a href="info_aprendiz.jsp">
                 <div class="option_menu col s12 l5 m12">
                     <p class="head_info" id="head_info"> consultar datos como aprendiz </p>
                     <img src="css_index_user/icons/aprendiz/mochila.png" style="width: 120px;" />

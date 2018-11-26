@@ -198,7 +198,7 @@
             
             
             <tr>
-        <form action="ServletUsuario" method="post">
+        <form action="ServletUsuario" enctype="multipart/form-data" method="post">
         <tr>
             <td><input class="browser-default" name="t_doc" value="<%=igs.getUsudoc()%>" type="number"></td>
             <td><input class="browser-default" name="t_nom" value="<%=igs.getUsunom()%>"  type="text"></td>

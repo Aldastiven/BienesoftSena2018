@@ -103,11 +103,11 @@
         <!--nav secundario (opciones)--->
         
         <nav id="nav_menu" class="hide-on-med-and-down" >
-            <a href="mi_perfil.jsp">
+            <a href="aprendiz.jsp">
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
                 <img class="icon-h" src="iconos_nav_bar/profile.png"/>
             </a>
-            <a href="f_permiso.jsp">
+            <a href="mi_perfil_aprendiz.jsp">
                 <input id="opc_menu_2" type="submit" value="Perfil"/>
                 <img class="icon-home" src="iconos_nav_bar/home.png"/>
             </a>
@@ -150,7 +150,7 @@
         <div class="input-field col s12 m6 l6">
             <p id="input_msg">Documento del aprendiz</p>
             <br>
-             <input id="" type="text" name="f_estado" placeholder="" value="Pendiente" readonly>
+             <input id="" type="hidden" name="f_estado" placeholder="" value="Pendiente" readonly>
             <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz" value="<%=id%>" readonly>
         </div>   
 
