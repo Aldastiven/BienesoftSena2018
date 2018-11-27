@@ -28,11 +28,8 @@ public class servBuscarPermisos extends HttpServlet {
         String ventana = request.getParameter("ventana");
         
         String rol = request.getParameter("rol"), estado="";
-        JOptionPane.showMessageDialog(null,rol);
          if(rol.equals("Coordinador")) estado =  "Pendiente";
          else estado = "Autorizado";
-         JOptionPane.showMessageDialog(null,"Estado: "+estado);
-        
         
         if(ventana != null && ventana.equals("abrir")) {
             //BUSCAR DATOS DEL PERMISO SELECCIONADO
@@ -85,6 +82,7 @@ public class servBuscarPermisos extends HttpServlet {
                 "|"+per.getPer_evidenciaAdjunta()); //11
 
         } else { 
+            int doc=Integer.parseInt(request.getParameter("documento")); //Documento aprendiz
             out.print(
                 "<thead class='thead_t'>"+                    
                     "<tr>"+
@@ -99,7 +97,7 @@ public class servBuscarPermisos extends HttpServlet {
 
             ArrayList<permisoSG> lisdat = new ArrayList<>();
             consultas con = new consultas();
-            lisdat = con.consultarPermiso(tipoPermiso, "", estado);
+            lisdat = con.consultarPermiso(tipoPermiso, estado, doc);
             permisoSG x = new permisoSG();
             int i=0;
             for(i=0; i<lisdat.size(); i++){

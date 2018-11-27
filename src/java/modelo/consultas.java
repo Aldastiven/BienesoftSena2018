@@ -218,20 +218,21 @@ public class consultas {
 
     
     //CONSULTAR PERMISOS COORDINADOR
-        public ArrayList<permisoSG>consultarPermiso(String cbx_tipo_per, String documento, String estado) {
+        public ArrayList<permisoSG>consultarPermiso(String cbx_tipo_per ,String estado, int documento) {
         ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
 
         try{
 
-            if (cbx_tipo_per.equals("") && documento.equals("")){
+            if (cbx_tipo_per.equals("") && documento==0){
                  ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_estado='"+estado+"' ");
+            }else if(!cbx_tipo_per.equals("")  && documento !=0 ){
+                 ps = cnn.prepareStatement("SELECT * FROM permiso where per_tipo = '"+cbx_tipo_per+"' AND per_Aprendiz_Apr_documento LIKE '"+documento+"%' AND per_estado='"+estado+"' ");
             }else if(!cbx_tipo_per.equals("")){
-                 ps = cnn.prepareStatement("SELECT * FROM permiso where per_tipo = '"+cbx_tipo_per+"' AND per_estado='"+estado+"' ");
+                 ps = cnn.prepareStatement(" SELECT * FROM permiso WHERE per_tipo = '"+cbx_tipo_per+"' AND per_estado='"+estado+"' ");
+            }else if(documento!=0){
+                 ps = cnn.prepareStatement(" SELECT * FROM permiso WHERE per_Aprendiz_Apr_documento LIKE '"+documento+"%' AND per_estado='"+estado+"' ");
             }
-            else {
-                ps = cnn.prepareStatement("SELECT * FROM permiso WHERE per_Aprendiz_Apr_documento = LIKE '"+documento+"%', per_estado='"+estado+"'  ");
-            }
-
+            
 
             rs= ps.executeQuery();
 
@@ -356,9 +357,7 @@ public class consultas {
 
     }
 
-    public ArrayList<permisoSG> consultarPermiso(String tipoPermiso, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
     
     
     
