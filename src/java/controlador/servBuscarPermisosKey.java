@@ -11,12 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 import modelo.aprendizSG;
 import modelo.consultas;
+import modelo.fichaSG;
 import modelo.permisoSG;
 import modelo.usuarioSG;
 import modulo_permisos.Autorizacion;
 
 @WebServlet(name = "servBuscarPermisosDoc", urlPatterns = {"/servBuscarPermisosDoc"})
-public class servBuscarPermisosDoc extends HttpServlet {
+public class servBuscarPermisosKey extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -60,22 +61,34 @@ public class servBuscarPermisosDoc extends HttpServlet {
             aprendizSG ap = new aprendizSG();
             ap = aprendiz.get(0);
             String aprendizNom = ap.getApr_nombres();
-             
-            
+            String aprendizTipo = ap.getApr_tipoAprendiz();
+//            int aprendizFicha = ap.getApr_ficha_fic_numero();
+//            //Nombre ficha
+//            ArrayList<fichaSG> ficha = new ArrayList<>();
+//            fichaSG fic = new fichaSG();
+//            ficha = con_ap.consultaFicha();
+//            fic = ficha.get(0);
+//            //String fichaNom = fic.getFic_nombrePrograma();
+//            
             //Impresion de datos del permiso
             out.print(
-                    per.getPer_ID()+//0
+                    per.getPer_ID()+//0                
                 "|"+aprendizNom+ //1
-                "|"+per.getPer_Aprendiz_Apr_documento()+ //2
-                "|"+per.getPer_tipo()+ //3
-                "|"+per.getPer_fecha_salida()+ //4
-                "|"+per.getPer_fecha_ingreso()+ //5
-                "|"+per.getPer_hora_Salida()+ //6
-                "|"+per.getPer_hora_ingreso()+ //7
-                "|"+per.getPer_motivo()+ //8
-                "|"+per.getPer_estado()+ //9
-                "|"+per.getPer_autoriza()+ //10
-                "|"+per.getPer_evidenciaAdjunta()); //11
+                "|"+aprendizTipo+//2
+                //"|"+aprendizFicha+//3
+               // "|"+fichaNom+//4
+                "|"+per.getPer_Aprendiz_Apr_documento()+ //5
+                "|"+per.getPer_tipo()+ //6
+                "|"+per.getPer_fecha_salida()+ //7
+                "|"+per.getPer_fecha_ingreso()+ //8
+                "|"+per.getPer_hora_Salida()+ //9
+                "|"+per.getPer_hora_ingreso()+ //10
+                "|"+per.getPer_hora_ingresoReal()+//11
+                "|"+per.getPer_fecha_ingresoReal()+//12
+                "|"+per.getPer_motivo()+ //13
+                "|"+per.getPer_estado()+ //14
+                "|"+per.getPer_autoriza()+ //15
+                "|"+per.getPer_evidenciaAdjunta()); //16
 
         } else { 
             out.print(

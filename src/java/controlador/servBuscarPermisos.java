@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 import modelo.aprendizSG;
 import modelo.consultas;
 import modelo.permisoSG;
-import modelo.usuarioSG;
 import modulo_permisos.Autorizacion;
 
 @WebServlet(name = "servBuscarPermisos", urlPatterns = {"/servBuscarPermisos"})
@@ -54,26 +53,22 @@ public class servBuscarPermisos extends HttpServlet {
             consultas con_ap = new consultas();
             ArrayList<aprendizSG> aprendiz = new ArrayList<>();
             
-            //CONSULTA ROL
-            consultas usr = new consultas();
-            //usu = usr.consultaUsuario();
-            ArrayList<usuarioSG> usurol = new ArrayList<>();
-            usuarioSG usu=new usuarioSG();
-            
-            //Consulta rolusuario
-            usurol = usr.consultaUsuario();
-            
             //Consulta de datos de aprendiz (ID)
             aprendiz = con_ap.consultarAprendizID(per.getPer_Aprendiz_Apr_documento());
 
             aprendizSG ap = new aprendizSG();
             ap = aprendiz.get(0);
             String aprendizNom = ap.getApr_nombres();
-            //rol
-            
-            //rol = usu.getUsurol(0);
-            
-            
+     
+            //Datos anexos de aprendiz
+//            int aprendizFicha = ap.getApr_ficha_fic_numero();
+           //Nombre ficha
+//            ArrayList<fichaSG> ficha = new ArrayList<>();
+//            fichaSG fic = new fichaSG();
+//            ficha = con_ap.consultaFicha();
+//            fic = ficha.get(0);
+//            String fichaNom = fic.getFic_nombrePrograma();
+
             //Impresion de datos del permiso
             out.print(
                     per.getPer_ID()+ //0
@@ -89,7 +84,6 @@ public class servBuscarPermisos extends HttpServlet {
                 "|"+per.getPer_autoriza()+ //10
                 "|"+per.getPer_evidenciaAdjunta()); //11
 
-            
         } else { 
             out.print(
                 "<thead class='thead_t'>"+                    

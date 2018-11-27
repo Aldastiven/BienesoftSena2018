@@ -161,7 +161,7 @@
                 <form action="t_permiso_coordinador.jsp" name="vinform" method="post">
                     
                     <!--Filtro busqueda document-->
-                    <input id="search" class="searchTerm" type="text" name="numdocu" placeholder="Busca document" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
+                    <input id="search" class="searchTerm" type="number" name="numdocu" onkeyup="searchInfo()" placeholder="Busca documento" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
                  
                     <!--combobox--> 
                     <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
@@ -246,7 +246,7 @@
         });
     </script>    
 
-    <script src="js/modal-tabla/main.js"></script>
+    <!--<script src="js/modal-tabla/main.js"></script>
  
     <script src="js/modulo-busqueda/main.js"></script>
     
@@ -254,7 +254,7 @@
     
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>-->
     
-    <script src="js/searchkey/functioninfo.js"></script>    
+    <script src="js/buscadorfacil/BuscadorKey.js"></script>    
     
     </body>
 </html>
