@@ -160,8 +160,8 @@
                 <!--Busqueda teclado-->
                 <form action="t_permiso_coordinador.jsp" name="vinform" method="post">
                     
-                    <!--Filtro busqueda document-->
-                    <input id="search" class="searchTerm" type="number" name="numdocu" onkeyup="searchInfo()" placeholder="Busca documento" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
+                    <!--Filtro busqueda documento-->
+                    <input id="documento_key" class="searchTerm" type="number" name="numdocu" placeholder="Busca documento" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
                  
                     <!--combobox--> 
                     <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">

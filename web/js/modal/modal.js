@@ -130,6 +130,11 @@ $(document).ready(function(){
         var titulo=crearElemento("p", {id:"msg_tit"},["MOTIVO"]);
         var inputMotivo = crearElemento("p", {name:"t_moti", class:"input_txt_modal", type:"text"}, [datos[10]]);
         var divMotivo = crearElemento("div", {class:"perId"}, [titulo, inputMotivo]);
+        
+        //Hora Ingreso real Aprendiz
+        var titulo=crearElemento("p", {id:"msg_tit"},["HORA DE INGRESO REAL"]);
+        var inputHEnt = crearElemento("p", {name:"t_horaingre", class:"perId", type:"time"}, [datos[11]]);
+        var divHEnt = crearElemento("div", {class:"perId"}, [titulo, inputHEnt]);
 
         //Estado Despliegue 10
         var option1 = crearElemento("option", {value:"Autorizado"}, ["Autorizar"]);
@@ -192,6 +197,7 @@ $(document).ready(function(){
                                                                                                                     divHSal,
                                                                                                                     divHEnt,
                                                                                                                     divMotivo,
+                                                                                                                    divHEnt,
                                                                                                                     comboEstado,
                                                                                                                     divAut, 
                                                                                                                     btnEnviar, btnEliminar]  );
@@ -209,8 +215,8 @@ $(document).ready(function(){
     
     
     
-    
-     //Función para crear la ventana modal seguridad
+    //MODAL SEGURIDAD
+    //Función para crear la ventana modal seguridad
     function ventanaSeguridad(datos) {
       
     //CREAR ELEMENTO DE LA VENTANA
