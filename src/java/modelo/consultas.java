@@ -155,6 +155,28 @@ public class consultas {
     }
     
     
+    //CONSULTAR DATOS DEL APRENDIZ X TIPO
+    public ArrayList<aprendizSG>consultarAprendizTipo(String tipoapr){
+        ArrayList<aprendizSG> arreglo = new ArrayList<aprendizSG>();
+        
+        try {
+            ps = cnn.prepareStatement("SELECT * FROM aprendiz WHERE apr_tipoAprendiz='"+tipoapr+"' ");
+            rs = ps.executeQuery();
+
+            if(rs.next()){
+                aprendizSG getset = new aprendizSG( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),  rs.getString(21), rs.getString(22), rs.getString(23), rs.getInt(24), rs.getInt(25), rs.getInt(26) );
+                arreglo.add(getset);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"error" +e);
+        }
+        return arreglo;
+    }
+    
+    
+    
+    
+    
      //CONSULTA aprendiz_rel_patrocinioSG
     public ArrayList<aprendiz_rel_patrocinioSG> consultaAprendiz_rel_Patricinio(){
         ArrayList<aprendiz_rel_patrocinioSG>arreglo= new ArrayList<aprendiz_rel_patrocinioSG>();
@@ -214,6 +236,45 @@ public class consultas {
             JOptionPane.showMessageDialog(null, "no se puede mostrar contenido de la tabla"+e);
         }
         return arreglo;
+    }
+    
+    
+    //CONSULTAR APRENDIZ CON SU TIPO: ALQUERIA... 
+        public ArrayList<aprendizSG>consultarAprendizDocTipo(String cbx_tipo_apr ,int documento) {
+        ArrayList<aprendizSG> arreglo = new ArrayList<aprendizSG>();
+
+        try{
+
+            if(cbx_tipo_apr.equals("") ){
+                 ps = cnn.prepareStatement("SELECT * FROM aprendiz ");
+            }else if(!cbx_tipo_apr.equals("") ){
+                 ps = cnn.prepareStatement(" SELECT * FROM aprendiz WHERE apr_tipoAprendiz='"+cbx_tipo_apr+"' ");
+            }else if (cbx_tipo_apr.equals("") && documento==0){
+                 ps = cnn.prepareStatement("SELECT * FROM aprendiz WHERE apr_tipoAprendiz='"+cbx_tipo_apr+"' AND apr_documento='"+documento+"' ");
+            }else if(!cbx_tipo_apr.equals("")  && documento !=0 ){
+                 ps = cnn.prepareStatement("SELECT * FROM aprendiz WHERE apr_tipoAprendiz='"+cbx_tipo_apr+"' AND apr_documento LIKE '"+documento+"%' ");
+            }else if(!cbx_tipo_apr.equals("")){
+                 ps = cnn.prepareStatement(" SELECT * FROM aprendiz WHERE apr_tipoAprendiz='"+cbx_tipo_apr+"' AND apr_documento='"+documento+"' ");
+            }else if(documento!=0){
+                 ps = cnn.prepareStatement(" SELECT * FROM aprendiz WHERE per_Aprendiz_Apr_documento LIKE '"+documento+"%' ");
+            }else if(documento==0){
+                ps = cnn.prepareStatement(" SELECT * FROM aprendiz WHERE per_Aprendiz_Apr_documento LIKE '"+documento+"%' ");
+            }
+            
+
+            rs= ps.executeQuery();
+
+            while(rs.next()){
+                aprendizSG getset = new aprendizSG( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14), rs.getString(15), rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20),  rs.getString(21), rs.getString(22), rs.getString(23), rs.getInt(24), rs.getInt(25), rs.getInt(26) );
+                arreglo.add(getset);
+            }
+
+
+        }catch (Exception e){
+            System.out.println("Error de consulta: "+e);
+        }
+        return arreglo;
+
     }
 
     

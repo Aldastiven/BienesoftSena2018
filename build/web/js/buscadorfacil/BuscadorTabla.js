@@ -1,3 +1,4 @@
+//BUSCADOR DE PERMISOS
 $(document).ready(function(){
     var tipoPermiso = "",documento=0;
     

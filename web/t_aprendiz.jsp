@@ -51,6 +51,9 @@
             
             <!--importando--->
             <script src="js/jquery.js"></script>
+            
+            <!--Buscador Tabla Aprendices-->
+            <script src="js/buscadorfacil/BuscadorAprendiz.js"></script>
 </head>
 
 
@@ -92,9 +95,9 @@
         
         <ul class="sidenav" id="menu-responsive">
                     
-            <li><a href="t_permiso_coordinador.jsp"> Permisos</a></li>
+            <li><a href="t_permiso_coordinador.jsp">Permisos</a></li>
 
-            <li><a href="t_aprendiz"> Aprendices</a></li>
+            <li><a href="t_aprendiz">Aprendices</a></li>
 
             <li><a href="t_ficha.jsp">Fichas</a></li>
             
@@ -140,14 +143,12 @@
         <!--**************************************************************************************************-->
         
         <!--MODULO INFORMACION USUARIO-->
-
-
         <label id="user_text" class="user_text hide-on-med-and-down">Coordinador</label> 
             <%
                 HttpSession rnombre=request.getSession();
-                String nom=(String)rnombre.getAttribute("datico");
-             %>
-        <p id="user_text" class="user_text hide-on-med-and-down"><%=nom%></p>
+                String nom=(String)rnombre.getAttribute("nombre");
+            %>
+        <p id="user_text" class="userNom hide-on-med-and-down"><%=nom%></p>
 
 
           <!--*********************************************************-->
@@ -156,9 +157,22 @@
         <!--*******************************OBJETO  MODULO CONSULTAS***************************-->
         
         <div class="container hide-on-small-only">
-            <div id="search-container" >
-                
-                
+            <div id="search-container">
+               
+                <form action="servBuscarAprendiz" name="vinform" method="post">
+                    
+                    <!--Filtro busqueda documento-->
+                    <input id="documento_key" class="searchTerm" type="number" name="" placeholder="Buscar documento" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
+                 
+                    <!--combobox--> 
+                    <select id="ComboFiltro" name="cbx_tipo_apr" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
+                        <option value="">Todo</option>
+                        <option value="sostenimiento">Sostenimiento</option>
+                        <option value="patrocinio">Patrocinio</option>
+                        <option value="alqueria">Alqueria</option>
+                        <option value="ordenio">Ordeño</option>
+                    </select>
+                </form>
             </div>
         </div>
         
@@ -193,62 +207,11 @@
         </div>
     </div>
  
-         <div id="table"  class="table" style="margin-top: -10px;">
-     
-                <table class="table scrolling">
-                    
-                    <thead id="thead" class="thead">
-                    
-                        <th id="th_thead">Numero de documento</th>
-                        <th id="th_thead">Tipo de documento</th>
-                        <th id="th_thead">Nombres</th>
-                        <th id="th_thead">Apellidos</th>
-                        <th id="th_thead">Tipo de aprendiz</th>
-                        <th id="th_thead">Numero de ficha</th>        
-                        <th id="th_thead">Acciones</th>
-                       
-                    </thead>
-                               
-                    <%
-                        ArrayList <aprendizSG> listdat = new ArrayList<>();
-                        consultas con = new consultas();
-                        listdat = con.consultarTablaAprendiz();
-                        aprendizSG x = new aprendizSG();
-
-                        for(int i = 0; i< listdat.size(); i++){
-                        x = listdat.get(i);
-                    %>
-         
-                    <tr style="padding: 0px;">
-        <form action="ServletAprendiz" enctype="multipart/form-data" method="post">
-
-                    <td><input class="browser-default" type="number" name="t_NumeroDocumento" value="<%=x.getApr_documento()%>"></td>
-                    <td><input class="browser-default" type="text" name="t_TipoDocumento" value="<%=x.getApr_documentoTipo()%>"></td>
-                    <td><input class="browser-default" type="text" name="t_Nombres" value="<%=x.getApr_nombres()%>"></td>
-                    <td><input class="browser-default" type="text" name="t_Apellidos" value="<%=x.getApr_apellidos()%>"></td>
-                    <td><input class="browser-default" type="text" name="t_TipoAprendiz" value="<%=x.getApr_tipoAprendiz()%>"></td>
-                    <td><input class="browser-default" type="number" name="t_numeroFicha" value="<%=x.getApr_ficha_fic_numero()%>"></td>
-        
-                     <td>  
-                    <div id="btn-ver-permiso-coordinador" class="btn-ver-permiso-coordinador" title="consultar aprendiz">
-                        <img src="icon_acciones/ver.png" style="padding-left: 15px" />
-                    </div>
-                </td>
-
-            
-</tr>
-
-
-</div>
-
-                        </form>
-
-            </div>
-        <%
-            }
-        %>               
-            </div> 
-</div>
+    <div id="table_p">
+      <!--tabla datos con AJAX--> 
+      <table id="datos" class="table_p">   
+      </table>          
+    </div>    
 <!--------------------------------------------------------------------------------------------------->
                 
          
@@ -268,23 +231,23 @@
                 
 
     <!--importando funciones para los objetos-->    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            M.AutoInit();
-        });
-    </script>    
+    <!--<script>
+        <!--document.addEventListener('DOMContentLoaded', function() {
+            //M.AutoInit();
+        //});
+    </script>-->    
     
     <!--importando la funcion modal resultado-tabla-->
-    <script src="js/modal-tabla/main.js"></script>
+    <!--<script src="js/modal-tabla/main.js"></script>-->
   
     <!--importando la funcion de modal-busqueda-->
-    <script src="js/modulo-busqueda/main.js"></script>
+    <!--<script src="js/modulo-busqueda/main.js"></script>-->
     
     <!--importando la funcion de modal-acordion-->
-    <script src="js/tabla-acordion/main.js"
+    <!--<script src="js/tabla-acordion/main.js"-->
         
     <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <!--<script type="text/javascript" src="materialize/js/materialize.min.js"></script>-->
 
     </body>
 </html>

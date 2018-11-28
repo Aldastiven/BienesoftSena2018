@@ -161,7 +161,7 @@
                 <form action="servBuscarPermisos" name="vinform" method="post">
                     
                     <!--Filtro busqueda documento-->
-                    <input id="documento_key" class="searchTerm" type="number" name="name" placeholder="Busca documento" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
+                    <input id="documento_key" class="searchTerm" type="number" name="name" placeholder="Buscar documento" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
                  
                     <!--combobox--> 
                     <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
@@ -171,10 +171,6 @@
                         <option value="fin de semana">Fin de semana</option>
                         <option value="extra">Extra</option>
                     </select>
-                    
-                    <button id="btn_ver" type="submit" value="Ingresar" name="" style="float: left; background: transparent; cursor: pointer; position:relative; bottom:10px; border:none">
-                        <img src="icon_acciones/icon_buscar.png" title="Buscar" style=" cursor: pointer; width: 30px;"/>
-                    </button>
                 </form> 
                 
             </div>
@@ -254,7 +250,7 @@
     
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>-->
     
-    <script src="js/buscadorfacil/BuscadorKey.js"></script>    
+        
     
     </body>
 </html>
