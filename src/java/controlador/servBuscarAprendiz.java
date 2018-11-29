@@ -24,18 +24,31 @@ public class servBuscarAprendiz extends HttpServlet {
         
         
         String tipoAprendiz = request.getParameter("tipo");
-        String docId = request.getParameter("documento");
+        String docId = request.getParameter("docId");
         String ventana = request.getParameter("ventana");
         
        
         if(ventana != null && ventana.equals("abrir")) {
+            //BUSCAR DATOS DEL APRENDIZ SELECCIONADO
+            consultas con= new consultas();
+            ArrayList<aprendizSG> aprendizSena = new ArrayList<>();
+            
+            //GuargarID EN LOS GETTER Y SETTER
+            aprendizSG id = new aprendizSG(Integer.parseInt(docId));
+            
+            //LLAMAR CONSULTA
+            aprendizSena = con.consultarAprendizID(Integer.parseInt(docId));
+            
+            //Guarda datos
+            aprendizSG apr=new aprendizSG();
+            apr = aprendizSena.get(0);
             
             //CONSULTAR NOMBRE DEL APRENDIZ
             consultas con_ap = new consultas();
             ArrayList<aprendizSG> aprendiz = new ArrayList<>();
             
             //Consulta de datos de aprendiz (ID)
-            //aprendiz = con_ap.consultarAprendizID(0);
+            aprendizSena = con_ap.consultarAprendizID(0);
 
             aprendizSG ap = new aprendizSG();
             ap = aprendiz.get(0);
@@ -95,13 +108,13 @@ public class servBuscarAprendiz extends HttpServlet {
 
         out.print(
                 "<tr>"+
-                    "<form action='ServletPermiso' enctype='multipart/form-data' method='post'>"+
-                        "<td><input  class='browser-default input_t' id='' readonly type='number' name='t_numerodocumento' value="+x.getApr_documento()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getApr_documentoTipo()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getApr_nombres()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_moti' value="+x.getApr_apellidos()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_fechsal' value="+x.getApr_tipoAprendiz()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='number' name='t_fechsal' value="+x.getApr_ficha_fic_numero()+"></td>"+        
+                    "<form action='ServletAprendiz' enctype='multipart/form-data' method='post'>"+
+                        "<td><input id=id"+i+"  class='browser-default input_t'  readonly type='number' name='t_NumeroDocumento' value="+x.getApr_documento()+"></td>"+
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_TipoDocumento' value="+x.getApr_documentoTipo()+"></td>"+
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_Nombres' value="+x.getApr_nombres()+"></td>"+
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_Apellidos' value="+x.getApr_apellidos()+"></td>"+
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_TipoAprendiz' value="+x.getApr_tipoAprendiz()+"></td>"+
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='number' name='t_numeroFicha' value="+x.getApr_ficha_fic_numero()+"></td>"+        
                         "<td>"+ 
                         "<div  class='btn-ver-permiso-coordinador'>"+                
                         "<img id=p"+i+" class='ver' src='icon_acciones/ver.png' style='padding-left: 15px'/>"+     
@@ -112,7 +125,7 @@ public class servBuscarAprendiz extends HttpServlet {
             }
 
 
-            //out.print("<script src='js/modal/modal.js'></script>");
+            out.print("<script src='js/modal/modalAprendiz.js'></script>");
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

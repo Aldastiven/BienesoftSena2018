@@ -1,3 +1,4 @@
+//MODAL DE PERMISO
 $(document).ready(function(){
     
     //funcion para añadir un objeto de atributos a mi elemento padre
@@ -172,6 +173,17 @@ $(document).ready(function(){
 //        var divEvid = crearElemento("div", {id:"divinterno"}, [titulo, img]);
 //             
 
+//        //Div FIcha
+        var titulo=crearElemento("p", {id:"msg_tit"},["FICHA"]);
+        var img = crearElemento("img", {name:"", class:"perId"}, [datos[12]]);//probar imagen con imput (si hay)
+        var divficha = crearElemento("div", {id:"divinterno"}, [titulo, img]);
+        
+        
+        //fichanombre
+        var titulo=crearElemento("p", {id:"msg_tit"},["FICHA NOMBRE"]);
+        var img = crearElemento("img", {name:"", class:""}, [datos[13]]);//probar imagen con imput (si hay)
+        var divfichaNom = crearElemento("div", {id:"divinterno"}, [titulo, img]);
+      
         
         
         //BOTON ENVIAR
@@ -200,6 +212,8 @@ $(document).ready(function(){
                                                                                                                     divHEnt,
                                                                                                                     comboEstado,
                                                                                                                     divAut, 
+                                                                                                                    divficha,
+                                                                                                                    divfichaNom,
                                                                                                                     btnEnviar, btnEliminar]  );
         //este es el div que contiene al form
         var ventana = crearElemento("div", {id:"ventana"}, [form]);

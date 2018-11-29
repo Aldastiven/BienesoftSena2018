@@ -1,4 +1,4 @@
-//MODAL DE PERMISO
+//MODAL INFO APRENDIZ
 $(document).ready(function(){
     
     //funcion para añadir un objeto de atributos a mi elemento padre
@@ -30,35 +30,33 @@ $(document).ready(function(){
     };
 
 
-    var permisos = document.getElementsByClassName("ver");    
-    var idPermisos = document.getElementsByClassName("id");
+    var aprendiz = document.getElementsByClassName("ver");    
+    var idAprendiz = document.getElementsByClassName("id");
     
-    for(var i=0; i<permisos.length; i++) {
+    
+    for(var i=0; i<aprendiz.length; i++) {
         
-        permisos[i].addEventListener("click", function(e){
-            var per = e.target.id.substring(1);
-            var perId = document.getElementById("id"+per).value;
-            var rol = document.getElementById("user_text").innerHTML;
+        aprendiz[i].addEventListener("click", function(e){
+            var apr = e.target.id.substring(1);
+            var docId = document.getElementById("id"+apr).value;
+            
             $.ajax({
-                url: "servBuscarPermisos",
+                url: "servBuscarAprendiz",
                 data: {
-                  perId: perId,
-                  ventana: "abrir",
-                  rol: rol
+                  docId: docId,
+                  ventana: "abrir"
+           
                 },
-                    success: function( datosPermiso ) {
+                    success: function( datosAprendiz ) {
                     //SEPARAMOS LOS DATOS QUE TRAE EL SERVLET CON OUT.PRINT
                     //TODOS LOS DATOS QUE IRÁN EN LA VENTANA QUEDAN EN EL ARREGLO DATOS
-                    var datos = datosPermiso.split("|");
+                    var datos = datosAprendiz.split("|");
                     //Crear ventana (Llamar función enviandole los datos)
-                    var rol = document.getElementById("user_text").innerHTML;
+                    //var rol = document.getElementById("user_text").innerHTML;
                     
-                    if (rol==="Seguridad"){
-                        ventanaSeguridad(datos);
-                    }else if(rol==="Coordinador"){
-                        ventanaCoordinador(datos);
-                    }
-
+                    //FUNCION DE DATOS PARA MODAL
+                    ventanaCoordinador(datos);
+                    console.log(docId);
                 }
             });
             
@@ -66,7 +64,7 @@ $(document).ready(function(){
     
     }
     
-    //Función para crear la ventana modal coordinador
+    //Función para crear la ventana modal de la vista
     function ventanaCoordinador(datos) {
       
     //CREAR ELEMENTO DE LA VENTANA
@@ -173,17 +171,6 @@ $(document).ready(function(){
 //        var divEvid = crearElemento("div", {id:"divinterno"}, [titulo, img]);
 //             
 
-//        //Div FIcha
-        var titulo=crearElemento("p", {id:"msg_tit"},["FICHA"]);
-        var img = crearElemento("img", {name:"", class:"perId"}, [datos[12]]);//probar imagen con imput (si hay)
-        var divficha = crearElemento("div", {id:"divinterno"}, [titulo, img]);
-        
-        
-        //fichanombre
-        var titulo=crearElemento("p", {id:"msg_tit"},["FICHA NOMBRE"]);
-        var img = crearElemento("img", {name:"", class:""}, [datos[13]]);//probar imagen con imput (si hay)
-        var divfichaNom = crearElemento("div", {id:"divinterno"}, [titulo, img]);
-      
         
         
         //BOTON ENVIAR
@@ -212,8 +199,6 @@ $(document).ready(function(){
                                                                                                                     divHEnt,
                                                                                                                     comboEstado,
                                                                                                                     divAut, 
-                                                                                                                    divficha,
-                                                                                                                    divfichaNom,
                                                                                                                     btnEnviar, btnEliminar]  );
         //este es el div que contiene al form
         var ventana = crearElemento("div", {id:"ventana"}, [form]);
@@ -229,106 +214,6 @@ $(document).ready(function(){
     
     
     
-    //MODAL SEGURIDAD
-    //Función para crear la ventana modal seguridad
-    function ventanaSeguridad(datos) {
-      
-    //CREAR ELEMENTO DE LA VENTANA
-        
-        //encabezado del formulario
-        var encab = crearElemento("h1", {id:"ppp"}, ["Permiso"]);
-        var titulo=crearElemento("p", {id:"msg_tit_id"},["ID"]);
-        var perId = crearElemento("input", { name:"t_Id", id:"input_tit_id", class:"browser-default", type:"text", value:[datos[0]]}, [datos[0]]);
-        var divencabezado = crearElemento("div",{id:"enacabezado_per"},[perId,titulo,encab]);
-    
-        //ID Permiso
-//	var titulo=crearElemento("p", {id:"msg_tit"},["ID DEL PERMISO"]);
-//        var perId = crearElemento("input", { name:"t_Id", class:"browser-default", type:"number", value:[datos[0]]}, [datos[0]]);
-//        var divId=crearElemento("div", {class:"perId"}, [titulo,perId]);
-                
-        //Nombre aprendiz
-        var titulo=crearElemento("p", {id:"msg_tit"},["NOMBRE DEL APRENDIZ"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"text"}, [datos[1]] );
-        var divNom = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
-
-	//Documento aprendiz
-        var titulo=crearElemento("p", {id:"msg_tit"},["DOC DEL APRENDIZ"]);
-        var inputDoc = crearElemento("p", {name:"t_numerodocumento",id:"input_msg_modal",type:"number"}, [datos[2]]);
-        var divDoc = crearElemento("div", {class:"perId"}, [titulo,inputDoc]);
-
-        //Tipo permiso
-        var titulo=crearElemento("p", {id:"msg_tit"},["TIPO"]);
-        var inputPerTipo = crearElemento("p", {name:"tipoper",class:"perId",type:"text"}, [datos[3]]);
-        var divPerTipo = crearElemento("div", {class:"perId"}, [titulo, inputPerTipo]);
-                
-        //Fecha salida estipulada Aprendiz
-        var titulo=crearElemento("p", {id:"msg_tit"},["FECHA DE SALIDA"]);
-        var inputFSal = crearElemento("p", {name:"t_fechsal",class:"perId", type:"date"}, [datos[4]]);
-        var divFSal = crearElemento("div", {class:"perId"}, [titulo, inputFSal]);
-
-        //Fecha ingreso estipulada Aprendiz
-        var titulo=crearElemento("p", {id:"msg_tit"},["FECHA DE INGRESO"]);
-        var inputFEnt = crearElemento("p", {name:"t_fechingre", class:"perId", type:"date"}, [datos[5]]);
-        var divFEnt = crearElemento("div", {class:"perId"}, [titulo, inputFEnt]);
-        
-        //Hora salida estipulada Aprendiz
-        var titulo=crearElemento("p", {id:"msg_tit"},["HORA DE SALIDA"]);
-        var inputHSal = crearElemento("p", {name:"t_horasal",class:"perId", type:"time"}, [datos[6]]);
-        var divHSal = crearElemento("div", {class:"perId"}, [titulo, inputHSal]);
-
-        //Hora Ingreso estipulada Aprendiz
-        var titulo=crearElemento("p", {id:"msg_tit"},["HORA DE INGRESO"]);
-        var inputHEnt = crearElemento("p", {name:"t_horaingre", class:"perId", type:"time"}, [datos[7]]);
-        var divHEnt = crearElemento("div", {class:"perId"}, [titulo, inputHEnt]);
-        
-        //Observacion
-        var titulo=crearElemento("p", {id:"msg_tit"},["OBSERVACION"]);
-        var inputObserv = crearElemento("p", {class:"perId", name:"t_obser", type:"text"});
-        var divObserv = crearElemento("div", {class:"perId"}, [titulo, inputObserv]);
-                
-        //Motivo
-        var titulo=crearElemento("p", {id:"msg_tit"},["MOTIVO"]);
-        var inputMotivo = crearElemento("p", {name:"t_moti", class:"input_txt_modal", type:"text"}, [datos[8]]);
-        var divMotivo = crearElemento("div", {class:"perId"}, [titulo, inputMotivo]);
-
-        //Estado Despliegue
-        //var option1 = crearElemento("option", {value:"Autorizado"}, ["Autorizar"]);
-        //var option2 = crearElemento("option", {value:"Denegado"}, ["Denegar"]);
-        //var comboEstado = crearElemento("select", {name:"t_estado", class:"browser-default",id:"selectEstado"}, [option1,option2]);
-        
-        var titulo=crearElemento("p", {id:"msg_tit"},["ESTADO"]);
-        var inputAut = crearElemento("p", {name:"t_estado", class:"perId", type:"text"}, [datos[9]]);
-        var comboEstado = crearElemento("div", {id:"divinterno"}, [titulo, inputAut]);
-
-        //Autoriza (nombre)
-        var titulo=crearElemento("p", {id:"msg_tit"},["AUTORIZA"]);
-        var inputAut = crearElemento("p", {name:"t_autoriza", class:"perId", type:"text"}, [datos[10]]);
-        var divAut = crearElemento("div", {id:"divinterno"}, [titulo, inputAut]);
-           
-        //Div Evidencia
-        var titulo=crearElemento("p", {id:"msg_tit"},["EVIDENCIA"]);
-        var img = crearElemento("img", {name:"t_evidenciaAdjunta", class:"perId"}, [datos[11]]);//probar imagen con imput (si hay)
-        var divEvid = crearElemento("div", {id:"divinterno"}, [titulo, img]);
-               
-        //BOTON OK
-        var btnText = crearElemento("p", {id:"txt_buttom", class:"txt_buttom"},["OK"]);
-        var btnEnviar=crearElemento("button", {type:"submit", name:"btn-autorizado" , id:"btn_action_salida", class:"btn_action_salida l12  m12 s12"},[btnText]);
-  
-        
-        //este es el fomr que contiene los campos a actualizar
-        var form = crearElemento("form", {action:"ServletPermiso", enctype:"multipart/form-data", method:"post"}, [divencabezado, divNom, divDoc, divPerTipo, divFSal, divFEnt, divHSal,divHEnt, divObserv, divMotivo, comboEstado, divAut, divEvid, btnEnviar]  );
-
-        //este es el div que contiene al form
-        var ventana = crearElemento("div", {id:"ventana"}, [form]);
-
-        //este es el div principal que contiene al div ventana
-        var contenedor = crearElemento("div", {id:"modal-background-coordinador"}, [ventana] );      
-        document.body.appendChild(contenedor);
-        
-        contenedor.addEventListener("click", function(e){
-            if(e.target === contenedor) document.body.removeChild(contenedor);
-        });            
-    }
 });
 
 

@@ -417,7 +417,27 @@ public class consultas {
         return arreglo;
 
     }
+    
+    
+    public ArrayList<fichaSG>consultarFichaApr(int fichaApr) {
+    ArrayList<fichaSG> arreglo = new ArrayList<fichaSG>();
+        try{
+            ps = cnn.prepareStatement("select * from ficha where Fic_numero = '"+fichaApr+"' ");
+            rs= ps.executeQuery();
 
+            if(rs.next()){
+                fichaSG getset = new fichaSG(rs.getString(2));
+                arreglo.add(getset);
+            }
+
+
+        }catch (Exception e){
+            System.out.println("Error de consulta: "+e);
+        }
+        return arreglo;
+    }
+    
+    
   
     
     

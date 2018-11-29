@@ -27,6 +27,13 @@ public class fichaSG {
         this.Fic_fin_etapa = Fic_fin_etapa;
     }
     
+    //CONSTRUCTOR CON EL NOMBRE
+
+    public fichaSG(String Fic_nombrePrograma) {
+        this.Fic_nombrePrograma = Fic_nombrePrograma;
+    }
+    
+    
     //SET & GET
 
     public int getFic_numero() {

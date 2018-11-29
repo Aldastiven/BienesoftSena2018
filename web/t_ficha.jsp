@@ -57,6 +57,9 @@
             
             <!--importando--->
             <script src="js/jquery.js"></script>
+            
+            <!--Buscador Tabla ficha-->
+            <script src="js/buscadorfacil/BuscadorFicha.js"></script>
 </head>
 
     <body>
@@ -148,23 +151,34 @@
         
         <!--MODULO INFORMACION USUARIO-->
 
-
         <label id="user_text" class="user_text hide-on-med-and-down">Coordinador</label> 
             <%
                 HttpSession rnombre=request.getSession();
-                String nom=(String)rnombre.getAttribute("datico");
-             %>
-        <p id="user_text" class="user_text hide-on-med-and-down"><%=nom%></p>
-
+                String nom=(String)rnombre.getAttribute("nombre");
+            %>
+        <p id="user_text" class="userNom hide-on-med-and-down"><%=nom%></p>
 
           <!--*********************************************************-->
         
         
         <!--*******************************OBJETO  MODULO CONSULTAS***************************-->
-        
         <div class="container hide-on-small-only">
-            <div id="search-container" >
+            <div id="search-container"  class="browser-default">
                 
+                <!--Busqueda teclado-->
+                <form action="servBuscarPermisos" name="vinform" method="post">
+                    
+                    <!--Filtro busqueda documento-->
+                    <input id="documento_key" class="searchTerm" type="number" name="name" placeholder="Buscar documento" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
+                 
+                    <!--combobox--> 
+                    <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
+                        <option value="">Todo</option>
+                        <option value="morning">Jornada - Mañana</option>
+                        <option value="tarde">Jornada - Tarde</option>
+                        <option value="mixta">Jornada - Mixta</option>
+                    </select>
+                </form> 
                 
             </div>
         </div>
@@ -236,8 +250,7 @@
                 <td><input  class="browser-default" type="text" name="Fic_fin_etapa" value="<%=igs.getFic_fin_etapa()%>"></td>
                 
                 <td>
-                    <!--<input type="submit" name="btn_actualizar" value="Actualizar">
-                    <input type="submit" name="btn_eliminar" value="Eliminar">-->
+                    
                     
                     <button id="btn_tabla" class="btn_tabla" name="btn_actualizar" style="width: 20px; background: transparent; border:none;">
                         <img src="icon_acciones/icon_actualizar.png" title="Actualizar tabla" style="width: 30px; height: 30px;   cursor: pointer "/>

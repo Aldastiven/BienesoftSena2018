@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 import modelo.aprendizSG;
 import modelo.consultas;
+import modelo.fichaSG;
 import modelo.permisoSG;
 import modulo_permisos.Autorizacion;
 
@@ -36,7 +37,7 @@ public class servBuscarPermisos extends HttpServlet {
             Autorizacion con = new Autorizacion();
             ArrayList<permisoSG> permiso = new ArrayList<>();
             
-            //CuargarID EN LOS GETTER Y SETTER
+            //GuargarID EN LOS GETTER Y SETTER
             permisoSG id = new permisoSG(Integer.parseInt(perId));
             
             //llamar consulta
@@ -56,16 +57,16 @@ public class servBuscarPermisos extends HttpServlet {
             aprendizSG ap = new aprendizSG();
             ap = aprendiz.get(0);
             String aprendizNom = ap.getApr_nombres();
-     
-            //Datos anexos de aprendiz
-//            int aprendizFicha = ap.getApr_ficha_fic_numero();
-           //Nombre ficha
-//            ArrayList<fichaSG> ficha = new ArrayList<>();
-//            fichaSG fic = new fichaSG();
-//            ficha = con_ap.consultaFicha();
-//            fic = ficha.get(0);
-//            String fichaNom = fic.getFic_nombrePrograma();
 
+            /*----------------------------------------------------------*/
+            //FICHA
+            ArrayList<fichaSG> ficha = new ArrayList<>();
+            int fichaApr = ap.getApr_ficha_fic_numero();
+            ficha= con_ap.consultarFichaApr(fichaApr);
+            fichaSG fc= new fichaSG();
+            fc = ficha.get(0);
+            String fichaNom = fc.getFic_nombrePrograma();
+  
             //Impresion de datos del permiso
             out.print(
                     per.getPer_ID()+ //0
@@ -79,7 +80,10 @@ public class servBuscarPermisos extends HttpServlet {
                 "|"+per.getPer_motivo()+ //8
                 "|"+per.getPer_estado()+ //9
                 "|"+per.getPer_autoriza()+ //10
-                "|"+per.getPer_evidenciaAdjunta()); //11
+                "|"+per.getPer_evidenciaAdjunta()+ //11
+                "|"+fichaApr+//12
+                "|"+fichaNom//13
+            );
 
         } else { 
             int doc=Integer.parseInt(request.getParameter("documento")); //Documento aprendiz
