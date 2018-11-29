@@ -23,11 +23,42 @@
 }
 
 #enacabezado_per{
-    background: white;
+    background: transparent;
     border-bottom: 5px solid red;
     height: 80px;
     border-bottom: 5px solid rgb(55, 132, 255);
     margin-bottom: 20px
+}
+
+#contID{
+    float: right;
+    border-bottom: 10px;
+    position: relative;
+    top: 0%;
+}
+
+#contTipo{
+    float: right;
+    position: relative;
+    top: 10%;
+    left: 42px;
+    width: 200px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.tip{
+    color: red;
+    float: left;
+    width: 30%;
+    position: relative;
+    left: 35px;
+}
+
+.infotip{
+    color: blue;
+    float: right;
+    width: 60%;
 }
 
 
@@ -55,7 +86,7 @@
     max-height:500px;
     overflow-y: auto;
     overflow: scroll;
-    background: white;
+    background: whitesmoke;
     width: 85%;
     max-width: 500px;
     margin: auto;
@@ -70,4 +101,39 @@
     width: 176px;
     z-index:-1;
 }
+
+
+#cont_apr, #cont_Autorizacion, #cont_per {
+    background: white;
+    margin-bottom: 20px;
+    padding: .2em;
+    border-radius: 4px;
+    border-right: 3px solid rgb(180, 180, 180);
+}
+
+#titulo_cont{
+    color: gray;
+    font-size: 18px;
+    text-align: center;
+    position: relative;
+    top: -30px;
+    margin-bottom: -20px;
+}
+
+#cont_footer{
+    background: rgb(180, 180, 180);
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+
+@media only screen and (max-width: 508px){
+    #ppp{
+        font-size: 30px;
+        position: relative;
+        top: -50px;
+    }
+    
+}
+
 
