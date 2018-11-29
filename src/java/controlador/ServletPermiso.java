@@ -167,7 +167,7 @@ public class ServletPermiso extends HttpServlet {
         
         
         permisoSG setget = new permisoSG(documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-         int id=setget.getPer_ID();
+        int id=setget.getPer_ID();
         id=0;
         crudPermisos crud = new crudPermisos();
         crud.guardar_permiso(setget);
@@ -271,41 +271,7 @@ public class ServletPermiso extends HttpServlet {
        
     }
     
-    
-    
-//    //METODO PARA ELIMINAR VISTA COORDINADOR 
-//        private void eliminarPermiso(HttpServletRequest request, HttpServletResponse response) 
-//        throws ServletException, IOException {
-//        response.setContentType("text/html;charset=UTF-8");
-//        PrintWriter out = response.getWriter();
-//        
-//        JOptionPane.showMessageDialog(null,"esta pasando por el servlet");
-//        
-//        Id=Integer.parseInt(request.getParameter("t_Id"));
-//        documento=Integer.parseInt(request.getParameter("t_numerodocumento"));
-//        tipo=request.getParameter("t_tipo");
-//        fecha_salida=request.getParameter("t_fechsal");
-//        fecha_ingreso=request.getParameter("t_fechingre");
-//        hora_Salida=request.getParameter("t_horasal");
-//        hora_ingreso=request.getParameter("t_horaingre");
-//        fecha_ingresoReal=request.getParameter("f_fireal");
-//        hora_ingresoReal=request.getParameter("f_hireal");
-//        fecha_salidaReal=request.getParameter("f_fsreal");
-//        hora_salidaReal=request.getParameter("f_hsreal");
-//        observacion_permiso_llegada=request.getParameter("t_obser");
-//        motivo=request.getParameter("t_moti");
-//        estado=request.getParameter("t_estado");
-//        autoriza=request.getParameter("t_autoriza");
-//        evidenciaAdjunta=request.getParameter("t_evidenciaAdjunta");
-//     
-//        
-//        permisoSG setget = new permisoSG(Id, documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal, hora_ingresoReal, fecha_salidaReal, hora_salidaReal, observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-//        crudPermisos crud = new crudPermisos();
-//        crud.eliminar_permiso(setget);
-//        response.sendRedirect("t_permiso_coordinador.jsp");
-//        
-//        }
-        
+            
         
         //ELIMINAR PERMISO PER_ID 
         private void eliminarPermisoPerId(HttpServletRequest request, HttpServletResponse response) 
