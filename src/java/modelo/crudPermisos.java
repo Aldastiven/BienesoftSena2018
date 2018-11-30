@@ -108,19 +108,33 @@ public class crudPermisos {
         return x;    
     }
     
-//    public int eliminar_permiso(permisoSG ing){
-//        try {
-//            ps=cnn.prepareStatement("DELETE FROM permiso WHERE per_ID=?");
-//            ps.setInt(1,ing.getPer_ID());
-//            ps.executeUpdate();
-//            JOptionPane.showMessageDialog(null,"Registro eliminado");
-//
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null,"no se pudo eliminar desde el crud" +e);
-//        }
-//            return 0;
-//    }
-    
+
+    //cambio e estado icompleto en estado permiso
+    public String actualizar_estado_imcompleto_permiso(permisoSG setget){
+        
+        JOptionPane.showMessageDialog(null,"entra a actualizar estado");
+        String estaIncompleto="Imcompleto";
+        try{
+            int id=setget.getPer_ID();
+            JOptionPane.showMessageDialog(null, id);
+            String estado=setget.getPer_estado();
+            JOptionPane.showMessageDialog(null, estado);
+            ps=cnn.prepareStatement("UPDATE permiso SET per_estado='"+setget.getPer_estado()+"' WHERE per_ID='"+setget.getPer_ID()+"' ");
+            ps.setString(14,"imcompleto");
+            //ps.setString(14, setget.getPer_estado());
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null,"estado actualizado" );
+            
+        }catch(Exception e){
+        
+        JOptionPane.showMessageDialog(null,"no entro " +e);
+        }
+        
+        return estaIncompleto;
+
+        
+    }
    
     
 }

@@ -389,7 +389,8 @@ public class ServletPermiso extends HttpServlet {
             
             
             tipopermiso tipoper=new tipopermiso();//INSTANCIA TIPOPERMISO
-            boolean verifica=autorz.fechaHoraEstipulada(fechaReal, horaReal, fechaEstipulada, horaEstipulada);
+            boolean verifica=autorz.fechaHoraEstipulada(fechaReal, horaReal, fechaEstipulada, horaEstipulada, estado);
+          
             
             //RESTRICCIONES GENERALES DE HORARIOS
             if(verifica){
@@ -422,10 +423,6 @@ public class ServletPermiso extends HttpServlet {
         } else {
             JOptionPane.showMessageDialog(null, "No esta autorizado para salir");
         }
-
-        
-        
-        
 
         }
         
