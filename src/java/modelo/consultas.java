@@ -418,7 +418,7 @@ public class consultas {
 
     }
     
-    
+    //CONSULTA DE NOMBRE DEL PROGRAMA ACADEMICO
     public ArrayList<fichaSG>consultarFichaApr(int fichaApr) {
     ArrayList<fichaSG> arreglo = new ArrayList<fichaSG>();
         try{
@@ -438,7 +438,6 @@ public class consultas {
     }
     
     
-  
     
     
     

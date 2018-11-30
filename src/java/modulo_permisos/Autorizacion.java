@@ -215,13 +215,7 @@ public class Autorizacion {
             //INSTANCIAR EL METODO QUE ACTUALIZA EL ESTADO DEL PERMISO
            
             crudPermisos cp = new crudPermisos();
-            JOptionPane.showMessageDialog(null,"el nuevo valor va hacer "+ Estado_despues);
-            
-            
-           
-            
-            
-            
+            JOptionPane.showMessageDialog(null,"el nuevo valor va hacer "+ Estado_despues);        
             
         } else {
             JOptionPane.showMessageDialog(null,"La fecha no coincide con la estipulada por el aprendiz");
@@ -229,6 +223,23 @@ public class Autorizacion {
         
         return false;        
     }  
+    
+    
+    
+    
+    //UPDATE DE ESTADO DEL PERMISO AL MOMENTO DE INGRESO DEL APRENDIZ AL CBA
+    public ArrayList<permisoSG>permisoFinalizado(String estado, int documento) {
+    ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
+        try{
+            ps = cnn.prepareStatement("UPDATE permiso SET per_estado='"+estado+"' WHERE per_Aprendiz_Apr_documento='"+documento+"' ");
+            rs= ps.executeQuery();
+
+        }catch (Exception e){
+            System.out.println("Error de consulta: "+e);
+        }
+        return arreglo;
+    }
+    
     
     
     

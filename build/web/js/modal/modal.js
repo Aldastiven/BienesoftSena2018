@@ -65,8 +65,7 @@ $(document).ready(function(){
         });
     
     }
-    
-    //Función para crear la ventana modal coordinador
+//Función para crear la ventana modal coordinador
     function ventanaCoordinador(datos) {
       
     //CREAR ELEMENTO DE LA VENTANA
@@ -80,6 +79,7 @@ $(document).ready(function(){
             var contID = crearElemento("div",{id:"contID"}, [perId]);
             var contTipo = crearElemento("div",{id:"contTipo"}, [titulo,perTipo]);
         var divencabezado = crearElemento("div",{id:"enacabezado_per"},[contID,contTipo,encab]);
+      
   
   
         /**********************************info aprendiz**********************************************/
@@ -93,7 +93,7 @@ $(document).ready(function(){
 
         //Documento del aprendiz 2
         var titulo=crearElemento("p", {id:"msg_tit"},["DOCUMENTO DEL APRENDIZ"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"number"}, [datos[2]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_numerodocumento" ,type:"number"}, [datos[2]] );
         var divDocApr = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
         
         //Numero del programa de formacion 12
@@ -114,27 +114,27 @@ $(document).ready(function(){
         
         //Permiso fecha salida
         var titulo=crearElemento("p", {id:"msg_tit"},["FECHA DE SALIDA"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"date"}, [datos[4]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_fechsal" ,type:"date"}, [datos[4]] );
         var divFSal = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
         
         //Permiso fecha ingreso
         var titulo=crearElemento("p", {id:"msg_tit"},["FECHA DE INGRESO"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"date"}, [datos[5]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_fechingre" ,type:"date"}, [datos[5]] );
         var divFEnt = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
         
         //Permiso hora salida
         var titulo=crearElemento("p", {id:"msg_tit"},["HORA DE SALIDA"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"time"}, [datos[6]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_horasal" ,type:"time"}, [datos[6]] );
         var divHSal = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
         
         //Permiso hora ingreso
         var titulo=crearElemento("p", {id:"msg_tit"},["HORA DE INGRESO"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"time"}, [datos[7]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_horaingre" ,type:"time"}, [datos[7]] );
         var divHEnt = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
         
         //Permiso Motivo
         var titulo=crearElemento("p", {id:"msg_tit"},["MOTIVO"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"text"}, [datos[8]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_moti" ,type:"text"}, [datos[8]] );
         var divMotivo = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
     
          //Evidencia
@@ -158,7 +158,7 @@ $(document).ready(function(){
         //Nombre del Coordinador
         var titulo=crearElemento("p", {id:"msg_tit"},["AUTORIZADO POR"]);
         var coorNom = document.getElementsByClassName("userNom")[0].innerHTML;
-        var corNom = crearElemento("input", {class:"browser-default", id:"input_msg_modal", name: "" ,type:"text", value:coorNom, name:"coordinador"});
+        var corNom = crearElemento("input", {class:"browser-default", id:"input_msg_modal", name: "t_autoriza" ,type:"text", value:coorNom, name:"coordinador"});
         var divNomAutoriza = crearElemento("div", {id:"divinterno"}, [titulo, corNom]);
         
         var contenedor_Autorizacion=crearElemento("div", {id:"cont_Autorizacion"}, [titulo_cont, comboEstado, divNomAutoriza]);
@@ -195,8 +195,7 @@ $(document).ready(function(){
     }
     
     
-    
-    //MODAL SEGURIDAD
+    //MODAL SEGURIDAD-----------------------------MODAL SEGURIDAD----------------------------------
     //Función para crear la ventana modal seguridad
     function ventanaSeguridad(datos) {
       
@@ -225,7 +224,7 @@ $(document).ready(function(){
 
         //Documento del aprendiz 2
         var titulo=crearElemento("p", {id:"msg_tit"},["DOCUMENTO DEL APRENDIZ"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"number"}, [datos[2]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_numerodocumento" ,type:"number"}, [datos[2]] );
         var divDocApr = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
         
         //Numero del programa de formacion 12
@@ -247,27 +246,27 @@ $(document).ready(function(){
         
         //Permiso fecha salida
         var titulo=crearElemento("p", {id:"msg_tit"},["FECHA DE SALIDA"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"date"}, [datos[4]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_fechsal" ,type:"date"}, [datos[4]] );
         var divFSal = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
         
         //Permiso fecha ingreso
         var titulo=crearElemento("p", {id:"msg_tit"},["FECHA DE INGRESO"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"date"}, [datos[5]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_fechingre" ,type:"date"}, [datos[5]] );
         var divFEnt = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
         
         //Permiso hora salida
         var titulo=crearElemento("p", {id:"msg_tit"},["HORA DE SALIDA"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"time"}, [datos[6]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_horasal" ,type:"time"}, [datos[6]] );
         var divHSal = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
         
         //Permiso hora ingreso
         var titulo=crearElemento("p", {id:"msg_tit"},["HORA DE INGRESO"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"time"}, [datos[7]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_horaingre" ,type:"time"}, [datos[7]] );
         var divHEnt = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
         
         //Permiso Motivo
         var titulo=crearElemento("p", {id:"msg_tit"},["MOTIVO"]);
-        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "" ,type:"text"}, [datos[8]] );
+        var inputNom = crearElemento("p", {id:"input_msg_modal", name: "t_moti" ,type:"text"}, [datos[8]] );
         var divMotivo = crearElemento("p", {class:"perId"}, [titulo,inputNom]);
     
          //Evidencia
@@ -286,19 +285,19 @@ $(document).ready(function(){
                 
         var titulo_cont=crearElemento("h1", {id:"titulo_cont"}, ["Gestion"]);
         
-        //Estado Despliegue
-        var titulo=crearElemento("p", {id:"msg_tit"},["AUTORIZA O DENEGA ESTE PERMISO"]);
-        var option1 = crearElemento("option", {value:"Autorizado"}, ["Autorizar"]);
-        var option2 = crearElemento("option", {value:"Denegado"}, ["Denegar"]);
-        var comboEstado = crearElemento("select", {name:"t_estado", class:"browser-default",id:"selectEstado"}, [titulo, option1, option2]);
-          
-        //Nombre del Coordinador
-        var titulo=crearElemento("p", {id:"msg_tit"},["AUTORIZADO POR"]);
-        var coorNom = document.getElementsByClassName("userNom")[0].innerHTML;
-        var corNom = crearElemento("input", {class:"browser-default", id:"input_msg_modal", name: "" ,type:"text", value:coorNom, name:"coordinador"});
-        var divNomAutoriza = crearElemento("div", {id:"divinterno"}, [titulo, corNom]);
+        //Autoriza
+        var titulo=crearElemento("p", {id:"msg_tit"},["Autoriza"]);
+        var inputNom = crearElemento("p", {class:"perId", name:"t_obser", type:"text", value:datos[10]}, [datos[10]]);
+        var divEstado = crearElemento("div", {class:"perId"}, [titulo, inputNom]);
         
-        var contenedor_Autorizacion=crearElemento("div", {id:"cont_Autorizacion"}, [titulo_cont, comboEstado, divNomAutoriza]);
+        //Estado
+        var titulo=crearElemento("p", {id:"msg_tit"},["Estado"]);
+        var inputNom = crearElemento("p", {class:"perId", name:"t_obser", type:"text", value:datos[9]}, [datos[9]]);
+        var divAutoriza = crearElemento("div", {class:"perId"}, [titulo, inputNom]);
+        
+          
+        
+        var contenedor_Autorizacion=crearElemento("div", {id:"cont_Autorizacion"}, [titulo_cont, divEstado, divAutoriza]);
          
         /***********************************************************************************************/
       

@@ -254,7 +254,7 @@ public class ServletPermiso extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        JOptionPane.showMessageDialog(null, "HE ENTRADO AL SERVLET actualizarPerEstado!! ");
+       // JOptionPane.showMessageDialog(null, "HE ENTRADO AL SERVLET actualizarPerEstado!! ");
         
         Id=Integer.parseInt(request.getParameter("t_Id")); 
         JOptionPane.showMessageDialog(null, "Id del permiso: " + Id);
@@ -378,7 +378,13 @@ public class ServletPermiso extends HttpServlet {
                 fechaEstipulada = setget.getPer_fecha_ingreso();
                 horaEstipulada = setget.getPer_hora_ingreso();
                 campo1 = "per_fecha_ingresoReal";
-                campo2 = "per_hora_ingresoReal"; 
+                campo2 = "per_hora_ingresoReal";
+                //Ejecutar envio de permiso a tabla permiso_historical
+//                if((campo1 == campo1) && (campo2 == campo2)){
+//                    JOptionPane.showMessageDialog(null, "Ciclo de permiso completado");
+//                    //actualiza per_estado a estado como: finalizado
+//                    autorz.permisoFinalizado(estado, documento);
+//                } 
             }
             
             
