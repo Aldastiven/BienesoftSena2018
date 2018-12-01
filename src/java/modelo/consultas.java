@@ -439,6 +439,30 @@ public class consultas {
     
     
     
+    //METODO DE CONSULTA ID DE PERMISO PARA EL ESTADO
+    public int consultaperIDestado(int id){
+        int id2=0;
+        
+        try {
+           ps = cnn.prepareStatement("SELECT*FROM permiso WHERE per_ID='"+id+"' ");
+           
+           rs = ps.executeQuery();
+          if(rs.next()){
+                id2 = rs.getInt(1);
+                JOptionPane.showMessageDialog(null, "Este es el que trae " +id);
+            }
+            
+        } catch (Exception e) {
+            
+            JOptionPane.showMessageDialog(null, "No se puede mostra el contenido"+e);
+        }
+        
+        return id2;
+    
+    }
+    
+    
+    
     
     
     

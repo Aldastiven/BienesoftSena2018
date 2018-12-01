@@ -79,11 +79,6 @@ public class crudPermisos {
                 ps.executeUpdate();
                 JOptionPane.showMessageDialog(null,"Call estado: Denegado");
                 
-            }else if(inge.getPer_estado().equals("Incompleto")){
-                ps=cnn.prepareCall(" call tipopermiso '"+inge.getPer_estado()+"' ");
-                ps.setString(13, inge.getPer_estado());
-                ps.executeUpdate();
-                JOptionPane.showMessageDialog(null,"Call estado: Imcompleto");
             }
             
             JOptionPane.showMessageDialog(null,"Registro actualizado"+ " " +inge.getPer_estado());
@@ -95,7 +90,8 @@ public class crudPermisos {
         
     }
     
-    public int eliminar_permiso(permisoSG ing){    
+    public int eliminar_permiso(permisoSG ing){  
+        
         int x=0;
             try {            
                 ps=(PreparedStatement) cnn.prepareStatement("DELETE FROM permiso WHERE per_ID='"+ing.getPer_ID()+"' ");
@@ -109,32 +105,37 @@ public class crudPermisos {
     }
     
 
-    //cambio e estado icompleto en estado permiso
-    public String actualizar_estado_imcompleto_permiso(permisoSG setget){
+     //cambio e estado icompleto en estado permiso
+    public int actualizar_estado_imcompleto_permiso(int DatoID, permisoSG ing){
+  
+        int x=0;
         
-        JOptionPane.showMessageDialog(null,"entra a actualizar estado");
-        String estaIncompleto="Imcompleto";
-        try{
-            int id=setget.getPer_ID();
-            JOptionPane.showMessageDialog(null, id);
-            String estado=setget.getPer_estado();
-            JOptionPane.showMessageDialog(null, estado);
-            ps=cnn.prepareStatement("UPDATE permiso SET per_estado='"+setget.getPer_estado()+"' WHERE per_ID='"+setget.getPer_ID()+"' ");
-            ps.setString(14,"imcompleto");
-            //ps.setString(14, setget.getPer_estado());
-            ps.executeUpdate();
-            
-            JOptionPane.showMessageDialog(null,"estado actualizado" );
-            
-        }catch(Exception e){
-        
-        JOptionPane.showMessageDialog(null,"no entro " +e);
-        }
-        
-        return estaIncompleto;
+         JOptionPane.showMessageDialog(null,"Ha entrado al metodo ActualizarEstado  el ID del permiso es:  " + DatoID);
+         try{
 
-        
-    }
+             ps=cnn.prepareStatement("UPDATE permiso SET per_estado='Incompleto' WHERE per_ID='"+DatoID+"' ");
+             ps.executeUpdate();
+
+             JOptionPane.showMessageDialog(null,"estado actualizado" );
+             
+             
+             if(ing.getPer_estado().equals("Incompleto")){
+                ps=cnn.prepareCall(" call tipopermiso '"+ing.getPer_estado()+"' ");
+                ps.setString(13, ing.getPer_estado());
+                ps.executeUpdate();               
+                JOptionPane.showMessageDialog(null,"Call estado:Incompleto");
+            
+            }
+
+         }catch(Exception e){
+
+         JOptionPane.showMessageDialog(null,"no entro " +e);
+         }
+    
+    return x;
+
+    
+}
    
     
 }

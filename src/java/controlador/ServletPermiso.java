@@ -363,6 +363,7 @@ public class ServletPermiso extends HttpServlet {
             
             permisoSG pser = new permisoSG(fecha_ingresoReal, hora_ingresoReal, fecha_salidaReal, hora_salidaReal);//REAL
             ArrayList<permisoSG> persalent=new  ArrayList<>();
+            
             String EntradaSalida =autorz.PermisoSalidaEntrada(setget); //Se guarda "Ingreso" o "Salida"
             
             //Fecha y hora estipuladas por aprendiz
@@ -374,11 +375,16 @@ public class ServletPermiso extends HttpServlet {
                 //Campos de fechay hora real a actualizar 
                 campo1 = "per_fecha_salidaReal";
                 campo2 = "per_hora_salidaReal";
+                
             } else if(EntradaSalida.equals("Ingreso")) {
                 fechaEstipulada = setget.getPer_fecha_ingreso();
                 horaEstipulada = setget.getPer_hora_ingreso();
                 campo1 = "per_fecha_ingresoReal";
                 campo2 = "per_hora_ingresoReal";
+                
+                /*************************/
+                
+                
                 //Ejecutar envio de permiso a tabla permiso_historical
 //                if((campo1 == campo1) && (campo2 == campo2)){
 //                    JOptionPane.showMessageDialog(null, "Ciclo de permiso completado");
@@ -388,8 +394,12 @@ public class ServletPermiso extends HttpServlet {
             }
             
             
+            /**********************AQUI SE TRAE EL ID***********************/    
+            int DatoID = setget.getPer_ID();
+            JOptionPane.showMessageDialog(null,"AQUI SE TRAE EL ID " + DatoID);
+            
             tipopermiso tipoper=new tipopermiso();//INSTANCIA TIPOPERMISO
-            boolean verifica=autorz.fechaHoraEstipulada(fechaReal, horaReal, fechaEstipulada, horaEstipulada, estado);
+            boolean verifica=autorz.fechaHoraEstipulada(fechaReal, horaReal, fechaEstipulada, horaEstipulada, DatoID);
           
             
             //RESTRICCIONES GENERALES DE HORARIOS

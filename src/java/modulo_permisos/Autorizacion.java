@@ -4,6 +4,7 @@
 package modulo_permisos;
 
 import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,10 +33,13 @@ public class Autorizacion {
         
         try {
            ps = cnn.prepareStatement("SELECT*FROM permiso WHERE per_ID='"+id.getPer_ID()+"' ");
+           
            rs = ps.executeQuery();
           if(rs.next()){
                 permisoSG setget = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16));
                 permisoid.add(setget);
+                //JOptionPane.showMessageDialog(null, setget.getPer_ID());
+                
             }
             
         } catch (Exception e) {
@@ -85,13 +89,12 @@ public class Autorizacion {
     
     
     //METODO DE VERIFICACION DE HORAS Y FECHAS ESTIPULADAS DEL APRENDIZ CON REALES----
-    public boolean fechaHoraEstipulada(String fechaReal, String horaReal, String fechaEstipulada, String horaEstipulada, String estado){
-        //OBTENER ESTADO
-        permisoSG est = new permisoSG();
-        est.getPer_estado();
+    public boolean fechaHoraEstipulada(String fechaReal, String horaReal, String fechaEstipulada, String horaEstipulada, int DatoID){
+        
+        
         //String state = est.getPer_estado();
         //CONSULTA Y UPDATE ESTADO
-        crudPermisos cr=new crudPermisos();
+        Autorizacion cr=new Autorizacion();
         
         
         
@@ -125,12 +128,17 @@ public class Autorizacion {
             JOptionPane.showMessageDialog(null,FEap[1]);
         }
         
+        
+        
         JOptionPane.showMessageDialog(null,"Fecha real: "+FR[0]+"-"+FR[1]+"-"+FR[2]);
         JOptionPane.showMessageDialog(null,"Fecha estipulada: "+FEap[0]+"-"+FEap[1]+"-"+FEap[2]);
         
         JOptionPane.showMessageDialog(null,"Hora real: "+HR[0]+":"+HR[1]);
         JOptionPane.showMessageDialog(null,"Hora estipulada: "+HEap[0]+":"+HEap[1]);
-
+        
+        /***************MOSTRANDOR ID *********************/
+        
+        JOptionPane.showMessageDialog(null,"mostrando id en Aautorizacion "+ DatoID);
         
         if(FR[0].equals(FEap[0]) && FR[1].equals(FEap[1]) && FR[2].equals(FEap[2])  ) { 
             
@@ -144,11 +152,19 @@ public class Autorizacion {
                     return true;
             }
             JOptionPane.showMessageDialog(null,"La hora no coincide con la estipulada por el aprendiz");
-            cr.actualizar_estado_imcompleto_permiso(est);
+           
+            /************INSTANCIANDO EL ID DEL PERMISO PARA EJECUTAR EL METOD DEL UPDATE (INCOMPLETO)***********/
+            crudPermisos crud = new crudPermisos();
+            permisoSG ing = new permisoSG();
+            crud.actualizar_estado_imcompleto_permiso(DatoID, ing);
+              
+            
+            
             
         } else {
             JOptionPane.showMessageDialog(null,"La fecha no coincide con la estipulada por el aprendiz");
-             cr.actualizar_estado_imcompleto_permiso(est);
+            
+            
         }
         
         return false;        
