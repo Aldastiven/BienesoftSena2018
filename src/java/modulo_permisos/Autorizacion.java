@@ -164,6 +164,12 @@ public class Autorizacion {
         } else {
             JOptionPane.showMessageDialog(null,"La fecha no coincide con la estipulada por el aprendiz");
             
+            /************INSTANCIANDO EL ID DEL PERMISO PARA EJECUTAR EL METOD DEL UPDATE (INCOMPLETO)***********/
+            crudPermisos crud = new crudPermisos();
+            permisoSG ing = new permisoSG();
+            crud.actualizar_estado_imcompleto_permiso(DatoID, ing);
+            
+            
             
         }
         
