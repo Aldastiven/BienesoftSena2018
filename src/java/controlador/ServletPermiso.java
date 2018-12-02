@@ -321,6 +321,8 @@ public class ServletPermiso extends HttpServlet {
         fecha_salidaReal=request.getParameter("f_fsreal");
         hora_salidaReal=request.getParameter("f_hsreal");
         
+        
+        
         //Autorizacion de seguridad
         //consulta ID
         permisoSG setget = new permisoSG(id);
@@ -329,6 +331,10 @@ public class ServletPermiso extends HttpServlet {
         
         permiso=autorz.consultaperID(setget);
         setget = permiso.get(0);//MUESTRA ELEMENTOS
+        
+        /**********************AQUI SE TRAE EL ID***********************/    
+        int DatoID = setget.getPer_ID();
+        JOptionPane.showMessageDialog(null,"AQUI SE TRAE EL ID " + DatoID);
         
         
         if( autorz.AutorizaSeguridad(setget.getPer_estado()) ){ //SI RETORNA TRUE (AUTORIZADO)
@@ -383,23 +389,30 @@ public class ServletPermiso extends HttpServlet {
                 campo2 = "per_hora_ingresoReal";
                 
                 /*************************/
-                
+            
+              
                 
                 //Ejecutar envio de permiso a tabla permiso_historical
-//                if((campo1 == campo1) && (campo2 == campo2)){
+//                if((campo1 != null ) && (campo2 != null)){
 //                    JOptionPane.showMessageDialog(null, "Ciclo de permiso completado");
 //                    //actualiza per_estado a estado como: finalizado
-//                    autorz.permisoFinalizado(estado, documento);
-//                } 
+//                    autorz.permisoFinalizado(pser, DatoID);
+//               } 
             }
             
             
-            /**********************AQUI SE TRAE EL ID***********************/    
-            int DatoID = setget.getPer_ID();
-            JOptionPane.showMessageDialog(null,"AQUI SE TRAE EL ID " + DatoID);
+            
+
+            
+            
+            /**********************AQUI SE TRAE EL ESTADO DEL PERMISO***********************/    
+            //String Datoestado = setget.getPer_estado();
+            String Datoestado = "Incompleto";
+//            JOptionPane.showMessageDialog(null,"AQUI SE TRAE EL ESTADO " + Datoestado);
             
             tipopermiso tipoper=new tipopermiso();//INSTANCIA TIPOPERMISO
             boolean verifica=autorz.fechaHoraEstipulada(fechaReal, horaReal, fechaEstipulada, horaEstipulada, DatoID);
+            autorz.PermisoSalidaEntrada(setget);
           
             
             //RESTRICCIONES GENERALES DE HORARIOS
@@ -410,7 +423,7 @@ public class ServletPermiso extends HttpServlet {
                     if(autorizado) {
                         JOptionPane.showMessageDialog(null, "Puede salir");
                         //Enviar fechaReal horaReal al método de inserción
-                        tipoper.metodo_insertpersemana(setget.getPer_ID(), fechaReal, horaReal,campo1, campo2);//update para campos
+                        tipoper.metodo_insertpersemana(id, fechaReal, horaReal, campo1, campo2);//update para campos
                         //Termina proceso de salida o de entrada
                         //guardar hora de fecha y salidaReal a la BD
                         response.sendRedirect("t_permiso_seguridad.jsp");
@@ -422,7 +435,7 @@ public class ServletPermiso extends HttpServlet {
                     
                     String FechaEstiFinal = tipoper.metodo_finsemana(fechaReal,horaReal);
                     //Fecha y hora real de insercion fin de semana
-                    tipoper.metodo_insertpersemana(setget.getPer_ID(), fechaReal, horaReal,campo1, campo2);//update para campos
+                    tipoper.metodo_insertpersemana(id, fechaReal, horaReal, campo1, campo2);//update para campos
                     JOptionPane.showMessageDialog(null, "Fecha estipulada final de ingreso: "+FechaEstiFinal);
                     response.sendRedirect("t_permiso_seguridad.jsp");
                 }
@@ -446,4 +459,4 @@ public class ServletPermiso extends HttpServlet {
     
     
     
-}
+        }

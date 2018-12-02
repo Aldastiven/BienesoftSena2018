@@ -80,8 +80,13 @@ public class Autorizacion {
             return "Salida";
             
         }else if(fechaSalReal != null && horaSalReal != null && fechaInReal == null && horaInReal == null){
-            JOptionPane.showMessageDialog(null, "Es un ingreso");
+            
+            
+            tipopermiso tipper = new tipopermiso();
+//            tipper.metodo_insertpersemana(DatoID, fechaInReal, horaInReal, horaInReal, horaInReal);
+            
             return "Ingreso";
+            
         }
         return "Permiso terminado";
     }
@@ -138,7 +143,7 @@ public class Autorizacion {
         
         /***************MOSTRANDOR ID *********************/
         
-        JOptionPane.showMessageDialog(null,"mostrando id en Aautorizacion "+ DatoID);
+        //JOptionPane.showMessageDialog(null,"mostrando id en Aautorizacion "+ DatoID);
         
         if(FR[0].equals(FEap[0]) && FR[1].equals(FEap[1]) && FR[2].equals(FEap[2])  ) { 
             
@@ -175,21 +180,24 @@ public class Autorizacion {
         
         return false;        
     } 
-    
-    
-    
-    //UPDATE DE ESTADO DEL PERMISO AL MOMENTO DE INGRESO DEL APRENDIZ AL CBA
-    public ArrayList<permisoSG>permisoFinalizado(String estado, int documento) {
-    ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
-        try{
-            ps = cnn.prepareStatement("UPDATE permiso SET per_estado='"+estado+"' WHERE per_Aprendiz_Apr_documento='"+documento+"' ");
-            rs= ps.executeQuery();
 
-        }catch (Exception e){
-            System.out.println("Error de consulta: "+e);
-        }
-        return arreglo;
+    public int permisoFinalizado( permisoSG ing, int DatoID) {
+        int x=0;
+            try{
+                ps=cnn.prepareStatement("UPDATE permiso SET per_estado='Completo' WHERE per_ID='"+DatoID+"' ");
+                ps.executeUpdate();
+                
+                JOptionPane.showMessageDialog(null,"esta ingesando a permiso finalizado");
+                
+                crudPermisos crud = new crudPermisos();
+                crud.consultarPermiso(ing);
+                
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,"no entro " +e);
+            }
+        return x;   
     }
+
     
     
     

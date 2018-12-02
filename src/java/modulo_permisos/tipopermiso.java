@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.websocket.SendResult;
 import modelo.aprendizSG;
 import modelo.consultas;
+import modelo.crudPermisos;
 import modelo.festivoSG;
 import modelo.permisoSG;
 
@@ -57,19 +58,20 @@ public class tipopermiso {
     public boolean metodo_insertpersemana(int id, String fechaReal,String horaReal, String campo1, String campo2){
         
         if(fechaReal.equals(fechaReal) && horaReal.equals(horaReal) ){
-            //FECHA Y HORA DE SALIDA para poder salir del cba
+            //FECHA Y HORA DE SALIDA para poder salir y al entrar del cba
             try {
                 ps = cnn.prepareStatement("UPDATE permiso SET "+campo1+"='"+fechaReal+"' , "+campo2+"='"+horaReal+"'"+
                         " WHERE per_ID='"+id+"' ");
-
-               ps.executeUpdate();
-  
+                ps.executeUpdate();               
+                JOptionPane.showMessageDialog(null, "se esta actualizado el permiso");  
+                
+                //Instancia de Fechas y Horas Reales
+                crudPermisos cr = new crudPermisos();
+                cr.consulta_fecha_hora_ingreso_real(id);
+                
             } catch (Exception e) {
-
                 JOptionPane.showMessageDialog(null, "Error, verifica este bug "+e);
-            }
-        
-        
+            }        
             return true;
         }
         return false;
