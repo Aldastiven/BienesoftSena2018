@@ -1,8 +1,6 @@
 /*****TABLA*******/
 
-.table_p{
-    display: run-in; 
-    max-height: 300px;
+#datos{
     background: white;
     overflow: scroll;
 }
@@ -59,12 +57,5 @@ input{
     background-color: yellow;
     text-align: center;
     border: solid 1px #485460;
-}
-
-
-/****************Modulo busqueda**************************/
-
-#search-container{
-    margin-bottom: 30px;
 }
 

@@ -155,16 +155,16 @@
         <!--*******************************OBJETO  MODULO CONSULTAS------------------------>
 
         <div class="container hide-on-small-only">
-            <div id="search-container"  class="browser-default">
+            <div id="search-container">
                 
                 <!--Busqueda teclado-->
                 <form action="servBuscarPermisos" name="vinform" method="post">
                     
                     <!--Filtro busqueda documento-->
-                    <input id="documento_key" class="searchTerm" type="number" name="name" placeholder="Buscar documento" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
+                    <input id="documento_key" class="searchTerm browser-default" type="number" name="name" placeholder="Buscar documento"/>
                  
                     <!--combobox--> 
-                    <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
+                    <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm">
                         <option value="">Todo</option>
                         <option value="semana morning">Semana - Mañana</option>
                         <option value="semana tarde">Semana - Tarde</option>

@@ -87,7 +87,7 @@ public class crudPermisos {
     public int actualizar_estado_imcompleto_permiso(int DatoID, permisoSG ing){
         int x=0;
             try{
-                ps=cnn.prepareStatement("UPDATE permiso SET per_estado='Incompleto' WHERE per_ID='"+DatoID+"' ");
+                ps=cnn.prepareStatement("UPDATE permiso SET per_estado='Incompleto' , per_observacion_llegada='Tarde' WHERE per_ID='"+DatoID+"' ");
                 ps.executeUpdate();
                 
                 crudPermisos crud = new crudPermisos();

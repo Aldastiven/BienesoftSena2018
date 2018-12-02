@@ -25,6 +25,7 @@ public class Login {
     private String nom;
     private String rol;
     
+    
     //Metodo de consulta datos de la tabla usuario con el dato de usuario y clave
     public ArrayList<usuarioSG> loguin(usuarioSG ing){
         ArrayList<usuarioSG> arr=new ArrayList<usuarioSG>();

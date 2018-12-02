@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 import modelo.Login;
+import modelo.instanciasJS;
 import modelo.usuarioSG;
 
 @WebServlet(name = "ServletLogin", urlPatterns = {"/ServletLogin"})
@@ -132,6 +133,8 @@ private HttpServletResponse pass;
             } else {
                 request.getRequestDispatcher("f_login.jsp").forward(request, response);
                 JOptionPane.showMessageDialog(null, "Datos incorrectos");
+                
+                
             }
 
     }
