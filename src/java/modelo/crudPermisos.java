@@ -23,14 +23,15 @@ public class crudPermisos {
     Statement stmt = null;
     
     //GUARDAR 
-    public void guardar_permiso(permisoSG ing){
+    public void guardar_permiso(permisoSG ing , String f_ingreso){
         try{          
             ps=cnn.prepareStatement("INSERT INTO permiso VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");   
             ps.setInt(1, ing.getPer_ID());
             ps.setInt(2, ing.getPer_Aprendiz_Apr_documento());
             ps.setString(3, ing.getPer_tipo());
             ps.setString(4, ing.getPer_fecha_salida());
-            ps.setString(5, ing.getPer_fecha_ingreso());
+            //ps.setString(5, ing.getPer_fecha_ingreso());
+            ps.setString(5, f_ingreso);
             ps.setString(6, ing.getPer_hora_Salida());
             ps.setString(7, ing.getPer_hora_ingreso());
             ps.setString(8, null);
@@ -271,7 +272,29 @@ public class crudPermisos {
          
         return 0;
      
-     }
+    }
+     
+     
+    
+     //AUTOGENERAR LA FECHA DE INGRESO DEL APRENDIZ EN FORM PERMISO
+//     public int fecha(permisoSG ing){    
+//        int x=0;
+//            try {            
+//                ps=(PreparedStatement) cnn.prepareStatement("DELETE FROM permiso WHERE per_ID='"+ing.getPer_ID()+"' ");
+//                x=ps.executeUpdate();            
+//                JOptionPane.showMessageDialog(null, "Datos Eliminados");                
+//            } catch (Exception e) {
+//                JOptionPane.showMessageDialog(null, "Datos NO Eliminados" +e);            
+//            }            
+//        return x;    
+//    }
+     
+     
+     
+     
+     
+     
+     
     
 }
    

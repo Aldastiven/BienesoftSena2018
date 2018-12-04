@@ -150,19 +150,33 @@
         <div class="input-field col s12 m6 l6">
             <p id="input_msg">Documento del aprendiz</p>
             <br>
-             <input id="" type="hidden" name="f_estado" placeholder="" value="Pendiente" readonly>
+            <input id="" type="hidden" name="f_estado" placeholder="" value="Pendiente" readonly>
             <input id="input_txt" type="number" name="f_numerodocumento" placeholder="documento del aprendiz" value="<%=id%>" readonly>
         </div>   
 
              <div class="row">
                  <div class="input-field col s12 l6 m6">
-                     <select name="tipoper" class="browser-default">
+                     <select name="tipoper" class="browser-default" id="cambiar">
                          <option >elige el tipo de permiso</option>
                          <option value="semana morning">semana mañana</option>
                          <option value="semana tarde">semana tarde</option>
                          <option value="fin de semana">fin de semana</option>
                          <option value="Extra">Extra</option>
                       </select>
+                     
+                     <script>
+                            $('#cambiar').change(function(){
+                                var valorCambiado =$(this).val();
+                                if((valorCambiado == 'semana tarde')||(valorCambiado == 'semana morning')){
+                                   $('#fecha_ing').css('display','none');         
+                                 }
+                                 else{
+                                   $('#fecha_ing').css('display','block');               
+                                 }
+
+                            });
+                     </script>
+                     
                  </div>
              </div>
 
@@ -170,13 +184,20 @@
          <div class="input-field col s12 l6 m6">
             <p id="input_msg">Fecha de salida</p>
             <br>
-            <input id="input_txt" type="date" name="f_fechsal" placeholder="Fecha salida">
+            <input id="today2" type="date" name="f_fechsal">
+            <script>
+                let today = new Date().toISOString().substr(0, 10);
+                    //document.querySelector("#today").value = today;
+
+                    document.querySelector("#today2").valueAsDate = new Date();
+            </script> 
         </div>
 
-        <div class="input-field col s12 l6 m6">
+        <div class="input-field col s12 l6 m6" id="fecha_ing">
             <p id="input_msg">Fecha de ingreso</p>
             <br>
-            <input id="input_txt" type="date" name="f_fechingre" placeholder="Fecha ingreso">
+            <input id="input_txt"  type="date" name="f_fechingre" placeholder="Fecha">
+            <br> 
         </div>
 
         <div class="input-field col s12 l6 m6">
@@ -269,6 +290,9 @@
             <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
             <!--JS plugin Reloj-->
             <script type="text/javascript" src="js/watch/jquery-timepicker.js"></script>
-                
+            <!--Tipo permiso select (permiso)-->
+            <script type="text/javascript" src="js/watch/jquery-timepicker.js"></script>
+            
+            
     </body>
 </html>

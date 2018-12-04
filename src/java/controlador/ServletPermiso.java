@@ -22,6 +22,7 @@ import modelo.consultas;
 import modelo.crudPermisos;
 import modelo.permisoSG;
 import modulo_permisos.Autorizacion;
+import modulo_permisos.selelct_tipoper;
 import modulo_permisos.tipopermiso;
 
 
@@ -167,10 +168,14 @@ public class ServletPermiso extends HttpServlet {
         
         
         permisoSG setget = new permisoSG(documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
-        int id=setget.getPer_ID();
-        id=0;
-        crudPermisos crud = new crudPermisos();
-        crud.guardar_permiso(setget);
+//        int id=setget.getPer_ID();
+//        id=0;
+        
+        selelct_tipoper st = new selelct_tipoper();
+        st.consulta_select(documento, tipo, fecha_salida, fecha_ingreso, hora_Salida, hora_ingreso, fecha_ingresoReal,hora_ingresoReal, fecha_salidaReal, hora_salidaReal ,observacion_permiso_llegada, motivo, estado, autoriza, evidenciaAdjunta);
+        
+//        crudPermisos crud = new crudPermisos();
+//        crud.guardar_permiso(setget);
         request.getRequestDispatcher("f_permiso.jsp").forward(request, response);
         
         
@@ -452,7 +457,15 @@ public class ServletPermiso extends HttpServlet {
         
         
         
-        
+        //FECHAS AUTOGENERATIVAS
+//        private void cao(HttpServletRequest request, HttpServletResponse response) 
+//        throws ServletException, IOException {
+//        response.setContentType("text/html;charset=UTF-8");
+//        PrintWriter out = response.getWriter();
+//
+//            response.sendRedirect("f_permiso.jsp");
+//        
+//        }
         
     
     
