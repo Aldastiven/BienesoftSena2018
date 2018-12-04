@@ -51,6 +51,12 @@ public class permiso_historialSG {
         this.per_autoriza = per_autoriza;
         this.per_evidenciaAdjunta = per_evidenciaAdjunta;
     }
+
+    public permiso_historialSG(int per_ID) {
+        this.per_ID = per_ID;
+    }
+
+   
     
     //SET GET
 

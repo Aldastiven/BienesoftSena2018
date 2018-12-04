@@ -12,12 +12,12 @@
     margin-left: 100px;
 }
 
-#ComboFiltro{   
+#ComboFiltro, #ComboFiltroHistorial{   
     float: left;    
     margin-left: 50px;       
 }
 
-#ComboFiltro, #documento_key{
+#ComboFiltro, #documento_key, #ComboFiltroHistorial{
     background: white;
     width: 350px;
     height: 35px;

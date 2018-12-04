@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 
     var permisos = document.getElementsByClassName("ver");    
-    var idPermisos = document.getElementsByClassName("id");
+    //var idPermisos = document.getElementsByClassName("id");
     
     for(var i=0; i<permisos.length; i++) {
         
@@ -275,11 +275,11 @@ $(document).ready(function(){
         var divEvid = crearElemento("div", {id:"divinterno"}, [titulo, img]);
         
         //Observacion
-        var titulo=crearElemento("p", {id:"msg_tit"},["OBSERVACION"]);
+        var titulo=crearElemento("p", {id:"msg_tit"},["OBSERVACION"]);//LO QUITE DEL PERMISO-----------------------<<<
         var inputObserv = crearElemento("input", {class:"perId", name:"t_obser", type:"text"});
         var divObserv = crearElemento("div", {class:"perId"}, [titulo, inputObserv]);
         
-        var contenedor_infoPermiso=crearElemento("div", {id:"cont_per"}, [titulo_cont, divFSal, divFEnt, divHSal, divHEnt, divMotivo, divEvid, divObserv]);
+        var contenedor_infoPermiso=crearElemento("div", {id:"cont_per"}, [titulo_cont, divFSal, divFEnt, divHSal, divHEnt, divMotivo, divEvid]);
         
         /**********************************Gestion Autoriza**********************************************/
                 

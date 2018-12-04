@@ -309,7 +309,8 @@ public class consultas {
         return arreglo;
 
     }
-     
+        
+
     //CONSULTAR PERMISOS SEGURIDAD
     public ArrayList<permisoSG>consultarPermisoSeguridad(String cbx_tipo_per, String documento) {
     ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
@@ -342,18 +343,32 @@ public class consultas {
     
         
     //CONSULTA PERMISOS HISTORIAL
-        public ArrayList<permiso_historialSG>consultarPermiso_Historial(String cbx_tipo_per_his) {
+        public ArrayList<permiso_historialSG>consultarPermiso_Historial(String cbx_tipo_per_his,  int documento) {
         ArrayList<permiso_historialSG> arreglo = new ArrayList<permiso_historialSG>();
-
+        
+        //JOptionPane.showMessageDialog(null, "entro al metodo consulta_historal");
+            
         try{
             
-            if (cbx_tipo_per_his.equals("")){
-                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial");
-            }else if(!cbx_tipo_per_his.equals("")){
-                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial where per_observacion_llegada = '"+cbx_tipo_per_his+"'");
+            if (cbx_tipo_per_his.equals("")&& documento==0){
+                //JOptionPane.showMessageDialog(null, "consulta todo");
+                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial ");
+            }else if(!cbx_tipo_per_his.equals("") && documento!=0){
+                //JOptionPane.showMessageDialog(null, "consulta observacion y documento"); 
+                ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_observacion_llegada = '"+cbx_tipo_per_his+"'  AND his_per_Aprendiz_Apr_documento LIKE '"+documento+"%'   ");
+            }else if(documento!=0 && cbx_tipo_per_his.equals("")){
+                //JOptionPane.showMessageDialog(null, "consulta solo documento"); 
+                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_Aprendiz_Apr_documento LIKE '"+documento+"%'");
+            }else if(documento==0 && !cbx_tipo_per_his.equals("")){
+                //JOptionPane.showMessageDialog(null, "consulta solo combo");
+                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_observacion_llegada = '"+cbx_tipo_per_his+"'");
+            }else{
+                JOptionPane.showMessageDialog(null, "consulta todo");
+                ps = cnn.prepareStatement("SELECT * FROM permiso_historial ");
+                
             }
             
-        
+            
         rs= ps.executeQuery();
 
             while(rs.next()){

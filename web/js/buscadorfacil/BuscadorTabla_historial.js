@@ -1,26 +1,47 @@
-/* Buscador Tabla Historial */
+/******* BuscadorTabla_historial******/
 
 $(document).ready(function(){
-    var tipoObservacion = "";
+    var tipObservacion = "",documento=0;;
     
     //CONSULTAR TODOS LOS REGISTROS
-    ajaxBuscar(tipoObservacion);
+    ajaxBuscar(tipObservacion,documento);
 
-
+    //ComboBox Historial
     document.getElementById("ComboFiltroHistorial").addEventListener("change",function(e){
-        var tipoObservacion = e.target.value;
+        var tipObservacion = e.target.value;
         //Lamar método de ajax para buscar
-        ajaxBuscar(tipoObservacion);
-  
-        
+        if($("#documento_key").val() === "") ajaxBuscar(tipObservacion, documento);
+        else ajaxBuscar(tipObservacion, $("#documento_key").val());
+
+    });
+    
+    //Busqueda en teclado
+    $("#documento_key").keypress(function(t){
+        setTimeout(function(){
+            var documento = t.target.value;
+            if(documento !== "" || t.which === 8) {
+                //alert(8);
+                if(t.which === 8 && $("#documento_key").val().length <=1 ){ 
+                    ajaxBuscar(document.getElementById("ComboFiltroHistorial").value,0);
+                }
+                else{ 
+                    ajaxBuscar(document.getElementById("ComboFiltroHistorial").value,documento);
+                }
+            }
+    },200);
+       
     });
 
 
-    function ajaxBuscar(tipoObservacion) {
+
+
+
+    function ajaxBuscar(tipObservacion, documento) {
         $.ajax({
             url: "servBuscarPermisos_Historial",//aqui llama a la tabla coordinador
             data: {
-              tipo: tipoObservacion
+              observacion: tipObservacion,
+              documento: documento
             },
             success: function( result ) {
                 $( "#datos_history" ).html(result);

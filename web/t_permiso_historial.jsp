@@ -158,21 +158,17 @@
             <div id="search-container"  class="browser-default">
                 
                 <!--ComoboBox-->
-                <form action="t_permiso_historial.jsp" method="post">
+                <form action="servBuscarPermisos_Historial" method="post">
                     
                     <!--Filtro busqueda id-->
-                    <input id="searchTerm" class="searchTerm" type="text" name="documento" onkeyup="doSearch()" placeholder="busca" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
+                    <input id="documento_key" class="searchTerm" type="number" name="" placeholder="Buscar documento" class="browser-default"/>
                  
                     <!--combobox--> 
-                    <select id="ComboFiltroHistorial" name="cbx_tipo_per_his" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
+                    <select id="ComboFiltroHistorial" name="cbx_tipo_per_his" class="browser-default searchTerm">
                         <option value="">Todo</option>
-                        <option value="tarde">tarde</option>
-                        <option value="A tiempo">A tiempo</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Temprano">Temprano</option>
                     </select>
-                    
-                    <button id="btn_ver" type="submit" value="Ingresar" name="" style="float: left; background: transparent; cursor: pointer; position:relative; bottom:10px; border:none">
-                        <img src="icon_acciones/icon_buscar.png" title="Buscar" style=" cursor: pointer; width: 30px;"/>
-                    </button>
                 </form> 
                 
             </div>
@@ -206,10 +202,10 @@
             <img src="css_index_user/icons/coordinador/vpermiso.png" height="75px"/> 
         </figcaption>
         <div class="prueba">
-            <h1 class="titulonly">PERMISOS</h1>
+            <h1 class="titulohistory">HISTORIAL DE PERMISOS</h1>
         </div>
     </div>
-    
+      <!--Tabla de historial de permisos-->
       <div id="table_p">
         <table id="datos_history" class="table_p">
         </table>          

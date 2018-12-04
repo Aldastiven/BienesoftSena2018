@@ -30,6 +30,15 @@
     color: white;
 }
 
+
+.titulohistory{
+    font-size: 23px;
+    align-self: center;
+    position: relative;
+    left: 278px;
+    color: white;
+}
+
 .prueba{
     display: flex;
     align-items: flex-start;

@@ -107,7 +107,7 @@ public class crudPermisos {
         
         JOptionPane.showMessageDialog(null, "entro al metodo que actualiza el estado");
             try{
-                ps=cnn.prepareStatement("UPDATE permiso SET per_estado='Completo' WHERE per_ID='"+DatoID+"' ");
+                ps=cnn.prepareStatement("UPDATE permiso SET per_estado='Completo', per_observacion_llegada='Temprano' WHERE per_ID='"+DatoID+"' ");
                 ps.executeUpdate();
                 
                 JOptionPane.showMessageDialog(null, "se actualizo el estado a completo");
