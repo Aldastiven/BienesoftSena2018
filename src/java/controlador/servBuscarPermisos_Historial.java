@@ -17,40 +17,20 @@ import javax.swing.JOptionPane;
 import modelo.aprendizSG;
 import modelo.consultas;
 import modelo.fichaSG;
-import modelo.permisoSG;
 import modelo.permiso_historialSG;
 import modulo_permisos.Autorizacion;
 
-/**
- *
- * @author Stefany
- */
 @WebServlet(name = "servBuscarPermisos_Historial", urlPatterns = {"/servBuscarPermisos_Historial"})
 public class servBuscarPermisos_Historial extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
         //VARIABLES
         String tipObservacion = request.getParameter("observacion");
         String perId = request.getParameter("perId");
-        String ventana = request.getParameter("ventana");
-        
-        
-        
-        
-
+        String ventana = request.getParameter("ventana");        
         
         if(ventana != null && ventana.equals("abrir")) {
             //BUSCAR DATOS DEL PERMISO SELECCIONADO
@@ -59,8 +39,6 @@ public class servBuscarPermisos_Historial extends HttpServlet {
             
             //GuargarID EN LOS GETTER Y SETTER
             permiso_historialSG id = new permiso_historialSG(Integer.parseInt(perId));
-           
-
             
             //llamar consulta
             permiso = con.consultaperhisID(id);
@@ -116,8 +94,9 @@ public class servBuscarPermisos_Historial extends HttpServlet {
             );
 
         } else { 
-            int doc=Integer.parseInt(request.getParameter("documento")); //Documento aprendiz
-            JOptionPane.showMessageDialog(null,doc );
+            int doc =Integer.parseInt(request.getParameter("documento")); //Documento aprendiz
+            int mes =Integer.parseInt(request.getParameter("mes")); //Mes
+            JOptionPane.showMessageDialog(null,"Tipo: "+tipObservacion+"Doc: "+doc+"Mes: "+mes);
             out.print(
                 "<thead class='thead_t'>"+                    
                     "<tr>"+
@@ -125,14 +104,14 @@ public class servBuscarPermisos_Historial extends HttpServlet {
                     "<th id='thead_opt'>DOCUMENTO APRENDIZ</th>"+
                     "<th id='thead_opt'>TIPO DE PERMISO</th>"+
                     "<th id='thead_opt' class='hide-on-med-and-down'>MOTIVO</th>"+
-                    "<th id='thead_opt' class='hide-on-med-and-down'>ESTADO</th>"+                
+                    "<th id='thead_opt' class='hide-on-med-and-down'>FECHA DE CREACION</th>"+                
                     "</tr>"+
                 "</thead>");
 
             ArrayList<permiso_historialSG> lisdat = new ArrayList<>();
             consultas con = new consultas();
    
-            lisdat = con.consultarPermiso_Historial(tipObservacion, doc);
+            lisdat = con.consultarPermisoxMes(tipObservacion, doc,mes);
 
 
       
@@ -148,7 +127,7 @@ public class servBuscarPermisos_Historial extends HttpServlet {
                                 "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getHis_per_Aprendiz_Apr_documento()+"></td>"+
                                 "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getHis_per_tipo()+"></td>"+
                                 "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_moti' value="+x.getHis_per_motivo()+"></td>"+
-                                "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_fechsal' value="+x.getHis_per_estado()+"></td>"+
+                                "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_fechsal' value="+x.getHis_per_fechaCreacion()+"></td>"+
                                 "<td>"+ 
                                 "<div  class='btn-ver-permiso-coordinador'>"+                
                                 "<img id=p"+i+" class='ver' src='icon_acciones/ver.png' style='padding-left: 15px'/>"+     

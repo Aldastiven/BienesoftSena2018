@@ -9,7 +9,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.TimerTask;
 import javax.swing.JOptionPane;
+import modulo_permisos.Autorizacion;
 //import org.apache.tomcat.jni.Time;
 
 
@@ -280,8 +283,10 @@ public class consultas {
 
     
     //CONSULTAR PERMISOS COORDINADOR
-        public ArrayList<permisoSG>consultarPermiso(String cbx_tipo_per ,String estado, int documento) {
+        public ArrayList<permisoSG>consultarPermiso(String cbx_tipo_per ,String estado, int documento) throws SQLException {
         ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
+        JOptionPane.showMessageDialog(null, "se consulta aqui");
+        consulta_per_vencidos();
 
         try{
 
@@ -316,10 +321,12 @@ public class consultas {
     public ArrayList<permisoSG>consultarPermisoSeguridad(String cbx_tipo_per, String documento) {
     ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
 
+    
         try{
-
+         
             if (cbx_tipo_per.equals("") && documento.equals("")){
-                 ps = cnn.prepareStatement("select * from permiso where per_estado = 'Autorizado'");
+                JOptionPane.showMessageDialog(null, "se consulta");
+                 ps = cnn.prepareStatement("select * from permiso where per_estado = 'Autorizado'");   
             }else if(!cbx_tipo_per.equals("")){
                  ps = cnn.prepareStatement("SELECT * FROM permiso where per_tipo = '"+cbx_tipo_per+"'");
             }else {
@@ -342,56 +349,6 @@ public class consultas {
 
     }
     
-        
-    //CONSULTA PERMISOS HISTORIAL
-        public ArrayList<permiso_historialSG>consultarPermiso_Historial(String cbx_tipo_per_his,  int documento) {
-        ArrayList<permiso_historialSG> arreglo = new ArrayList<permiso_historialSG>();
-
-            
-        try{
-           
-            //consulta toda la tabla
-            if (cbx_tipo_per_his.equals("") && documento==0){       
-                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial ");
-            
-            //consulta solo el documento (para digitar por teclado)
-            }else if(documento!=0 && cbx_tipo_per_his.equals("")){                 
-                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_Aprendiz_Apr_documento LIKE '"+documento+"%'");
-                 
-            //consulta solo por tipo de permiso
-            }else if(documento==0 && !cbx_tipo_per_his.equals("") ){                
-                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_observacion_llegada = '"+cbx_tipo_per_his+"'");
-                        
-            //consulta por mes
-//            }else if(cbx_tipo_per_his.equals("") && documento==0){
-//                ps = cnn.prepareStatement("SELECT * FROM permiso WHERE MONTH(his_per_fechaCreacion) = '"+mes+"' ");
-                
-            //Aqui consulta por todas opciones
-            }else if(!cbx_tipo_per_his.equals("") && documento!=0) {   
-                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_observacion_llegada = '"+cbx_tipo_per_his+"'  AND his_per_Aprendiz_Apr_documento LIKE '"+documento+"%' ");
-           
-            }else{                
-                 JOptionPane.showMessageDialog(null, "no se consulto");
-                ps = cnn.prepareStatement("SELECT * FROM permiso_historial ");
-            }
-            
-            
-        rs= ps.executeQuery();
-
-            while(rs.next()){
-                permiso_historialSG gt = new permiso_historialSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
-                arreglo.add(gt);
-            }
-
-
-        }catch (Exception e){
-            System.out.println("Error de consulta: "+e);
-        }
-        return arreglo;
-
-    }
-        
-        
         
      public int consultarFecha(int mes) {
         int x=0;
@@ -542,5 +499,159 @@ public class consultas {
         return arreglo; 
      
     }
+    
+    
+    
+    
+    //CONSULTA PERMISOS HISTORIAL
+      public ArrayList<permiso_historialSG>consultarPermisoxMes(String cbx_tipo_per_his,  int documento, int mes_cbx) {
+        ArrayList<permiso_historialSG> arreglo = new ArrayList<permiso_historialSG>();
+
+        try{
+           
+            //consulta toda la tabla
+            if (cbx_tipo_per_his.equals("") && documento==0 && mes_cbx == 0){       
+                JOptionPane.showMessageDialog(null, "busca todo con1");
+                ps = cnn.prepareStatement("SELECT * FROM permiso_historial ");                
+            
+            //consulta por el documento
+            }else if(documento!=0){
+                JOptionPane.showMessageDialog(null, "busca por documento con2");
+                ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_Aprendiz_Apr_documento LIKE '"+documento+"%'");
+            
+            //consulta por el tipo           
+            }else if(!cbx_tipo_per_his.equals("")){
+                JOptionPane.showMessageDialog(null, "busca por el tipo de permiso con3");
+                ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_observacion_llegada = '"+cbx_tipo_per_his+"'");
+             
+            //consulta por documento y mes    
+            }else if(!cbx_tipo_per_his.equals("") && documento!=0){
+                JOptionPane.showMessageDialog(null, "busca por el doc y el tipo con4");
+                ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_observacion_llegada = '"+cbx_tipo_per_his+"' AND his_per_Aprendiz_Apr_documento LIKE '"+documento+"%' ");
+                
+            //consulta por mes
+            }else {
+                JOptionPane.showMessageDialog(null, "busca por el mes conULT");
+                JOptionPane.showMessageDialog(null, mes_cbx);
+                ps = cnn.prepareStatement("SELECT * FROM permiso_historial WHERE MONTH(his_per_fechaCreacion) = '"+mes_cbx+"' ");                        
+            }
+            
+            
+        rs= ps.executeQuery();
+
+            while(rs.next()){
+                permiso_historialSG gt = new permiso_historialSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
+                arreglo.add(gt);
+            }
+
+
+        }catch (Exception e){
+            System.out.println("Error de consulta: "+e);
+        }
+        return arreglo;
+
+    }
+       
+     
+    public int consulta_per_vencidos() {
+        
+        //se instancia el setget para el ID
+        
+       permisoSG sg = new permisoSG();
+       Autorizacion at = new Autorizacion();
+       int DatoID = 11;
+        
+        int x=0;
+        int dia, mes, year;
+//        JOptionPane.showMessageDialog(null, "se llamo");
+        
+        Calendar calendario = Calendar.getInstance();
+        dia=calendario.get(Calendar.DATE);
+        mes=calendario.get(Calendar.MONTH);
+        year=calendario.get(Calendar.YEAR);
+        
+        if(dia <= 9){
+            dia = Integer.parseInt("0"+dia);
+        }
+        if(mes <= 9){
+            mes = Integer.parseInt("0"+mes);
+        }
+        
+        String fechaAtrapada = year+"-"+(mes+1)+"-"+dia;        
+//        JOptionPane.showMessageDialog(null,"esta es la fecha actual:  " +fechaAtrapada);
+        
+        
+        
+        try{
+        ps=cnn.prepareStatement("select * from permiso where per_estado='Autorizado' " );
+        rs = ps.executeQuery();
+        
+                //se recoge el resultado de la fecha con relacion a las fechas de salidas estipuladas        
+                if(rs.next()){
+                    String  fechaRecogida = rs.getString(4);
+//                    JOptionPane.showMessageDialog(null, "Este es la que trae estipulada  " +fechaRecogida);
+                    
+                    // año     mes     dia
+                    //(FR[0]   F[1]   F[2])
+                    String FR[] = fechaAtrapada.split("-"); 
+                    String FEap[] = fechaRecogida.split("-");//fecha estipulada por aprendiz
+
+//                    JOptionPane.showMessageDialog(null , "FECHA REAL CONCATENADA  " +FR[2]);
+//                    JOptionPane.showMessageDialog(null , "FECHA ESTIPULADA CONCATENADA  " +FEap[2]);
+                    
+                    //compara por año
+                    if(Integer.parseInt(FR[0]) >= Integer.parseInt(FEap[0])){
+                       JOptionPane.showMessageDialog(null, "hay permisos vencidos año");
+                       //se instancia el estado para que lo ponga en "Vencido"
+                            DatoID = consultaperIDestado(DatoID);
+                            crudPermisos crud = new crudPermisos();
+                            permisoSG ing = new permisoSG();
+                            crud.actualizar_estado_vencido_permiso(DatoID, ing);
+                    }
+
+                    //compara por mes
+                    else if(Integer.parseInt(FR[1]) >= Integer.parseInt(FEap[1])){
+                        JOptionPane.showMessageDialog(null, "entro a mes");
+                            //compara por dia
+                            if(Integer.parseInt(FR[2]) > Integer.parseInt(FEap[2])){
+                              JOptionPane.showMessageDialog(null, "entro al dia");
+                              JOptionPane.showMessageDialog(null, "esta vencido");
+                              
+                              //se instancia el estado para que lo ponga en "Vencido"
+                                DatoID = consultaperIDestado(DatoID);
+                                crudPermisos crud = new crudPermisos();
+                                permisoSG ing = new permisoSG();
+                                crud.actualizar_estado_vencido_permiso(DatoID, ing);
+                              
+                            //compara dia
+                            }else{    
+                              JOptionPane.showMessageDialog(null, "sigue estando en el mes pero no hay permisos vencidos x dia"); 
+                            }
+                      
+                    }else{
+                        JOptionPane.showMessageDialog(null, "nose obtuvieron permisos vencidos");
+                    }
+                }
+        
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        return x;   
+    }
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

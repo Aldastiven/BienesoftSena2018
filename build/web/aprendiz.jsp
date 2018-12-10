@@ -32,7 +32,7 @@
 
     <!--stilo para las nuevas tarjetas de menu-->
  
-    <link type="text/css" rel="stylesheet" href="css_index_user/cards-prueba.css"  media="screen,projection"/>
+    <!--<link type="text/css" rel="stylesheet" href="css_index_user/cards-prueba.css"  media="screen,projection"/>-->
     
     <link type="text/css" rel="stylesheet" href="css/notificaciones.css"  media="screen,projection"/>
     <!--importando--->
@@ -130,7 +130,7 @@
             <div class="contenedor_btn_apr hide-on-med-and-down"  id="contenedor_btn_apr">
                 <a href="mi_perfil_aprendiz.jsp">
                     <div class="btn_ver_perfil" id="btn_ver_perfil">
-                    ver perfil
+                    mi perfil
                     <img style="width: 20px;" src="css_index_user/icons/coordinador/btn_user.png" />
                     </div>
                 </a>
@@ -143,7 +143,7 @@
     <!------------------objeto opciones-------------------------------------------->
     <div class="cont_principal">
 
-                <a href="t_permiso_coordinador.jsp">
+                <a href="f_permiso.jsp">
                     <div class="options">
                         <img class="img_option" src="css_index_user/icons/coordinador/menu_permiso.png" /> 
                         <p class="txt_option">Permisos</p>
@@ -153,25 +153,10 @@
 
                 <a href="t_aprendiz.jsp">
                     <div class="options">                        
-                       <img class="img_option" src="css_index_user/icons/coordinador/menu_aprendiz.png" />
-                       <p class="txt_option">Aprendices</p>
+                        <img class="img_option" src="css_index_user/icons/aprendiz/mochila.png" />
+                       <p class="txt_option">Perfil Aprendiz</p>
                     </div>
                 </a>
-
-                <a href="t_ficha.jsp">
-                    <div class="options">                        
-                        <img class="img_option" src="css_index_user/icons/coordinador/menu_fichas.png" />
-                        <p class="txt_option">Fichas</p>
-                    </div>
-                </a>
-
-                <a href="t_habitacion.jsp">
-                    <div class="options">                        
-                        <img class="img_option" src="css_index_user/icons/coordinador/menu_habitacion.png" />
-                        <p class="txt_option">Habitaciones</p>
-                    </div>
-                </a>
-
         </div>
     
     <div class="contenedor_noti">

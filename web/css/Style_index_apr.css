@@ -1,9 +1,52 @@
+
+
 .option_menu{
     display: none;
 }
 
 @media (min-width: 1281px) {
  /* for dekstop */
+ 
+ /****************contenedor de perfil********/
+.contenedor-perfil{
+    background: white;
+    height: 250px;
+    width: 230px;
+    position: absolute;
+    left: 50px;
+    margin-right: 3px;
+    margin-top: 50px;
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);   
+}
+
+.img_foto{
+    background: rgba(0,0,0,0.10);
+    width: 165px;    
+    margin-left: 30px;
+    margin-top: 10px;
+    height: 150px;
+}
+
+.cont_name{
+    background: whitesmoke;
+    height: 80px;
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(to left, #2dceff 0%, #6af57c 50% ,  #ffa561 90%  );
+    border-image-slice: 1;
+}
+
+.msg_user{
+    margin-left: 10px;
+    color: gray;
+    font-size: 20px;
+}
+
+.user_text_nombre{
+    margin-left: 10px;
+    color: gray;
+    font-size: 15px;
+    margin-top: -5px;
+}
  
  .cont_info{
     background: whitesmoke;
@@ -21,7 +64,7 @@
     height: 500px;
     max-height: 450px;
     float: left;
-    margin-top: 40px;
+    margin-top: -5px;
     margin-left: 300px; 
 }
 
@@ -57,6 +100,29 @@
     font-size: 28px;
     text-align: center;
     font-family: 'Abel', sans-serif;
+}
+
+.contenedor_btn_apr{
+    background: whitesmoke;
+    border: 2px solid gray;
+    width: 230px;
+    height: 50px;
+    text-align: center;
+    position: relative;
+    top: 350px;
+    margin-left: 45px;
+    padding-top: 10px;
+}
+
+.contenedor_btn_apr:hover{
+    background: rgb(154, 220, 236);
+    border: 2px solid gray;
+    color: white;
+}
+
+.btn_ver_perfil{
+    color: rgb(141, 141, 141);
+    font-size: 20px;
 }
 
 }

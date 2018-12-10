@@ -429,7 +429,7 @@ public class ServletPermiso extends HttpServlet {
                 if(setget.getPer_tipo().equals("semana morning") || setget.getPer_tipo().equals("semana tarde") ){
                     boolean autorizado = tipoper.metodo_semana(horaReal,setget.getPer_tipo());//horareal y tipopermiso
                     if(autorizado) {
-                        JOptionPane.showMessageDialog(null, "Puede salir");
+                        
                         //Enviar fechaReal horaReal al método de inserción
                         tipoper.metodo_insertpersemana(id, fechaReal, horaReal, campo1, campo2);//update para campos
                         //Termina proceso de salida o de entrada

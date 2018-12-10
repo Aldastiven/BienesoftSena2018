@@ -1,0 +1,14 @@
+SMAP
+t_005fpermiso_005fseguridad_jsp.java
+JSP
+*S JSP
+*F
++ 0 t_permiso_seguridad.jsp
+t_permiso_seguridad.jsp
+*L
+1,146:47
+147,3:194
+149:197
+150:198,3
+151,113:201
+*E

@@ -50,7 +50,7 @@
             <!--importando--->
             <script src="js/jquery.js"></script>
             
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+            <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">-->
             
 </head>
 
@@ -167,11 +167,21 @@
                     </select>
                     
                     <!--combobox fechas de permisos x mes--> 
-                    <!--<select id="ComboMes" name="mesCBX" class="browser-default searchTerm">
-                        <option value="1">Todo</option>
-                        <option value="2" selected="selected">mes prueba 1</option>
-                        <option value="3">mes prueba 2</option>
-                    </select>-->
+                    <select id="ComboMes" name="mes_cbx" class="browser-default searchTerm">
+                        <option value="">Todo</option>
+                        <option value="1">Enero</option>
+                        <option value="2">Febrero</option>
+                        <option value="3">Marzo</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Mayo</option>
+                        <option value="6">Junio</option>
+                        <option value="7">Julio</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                    </select>
                 </form> 
                 
             </div>
@@ -240,7 +250,7 @@
     </body>
     
     <!--***************FOOTER*********************-->
-        <div id="footer_style">
+    <div id="footer_style" style="display: none;">
             <div id="footer_p_1" >
                 <img id="img_foot_1" src="img_footer/Logo4.png" />
                 <img id="img_foot_2" src="img_footer/Logo1.png" />

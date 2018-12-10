@@ -5,12 +5,15 @@ package modulo_permisos;
 
 import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import com.sun.org.apache.bcel.internal.generic.AALOAD;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import modelo.consultas;
 import modelo.crudPermisos;
 import modelo.permisoSG;
@@ -105,7 +108,7 @@ public class Autorizacion {
             return "Salida";
             
         }else if(fechaSalReal != null && horaSalReal != null && fechaInReal == null && horaInReal == null){
-            
+            JOptionPane.showMessageDialog(null, "Es una ingreso");
             
             tipopermiso tipper = new tipopermiso();
 //            tipper.metodo_insertpersemana(DatoID, fechaInReal, horaInReal, horaInReal, horaInReal);
@@ -222,13 +225,18 @@ public class Autorizacion {
             }
         return x;   
     }
+    
+    
 
+        
+        
+  
+        
     
     
     
     
     
-    
-    
+       
     
 }

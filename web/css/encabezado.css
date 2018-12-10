@@ -38,7 +38,7 @@
     padding-bottom: 5px;
     padding-left: 170px;
     border-bottom: 4px solid transparent;
-    border-image: linear-gradient(to left, #04a5d6 0%, #6af57c 50% ,  #ff9361 90%  );
+    border-image: linear-gradient(to left, #2dceff 0%, #6af57c 50% ,  #ffa561 90%  );
     border-image-slice: 1;
 }
 
