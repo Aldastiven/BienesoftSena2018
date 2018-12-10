@@ -495,22 +495,22 @@ public class consultas {
     
     public ArrayList<permisoSG> consulta_notificacion(int u){
         ArrayList<permisoSG> arreglo = new ArrayList<>();
-//         JOptionPane.showMessageDialog(null,"esto se trae de la consulta" +u);
+         //JOptionPane.showMessageDialog(null,"esto se trae de la consulta" +u);
 
         try{
           ps = cnn.prepareStatement("select * from permiso per_Aprendiz_Apr_documento  where per_estado='Autorizado'  AND  per_Aprendiz_Apr_documento='"+u+"' ");
            rs = ps.executeQuery();            
-//           JOptionPane.showMessageDialog(null, "ENTRO AL TRY");
+           //JOptionPane.showMessageDialog(null, "ENTRO AL TRY");
 
            while(rs.next()){
-               permisoSG getset = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
+                permisoSG getset = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
                arreglo.add(getset);
 
-//               JOptionPane.showMessageDialog(null, rs.getString(13));
+               //JOptionPane.showMessageDialog(null, rs.getString(3));
            }
 
         }catch(Exception e){
-         JOptionPane.showMessageDialog(null, "PAILAS" +e);
+         //JOptionPane.showMessageDialog(null, "PAILAS" +e);
         }
          
         return arreglo; 
@@ -519,12 +519,12 @@ public class consultas {
     
     
     
-    public ArrayList<permiso_historialSG> consulta_notificacion_his(int u){
+    public ArrayList<permiso_historialSG> consulta_notificacion_his(int uhis){
         ArrayList<permiso_historialSG> arreglo = new ArrayList<>();
-       //JOptionPane.showMessageDialog(null,"esto se trae de la consulta" +u);
+       //JOptionPane.showMessageDialog(null,"esto se trae de la consulta" +uhis);
 
         try{
-          ps = cnn.prepareStatement("select * from permiso_historial  where his_per_estado='Denegado'  AND his_per_Aprendiz_Apr_documento='"+u+"' ");
+          ps = cnn.prepareStatement("select * from permiso_historial  where his_per_estado='Denegado'  AND his_per_Aprendiz_Apr_documento='"+uhis+"' ");
            rs = ps.executeQuery();            
            //JOptionPane.showMessageDialog(null, "ENTRO AL TRY");
 
@@ -532,7 +532,7 @@ public class consultas {
                permiso_historialSG gt = new permiso_historialSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
                arreglo.add(gt);
 
-               JOptionPane.showMessageDialog(null, rs.getString(13));
+             //JOptionPane.showMessageDialog(null, rs.getString(13));
            }
 
         }catch(Exception e){

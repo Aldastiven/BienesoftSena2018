@@ -1,0 +1,32 @@
+body{
+   overflow-x: hidden; 
+   height: 100%;
+}
+.contenedor_noti{
+    background: whitesmoke; 
+    width: 350px; 
+    height: 130px;
+    overflow-y: scroll;
+    position: relative; 
+    top: 360px; 
+    float: right;
+    margin-right: 30px;   
+}
+
+.cont_indi_noti_bad{
+    background:  rgb(238, 183, 183);
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.cont_indi_noti_good{
+    background: rgb(154, 220, 236);
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.txt_noti{
+    background: transparent;
+    width: 100%;
+    border: none;
+}

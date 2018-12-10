@@ -20,9 +20,9 @@
     width: 600px;
     height: 500px;
     max-height: 450px;
-    float: right;
+    float: left;
     margin-top: 40px;
-    margin-right: 60px; 
+    margin-left: 300px; 
 }
 
 .options{

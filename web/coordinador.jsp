@@ -26,6 +26,9 @@
     <!--stilo para las nuevas tarjetas de menu-->
     <link type="text/css" rel="stylesheet" href="css/Style_Index.css"  media="screen,projection"/>
 
+    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+            
+            
     <!--importando--->
     <script src="js/jquery.js"></script>
 
@@ -100,6 +103,7 @@
                 <a href="t_permiso_coordinador.jsp">
                     <div class="options">
                         <img class="img_option" src="css_index_user/icons/coordinador/menu_permiso.png" /> 
+                        <p class="txt_option">Permisos</p>
                     </div>
                                                                                            
                 </a>
@@ -107,18 +111,21 @@
                 <a href="t_aprendiz.jsp">
                     <div class="options">                        
                        <img class="img_option" src="css_index_user/icons/coordinador/menu_aprendiz.png" />
+                       <p class="txt_option">Aprendices</p>
                     </div>
                 </a>
 
                 <a href="t_ficha.jsp">
                     <div class="options">                        
                         <img class="img_option" src="css_index_user/icons/coordinador/menu_fichas.png" />
+                        <p class="txt_option">Fichas</p>
                     </div>
                 </a>
 
                 <a href="t_habitacion.jsp">
                     <div class="options">                        
                         <img class="img_option" src="css_index_user/icons/coordinador/menu_habitacion.png" />
+                        <p class="txt_option">Habitaciones</p>
                     </div>
                 </a>
 
