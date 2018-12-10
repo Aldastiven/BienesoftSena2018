@@ -156,31 +156,25 @@
         <!--*******************************OBJETO  MODULO CONSULTAS------------------------>
 
         <div class="container hide-on-small-only">
-            <div id="search-container"  class="browser-default">
+            <div id="search-container">
                 
-                <!--ComoboBox-->
-                <form action="t_permiso_coordinador.jsp" method="post">
+                <!--Busqueda teclado-->
+                <form action="servBuscarPermisos" name="vinform" method="post">
                     
-                    <!--Filtro busqueda id-->
-                    <input id="searchTerm" class="searchTerm" type="text" name="documento" onkeyup="doSearch()" placeholder="busca" style="border: 1px solid gray; float: left; width: 170px; margin-right: 120px" class="browser-default"/>
+                    <!--Filtro busqueda documento-->
+                    <input id="documento_key" class="searchTerm browser-default" type="number" name="name" placeholder="Buscar documento"/>
                  
-                    <!--combobox--> 
-                    <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="width: 170px; float:left; border: 1px solid gray;">
+                    <select id="ComboFiltro" name="cbx_tipo_per" class="browser-default searchTerm" style="display: none">
                         <option value="">Todo</option>
                         <option value="semana morning">Semana - Mañana</option>
                         <option value="semana tarde">Semana - Tarde</option>
                         <option value="fin de semana">Fin de semana</option>
                         <option value="extra">Extra</option>
                     </select>
-                    
-                    <button id="btn_ver" type="submit" value="Ingresar" name="" style="float: left; background: transparent; cursor: pointer; position:relative; bottom:10px; border:none">
-                        <img src="icon_acciones/icon_buscar.png" title="Buscar" style=" cursor: pointer; width: 30px;"/>
-                    </button>
                 </form> 
                 
             </div>
         </div>
-        
         <div id="btn-search-principal" class="btn-search-principal hide-on-med-and-up">
             <img src="materialize/icons/white/search.png" />
         </div>

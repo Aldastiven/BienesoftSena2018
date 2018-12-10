@@ -96,7 +96,7 @@ public class servBuscarPermisos_Historial extends HttpServlet {
         } else { 
             int doc =Integer.parseInt(request.getParameter("documento")); //Documento aprendiz
             int mes =Integer.parseInt(request.getParameter("mes")); //Mes
-            JOptionPane.showMessageDialog(null,"Tipo: "+tipObservacion+"Doc: "+doc+"Mes: "+mes);
+//            JOptionPane.showMessageDialog(null,"Tipo: "+tipObservacion+"Doc: "+doc+"Mes: "+mes);
             out.print(
                 "<thead class='thead_t'>"+                    
                     "<tr>"+

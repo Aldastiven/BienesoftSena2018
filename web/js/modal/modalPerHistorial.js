@@ -1,7 +1,7 @@
 //MODAL DE PERMISO-HISTORIAL
 /****modalPerHistorial***/
 $(document).ready(function(){
-    
+    alert ("hola");
     //funcion para añadir un objeto de atributos a mi elemento padre
 
     const agregarAtributos = (miElemento, obj_Atri) => {

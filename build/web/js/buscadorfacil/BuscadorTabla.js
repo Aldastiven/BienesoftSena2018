@@ -11,7 +11,7 @@ $(document).ready(function(){
         var tipoPermiso = e.target.value;
         //Lamar método de ajax para buscar  
         if($("#documento_key").val() === "") ajaxBuscar(tipoPermiso, rol,documento);
-        else ajaxBuscar(tipoPermiso, rol,$("#documento_key").val());
+        else ajaxBuscar($("#documento_key").val());
     });
     
     //Busqueda en teclado

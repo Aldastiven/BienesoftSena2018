@@ -24,10 +24,10 @@ public class servBuscarAprendiz extends HttpServlet {
         
         
         String tipoAprendiz = request.getParameter("tipo");
-        String docId = request.getParameter("docId");
+        String docId = request.getParameter("documento");
         String ventana = request.getParameter("ventana");
         
-       
+//       JOptionPane.showMessageDialog(null, "se toma en el servlet al iniciar  " + "  EL ID: " +docId+  "EL TIPO: " +tipoAprendiz);
         if(ventana != null && ventana.equals("abrir")) {
             //BUSCAR DATOS DEL APRENDIZ SELECCIONADO
             consultas con= new consultas();
@@ -35,7 +35,6 @@ public class servBuscarAprendiz extends HttpServlet {
             
             //GuargarID EN LOS GETTER Y SETTER
             aprendizSG id = new aprendizSG(Integer.parseInt(docId));
-            
             //LLAMAR CONSULTA
             aprendizSena = con.consultarAprendizID(Integer.parseInt(docId));
             
@@ -48,12 +47,14 @@ public class servBuscarAprendiz extends HttpServlet {
             ArrayList<aprendizSG> aprendiz = new ArrayList<>();
             
             //Consulta de datos de aprendiz (ID)
-            aprendizSena = con_ap.consultarAprendizID(0);
+            aprendizSena = con_ap.consultarTablaAprendiz();
 
             aprendizSG ap = new aprendizSG();
             ap = aprendiz.get(0);
             
             //Impresion de datos del permiso
+            JOptionPane.showMessageDialog(null, ap.getApr_email());
+            
             out.print(
                     ap.getApr_documento()+ //0
                 "|"+ap.getApr_documentoTipo()+//1
@@ -67,24 +68,25 @@ public class servBuscarAprendiz extends HttpServlet {
                 "|"+ap.getApr_rh()+ //9
                 "|"+ap.getApr_tipoAprendiz()+ //10
                 "|"+ap.getApr_nombrePadre()+ //11
-                "|"+ap.getApr_telefonoPadre()+ //10
-                "|"+ap.getApr_nombreMadre()+ //10
-                "|"+ap.getApr_telefonoMadre()+ //10
-                "|"+ap.getApr_departamento()+ //10
-                "|"+ap.getApr_ciudad()+ //10
-                "|"+ap.getApr_barrio()+ //10
-                "|"+ap.getApr_direccion()+ //10
-                "|"+ap.getApr_antecedente_medico()+
-                "|"+ap.getApr_email()+
-                "|"+ap.getApr_hojaDeVida()+
-                "|"+ap.getApr_actaCompromiso()+
-                "|"+ap.getApr_llamadosDeAtencion()+
-                "|"+ap.getApr_numero_habitacion()+
-                "|"+ap.getApr_ficha_fic_numero());
+                "|"+ap.getApr_telefonoPadre()+ //12
+                "|"+ap.getApr_nombreMadre()+ //13
+                "|"+ap.getApr_telefonoMadre()+ //14
+                "|"+ap.getApr_departamento()+ //15
+                "|"+ap.getApr_ciudad()+ //16
+                "|"+ap.getApr_barrio()+ //17
+                "|"+ap.getApr_direccion()+ //18
+                "|"+ap.getApr_antecedente_medico()+//19
+                "|"+ap.getApr_email()+//20
+                "|"+ap.getApr_hojaDeVida()+//21
+                "|"+ap.getApr_actaCompromiso()+//22
+                "|"+ap.getApr_llamadosDeAtencion()+//23
+                "|"+ap.getApr_numero_habitacion()+//24
+                "|"+ap.getApr_ficha_fic_numero());//25
 
         } else { 
          
             int doc=Integer.parseInt(request.getParameter("documento")); //Documento aprendiz
+//            JOptionPane.showMessageDialog(null, "esto se consulta en el servlet para buscar  " +doc);
             out.print(
                 "<thead class='thead_t'>"+                    
                     "<tr>"+
@@ -101,6 +103,8 @@ public class servBuscarAprendiz extends HttpServlet {
             ArrayList<aprendizSG> lisdat = new ArrayList<>();
             consultas con = new consultas();
             lisdat = con.consultarAprendizDocTipo(tipoAprendiz, doc);
+            //JOptionPane.showMessageDialog(null, "esto se va a enviar:  tipo-->" +tipoAprendiz+ "  documnto--->"+doc);
+            
             aprendizSG x = new aprendizSG();
             int i=0;
             for(i=0; i<lisdat.size(); i++){
@@ -117,7 +121,7 @@ public class servBuscarAprendiz extends HttpServlet {
                         "<td><input class='hide-on-med-and-down input_t' readonly type='number' name='t_numeroFicha' value="+x.getApr_ficha_fic_numero()+"></td>"+        
                         "<td>"+ 
                         "<div  class='btn-ver-permiso-coordinador'>"+                
-                        "<img id=p"+i+" class='ver' src='icon_acciones/ver.png' style='padding-left: 15px'/>"+     
+                        "<img id=p"+i+" class='ver_apr' src='icon_acciones/ver.png' style='padding-left: 15px'/>"+     
                         "</div>"+
                         "</td>"+        
                 "</tr>"

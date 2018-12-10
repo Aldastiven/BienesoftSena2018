@@ -18,7 +18,7 @@ $(document).ready(function(){
     
     document.getElementById("ComboMes").addEventListener("change",function(e){    
         var mes = e.target.value;
-        alert("AJAX"+ mes);
+//        alert("AJAX"+ mes);
         //Lamar método de ajax para buscar
         if($("#documento_key").val() === "") ajaxBuscar(tipObservacion, documento, mes);
         else ajaxBuscar(tipObservacion, $("#documento_key").val(), mes);
@@ -45,7 +45,7 @@ $(document).ready(function(){
 
 
     function ajaxBuscar(tipObservacion, documento, mes) {
-        alert("tipo "+tipObservacion+ " documento "+documento+ " mes "+mes);
+//        alert("tipo "+tipObservacion+ " documento "+documento+ " mes "+mes);
         $.ajax({
             url: "servBuscarPermisos_Historial",//aqui llama a la tabla coordinador
             data: {

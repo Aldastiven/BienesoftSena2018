@@ -1,5 +1,5 @@
-//BUSCADOR DE APRENDICES
 $(document).ready(function(){
+
     var tipoAprendiz = "",documento=0;
     
     //CONSULTAR TODOS LOS REGISTROS   
@@ -27,7 +27,6 @@ $(document).ready(function(){
 
 
     function ajaxBuscar(tipoAprendiz, documento) {
-        
         $.ajax({
             url: "servBuscarAprendiz",//aqui llama a la tabla coordinador
             data: {
