@@ -22,6 +22,9 @@
 
     <!--estilo menu tajetas-->
     <link type="text/css" rel="stylesheet" href="css_index_user/cards-prueba.css"  media="screen,projection"/>
+    
+    <!--stilo para las nuevas tarjetas de menu-->
+    <link type="text/css" rel="stylesheet" href="css/Style_Index.css"  media="screen,projection"/>
 
     <!--importando--->
     <script src="js/jquery.js"></script>
@@ -82,74 +85,62 @@
             <div class="btn_ver_usuarios" id="btn_ver_usuarios">
                 <a href="t_usuario.jsp">
                     consultar usuarios
-                    <img style="width: 20px;" src="css_index_user/icons/coordinador/btn_users.png" />
+                    <!--<img style="width: 20px;" src="css_index_user/icons/coordinador/btn_users.png" />-->
                 </a>
             </div>
 
         </div>
 
             <!------------------objeto opciones-------------------------------------------->
-        <div class=" contenedor-principal container row l12 m12 s12">
-
-            <div class="row">
+            
+            <div class="cont_info"></div>    
+            
+        <div class="cont_principal">
 
                 <a href="t_permiso_coordinador.jsp">
-                    <div class="option_menu col s12 l2 m12">
-                        <p class="head_info" id="head_info"> permisos </p>
-                        <img src="css_index_user/icons/coordinador/menu_permiso.png" />
-                        <p class="info_text_menu" id="info_text_menu">Quieres tener informacion acerca de los permisos, ingresa aqui</p>
+                    <div class="options">
+                        <img class="img_option" src="css_index_user/icons/coordinador/menu_permiso.png" /> 
                     </div>
+                                                                                           
                 </a>
 
                 <a href="t_aprendiz.jsp">
-                    <div class="option_menu col s12 l2 m12">
-                        <p class="head_info" id="head_info"> aprendices </p>
-                        <img src="css_index_user/icons/coordinador/menu_aprendiz.png" />
-                        <p class="info_text_menu" id="info_text_menu">Quieres tener informacion acerca de los aprendices, ingresa aqui</p>
+                    <div class="options">                        
+                       <img class="img_option" src="css_index_user/icons/coordinador/menu_aprendiz.png" />
                     </div>
                 </a>
 
                 <a href="t_ficha.jsp">
-                    <div class="option_menu col s12 l2 m12">
-                        <p class="head_info" id="head_info"> fichas </p>
-                        <img src="css_index_user/icons/coordinador/menu_fichas.png" />
-                        <p class="info_text_menu" id="info_text_menu">Quieres tener informacion acerca de las fichas, ingresa aqui</p>
-                    </div>
-                </a>
-
-                <a href="t_patrocinio.jsp">
-                    <div class="option_menu col s12 l2 m12">
-                        <p class="head_info" id="head_info"> patrocinios </p>
-                        <img src="css_index_user/icons/coordinador/menu_patrocino.png" />
-                        <p class="info_text_menu" id="info_text_menu">Quieres tener informacion acerca de los patrocinios, ingresa aqui</p>
+                    <div class="options">                        
+                        <img class="img_option" src="css_index_user/icons/coordinador/menu_fichas.png" />
                     </div>
                 </a>
 
                 <a href="t_habitacion.jsp">
-                    <div class="option_menu col s12 l2 m12">
-                        <p class="head_info" id="head_info"> habitaciones </p>
-                        <img src="css_index_user/icons/coordinador/menu_habitacion.png" />
-                        <p class="info_text_menu" id="info_text_menu">Quieres tener informacion acerca de las habitaciones, ingresa aqui</p>
+                    <div class="options">                        
+                        <img class="img_option" src="css_index_user/icons/coordinador/menu_habitacion.png" />
                     </div>
                 </a>
-
-            </div>
 
         </div>
 
 <!--***************FOOTER*********************-->
-
-        <footer class="page-footer" id="footer_form">
-
-                    <div class="container white-text center">
-                    © 2018 Biene-Soft
-                    <br>
-                    Todos los derechos reservados
-                    </div>
-                    
-        </footer>
-<!------------------------------------------------------------------------------------------------------>
-            
+        <div id="footer_style">
+            <div id="footer_p_1" >
+                <img id="img_foot_1" src="img_footer/Logo4.png" />
+                <img id="img_foot_2" src="img_footer/Logo1.png" />
+            </div>
+            <div id="footer_p_2" > 
+                <p id="text_foot">BieneSoft</p>
+                <p id="text_foot">Todos los derechos reservados</p>
+                <p id="text_foot">2018</p>
+            </div>
+            <div id="footer_p_3" >
+                <img id="img_foot_3" src="img_footer/Logo2.png" />
+                <img id="img_foot_4" src="img_footer/Logo3.png" />
+            </div>
+        </div>
+    <!------------------------------------------------------------------------------------------------------>           
 
 
             

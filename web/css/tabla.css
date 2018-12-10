@@ -59,3 +59,6 @@ input{
     border: solid 1px #485460;
 }
 
+table{
+    height: 200px;
+}

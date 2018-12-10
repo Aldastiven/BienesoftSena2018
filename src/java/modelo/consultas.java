@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+//import org.apache.tomcat.jni.Time;
 
 
 public class consultas {
@@ -298,7 +299,7 @@ public class consultas {
             rs= ps.executeQuery();
 
             while(rs.next()){
-                permisoSG getset = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16));
+                permisoSG getset = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
                 arreglo.add(getset);
             }
 
@@ -329,7 +330,7 @@ public class consultas {
             rs= ps.executeQuery();
 
             while(rs.next()){
-                permisoSG getset = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16));
+                permisoSG getset = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
                 arreglo.add(getset);
             }
 
@@ -345,35 +346,41 @@ public class consultas {
     //CONSULTA PERMISOS HISTORIAL
         public ArrayList<permiso_historialSG>consultarPermiso_Historial(String cbx_tipo_per_his,  int documento) {
         ArrayList<permiso_historialSG> arreglo = new ArrayList<permiso_historialSG>();
-        
-        //JOptionPane.showMessageDialog(null, "entro al metodo consulta_historal");
+
             
         try{
-            
-            if (cbx_tipo_per_his.equals("")&& documento==0){
-                //JOptionPane.showMessageDialog(null, "consulta todo");
+           
+            //consulta toda la tabla
+            if (cbx_tipo_per_his.equals("") && documento==0){       
                  ps = cnn.prepareStatement("SELECT * FROM permiso_historial ");
-            }else if(!cbx_tipo_per_his.equals("") && documento!=0){
-                //JOptionPane.showMessageDialog(null, "consulta observacion y documento"); 
-                ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_observacion_llegada = '"+cbx_tipo_per_his+"'  AND his_per_Aprendiz_Apr_documento LIKE '"+documento+"%'   ");
-            }else if(documento!=0 && cbx_tipo_per_his.equals("")){
-                //JOptionPane.showMessageDialog(null, "consulta solo documento"); 
+            
+            //consulta solo el documento (para digitar por teclado)
+            }else if(documento!=0 && cbx_tipo_per_his.equals("")){                 
                  ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_Aprendiz_Apr_documento LIKE '"+documento+"%'");
-            }else if(documento==0 && !cbx_tipo_per_his.equals("")){
-                //JOptionPane.showMessageDialog(null, "consulta solo combo");
+                 
+            //consulta solo por tipo de permiso
+            }else if(documento==0 && !cbx_tipo_per_his.equals("") ){                
                  ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_observacion_llegada = '"+cbx_tipo_per_his+"'");
-            }else{
-                JOptionPane.showMessageDialog(null, "consulta todo");
-                ps = cnn.prepareStatement("SELECT * FROM permiso_historial ");
+                        
+            //consulta por mes
+//            }else if(cbx_tipo_per_his.equals("") && documento==0){
+//                ps = cnn.prepareStatement("SELECT * FROM permiso WHERE MONTH(his_per_fechaCreacion) = '"+mes+"' ");
                 
+            //Aqui consulta por todas opciones
+            }else if(!cbx_tipo_per_his.equals("") && documento!=0) {   
+                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial where his_per_observacion_llegada = '"+cbx_tipo_per_his+"'  AND his_per_Aprendiz_Apr_documento LIKE '"+documento+"%' ");
+           
+            }else{                
+                 JOptionPane.showMessageDialog(null, "no se consulto");
+                ps = cnn.prepareStatement("SELECT * FROM permiso_historial ");
             }
             
             
         rs= ps.executeQuery();
 
             while(rs.next()){
-                permiso_historialSG getset = new permiso_historialSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16));
-                arreglo.add(getset);
+                permiso_historialSG gt = new permiso_historialSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
+                arreglo.add(gt);
             }
 
 
@@ -385,6 +392,15 @@ public class consultas {
     }
         
         
+        
+     public int consultarFecha(int mes) {
+        int x=0;
+        
+        
+        JOptionPane.showMessageDialog(null, mes);
+        
+        return x;
+     }   
         
     //CONSULTA DE TABLA CALENDARIO FESTIVOS
     public boolean compararFechaLunes(String fechaLunes){
@@ -467,8 +483,7 @@ public class consultas {
                 JOptionPane.showMessageDialog(null, "Este es el que trae " +id);
             }
             
-        } catch (Exception e) {
-            
+        } catch (Exception e) {            
             JOptionPane.showMessageDialog(null, "No se puede mostra el contenido"+e);
         }
         
@@ -476,23 +491,56 @@ public class consultas {
     
     }
     
+
+    
+    public ArrayList<permisoSG> consulta_notificacion(int u){
+        ArrayList<permisoSG> arreglo = new ArrayList<>();
+//         JOptionPane.showMessageDialog(null,"esto se trae de la consulta" +u);
+
+        try{
+          ps = cnn.prepareStatement("select * from permiso per_Aprendiz_Apr_documento  where per_estado='Autorizado'  AND  per_Aprendiz_Apr_documento='"+u+"' ");
+           rs = ps.executeQuery();            
+//           JOptionPane.showMessageDialog(null, "ENTRO AL TRY");
+
+           while(rs.next()){
+               permisoSG getset = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
+               arreglo.add(getset);
+
+//               JOptionPane.showMessageDialog(null, rs.getString(13));
+           }
+
+        }catch(Exception e){
+         JOptionPane.showMessageDialog(null, "PAILAS" +e);
+        }
+         
+        return arreglo; 
+     
+    }
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public ArrayList<permiso_historialSG> consulta_notificacion_his(int u){
+        ArrayList<permiso_historialSG> arreglo = new ArrayList<>();
+       //JOptionPane.showMessageDialog(null,"esto se trae de la consulta" +u);
+
+        try{
+          ps = cnn.prepareStatement("select * from permiso_historial  where his_per_estado='Denegado'  AND his_per_Aprendiz_Apr_documento='"+u+"' ");
+           rs = ps.executeQuery();            
+           //JOptionPane.showMessageDialog(null, "ENTRO AL TRY");
+
+           while(rs.next()){
+               permiso_historialSG gt = new permiso_historialSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
+               arreglo.add(gt);
+
+               JOptionPane.showMessageDialog(null, rs.getString(13));
+           }
+
+        }catch(Exception e){
+         JOptionPane.showMessageDialog(null, "PAILAS" +e);
+        }
+         
+        return arreglo; 
+     
+    }
+
 }

@@ -24,6 +24,8 @@
             
         <!--estilo de la registro--> 
         <link type="text/css" rel="stylesheet" href="css/perfil/perfil.css"  media="screen,projection"/>
+        
+
  
         <!--importando--->
         <script src="js/jquery.js"></script>
@@ -193,6 +195,26 @@
         </form>
     </div>   
 </div>   
+                
+       
+                
+    <!--***************FOOTER*********************-->
+        <div id="footer_style">
+            <div id="footer_p_1" >
+                <img id="img_foot_1" src="img_footer/Logo4.png" />
+                <img id="img_foot_2" src="img_footer/Logo1.png" />
+            </div>
+            <div id="footer_p_2" > 
+                <p id="text_foot">BieneSoft</p>
+                <p id="text_foot">Todos los derechos reservados</p>
+                <p id="text_foot">2018</p>
+            </div>
+            <div id="footer_p_3" >
+                <img id="img_foot_3" src="img_footer/Logo2.png" />
+                <img id="img_foot_4" src="img_footer/Logo3.png" />
+            </div>
+        </div>
+    <!------------------------------------------------------------------------------------------------------>
               
                
 

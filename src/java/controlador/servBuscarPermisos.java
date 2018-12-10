@@ -113,7 +113,7 @@ public class servBuscarPermisos extends HttpServlet {
                         "<td><input id=id"+i+" class='browser-default input_t' id='' readonly type='number' name='t_numerodocumento' value="+x.getPer_ID()+"></td>"+
                         "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getPer_Aprendiz_Apr_documento()+"></td>"+
                         "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getPer_tipo()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_moti' value="+x.getPer_motivo()+"></td>"+
+                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_moti' value="+x.getPer_fecha_Creacion()   +"></td>"+
                         "<td><input class='hide-on-med-and-down input_t' readonly type='date' name='t_fechsal' value="+x.getPer_fecha_salida()+"></td>"+
                         "<td>"+ 
                         "<div  class='btn-ver-permiso-coordinador'>"+                

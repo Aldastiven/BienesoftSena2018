@@ -67,18 +67,26 @@ $(document).ready(function(){
     }
 //Función para crear la ventana modal coordinador
     function ventanaCoordinador(datos) {
+ 
+
       
     //CREAR ELEMENTO DE LA VENTANA
         
         /**********************************info header**********************************************/
-        
-                    var encab = crearElemento("h1", {id:"ppp"}, ["Permiso"]);
+                    var encab = crearElemento("p", {id:"ppp"}, ["Permiso"]);
                 var perId = crearElemento("input", { name:"t_Id", id:"input_tit_id", class:"browser-default", type:"number", value:[datos[0]]}, [datos[0]]);   
-                var titulo=crearElemento("p", {class:"tip"},["Tipo :"]);
+                $('#input_tit_id').css('display','block');
+                var titulo1=crearElemento("p", {class:"tip1"},["Tipo :"]);
                 var perTipo = crearElemento("p", {name:"tipoper",class:"infotip",type:"text"}, [datos[3]]);
+                var titulo2=crearElemento("p", {class:"tip2"},["fecha de creacion :"]);
+                var fech_res = crearElemento("input", {id:"time", type:"date", name:"fechares"});                                 
+                let today = new Date().toISOString().substr(0, 10);
+                alert(today);
+                fech_res.value=today;
+            var contFres = crearElemento("div",{id:"contFres"}, [titulo2,fech_res]);
             var contID = crearElemento("div",{id:"contID"}, [perId]);
-            var contTipo = crearElemento("div",{id:"contTipo"}, [titulo,perTipo]);
-        var divencabezado = crearElemento("div",{id:"enacabezado_per"},[contID,contTipo,encab]);
+            var contTipo = crearElemento("div",{id:"contTipo"}, [titulo1,perTipo]);
+        var divencabezado = crearElemento("div",{id:"enacabezado_per"},[contID,contTipo,encab,contFres]);
       
   
   
@@ -203,6 +211,7 @@ $(document).ready(function(){
         
         /**********************************info header**********************************************/
         
+                    
                     var encab = crearElemento("h1", {id:"ppp"}, ["Permiso"]);
                 var perId = crearElemento("input", { name:"t_Id", id:"input_tit_id", class:"browser-default", type:"number", value:[datos[0]]}, [datos[0]]);   
                 var titulo=crearElemento("p", {class:"tip"},["Tipo :"]);
@@ -329,6 +338,8 @@ $(document).ready(function(){
             if(e.target === contenedor) document.body.removeChild(contenedor);
         });            
     }
+    
+    
 });
 
 

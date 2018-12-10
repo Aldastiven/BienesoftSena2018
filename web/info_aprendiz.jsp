@@ -2,6 +2,10 @@
     Consulta Informacion aprendiz
 --%>
 
+<%@page import="modelo.usuarioSG"%>
+<%@page import="modelo.consultas"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="modelo.aprendizSG"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,8 +33,7 @@
 
         <!--importando--->
         <script src="js/jquery.js"></script>
-        
-        
+
         <!--estilo footer-->
         <link type="text/css" rel="stylesheet" href="css_index_user/footer.css"  media="screen,projection"/>
 
@@ -58,8 +61,7 @@
                         <ul class="right hide-on-med-and-down">
                             <lu id="li" title="cerrar cesion"><a href="index.jsp"><img style="width: 25px; margin-top: 10px;" src="icon_acciones/salida.png" /></a></lu>
                         </ul>
-                    
-                        
+ 
                 </a>
                 
                     <a href="#" data-target="menu-responsive" class="sidenav-trigger"> 
@@ -101,90 +103,57 @@
             </a>
         </nav>
         
-        <!--MODULO INFORMACION USUARIO-->
-        <label id="user_text" class="user_text hide-on-med-and-down">Usuario</label> 
         <%                                
+            ArrayList<usuarioSG> listdatusu=new ArrayList<>(); 
+            consultas con=new consultas();
+            listdatusu=con.consultaUsuario();
+            usuarioSG igs=new usuarioSG();
+            
             HttpSession rnombre=request.getSession();
             int id=(int)rnombre.getAttribute("iden");
-            String nom=(String)rnombre.getAttribute("nombre");
-            String ape=(String)rnombre.getAttribute("apellido");
-            int cel=(int)rnombre.getAttribute("celular");
-            String mail=(String)rnombre.getAttribute("mail");
-            String pass=(String)rnombre.getAttribute("clave");
-            String foto=(String)rnombre.getAttribute("foto");
-            String rol=(String)rnombre.getAttribute("rol");
-            
         %>
 
-<h1 id="title_container">Informacion de aprendiz <%=nom%></h1>
-           
-<div class="container" style="margin-bottom:15px;">
-    <div class="contenedor_blanco">
+        <%
+            ArrayList<aprendizSG> listdat=new ArrayList<>(); 
+            int doc=id;
+            listdat=con.consultarAprendizID(doc);
+            aprendizSG x=new aprendizSG();
+
+            for(int i=0; i<listdat.size(); i++){
+            x=listdat.get(i);
+        %>
         
         <form action="ServletUsuario" enctype="multipart/form-data" method="post"> 
-            <div class="row" id="container_form_large">
-                <div class="encab" id="encab" style="alignment-adjust: central;">
-                    <img src="<%=foto%>" width="60" height="60"/>
-                    <input  type="file" name="f_fot" accept="img/*" placeholder="Tu Foto perfil">
-                </div>
-
-                <div class="linea" id="linea">
-                    <br>
-                </div>
-
-                <div class="input-field col s12 m6 l6">
+              <div class="input-field col s12 m6 l6">
                     <p id="input_msg">tu numero de identificacion</p>
                     <br>
-                    <input id="input_txt" name="t_doc" value="<%=id%>" type="number">
+                    <input id="input_txt" name="t_doc" value="<%=x.getApr_celular()%>" type="number">
                 </div>   
 
-                 <div class="input-field col s12 l6 m6">
-                    <p id="input_msg">Nombres</p>
-                    <br>
-                    <input id="input_txt" name="t_nom" value="<%=nom%>"  placeholder="<%=nom%>" type="text">
-                </div>
-
-                 <div class="input-field col s12 l6 m6">
-                    <p id="input_msg">Apellidos</p>
-                    <br>
-                    <input id="input_txt" name="t_ape" value="<%=ape%>" type="text">
-                </div>
-
                 <div class="input-field col s12 m6 l6">
-                    <p id="input_msg">numero telefonico</p>
+                    <p id="input_msg">tu nombre</p>
                     <br>
-                    <input id="input_txt" name="t_cel" value="<%=cel%>" type="number">
+                    <input id="input_txt" name="t_doc" value="<%=x.getApr_nombres()%>" type="text">
                 </div>
-
-                <div class="input-field col s12 l6 m6">
-                    <p id="input_msg">Correo electronico</p>
-                    <br>
-                    <input id="input_txt" name="t_ema" value="<%=mail%>" type="email">
-                </div>
-
-                <div class="input-field col s12 l6 m6">
-                    <p id="input_msg">Contraseña</p>
-                    <br>
-                    <input id="input_txt" name="t_pas" value="<%=pass%>" type="text">
-                </div>
-
-                <div class="input-field col s12 l6 m6">
-                    <p id="input_msg">Tipo de usuario</p>
-                    <br>
-                    <input id="input_txt" name="t_rol" value="<%=rol%>" type="text">
-                </div>
-
-                <td><input type="submit" name="btn-modificarPerfil" value="Modificar"></td>
-                <!--<div id="" class="" title="consultar aprendiz">
-                    <button name="btn-modificar" id="btn_action_guardar" class="btn_action_guardar" type="submit" style="position: inherit;display: block;margin-left: auto;margin-right: auto;">
-                        <p id="txt_buttom" >actualizar</p>
-                    </button>
-                </div>-->
 
             </div>
         </form>
+                
+        <%
+            }
+        %>                         
+        
+
+<div class="container" style="margin-bottom:15px;">
+    <div class="contenedor_blanco">
+        
+        hola
+              
     </div>   
-</div>   
+</div> 
+
+
+
               
                
 

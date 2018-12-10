@@ -27,11 +27,17 @@
             <!--estilo de la tabla--> 
             <link type="text/css" rel="stylesheet" href=""  media="screen,projection"/>
             
+            <!--estilo footer-->
+            <link type="text/css" rel="stylesheet" href="css/footer.css"  media="screen,projection"/>
+            
             <!--estilo modulo busqueda-->
             <link type="text/css" rel="stylesheet" href="css/login.css" media="screen,projection"/>
 
             <!--estilo materialize.css-->
             <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>    
+            
+            <link href="css/fonts/lobster/Lobster-Regular.ttf" rel="stylesheet">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
             
             <!--importando--->
             <script src="js/jquery.js"></script>
@@ -108,12 +114,12 @@
                             </div>
 
                                 
-                                    <button id="btn-Ingreso" class="btn-Ingreso" name="btn-entrar" >
-                                    <p id="msg-btn" class="msg-btn">entrar</p>
-                                    </button>
+                            <button id="btn-Ingreso" class="btn-Ingreso" name="btn-entrar" >
+                            <p id="msg-btn" class="msg-btn">entrar</p>
+                            </button>
                             
                                 
-                            <p href="#recover" id="msg-remember" class="msg-remember">No recuerdas tu contraseña?</p>
+                            
                             
                             </div> 
                             </form>
@@ -121,12 +127,28 @@
                         </div>
 
                         <div class="col l6 m5 s12">
-                        <img src="img-login/index.jpg" class=" responsive-img hide-on-small-only">
+                            <img src="img-login/index.jpg" id="img_index">
                         </div>
 
     </div>
     </div>
     
+        
+        <div id="footer_style">
+            <div id="footer_p_1" >
+                <img id="img_foot_1" src="img_footer/Logo4.png" />
+                <img id="img_foot_2" src="img_footer/Logo1.png" />
+            </div>
+            <div id="footer_p_2" > 
+                <p id="text_foot">BieneSoft</p>
+                <p id="text_foot">Todos los derechos reservados</p>
+                <p id="text_foot">2018</p>
+            </div>
+            <div id="footer_p_3" >
+                <img id="img_foot_3" src="img_footer/Logo2.png" />
+                <img id="img_foot_4" src="img_footer/Logo3.png" />
+            </div>
+        </div>    
     
     
     

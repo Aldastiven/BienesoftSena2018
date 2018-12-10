@@ -25,7 +25,7 @@ public class crudPermisos {
     //GUARDAR 
     public void guardar_permiso(permisoSG ing , String f_ingreso){
         try{          
-            ps=cnn.prepareStatement("INSERT INTO permiso VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");   
+            ps=cnn.prepareStatement("INSERT INTO permiso VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");   
             ps.setInt(1, ing.getPer_ID());
             ps.setInt(2, ing.getPer_Aprendiz_Apr_documento());
             ps.setString(3, ing.getPer_tipo());
@@ -43,6 +43,9 @@ public class crudPermisos {
             ps.setString(14, ing.getPer_estado());
             ps.setString(15, ing.getPer_autoriza());
             ps.setString(16, ing.getPer_evidenciaAdjunta());
+            ps.setString(17, null);
+            ps.setString(18, ing.getPer_fecha_Creacion());
+            ps.setString(19, null);
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null,"Registro realizado");
             
@@ -69,7 +72,7 @@ public class crudPermisos {
     //cambio del estado autorizado o denegado (modulo coordinador)
     public int actualizar_permisoEstado(permisoSG inge){
         try {
-            ps=cnn.prepareStatement("UPDATE permiso SET per_estado='"+inge.getPer_estado()+"', per_autoriza='"+inge.getPer_autoriza()+"' "
+            ps=cnn.prepareStatement("UPDATE permiso SET per_estado='"+inge.getPer_estado()+"', per_autoriza='"+inge.getPer_autoriza()+"', per_fecha_respuesta='"+inge.getPer_fecha_respuesta()+"' "
                                     + "WHERE  per_ID='"+inge.getPer_ID()+"' ");
             ps.executeUpdate();
             
@@ -128,19 +131,19 @@ public class crudPermisos {
         int x=0;
         
 //        JOptionPane.showMessageDialog(null, "se envio Incompleto---->   "+ resultadoEst);
-            JOptionPane.showMessageDialog(null, "se envio al procedimiento---->   "+ resultadoEst);
+            //JOptionPane.showMessageDialog(null, "se envio al procedimiento---->   "+ resultadoEst);
 
 
          //si el estado es completo
         try {    
-            JOptionPane.showMessageDialog(null, "entro al try del precedimiento Completo---->   "+ resultadoEst);
+           // JOptionPane.showMessageDialog(null, "entro al try del precedimiento Completo---->   "+ resultadoEst);
             if(resultadoEst.equals("Completo")){
-                    JOptionPane.showMessageDialog(null,"se envio aquiii: "+resultadoEst);
+                    //JOptionPane.showMessageDialog(null,"se envio aquiii: "+resultadoEst);
                     ps=cnn.prepareCall("call tipopermiso('Completo')");
                     ps.executeUpdate();               
-                    JOptionPane.showMessageDialog(null,"Call estado:Completo");
+                    //JOptionPane.showMessageDialog(null,"Call estado:Completo");
             }else{
-                JOptionPane.showMessageDialog(null,"no entro al Completo  ");
+                //JOptionPane.showMessageDialog(null,"no entro al Completo  ");
             }  
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"no se llamo al procedimiento " +e);
@@ -149,12 +152,12 @@ public class crudPermisos {
         //si el estado es incompleto
         try {       
             if(resultadoEst.equals("Incompleto") && setget.getPer_estado()==null ){
-                    JOptionPane.showMessageDialog(null,"se envio aquiii: "+resultadoEst);
+                    //JOptionPane.showMessageDialog(null,"se envio aquiii: "+resultadoEst);
                     ps=cnn.prepareCall("call tipopermiso('Incompleto')");
                     ps.executeUpdate();               
-                    JOptionPane.showMessageDialog(null,"Call estado:Incompleto");
+                    //JOptionPane.showMessageDialog(null,"Call estado:Incompleto");
             }else{
-                JOptionPane.showMessageDialog(null,"no entro al Imcompleto");
+                //JOptionPane.showMessageDialog(null,"no entro al Imcompleto");
             }  
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"no se llamo al procedimiento " +e);
@@ -166,9 +169,9 @@ public class crudPermisos {
             if(setget.getPer_estado().equals("Denegado") ){
                     ps=cnn.prepareCall("call tipopermiso('Denegado')");
                     ps.executeUpdate();               
-                    JOptionPane.showMessageDialog(null,"Call estado:Denegado");
+                    //JOptionPane.showMessageDialog(null,"Call estado:Denegado");
             }else{
-                JOptionPane.showMessageDialog(null,"no entro al Denegado");
+                //JOptionPane.showMessageDialog(null,"no entro al Denegado");
             }
         } catch (Exception e) {
         }
@@ -200,7 +203,7 @@ public class crudPermisos {
                 rs = stmt.executeQuery(SQL);
                 
                 while (rs.next()) {
-                    JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
+                    //JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
                     String resultadoEst =  rs.getString("per_estado");
                     //JOptionPane.showMessageDialog(null, "value get thanks you :)   ---->" +resultadoEst);
                     
@@ -220,9 +223,9 @@ public class crudPermisos {
                 rs = stmt.executeQuery(SQL);
                 
                 while (rs.next()) {
-                    JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
+                    //JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
                     String resultadoEst =  rs.getString("per_estado");
-                    JOptionPane.showMessageDialog(null, "value get thanks you :)   ---->" +resultadoEst);
+                    //JOptionPane.showMessageDialog(null, "value get thanks you :)   ---->" +resultadoEst);
    
                     crudPermisos crud = new crudPermisos();
                     crud.procedimientos_historial(ing, resultadoEst);
@@ -240,7 +243,7 @@ public class crudPermisos {
      
      public int consulta_fecha_hora_ingreso_real(int id){
          
-         JOptionPane.showMessageDialog(null, "entro al metodo de consulta datos reales");
+         //JOptionPane.showMessageDialog(null, "entro al metodo de consulta datos reales");
          
          try{
          
@@ -248,7 +251,7 @@ public class crudPermisos {
             stmt = cnn.createStatement();
             rs = stmt.executeQuery(SQL);
             
-            JOptionPane.showMessageDialog(null, "Ingreso al metodo:  --> consulta_fecha_hora_ingreso_real");
+            //JOptionPane.showMessageDialog(null, "Ingreso al metodo:  --> consulta_fecha_hora_ingreso_real");
             
             while (rs.next()) {
                // JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
@@ -267,33 +270,12 @@ public class crudPermisos {
             }
             
          }catch(Exception e){
-         
+         JOptionPane.showMessageDialog(null, "PAILAS" +e);
          }
          
         return 0;
      
     }
-     
-     
-    
-     //AUTOGENERAR LA FECHA DE INGRESO DEL APRENDIZ EN FORM PERMISO
-//     public int fecha(permisoSG ing){    
-//        int x=0;
-//            try {            
-//                ps=(PreparedStatement) cnn.prepareStatement("DELETE FROM permiso WHERE per_ID='"+ing.getPer_ID()+"' ");
-//                x=ps.executeUpdate();            
-//                JOptionPane.showMessageDialog(null, "Datos Eliminados");                
-//            } catch (Exception e) {
-//                JOptionPane.showMessageDialog(null, "Datos NO Eliminados" +e);            
-//            }            
-//        return x;    
-//    }
-     
-     
-     
-     
-     
-     
      
     
 }

@@ -3,29 +3,33 @@ package modelo;
 
 
 public class permisoSG {
-    private int per_ID;
-    private int per_Aprendiz_Apr_documento;
-    private String per_tipo;
-    private String per_fecha_salida;
-    private String per_fecha_ingreso;
-    private String per_hora_Salida;
-    private String per_hora_ingreso;
-    private String per_fecha_ingresoReal;
-    private String per_hora_ingresoReal;
-    private String per_fecha_salidaReal;
-    private String per_hora_salidaReal;
-    private String per_observacion_permiso_llegada;
-    private String per_motivo;
-    private String per_estado;
-    private String per_autoriza;
-    private String per_evidenciaAdjunta;
+    private int per_ID; //1
+    private int per_Aprendiz_Apr_documento;//2    
+    private String per_tipo;//3
+    private String per_fecha_salida;//4
+    private String per_fecha_ingreso;//5
+    private String per_hora_Salida;//6
+    private String per_hora_ingreso;//7
+    private String per_fecha_ingresoReal;//8
+    private String per_hora_ingresoReal;//9
+    private String per_fecha_salidaReal;//10
+    private String per_hora_salidaReal;//11
+    private String per_observacion_permiso_llegada;//12
+    private String per_motivo;//13
+    private String per_estado;//14
+    private String per_autoriza;//15
+    private String per_evidenciaAdjunta;//16
+    private String per_fecha_respuesta;//17
+    private String Per_fecha_Creacion;//18
+    private String per_estado_leido;//19
     
     //CONSTRUCTOR VACIO 
     public permisoSG() {
     }
     
     //CONSTRUCTOR
-    public permisoSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_fecha_ingresoReal, String per_hora_ingresoReal, String per_fecha_salidaReal, String per_hora_salidaReal, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta) {
+
+    public permisoSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_fecha_ingresoReal, String per_hora_ingresoReal, String per_fecha_salidaReal, String per_hora_salidaReal, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta, String per_fecha_respuesta, String Per_fecha_Creacion, String per_estado_leido) {
         this.per_ID = per_ID;
         this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
         this.per_tipo = per_tipo;
@@ -42,11 +46,18 @@ public class permisoSG {
         this.per_estado = per_estado;
         this.per_autoriza = per_autoriza;
         this.per_evidenciaAdjunta = per_evidenciaAdjunta;
+        this.per_fecha_respuesta = per_fecha_respuesta;
+        this.Per_fecha_Creacion = Per_fecha_Creacion;
+        this.per_estado_leido = per_estado_leido;
     }
+
     
+    
+   
+
     //CONSTRUCTOR TOMANDO TODOS LOS DATOS MENOS EL ID DEL PERMISO
 
-    public permisoSG(int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_fecha_ingresoReal, String per_hora_ingresoReal, String per_fecha_salidaReal, String per_hora_salidaReal, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta) {
+    public permisoSG(int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_fecha_ingresoReal, String per_hora_ingresoReal, String per_fecha_salidaReal, String per_hora_salidaReal, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta, String per_fecha_respuesta, String Per_fecha_Creacion, String per_estado_leido) {
         this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
         this.per_tipo = per_tipo;
         this.per_fecha_salida = per_fecha_salida;
@@ -62,16 +73,58 @@ public class permisoSG {
         this.per_estado = per_estado;
         this.per_autoriza = per_autoriza;
         this.per_evidenciaAdjunta = per_evidenciaAdjunta;
+        this.per_fecha_respuesta = per_fecha_respuesta;
+        this.Per_fecha_Creacion = Per_fecha_Creacion;
+        this.per_estado_leido = per_estado_leido;
     }
-    
 
+    
     //CONSTRUCTOR PARA ACTUALIZAR EL PERMISO EN LE MODULO COORDINADOR
-    public permisoSG(int per_ID, String per_estado, String per_autoriza) {
+
+    public permisoSG(int per_ID, String per_estado, String per_autoriza, String per_fecha_respuesta) {
         this.per_ID = per_ID;
         this.per_estado = per_estado;
         this.per_autoriza = per_autoriza;
+        this.per_fecha_respuesta = per_fecha_respuesta;
     }
- 
+
+    
+    //tipo permiso
+    public permisoSG(String per_tipo) {
+        this.per_tipo = per_tipo;
+    }
+    
+    
+    //PERMISO ID AUTORIZACION
+    public permisoSG(int per_ID) {
+        this.per_ID = per_ID;
+    }
+    
+    
+    //DATOS DE 4 TIPOS PARA SALIDA REAL Y ESTIPULADA APR
+    public permisoSG(String per_fecha_salida, String per_hora_Salida, String per_fecha_salidaReal, String per_hora_salidaReal) {
+        this.per_fecha_salida = per_fecha_salida;
+        this.per_hora_Salida = per_hora_Salida;
+        this.per_fecha_salidaReal = per_fecha_salidaReal;
+        this.per_hora_salidaReal = per_hora_salidaReal;
+    }
+    
+    
+    //Fechas estipuladas
+    public permisoSG(String per_fecha_salida, String per_fecha_ingreso) {
+        this.per_fecha_salida = per_fecha_salida;
+        this.per_fecha_ingreso = per_fecha_ingreso;
+    }
+
+    public permisoSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_motivo, String per_estado) {
+        this.per_ID = per_ID;
+        this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
+        this.per_tipo = per_tipo;
+        this.per_motivo = per_motivo;
+        this.per_estado = per_estado;
+    }
+    
+    //SET GET
 
     public int getPer_ID() {
         return per_ID;
@@ -87,6 +140,30 @@ public class permisoSG {
 
     public void setPer_Aprendiz_Apr_documento(int per_Aprendiz_Apr_documento) {
         this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
+    }
+
+    public String getPer_fecha_respuesta() {
+        return per_fecha_respuesta;
+    }
+
+    public void setPer_fecha_respuesta(String per_fecha_respuesta) {
+        this.per_fecha_respuesta = per_fecha_respuesta;
+    }
+
+    public String getPer_fecha_Creacion() {
+        return Per_fecha_Creacion;
+    }
+
+    public void setPer_fecha_Creacion(String Per_fecha_Creacion) {
+        this.Per_fecha_Creacion = Per_fecha_Creacion;
+    }
+
+    public String getPer_estado_leido() {
+        return per_estado_leido;
+    }
+
+    public void setPer_estado_leido(String per_estado_leido) {
+        this.per_estado_leido = per_estado_leido;
     }
 
     public String getPer_tipo() {
@@ -199,57 +276,6 @@ public class permisoSG {
 
     public void setPer_evidenciaAdjunta(String per_evidenciaAdjunta) {
         this.per_evidenciaAdjunta = per_evidenciaAdjunta;
-    }
-    
-    //Datos que necesito para permiso       
-    public permisoSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta) {
-        this.per_ID = per_ID;
-        this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
-        this.per_tipo = per_tipo;
-        this.per_fecha_salida = per_fecha_salida;
-        this.per_fecha_ingreso = per_fecha_ingreso;
-        this.per_hora_Salida = per_hora_Salida;
-        this.per_hora_ingreso = per_hora_ingreso;
-        this.per_observacion_permiso_llegada = per_observacion_permiso_llegada;
-        this.per_motivo = per_motivo;
-        this.per_estado = per_estado;
-        this.per_autoriza = per_autoriza;
-        this.per_evidenciaAdjunta = per_evidenciaAdjunta;
-    }
-    
-    //tipo permiso
-    public permisoSG(String per_tipo) {
-        this.per_tipo = per_tipo;
-    }
-    
-    
-    //PERMISO ID AUTORIZACION
-    public permisoSG(int per_ID) {
-        this.per_ID = per_ID;
-    }
-    
-    
-    //DATOS DE 4 TIPOS PARA SALIDA REAL Y ESTIPULADA APR
-    public permisoSG(String per_fecha_salida, String per_hora_Salida, String per_fecha_salidaReal, String per_hora_salidaReal) {
-        this.per_fecha_salida = per_fecha_salida;
-        this.per_hora_Salida = per_hora_Salida;
-        this.per_fecha_salidaReal = per_fecha_salidaReal;
-        this.per_hora_salidaReal = per_hora_salidaReal;
-    }
-    
-    
-    //Fechas estipuladas
-    public permisoSG(String per_fecha_salida, String per_fecha_ingreso) {
-        this.per_fecha_salida = per_fecha_salida;
-        this.per_fecha_ingreso = per_fecha_ingreso;
-    }
-
-    public permisoSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_motivo, String per_estado) {
-        this.per_ID = per_ID;
-        this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
-        this.per_tipo = per_tipo;
-        this.per_motivo = per_motivo;
-        this.per_estado = per_estado;
     }
     
     

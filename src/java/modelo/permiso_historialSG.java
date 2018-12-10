@@ -11,182 +11,242 @@ package modelo;
  */
 public class permiso_historialSG {
     
-    private int per_ID;
-    private int per_Aprendiz_Apr_documento;
-    private String per_tipo;
-    private String per_fecha_salida;
-    private String per_fecha_ingreso;
-    private String per_hora_Salida;
-    private String per_hora_ingreso;
-    private String per_fecha_ingresoReal;
-    private String per_hora_ingresoReal;
-    private String per_fecha_salidaReal;
-    private String per_hora_salidaReal;
-    private String per_observacion_permiso_llegada;
-    private String per_motivo;
-    private String per_estado;
-    private String per_autoriza;
-    private String per_evidenciaAdjunta;
-
-    //CONSTRUCTOR VACIO
-    public permiso_historialSG() {
-    }
-
-    //CONSTRUCT0R
-    public permiso_historialSG(int per_ID, int per_Aprendiz_Apr_documento, String per_tipo, String per_fecha_salida, String per_fecha_ingreso, String per_hora_Salida, String per_hora_ingreso, String per_fecha_ingresoReal, String per_hora_ingresoReal, String per_fecha_salidaReal, String per_hora_salidaReal, String per_observacion_permiso_llegada, String per_motivo, String per_estado, String per_autoriza, String per_evidenciaAdjunta) {
-        this.per_ID = per_ID;
-        this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
-        this.per_tipo = per_tipo;
-        this.per_fecha_salida = per_fecha_salida;
-        this.per_fecha_ingreso = per_fecha_ingreso;
-        this.per_hora_Salida = per_hora_Salida;
-        this.per_hora_ingreso = per_hora_ingreso;
-        this.per_fecha_ingresoReal = per_fecha_ingresoReal;
-        this.per_hora_ingresoReal = per_hora_ingresoReal;
-        this.per_fecha_salidaReal = per_fecha_salidaReal;
-        this.per_hora_salidaReal = per_hora_salidaReal;
-        this.per_observacion_permiso_llegada = per_observacion_permiso_llegada;
-        this.per_motivo = per_motivo;
-        this.per_estado = per_estado;
-        this.per_autoriza = per_autoriza;
-        this.per_evidenciaAdjunta = per_evidenciaAdjunta;
-    }
-
-    public permiso_historialSG(int per_ID) {
-        this.per_ID = per_ID;
-    }
-
-   
+    private int his_per_ID;
+    private int his_per_Aprendiz_Apr_documento;
+    private String his_per_tipo;
+    private String his_per_fecha_salida;
+    private String his_per_fecha_ingreso;
+    private String his_per_hora_Salida;
+    private String his_per_hora_ingreso;
+    private String his_per_fecha_ingresoReal;
+    private String his_per_hora_ingresoReal;
+    private String his_per_fecha_salidaReal;
+    private String  his_per_hora_salidaReal;
+    private String his_per_observacion_llegada;
+    private String his_per_motivo;
+    private String his_per_estado;
+    private String his_per_autoriza;
+    private String his_per_evidenciaAdjunta;
+    private String his_per_fecha_respuesta;
+    private String his_per_fechaCreacion;
+    private String his_per_estado_leido;
     
-    //SET GET
-
-    public int getPer_ID() {
-        return per_ID;
+    public permiso_historialSG(){
     }
 
-    public void setPer_ID(int per_ID) {
-        this.per_ID = per_ID;
+     //COMPLETO
+    public permiso_historialSG(int his_per_ID, int his_per_Aprendiz_Apr_documento, String his_per_tipo, String his_per_fecha_salida, String his_per_fecha_ingreso, String his_per_hora_Salida, String his_per_hora_ingreso, String his_per_fecha_ingresoReal, String his_per_hora_ingresoReal, String his_per_fecha_salidaReal, String his_per_hora_salidaReal, String his_per_observacion_llegada, String his_per_motivo, String his_per_estado, String his_per_autoriza, String his_per_evidenciaAdjunta, String his_per_fecha_respuesta, String his_per_fechaCreacion, String his_per_estado_leido) {
+        this.his_per_ID = his_per_ID;
+        this.his_per_Aprendiz_Apr_documento = his_per_Aprendiz_Apr_documento;
+        this.his_per_tipo = his_per_tipo;
+        this.his_per_fecha_salida = his_per_fecha_salida;
+        this.his_per_fecha_ingreso = his_per_fecha_ingreso;
+        this.his_per_hora_Salida = his_per_hora_Salida;
+        this.his_per_hora_ingreso = his_per_hora_ingreso;
+        this.his_per_fecha_ingresoReal = his_per_fecha_ingresoReal;
+        this.his_per_hora_ingresoReal = his_per_hora_ingresoReal;
+        this.his_per_fecha_salidaReal = his_per_fecha_salidaReal;
+        this.his_per_hora_salidaReal = his_per_hora_salidaReal;
+        this.his_per_observacion_llegada = his_per_observacion_llegada;
+        this.his_per_motivo = his_per_motivo;
+        this.his_per_estado = his_per_estado;
+        this.his_per_autoriza = his_per_autoriza;
+        this.his_per_evidenciaAdjunta = his_per_evidenciaAdjunta;
+        this.his_per_fecha_respuesta = his_per_fecha_respuesta;
+        this.his_per_fechaCreacion = his_per_fechaCreacion;
+        this.his_per_estado_leido = his_per_estado_leido;
     }
 
-    public int getPer_Aprendiz_Apr_documento() {
-        return per_Aprendiz_Apr_documento;
+     //SIN ID
+    public permiso_historialSG(int his_per_Aprendiz_Apr_documento, String his_per_tipo, String his_per_fecha_salida, String his_per_fecha_ingreso, String his_per_hora_Salida, String his_per_hora_ingreso, String his_per_fecha_ingresoReal, String his_per_hora_ingresoReal, String his_per_fecha_salidaReal, String his_per_hora_salidaReal, String his_per_observacion_llegada, String his_per_motivo, String his_per_estado, String his_per_autoriza, String his_per_evidenciaAdjunta, String his_per_fecha_respuesta, String his_per_fechaCreacion, String his_per_estado_leido) {
+        this.his_per_Aprendiz_Apr_documento = his_per_Aprendiz_Apr_documento;
+        this.his_per_tipo = his_per_tipo;
+        this.his_per_fecha_salida = his_per_fecha_salida;
+        this.his_per_fecha_ingreso = his_per_fecha_ingreso;
+        this.his_per_hora_Salida = his_per_hora_Salida;
+        this.his_per_hora_ingreso = his_per_hora_ingreso;
+        this.his_per_fecha_ingresoReal = his_per_fecha_ingresoReal;
+        this.his_per_hora_ingresoReal = his_per_hora_ingresoReal;
+        this.his_per_fecha_salidaReal = his_per_fecha_salidaReal;
+        this.his_per_hora_salidaReal = his_per_hora_salidaReal;
+        this.his_per_observacion_llegada = his_per_observacion_llegada;
+        this.his_per_motivo = his_per_motivo;
+        this.his_per_estado = his_per_estado;
+        this.his_per_autoriza = his_per_autoriza;
+        this.his_per_evidenciaAdjunta = his_per_evidenciaAdjunta;
+        this.his_per_fecha_respuesta = his_per_fecha_respuesta;
+        this.his_per_fechaCreacion = his_per_fechaCreacion;
+        this.his_per_estado_leido = his_per_estado_leido;
     }
 
-    public void setPer_Aprendiz_Apr_documento(int per_Aprendiz_Apr_documento) {
-        this.per_Aprendiz_Apr_documento = per_Aprendiz_Apr_documento;
+    public permiso_historialSG(int his_per_ID) {
+        this.his_per_ID = his_per_ID;
     }
 
-    public String getPer_tipo() {
-        return per_tipo;
+
+    
+    
+    //SET AND GET
+
+    public int getHis_per_ID() {
+        return his_per_ID;
     }
 
-    public void setPer_tipo(String per_tipo) {
-        this.per_tipo = per_tipo;
+    public void setHis_per_ID(int his_per_ID) {
+        this.his_per_ID = his_per_ID;
     }
 
-    public String getPer_fecha_salida() {
-        return per_fecha_salida;
+    public int getHis_per_Aprendiz_Apr_documento() {
+        return his_per_Aprendiz_Apr_documento;
     }
 
-    public void setPer_fecha_salida(String per_fecha_salida) {
-        this.per_fecha_salida = per_fecha_salida;
+    public void setHis_per_Aprendiz_Apr_documento(int his_per_Aprendiz_Apr_documento) {
+        this.his_per_Aprendiz_Apr_documento = his_per_Aprendiz_Apr_documento;
     }
 
-    public String getPer_fecha_ingreso() {
-        return per_fecha_ingreso;
+    public String getHis_per_tipo() {
+        return his_per_tipo;
     }
 
-    public void setPer_fecha_ingreso(String per_fecha_ingreso) {
-        this.per_fecha_ingreso = per_fecha_ingreso;
+    public void setHis_per_tipo(String his_per_tipo) {
+        this.his_per_tipo = his_per_tipo;
     }
 
-    public String getPer_hora_Salida() {
-        return per_hora_Salida;
+    public String getHis_per_fecha_salida() {
+        return his_per_fecha_salida;
     }
 
-    public void setPer_hora_Salida(String per_hora_Salida) {
-        this.per_hora_Salida = per_hora_Salida;
+    public void setHis_per_fecha_salida(String his_per_fecha_salida) {
+        this.his_per_fecha_salida = his_per_fecha_salida;
     }
 
-    public String getPer_hora_ingreso() {
-        return per_hora_ingreso;
+    public String getHis_per_fecha_ingreso() {
+        return his_per_fecha_ingreso;
     }
 
-    public void setPer_hora_ingreso(String per_hora_ingreso) {
-        this.per_hora_ingreso = per_hora_ingreso;
+    public void setHis_per_fecha_ingreso(String his_per_fecha_ingreso) {
+        this.his_per_fecha_ingreso = his_per_fecha_ingreso;
     }
 
-    public String getPer_fecha_ingresoReal() {
-        return per_fecha_ingresoReal;
+    public String getHis_per_hora_Salida() {
+        return his_per_hora_Salida;
     }
 
-    public void setPer_fecha_ingresoReal(String per_fecha_ingresoReal) {
-        this.per_fecha_ingresoReal = per_fecha_ingresoReal;
+    public void setHis_per_hora_Salida(String his_per_hora_Salida) {
+        this.his_per_hora_Salida = his_per_hora_Salida;
     }
 
-    public String getPer_hora_ingresoReal() {
-        return per_hora_ingresoReal;
+    public String getHis_per_hora_ingreso() {
+        return his_per_hora_ingreso;
     }
 
-    public void setPer_hora_ingresoReal(String per_hora_ingresoReal) {
-        this.per_hora_ingresoReal = per_hora_ingresoReal;
+    public void setHis_per_hora_ingreso(String his_per_hora_ingreso) {
+        this.his_per_hora_ingreso = his_per_hora_ingreso;
     }
 
-    public String getPer_fecha_salidaReal() {
-        return per_fecha_salidaReal;
+    public String getHis_per_fecha_ingresoReal() {
+        return his_per_fecha_ingresoReal;
     }
 
-    public void setPer_fecha_salidaReal(String per_fecha_salidaReal) {
-        this.per_fecha_salidaReal = per_fecha_salidaReal;
+    public void setHis_per_fecha_ingresoReal(String his_per_fecha_ingresoReal) {
+        this.his_per_fecha_ingresoReal = his_per_fecha_ingresoReal;
     }
 
-    public String getPer_hora_salidaReal() {
-        return per_hora_salidaReal;
+    public String getHis_per_hora_ingresoReal() {
+        return his_per_hora_ingresoReal;
     }
 
-    public void setPer_hora_salidaReal(String per_hora_salidaReal) {
-        this.per_hora_salidaReal = per_hora_salidaReal;
+    public void setHis_per_hora_ingresoReal(String his_per_hora_ingresoReal) {
+        this.his_per_hora_ingresoReal = his_per_hora_ingresoReal;
     }
 
-    public String getPer_observacion_permiso_llegada() {
-        return per_observacion_permiso_llegada;
+    public String getHis_per_fecha_salidaReal() {
+        return his_per_fecha_salidaReal;
     }
 
-    public void setPer_observacion_permiso_llegada(String per_observacion_permiso_llegada) {
-        this.per_observacion_permiso_llegada = per_observacion_permiso_llegada;
+    public void setHis_per_fecha_salidaReal(String his_per_fecha_salidaReal) {
+        this.his_per_fecha_salidaReal = his_per_fecha_salidaReal;
     }
 
-    public String getPer_motivo() {
-        return per_motivo;
+    public String getHis_per_hora_salidaReal() {
+        return his_per_hora_salidaReal;
     }
 
-    public void setPer_motivo(String per_motivo) {
-        this.per_motivo = per_motivo;
+    public void setHis_per_hora_salidaReal(String his_per_hora_salidaReal) {
+        this.his_per_hora_salidaReal = his_per_hora_salidaReal;
     }
 
-    public String getPer_estado() {
-        return per_estado;
+    public String getHis_per_observacion_llegada() {
+        return his_per_observacion_llegada;
     }
 
-    public void setPer_estado(String per_estado) {
-        this.per_estado = per_estado;
+    public void setHis_per_observacion_llegada(String his_per_observacion_llegada) {
+        this.his_per_observacion_llegada = his_per_observacion_llegada;
     }
 
-    public String getPer_autoriza() {
-        return per_autoriza;
+    public String getHis_per_motivo() {
+        return his_per_motivo;
     }
 
-    public void setPer_autoriza(String per_autoriza) {
-        this.per_autoriza = per_autoriza;
+    public void setHis_per_motivo(String his_per_motivo) {
+        this.his_per_motivo = his_per_motivo;
     }
 
-    public String getPer_evidenciaAdjunta() {
-        return per_evidenciaAdjunta;
+    public String getHis_per_estado() {
+        return his_per_estado;
     }
 
-    public void setPer_evidenciaAdjunta(String per_evidenciaAdjunta) {
-        this.per_evidenciaAdjunta = per_evidenciaAdjunta;
+    public void setHis_per_estado(String his_per_estado) {
+        this.his_per_estado = his_per_estado;
     }
+
+    public String getHis_per_autoriza() {
+        return his_per_autoriza;
+    }
+
+    public void setHis_per_autoriza(String his_per_autoriza) {
+        this.his_per_autoriza = his_per_autoriza;
+    }
+
+    public String getHis_per_evidenciaAdjunta() {
+        return his_per_evidenciaAdjunta;
+    }
+
+    public void setHis_per_evidenciaAdjunta(String his_per_evidenciaAdjunta) {
+        this.his_per_evidenciaAdjunta = his_per_evidenciaAdjunta;
+    }
+
+    public String getHis_per_fecha_respuesta() {
+        return his_per_fecha_respuesta;
+    }
+
+    public void setHis_per_fecha_respuesta(String his_per_fecha_respuesta) {
+        this.his_per_fecha_respuesta = his_per_fecha_respuesta;
+    }
+
+    public String getHis_per_fechaCreacion() {
+        return his_per_fechaCreacion;
+    }
+
+    public void setHis_per_fechaCreacion(String his_per_fechaCreacion) {
+        this.his_per_fechaCreacion = his_per_fechaCreacion;
+    }
+
+    public String getHis_per_estado_leido() {
+        return his_per_estado_leido;
+    }
+
+    public void setHis_per_estado_leido(String his_per_estado_leido) {
+        this.his_per_estado_leido = his_per_estado_leido;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     
 }

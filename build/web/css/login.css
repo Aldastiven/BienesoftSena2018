@@ -3,20 +3,26 @@
     position: relative;
     top: -20px;
     background: white;
+    box-shadow: 0px 5px 17px -9px rgba(99,99,99,1);
 }
 
 #header-login{
-    background: #0D47A1;
-    color: white;
+    background: white;
+    color: #b0bec5;
+    font-family: 'Lobster', serif;
+    font-size: 40px;
     padding-bottom: 9px;
     text-align: center;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to left, #04a5d6 0%, #6af57c 50% ,  #ff9361 90%  );
+    border-image-slice: 1;
 }
 
 #txt_user{
     background-color: #EEEEEE;
     border: 1px solid #b2bec3;
     font-size: 15px;
-    height: 30px;
+    height: 40px;
     width: 100%;
     border-radius: 10px 10px 10px 10px;
 }
@@ -32,23 +38,23 @@
 #btn-Ingreso{
     background-color: #1976D2;
     width: 80%;
-    border: 3px solid #0D47A1;
-    border-radius: 10px 10px 10px 10px;
+    height: 60px;
+    border: 2px solid #0D47A1;
     position: relative;
     left: 10%;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: 20px;
 }
 
 #btn-Ingreso:hover{
-    background-color: #0D47A1;
+    background-color: #018cff;
     cursor: pointer;
 }
 
 #msg-btn{
     color : white;
-    font-size: 20px;
-    margin: 10px;
+    font-size: 22px;
+    margin: 5px;
 }
 
 #msg-remember{
@@ -61,4 +67,85 @@
 #msg-remember:hover{
     cursor: pointer;
     border-bottom: 4px solid #0D47A1;
+}
+
+#img_index{
+    width: 430px;
+    height: 400px;
+}
+
+
+
+@media only screen and (min-width: 769x) {
+  /* For tablets: */
+    #img_index{
+        display: block;
+        width: auto;
+    }
+    
+    #container-login {
+        width: 400px;
+        margin-right: -120px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+  /* For mobile phones: */
+  
+#img_index{
+    display: none;
+}
+
+#footer_style{
+    background-color: #f5f5f5;
+    border-top: 2px solid #b2bec3;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    color: white;
+}
+
+#footer_p_1{
+    width: 100%;
+    height: 33%;   
+}
+
+#footer_p_2{
+    width: 100%;
+    height: 33%;   
+}
+
+#footer_p_3{
+    width: 100%;
+    height: 33%;   
+}
+
+#img_foot_1{
+    width: 70px;
+    margin-left: 60px;
+    margin-top: 5px;
+}
+
+#img_foot_2{
+    width: 150px;
+    margin-left: 10px;
+    margin-top: -40px;
+}
+
+#img_foot_3, #img_foot_4{
+    width: 138px;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+#text_foot{
+    color: gray;
+    font-size: 15px;
+    margin-bottom: -10px;
+    margin-top: 9px;
+    text-align: center;
+}
+
 }

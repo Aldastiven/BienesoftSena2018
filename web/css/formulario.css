@@ -5,21 +5,11 @@
     position: relative;
     left: 87%;
 }
+
 #btn_form_float_menu{
     position: relative;
     left: 20%;
 }
-
-/*#title_container{
-    background-color: #3498db;
-    padding-top: 25px;
-    padding-bottom: 20px;
-    height: 70px;
-    font-size: 20px;
-    text-align: center;
-    color: #fff;
-    margin-bottom: 15px;
-}*/
 
 
 .titulonly{
@@ -95,10 +85,11 @@
 }
 
 #container_form_large{
+    background: white;
     padding-top: 20px;
-    background-color: #fff;
-    height: 800px;
     overflow: scroll;
+    height: 300px;
+    overflow-x: hidden;
 }
 
 #btn_form{
@@ -109,7 +100,7 @@
     font-size: 40px;
     border: none;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: -70px;
 }
 
 #btn_form:hover{
@@ -117,7 +108,6 @@
 }
 
 #btn_form_float{
-    margin-bottom: 20px;
     position: relative;
     left: 40%;
 }

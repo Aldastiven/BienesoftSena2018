@@ -1,3 +1,13 @@
+<%@page import="modelo.permiso_historialSG"%>
+<%@page import="jdk.nashorn.internal.runtime.ListAdapter"%>
+<%@page import="modelo.usuarioSG"%>
+<%@page import="javax.swing.JOptionPane"%>
+<%@page import="modelo.patrocinioSG"%>
+<%@page import="controlador.ServletPermiso"%>
+<%@page import="modelo.crudPermisos"%>
+<%@page import="modelo.consultas"%>
+<%@page import="modelo.permisoSG"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -149,22 +159,64 @@
         </div>
 
     </div>
+    
+    <div style="background: yellow; width: 300px; position: relative; top: -150px; margin-left: 30px; margin-top: -40; display: none;">
+        
+        <div>
+    <%                                
+            ArrayList<usuarioSG> listdatusu=new ArrayList<>(); 
+            consultas con=new consultas();
+            listdatusu=con.consultaUsuario();
+            usuarioSG igs=new usuarioSG();
+      
+            int idper=(int)rnombre.getAttribute("iden");
+        %>
 
-    <!--***************FOOTER*********************-->
-    <footer class="page-footer" id="footer_form">
+        <%
+            ArrayList<permisoSG> listdat=new ArrayList<>(); 
+            int u=id;
+            listdat=con.consulta_notificacion(u);
+            permisoSG x=new permisoSG();
 
-                    <div class="container white-text center">
-                    © 2018 Biene-Soft
-                    <br>
-                    Todos los derechos reservados
-                    </div>
-                    
-        </footer>
-    <!------------------------------------------------------------------------------------------------------>
+            for(int i=0; i<listdat.size(); i++){
+            x=listdat.get(i);
+        %>
+        <div id="resp_noti">        
+            <input id="input_txt" name="t_doc" value="<%=x.getPer_motivo()%>, <%=x.getPer_estado()%>" type="text" style="background: blue;">
+        </div>
+    <%
+        }
+    %>
+
+
+    </div>  
+    
+    
+    <div>
             
 
+        <%
+            ArrayList<permiso_historialSG> listdathis=new ArrayList<>(); 
+            listdathis=con.consulta_notificacion_his(u);
+            permiso_historialSG ph = new permiso_historialSG();
 
-            
+            for(int i=0; i<listdat.size(); i++){
+            ph=listdathis.get(i);
+        %>
+        <div id="resp_noti">        
+           <input id="input_txt" name="t_doc" value="<%=ph.getHis_per_estado()%>, <%=ph.getHis_per_ID()%>" type="text" style="background: blue;"> 
+        </div>
+    <%
+        }
+    %>
+
+    </div>
+    
+    
+        
+    </div>    
+
+    
 <!--importando funciones para los objetos-->    
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -178,4 +230,23 @@
         
     
 </body>
+
+    <!--***************FOOTER*********************-->
+        <div id="footer_style">
+            <div id="footer_p_1" >
+                <img id="img_foot_1" src="img_footer/Logo4.png" />
+                <img id="img_foot_2" src="img_footer/Logo1.png" />
+            </div>
+            <div id="footer_p_2" > 
+                <p id="text_foot">BieneSoft</p>
+                <p id="text_foot">Todos los derechos reservados</p>
+                <p id="text_foot">2018</p>
+            </div>
+            <div id="footer_p_3" >
+                <img id="img_foot_3" src="img_footer/Logo2.png" />
+                <img id="img_foot_4" src="img_footer/Logo3.png" />
+            </div>
+        </div>
+    <!------------------------------------------------------------------------------------------------------>
+
 </html>

@@ -114,27 +114,27 @@
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
             </a>
             <a href="t_permiso_coordinador.jsp">
-                <img class="icon-b" src="iconos_nav_bar/permisos.png"/>
+                <img class="icon-a" src="iconos_nav_bar/permisos.png"/>
                 <input id="opc_menu_2" type="submit" value="Permisos"/>
             </a>
 
             <a href="t_aprendiz.jsp">
-                <img class="icon-c" src="iconos_nav_bar/aprendiz.png"/>
+                <img class="icon-a" src="iconos_nav_bar/aprendiz.png"/>
                 <input id="opc_menu_2" type="submit" value="Aprendices"/>
             </a>
 
             <a href="t_ficha.jsp">
-                <img class="icon-d" src="iconos_nav_bar/fichas.png"/>
+                <img class="icon-a" src="iconos_nav_bar/fichas.png"/>
                 <input id="opc_menu_2" type="submit" value="Fichas"/>
             </a>    
 
             <a href="t_aprendiz_rel_patrocinio.jsp">
-                <img class="icon-e" src="iconos_nav_bar/patrocinio.png"/>
+                <img class="icon-a" src="iconos_nav_bar/patrocinio.png"/>
                 <input id="opc_menu_2" type="submit" value="Patrocinio"/>
             </a>
 
             <a href="t_habitacion.jsp">
-                <img class="icon-f" src="iconos_nav_bar/habitaciones.png"/>
+                <img class="icon-a" src="iconos_nav_bar/habitaciones.png"/>
                 <input id="opc_menu_2" type="submit" value="Habitaciones"/>
             </a>
         </nav>
@@ -224,16 +224,23 @@
 </div>
            
   
-    <!--***************FOOTER*********************-->
-   <footer class="page-footer" id="footer_form">
-       <div class="container white-text center">
-       © 2018 Biene-Soft
-       <br>
-       Todos los derechos reservados
-       </div>      
-   </footer>
-        <!------------------------------------------------------------------------------------------------------>
-                
+<!--***************FOOTER*********************-->
+        <div id="footer_style" style="display: none;">
+            <div id="footer_p_1" >
+                <img id="img_foot_1" src="img_footer/Logo4.png" />
+                <img id="img_foot_2" src="img_footer/Logo1.png" />
+            </div>
+            <div id="footer_p_2" > 
+                <p id="text_foot">BieneSoft</p>
+                <p id="text_foot">Todos los derechos reservados</p>
+                <p id="text_foot">2018</p>
+            </div>
+            <div id="footer_p_3" >
+                <img id="img_foot_3" src="img_footer/Logo2.png" />
+                <img id="img_foot_4" src="img_footer/Logo3.png" />
+            </div>
+        </div>
+    <!------------------------------------------------------------------------------------------------------>       
 
     <!--importando funciones para los objetos-->    
     <!--<script>

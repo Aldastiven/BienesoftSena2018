@@ -37,9 +37,9 @@ public class Autorizacion {
            
            rs = ps.executeQuery();
           if(rs.next()){
-                permisoSG setget = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16));
+                permisoSG setget = new permisoSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
                 permisoid.add(setget);
-                //JOptionPane.showMessageDialog(null, setget.getPer_ID());
+                //JOptionPane.showMessageDialog(null, rs.getString(3));
                 
             }
             
@@ -53,17 +53,17 @@ public class Autorizacion {
     }
     
     //PERMISOS HISTORIAL CONSULTA ID
-    public ArrayList<permiso_historialSG> consultaperID(permiso_historialSG id){
+    public ArrayList<permiso_historialSG> consultaperhisID(permiso_historialSG  id){
         ArrayList<permiso_historialSG> permisoid = new ArrayList<>();
         
         try {
-           ps = cnn.prepareStatement("SELECT*FROM permiso_historial WHERE his_per_ID='"+id.getPer_ID()+"' ");
+           ps = cnn.prepareStatement("SELECT*FROM permiso_historial WHERE his_per_ID='"+id.getHis_per_ID()+"' ");
            
            rs = ps.executeQuery();
           if(rs.next()){
-                permiso_historialSG setget = new permiso_historialSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16));
-                permisoid.add(setget);
-                //JOptionPane.showMessageDialog(null, setget.getPer_ID());
+                permiso_historialSG gt = new permiso_historialSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
+                permisoid.add(gt);
+                JOptionPane.showMessageDialog(null, gt.getHis_per_ID());
                 
             }
             

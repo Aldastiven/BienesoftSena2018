@@ -1,13 +1,14 @@
 /******* BuscadorTabla_historial******/
 
 $(document).ready(function(){
-    var tipObservacion = "",documento=0;;
+    
+    var tipObservacion = "",documento=0;
     
     //CONSULTAR TODOS LOS REGISTROS
     ajaxBuscar(tipObservacion,documento);
 
     //ComboBox Historial
-    document.getElementById("ComboFiltroHistorial").addEventListener("change",function(e){
+    document.getElementById("ComboFiltroHistorial").addEventListener("change",function(e){    
         var tipObservacion = e.target.value;
         //Lamar método de ajax para buscar
         if($("#documento_key").val() === "") ajaxBuscar(tipObservacion, documento);
@@ -15,6 +16,8 @@ $(document).ready(function(){
 
     });
     
+   
+ 
     //Busqueda en teclado
     $("#documento_key").keypress(function(t){
         setTimeout(function(){
@@ -33,10 +36,8 @@ $(document).ready(function(){
     });
 
 
-
-
-
     function ajaxBuscar(tipObservacion, documento) {
+        
         $.ajax({
             url: "servBuscarPermisos_Historial",//aqui llama a la tabla coordinador
             data: {
@@ -48,6 +49,12 @@ $(document).ready(function(){
             }
         });
     }
+    
+    
+    
+    
+    
+    
 });
 
 

@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 import modelo.Login;
+import modelo.consultas;
+import modelo.crudPermisos;
 import modelo.instanciasJS;
 import modelo.usuarioSG;
 
@@ -83,7 +85,7 @@ private HttpServletResponse pass;
             if(arreglo.size()>0){
                 
                     in = arreglo.get(0);
-                    u = in.getUsudoc();
+                    u = in.getUsudoc();//esta es la variable
                     c = in.getUsuclave();
                     r=in.getUsurol();
                     e=in.getUsuemail();
@@ -119,6 +121,10 @@ private HttpServletResponse pass;
                         request.getRequestDispatcher("coordinador.jsp").forward(request, response);
                     }
                     else if(r.equals("Aprendiz")){
+//                        
+//                        int dat = u;
+//                        consultas con = new consultas();
+//                        con.consulta_notificacion(dat);
                         request.getRequestDispatcher("aprendiz.jsp").forward(request, response);
                     }else if(r.equals("Monitor")){
                         response.sendRedirect("monitor.jsp");

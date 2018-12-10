@@ -105,11 +105,11 @@
         <nav id="nav_menu" class="hide-on-med-and-down" >
             <a href="aprendiz.jsp">
                 <input id="opc_menu_2" type="submit" value="Inicio"/>
-                <img class="icon-h" src="iconos_nav_bar/profile.png"/>
+                <img class="icon-a" src="iconos_nav_bar/profile.png"/>
             </a>
             <a href="mi_perfil_aprendiz.jsp">
                 <input id="opc_menu_2" type="submit" value="Perfil"/>
-                <img class="icon-home" src="iconos_nav_bar/home.png"/>
+                <img class="icon-b" src="iconos_nav_bar/home.png"/>
             </a>
         </nav>
         <!--**************************************************************************************************-->
@@ -145,8 +145,10 @@
             
 
     <form action="ServletPermiso" id="frm" enctype="multipart/form-data" method="post" > 
-        
-    <div class="row" id="container_form_large"  style="height: 420px;">
+    
+        <input id="today" type="date" name="f_fechCreacion" style="display:none">
+    
+    <div class="row" id="container_form_large">
         <div class="input-field col s12 m6 l6">
             <p id="input_msg">Documento del aprendiz</p>
             <br>
@@ -163,19 +165,8 @@
                          <option value="fin de semana">fin de semana</option>
                          <option value="Extra">Extra</option>
                       </select>
+                     <!--Mostra/Desaparecer input del tipo permiso con fecha ingreso-->
                      
-                     <script>
-                            $('#cambiar').change(function(){
-                                var valorCambiado =$(this).val();
-                                if((valorCambiado == 'semana tarde')||(valorCambiado == 'semana morning')){
-                                   $('#fecha_ing').css('display','none');         
-                                 }
-                                 else{
-                                   $('#fecha_ing').css('display','block');               
-                                 }
-
-                            });
-                     </script>
                      
                  </div>
              </div>
@@ -190,6 +181,7 @@
                     //document.querySelector("#today").value = today;
 
                     document.querySelector("#today2").valueAsDate = new Date();
+                    document.querySelector("#today").valueAsDate = new Date();
             </script> 
         </div>
 
@@ -230,14 +222,72 @@
 
     <div id="div_buttom" class="div_buttom col  s12">
 
-            <div id="btn_container" class="btn_container row ">                                               
-                 <button type="submit" name="btn-guardar" id="btn_action_guardar" class="btn_action_guardar l12  m12 s12">
+            <div id="btn_container" class="btn_container row ">   
+                
+               
+                
+                 <button type="submit" name="btn-guardar" id="btn_desa" class="btn_action_guardar l12  m12 s12">
                      <p id="txt_buttom" class="txt_buttom">
                          Enviar
                          <img id="img_buttom" class="img_buttom" src="icon_acciones/enviar.png" />
                      </p>   
                  </button>  
+                
+                <script>
+                        var d = new Date();
+                        var n = d.getDay();
+                        alert(n);
+                        if(n===1 || n===3){//se consulta el dia de la semana SOLO lunes y miercoles
+                                var btn=document.getElementById("btn_desa").disabled = false; 
+                            
+        
+                            //HABILITAR Y DESABILITAR LA FECHA DE INGRESO PARA FIN DE SEMANA Y FIN DE SEMANA
+                            $('#cambiar').change(function(){
+                            var valorCambiado =$(this).val();
+                            
+                                if((valorCambiado === 'semana tarde')||(valorCambiado === 'semana morning') ||(valorCambiado === 'Extra')){
+                                    $('#fecha_ing').css('display','none');         
+                                }else{
+                                    $('#fecha_ing').css('display','block');               
+                                }
+                            });
+                            
+                                
+                                
+                                
+                        }else{
+                            
+                                                    
+                            var btn=document.getElementById("btn_desa").disabled = true; 
+                            alert("tienes permitido realizar permisos los dias lunes y miercoles");
+                            
+                            
+                            //FUNCION DE EXTRA
+                            $('#cambiar').change(function(){
+                            var valorCambiado =$(this).val();
+                            
+                                if((valorCambiado=='Extra')){
+                                    var btn=document.getElementById("btn_desa").disabled = false;
+                                    alert("entra a permiso extra");
+                                }
+                                else{
+                                    var btn=document.getElementById("btn_desa").disabled = true;
+                                }
+                            });
+                            
+                            
+                        }
 
+                </script>
+                
+                <script>
+                        $('#cambiar').change(function(){
+                            var valorCambiado =$(this).val();
+                            
+                            
+                             
+                        });
+                 </script>
                 <a>
                     <button type="submit" name="btn-cancel" id="btn_action_eliminar" class="btn_action_eliminar l12  m12 s12">
                         <p id="txt_buttom" class="txt_buttom">
@@ -268,15 +318,21 @@
         
         
          <!--***************FOOTER*********************-->
-       <footer class="page-footer" id="footer_form">
-
-                    <div class="container white-text center">
-                    © 2018 Biene-Soft
-                    <br>
-                    Todos los derechos reservados
-                    </div>
-                    
-        </footer>
+       <div id="footer_style">
+            <div id="footer_p_1" >
+                <img id="img_foot_1" src="img_footer/Logo4.png" />
+                <img id="img_foot_2" src="img_footer/Logo1.png" />
+            </div>
+            <div id="footer_p_2" > 
+                <p id="text_foot">BieneSoft</p>
+                <p id="text_foot">Todos los derechos reservados</p>
+                <p id="text_foot">2018</p>
+            </div>
+            <div id="footer_p_3" >
+                <img id="img_foot_3" src="img_footer/Logo2.png" />
+                <img id="img_foot_4" src="img_footer/Logo3.png" />
+            </div>
+        </div>
         <!------------------------------------------------------------------------------------------------------>
         
                 <!--importando funciones para los objetos-->    
