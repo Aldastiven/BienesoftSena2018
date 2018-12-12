@@ -177,7 +177,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </div>\r\n");
       out.write("    \r\n");
       out.write("        \r\n");
-      out.write("        <div id=\"footer_style\">\r\n");
+      out.write("        <div id=\"footer_style_1\">\r\n");
       out.write("            <div id=\"footer_p_1\" >\r\n");
       out.write("                <img id=\"img_foot_1\" src=\"img_footer/Logo4.png\" />\r\n");
       out.write("                <img id=\"img_foot_2\" src=\"img_footer/Logo1.png\" />\r\n");

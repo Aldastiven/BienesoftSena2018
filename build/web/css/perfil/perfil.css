@@ -12,14 +12,14 @@
 
 #title_container{
     background :none;
-    padding-top: 8px;
+    padding-top: -18px;
     padding-bottom: 20px;
     height: 100px;
     font-size: 50px;
     text-align: center;
     color: #000;
     margin-bottom: 15px;
-    font-family: "Futura Bk BT";
+    font-family: 'Lobster', serif;
     background: transparent;
 }
 
@@ -37,14 +37,41 @@
 }
 
 #img_fotoperfil{
-    width: 120px;
-    height: 120px;
+    width: 50px;
+    max-width: 50px;
     border-radius: 500px 500px 500px 500px;
     position: inherit;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
+
+#camara{
+    background-image: url("css/acciones/camara.png");
+    background-repeat: repeat;
+    background-size: 75px;
+    background: red;
+}
+
+
+.image-upload > input
+{
+    display: none;
+}
+.image-upload img
+{
+    width: 60px;
+    cursor: pointer;
+}
+
+.image-upload{
+    width: 5%;
+    margin: auto;
+    position: relative;
+    top: -60px;
+    left: 60px;
+}
+
 #linea{
     border-bottom:4px solid gray;
     margin-top: -25px;
@@ -111,3 +138,29 @@
     left: 40%;
 }
 
+
+.cont_info_perfil{
+    background: whitesmoke;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    font-size: 20px;    
+    padding-top: 10px;
+    margin-bottom: 40px;
+}
+
+.info_perfil_only{
+    background: transparent;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #757575; 
+    border: none;
+    text-align: center;
+}
+
+.txt_tit_info{
+    color: black;
+    font-size: 25px;
+    margin-bottom: -5px;
+}

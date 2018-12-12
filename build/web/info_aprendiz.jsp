@@ -39,9 +39,22 @@
 
         <!--estilo menu tajetas-->
         <link type="text/css" rel="stylesheet" href="css_index_user/cards-prueba.css"  media="screen,projection"/>
+        
+        <link type="text/css" rel="stylesheet" href="css/section.css"  media="screen,projection"/>
+        
+        <!--estilo perfil-->
+        <link type="text/css" rel="stylesheet" href="css/perfil/perfil.css" media="screen,projection"/>
+        
+        <link type="text/css" rel="stylesheet" href="css/Style_formulario.css"  media="screen,projection"/>
 
         <!--importando--->
         <script src="js/jquery.js"></script>
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      
     </head>
     <body>
         <!--*******************************OBJETO NAV RESPONSIVE***************************-->
@@ -92,16 +105,17 @@
         <!--------------------------------------------------->
         <!--nav secundario (opciones)--->
         
-        <nav id="nav_menu" class="hide-on-med-and-down" >
-            <a href="mi_perfil_aprendiz.jsp">
-                <input id="opc_menu_2" type="submit" value="Inicio"/>
-                <img class="icon-h" src="iconos_nav_bar/profile.png"/>
-            </a>
-            <a href="aprendiz.jsp">
-                <input id="opc_menu_2" type="submit" value="Perfil"/>
-                <img class="icon-home" src="iconos_nav_bar/home.png"/>
-            </a>
+        <nav id="nav_menu" class="hide-on-med-and-down" style="display:none;" >
+            <div class="options_nav">
+                    <a href="aprendiz.jsp">                
+                            <input id="op_menu" type="submit" value="Inicio"/>                            
+                    </a>
+                    <a href="mi_perfil_aprendiz.jsp">                     
+                            <input id="op_menu" type="submit" value="Perfil"/>                             
+                    </a>
+            </div>
         </nav>
+        <!--**************************************************************************************************-->
         
         <%                                
             ArrayList<usuarioSG> listdatusu=new ArrayList<>(); 
@@ -122,42 +136,111 @@
             for(int i=0; i<listdat.size(); i++){
             x=listdat.get(i);
         %>
-        
-        <form action="ServletUsuario" enctype="multipart/form-data" method="post"> 
-              <div class="input-field col s12 m6 l6">
-                    <p id="input_msg">tu numero de identificacion</p>
-                    <br>
-                    <input id="input_txt" name="t_doc" value="<%=x.getApr_celular()%>" type="number">
-                </div>   
+             
+   <section class="section">
+            
+                <h1 id="title_container"></h1>
 
-                <div class="input-field col s12 m6 l6">
-                    <p id="input_msg">tu nombre</p>
-                    <br>
-                    <input id="input_txt" name="t_doc" value="<%=x.getApr_nombres()%>" type="text">
-                </div>
+                <div class="contenedor_form" style="margin-top: -90px;">
 
-            </div>
-        </form>
+                            <form action="ServletUsuario" enctype="multipart/form-data" method="post"> 
+                                <div class="row" class="containedor_form">
+                                        <div class="encabezado_form">
+                                            <div class="center_encab_tit">
+                                                <p class="txt_titulo_form">Mi perfil de aprendiz</p> 
+                                                <img class="img_tittulo_form" src="css/acciones/aprendiz.png">
+                                            </div>                                            
+                                        </div>
+                                    
+                                    <div  class="div_dat_per1"> 
+                                        <div class="center_cam">
+                                            <p class="txt_con_apr1">Datos personales</p>
+                                            <img class="img_conocer_apr1" src="css/acciones/img_datos_usuario.png">
+                                        </div>
+                                    </div>
+                                    
+                                        <div class=" cont_info_perfil div_dat_per2">
+                                            <p class="txt_tit_info">ID</p>                   <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_documento()%>" readonly>
+                                            <p class="txt_tit_info">Tipo de documento</p>              <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_documentoTipo()%>" readonly>
+                                            <p class="txt_tit_info">Nombres</p>            <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_nombres()%>" readonly>
+                                            <p class="txt_tit_info">Apellidos</p>   <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_apellidos()%>" readonly>
+                                            <p class="txt_tit_info">Fecha de nacimiento</p>               <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_fechaNacimiento()%>" readonly>
+                                            <p class="txt_tit_info">Edad</p>           <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_edad()%>" readonly>
+                                            <p class="txt_tit_info">Sexo</p>           <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_sexo()%>" readonly>
+                                            <p class="txt_tit_info">Telefono de contacto</p>           <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_celular()%>" readonly>
+                                            <p class="txt_tit_info">EPS</p>           <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_eps()%>" readonly>
+                                            <p class="txt_tit_info">RH</p>           <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_rh()%>" readonly>
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                    <div  class="div_dat_per3"> 
+                                        <div class="center_cam">
+                                            <p class="txt_con_apr2">Datos familiares</p>
+                                            <img class="img_conocer_apr2" src="css/acciones/img_datos_familiares.png">
+                                        </div>
+                                    </div>
+                                    
+                                        <div class=" cont_info_perfil div_dat_per4">
+                                            <p class="txt_tit_info">Nombre del padre</p>                   <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_nombrePadre()%>" readonly>
+                                            <p class="txt_tit_info">Telefono de contacto</p>              <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_telefonoPadre()%>" readonly>
+                                            <p class="txt_tit_info">Nombre de la Madre</p>            <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_nombreMadre()%>" readonly>
+                                            <p class="txt_tit_info">Telefono de contacto</p>   <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_telefonoMadre()%>" readonly>
+                                            <p class="txt_tit_info">Departamento</p>               <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_departamento()%>" readonly>
+                                            <p class="txt_tit_info">Ciudad</p>           <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_ciudad()%>" readonly>                                            
+                                            <p class="txt_tit_info">Barrio o vereda</p>           <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_barrio()%>" readonly>
+                                            <p class="txt_tit_info">Direccion</p>           <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_direccion()%>" readonly>                                            
+                                        </div>
+                                        
+                                        
+                                    <div  class="div_dat_per5"> 
+                                        <div class="center_cam">
+                                            <p class="txt_con_apr3">Datos del programa</p>
+                                            <img class="img_conocer_apr3" src="css/acciones/datos_programa.png">
+                                        </div>
+                                    </div>
+                                    
+                                        <div class=" cont_info_perfil div_dat_per6">
+                                            <p class="txt_tit_info">Acta de compromiso</p>                   <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_actaCompromiso()%>" readonly>
+                                            <p class="txt_tit_info">Llamados de atencion</p>              <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_llamadosDeAtencion()%>" readonly>
+                                            <p class="txt_tit_info">Numero de habitacion</p>            <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_numero_habitacion()%>" readonly>
+                                            <p class="txt_tit_info">Numero de ficha</p>   <input type="text" class=" info_perfil_only browser-default" value="<%=x.getApr_ficha_fic_numero()%>" readonly>                                           
+                                        </div>
+                                </div>
+                            </form>
+                        </div>   
+                                
+        </section> 
                 
         <%
             }
         %>                         
+            
         
-
-<div class="container" style="margin-bottom:15px;">
-    <div class="contenedor_blanco">
-        
-        hola
-              
-    </div>   
-</div> 
-
-
-
-              
-               
-
-               
+       
+         <!--***************FOOTER*********************-->
+        <div id="footer_style_2">
+            <div id="footer_p_1" >
+                <img id="img_foot_1" src="img_footer/Logo4.png" />
+                <img id="img_foot_2" src="img_footer/Logo1.png" />
+            </div>
+            <div id="footer_p_2" > 
+                <p id="text_foot">BieneSoft</p>
+                <p id="text_foot">Todos los derechos reservados</p>
+                <p id="text_foot">2018</p>
+            </div>
+            <div id="footer_p_3" >
+                <img id="img_foot_3" src="img_footer/Logo2.png" />
+                <img id="img_foot_4" src="img_footer/Logo3.png" />
+            </div>
+        </div>
+    <!------------------------------------------------------------------------------------------------------>
+    
+    
+    
+    
+    
         <!--importando funciones para los objetos-->    
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
@@ -167,5 +250,7 @@
         
             <!--JavaScript at end of body for optimized loading-->
             <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+            
+            <script type="text/javascript" src="js/Acordion/conocer_mas_info_apr.js"></script>
     </body>
 </html>

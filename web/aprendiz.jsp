@@ -23,34 +23,30 @@
 
     <!--estilo encabezado-->
     <link type="text/css" rel="stylesheet" href="css/encabezado.css"  media="screen,projection"/>
-
-    <!--estilo footer-->
-    <link type="text/css" rel="stylesheet" href="css/footer.css"  media="screen,projection"/>
     
     <!--estilo materialize.css-->
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>    
 
-    <!--stilo para las nuevas tarjetas de menu-->
- 
-    <!--<link type="text/css" rel="stylesheet" href="css_index_user/cards-prueba.css"  media="screen,projection"/>-->
-    
     <link type="text/css" rel="stylesheet" href="css/notificaciones.css"  media="screen,projection"/>
     <!--importando--->
     
     
+    <link type="text/css" rel="stylesheet" href="css/footer.css"  media="screen,projection"/>
+    
+    <link type="text/css" rel="stylesheet" href="css/section.css"  media="screen,projection"/>
+    
      <!--stilo para las nuevas tarjetas de menu-->
      <link type="text/css" rel="stylesheet" href="css/Style_index_apr.css"  media="screen,projection"/>
+     
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+      
     <script src="js/jquery.js"></script>
 
-</head>
-<body>
-
+</head>    
         
-        <!--*******************
     <!--estilo footer-->
     <link type="text/css" rel="stylesheet" href="css_index_user/footer.css"  media="screen,projection"/>
-
-   
 
     <!--importando--->
     <script src="js/jquery.js"></script>
@@ -58,7 +54,7 @@
 </head>
 <body>
 
-        
+ 
         <!--*******************************OBJETO NAV RESPONSIVE***************************-->
         
         <!--nav principal--->
@@ -128,38 +124,42 @@
     <!----------------------botones de usuario---------------------------------->                 
             
             <div class="contenedor_btn_apr hide-on-med-and-down"  id="contenedor_btn_apr">
-                <a href="mi_perfil_aprendiz.jsp">
-                    <div class="btn_ver_perfil" id="btn_ver_perfil">
-                    mi perfil
-                    <img style="width: 20px;" src="css_index_user/icons/coordinador/btn_user.png" />
-                    </div>
-                </a>
+                <a href="mi_perfil.jsp">
+                    <button type="submit" class="btn_mi_perfil">                        
+                        <img class="img_btn_perfil"  src="css/menus_index/menu_Apr/img_btn_perfil.png">
+                        Mi perfil
+                    </button>
+                </a>                
             </div>
-                    
-                    
-                    
-       
 
     <!------------------objeto opciones-------------------------------------------->
     <div class="cont_principal">
+        
+        <p class="header_titulo"> Menu </p>    
+        <hr class="separator">
 
                 <a href="f_permiso.jsp">
                     <div class="options">
-                        <img class="img_option" src="css_index_user/icons/coordinador/menu_permiso.png" /> 
+                        <img class="img_option" src="css/menus_index/menu_Apr/img_diligenciar_permiso.png" /> 
                         <p class="txt_option">Permisos</p>
                     </div>
                                                                                            
                 </a>
 
-                <a href="t_aprendiz.jsp">
+                <a href="info_aprendiz.jsp">
                     <div class="options">                        
-                        <img class="img_option" src="css_index_user/icons/aprendiz/mochila.png" />
+                        <img class="img_option" src="css/menus_index/menu_Apr/img_perfil_aprendiz.png" />
                        <p class="txt_option">Perfil Aprendiz</p>
                     </div>
                 </a>
         </div>
     
-    <div class="contenedor_noti">
+    <div class="cont_noti_pro">
+        
+        <p class="noti_head">Notificaciones <img class="head_img_campana" src="css/notificaciones/campana_normal.png"></p>
+        <hr class="separator_noti">
+        
+        <div class="contenedor_noti">
         
         <div>
         <%                                
@@ -217,9 +217,11 @@
 
     </div>
      
-    </div>    
-
-    
+    </div>
+    </div>
+        
+         
+   
 <!--importando funciones para los objetos-->    
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -235,7 +237,7 @@
 </body>
 
     <!--***************FOOTER*********************-->
-        <div id="footer_style">
+        <div id="footer_style_1">
             <div id="footer_p_1" >
                 <img id="img_foot_1" src="img_footer/Logo4.png" />
                 <img id="img_foot_2" src="img_footer/Logo1.png" />

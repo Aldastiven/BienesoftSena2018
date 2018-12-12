@@ -68,7 +68,7 @@ public class consultas {
     //CONSULTA APRENDIZ
     public ArrayList<aprendizSG>consultarTablaAprendiz(){
         ArrayList<aprendizSG> arreglo = new ArrayList<aprendizSG>();
-        JOptionPane.showMessageDialog(null, "hola");
+
         try {
             ps = cnn.prepareStatement("SELECT * FROM aprendiz");
             rs = ps.executeQuery();
@@ -167,7 +167,7 @@ public class consultas {
     //CONSULTAR PERMISOS COORDINADOR
         public ArrayList<permisoSG>consultarPermiso(String cbx_tipo_per ,String estado, int documento, String rol) throws SQLException {
         ArrayList<permisoSG> arreglo = new ArrayList<permisoSG>();
-        JOptionPane.showMessageDialog(null, "se consulta permiso coordinador");
+//        JOptionPane.showMessageDialog(null, "se consulta permiso coordinador");
             
 
         try{
@@ -178,7 +178,7 @@ public class consultas {
                     if(rol.equals("Seguridad")){
                            if(rs.next()){
                                int id = rs.getInt(1);
-                               JOptionPane.showMessageDialog(null, "Este es el que trae " +id);
+//                       
                                //Instancia del metodo de los permisos vencidos
                                consultaperIDVencidos(id);
                            }
@@ -216,13 +216,13 @@ public class consultas {
         try{
          
             if (cbx_tipo_per.equals("") && documento.equals("")){
-                JOptionPane.showMessageDialog(null, "se consulta");
+//                JOptionPane.showMessageDialog(null, "se consulta");
                  ps = cnn.prepareStatement("select * from permiso where per_estado = 'Autorizado'"); 
                  
                  //para permisos vencidos
                  if(rs.next()){
                     int id = rs.getInt(1);
-                    JOptionPane.showMessageDialog(null, "Este es el que trae " +id);
+//                    JOptionPane.showMessageDialog(null, "Este es el que trae " +id);
                     //Instancia del metodo de los permisos vencidos
                     consultaperIDVencidos(id);
                 }
@@ -339,7 +339,6 @@ public class consultas {
            rs = ps.executeQuery();
           if(rs.next()){
                 id2 = rs.getInt(1);
-                JOptionPane.showMessageDialog(null, "Este es el que trae " +id);
             }
             
         } catch (Exception e) {            
@@ -433,12 +432,12 @@ public class consultas {
            
             //consulta por fecha y documento
             }else if(mes_cbx!=0 && documento!=0 ){   
-                JOptionPane.showMessageDialog(null, "busca por el mes y docu con5");
+//                JOptionPane.showMessageDialog(null, "busca por el mes y docu con5");
                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial WHERE MONTH(his_per_fechaCreacion) = '"+mes_cbx+"' AND his_per_Aprendiz_Apr_documento LIKE '"+documento+"%' ");
            
             //consulta por todo
             }else {
-                JOptionPane.showMessageDialog(null, "busca por el mes conULT");
+//                JOptionPane.showMessageDialog(null, "busca por el mes conULT");
 //                JOptionPane.showMessageDialog(null, mes_cbx);
                 ps = cnn.prepareStatement("SELECT * FROM permiso_historial ");                        
             }
@@ -464,7 +463,7 @@ public class consultas {
       
     //CONSULTA PARA ID-PERMISO VENCIDO
     public int consultaperIDVencidos(int id){
-        JOptionPane.showMessageDialog(null,"Este es un ID VENCIDO " + id);
+//        JOptionPane.showMessageDialog(null,"Este es un ID VENCIDO " + id);
         int IDven=0;
         
         try {
@@ -498,7 +497,7 @@ public class consultas {
         
         int x=0;
         int dia, mes, year;
-        JOptionPane.showMessageDialog(null, "captura el id " +DatoID);
+//        JOptionPane.showMessageDialog(null, "captura el id " +DatoID);
         
         Calendar calendario = Calendar.getInstance();
         dia=calendario.get(Calendar.DATE);
@@ -536,7 +535,7 @@ public class consultas {
                     
                     //compara por año
                     if(Integer.parseInt(FEap[0]) > Integer.parseInt(FR[0])){
-                       JOptionPane.showMessageDialog(null, "hay permisos vencidos año");
+//                       JOptionPane.showMessageDialog(null, "hay permisos vencidos año");
                        //se instancia el estado para que lo ponga en "Vencido"
                             DatoID = consultaperIDestado(DatoID);
                             crudPermisos crud = new crudPermisos();
@@ -546,11 +545,11 @@ public class consultas {
 
                     //compara por mes
                     else if(Integer.parseInt(FEap[1]) >= Integer.parseInt(FR[1])){
-                        JOptionPane.showMessageDialog(null, "entro a mes");
+//                        JOptionPane.showMessageDialog(null, "entro a mes");
                             //compara por dia
                             if(Integer.parseInt(FR[2]) > Integer.parseInt(FEap[2])){
-                              JOptionPane.showMessageDialog(null, "entro al dia");
-                              JOptionPane.showMessageDialog(null, "esta vencido");
+//                              JOptionPane.showMessageDialog(null, "entro al dia");
+                              JOptionPane.showMessageDialog(null, " Hay permisos vencidos");
                               
                                 DatoID = consultaperIDestado(DatoID);
                                 crudPermisos crud = new crudPermisos();
@@ -559,7 +558,7 @@ public class consultas {
                               
                             //compara dia
                             }else{    
-                              JOptionPane.showMessageDialog(null, "sigue estando en el mes pero no hay permisos vencidos x dia"); 
+//                              JOptionPane.showMessageDialog(null, "sigue estando en el mes pero no hay permisos vencidos x dia"); 
                             }
                       
                     }else{

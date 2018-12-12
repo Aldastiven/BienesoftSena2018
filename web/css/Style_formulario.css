@@ -1,0 +1,173 @@
+.foto_perfil{
+    margin: auto;
+    background: white;
+    width: 150px;
+    padding: 20px;
+    border-radius: 500px;
+    border: 5px solid #9e9e9e;
+}
+
+.f_perfil{
+    width: 100px;    
+}
+
+
+.contenedor_form{
+    background: white;
+    width: 80%;
+    margin: auto;
+    height: auto;
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75); 
+    position: relative;
+    top: -40px;
+}
+
+
+.encabezado_form{
+    width: 100%;
+    height: 100px;
+    background: whitesmoke;
+    border: none;
+    margin-bottom: 100px;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to left, #2dceff 0%, #6af57c 50% ,  #ffa561 90%  );
+    border-image-slice: 1;
+}
+
+.txt_titulo_form{
+    font-family: 'Lobster', serif;
+    text-align: center;
+    font-size: 45px;
+    width: 85%;   
+}
+
+.center_encab_tit{
+    width: 40%;
+    margin: auto;
+}
+
+.img_tittulo_form{
+    float: right;
+    position: relative;
+    top: -90px;
+}
+/*DIV ACORDION*/
+
+.div_cambiar_datos{
+    background: #00c853;
+    height: 60px;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 10px;
+}
+.div_cambiar_datos:hover{
+    cursor: pointer;
+}
+
+.div_dat_per1{
+    background: #00c853;
+    height: 60px;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 10px;
+}
+.div_dat_per1:hover{
+    cursor: pointer;
+}
+
+.div_dat_per3{
+    background: #00c853;
+    height: 60px;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 10px;
+}
+.div_dat_per3:hover{
+    cursor: pointer;
+}
+
+.div_dat_per5{
+    background: #00c853;
+    height: 60px;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 10px;
+}
+.div_dat_per5:hover{
+    cursor: pointer;
+}
+
+#div_editar{
+    height: 230px;
+    margin: auto;
+    width: 80%;
+    background: whitesmoke;
+    margin-bottom: 10px;
+    border-top: 4px solid transparent;
+    border-image: linear-gradient(to left, #2dceff 0%, #6af57c 50% ,  #ffa561 90%  );
+    border-image-slice: 1;
+}
+
+.center_cam{
+    background: transparent;
+    height: 60px;
+    width: 50%;
+    margin: auto;
+}
+
+.img_actualizar_datos{
+    width: 50px;
+    float:right;
+}
+
+.txt_actualizar_datos{
+    float: left;
+    font-size: 25px;
+    position: relative;
+    top: -20px;
+}
+
+
+.img_conocer_apr1{
+    width: 50px;
+    float:right;
+}
+
+.txt_con_apr1{
+    float: left;
+    font-size: 25px;
+    position: relative;
+    top: -20px;
+}
+
+.img_conocer_apr2{
+    width: 50px;
+    float:right;
+    position: relative;
+    top: -10px;
+}
+
+.txt_con_apr2{
+    float: left;
+    font-size: 25px;
+    position: relative;
+    top: -30px;
+}
+
+.img_conocer_apr3{
+    width: 50px;
+    float:right;
+    position: relative;
+    top: -120px;
+}
+
+.txt_con_apr3{
+    float: left;
+    font-size: 25px;
+    position: relative;
+    top: -45px;
+}
+
+.hide{
+    display: none;
+}

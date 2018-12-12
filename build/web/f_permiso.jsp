@@ -40,6 +40,8 @@
             <!--estilo footer-->
             <link type="text/css" rel="stylesheet" href="css/footer.css"  media="screen,projection"/>
             
+            <link type="text/css" rel="stylesheet" href="css/section.css"  media="screen,projection"/>
+            
             <!--estilo watch(Reloj)-->
             <link type="text/css" rel="stylesheet" href="css/timePicker.css"  media="screen,projection"/>
 
@@ -127,8 +129,9 @@
              %>
         <p id="user_text" class="user_text hide-on-med-and-down"><%=nom%></p>
 
-
- <!--*********************************************************-->    
+        <section class="section">
+            
+            <!--*********************************************************-->    
         
     <!----------------------FORMULARIO--------------------------->
         
@@ -236,7 +239,7 @@
                 <script>
                         var d = new Date();
                         var n = d.getDay();
-                        alert(n);
+                        
                         if(n===1 || n===3){//se consulta el dia de la semana SOLO lunes y miercoles
                                 var btn=document.getElementById("btn_desa").disabled = false; 
                             
@@ -260,6 +263,7 @@
                                                     
                             var btn=document.getElementById("btn_desa").disabled = true; 
                             alert("tienes permitido realizar permisos los dias lunes y miercoles");
+                             btn.setAttribute('style','Background: red');
                             
                             
                             //FUNCION DE EXTRA
@@ -271,7 +275,7 @@
                                     alert("entra a permiso extra");
                                 }
                                 else{
-                                    var btn=document.getElementById("btn_desa").disabled = true;
+                                    var btn=document.getElementById("btn_desa").disabled = true;                                                        
                                 }
                             });
                             
@@ -306,19 +310,15 @@
 
                     
                </div>   
+            
+        </section>
+
+ 
         <!--------------------------------------------------------------------------------------------------->
-        
-        
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        
+
         
          <!--***************FOOTER*********************-->
-       <div id="footer_style">
+       <div id="footer_style_2">
             <div id="footer_p_1" >
                 <img id="img_foot_1" src="img_footer/Logo4.png" />
                 <img id="img_foot_2" src="img_footer/Logo1.png" />

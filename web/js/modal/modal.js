@@ -81,7 +81,7 @@ $(document).ready(function(){
                 var titulo2=crearElemento("p", {class:"tip2"},["fecha de creacion :"]);
                 var fech_res = crearElemento("input", {id:"time", type:"date", name:"fechares"});                                 
                 let today = new Date().toISOString().substr(0, 10);
-                alert(today);
+ 
                 fech_res.value=today;
             var contFres = crearElemento("div",{id:"contFres"}, [titulo2,fech_res]);
             var contID = crearElemento("div",{id:"contID"}, [perId]);

@@ -59,7 +59,6 @@ public class servBuscarPermisos_Historial extends HttpServlet {
             aprendizSG ap = new aprendizSG();
             ap = aprendiz.get(0);
             String aprendizNom = ap.getApr_nombres();
-            JOptionPane.showMessageDialog(null,aprendizNom);
 
             /*----------------------------------------------------------*/
             //FICHA

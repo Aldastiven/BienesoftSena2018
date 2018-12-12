@@ -10,8 +10,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.swing.JOptionPane;
 import modulo_permisos.Autorizacion;
+import oracle.jrockit.jfr.events.Bits;
 
 
 public class crudPermisos {
@@ -50,13 +52,14 @@ public class crudPermisos {
             JOptionPane.showMessageDialog(null,"Permiso realizado con exito");
             
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"no se pudo desde crud permiso " +e );
+            //JOptionPane.showMessageDialog(null,"no se pudo desde crud permiso " +e );
         }
     }
     
     
     //ACTUALIZAR TODOS LOS DATOS
     public int actualizar_permiso(permisoSG ing){
+       int x=0;
         try {
             ps=cnn.prepareStatement("UPDATE permiso SET per_Aprendiz_Apr_documento= '"+ing.getPer_Aprendiz_Apr_documento()+"', per_tipo= '"+ing.getPer_tipo()+"', per_fecha_salida= '"+ing.getPer_fecha_salida()+"', per_fecha_ingreso= '"+ing.getPer_fecha_ingreso()+"', per_hora_Salida= '"+ing.getPer_hora_Salida()+"', per_hora_ingreso= '"+ing.getPer_hora_ingreso()+"', per_motivo= '"+ing.getPer_motivo()+"', per_estado= '"+ing.getPer_estado()+"', per_autoriza= '"+ing.getPer_autoriza()+"', per_evidenciaAdjunta= '"+ing.getPer_evidenciaAdjunta()+"' WHERE   per_Aprendiz_Apr_documento= '"+ing.getPer_Aprendiz_Apr_documento()+"' ");
             ps.executeUpdate();           
@@ -65,41 +68,46 @@ public class crudPermisos {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,"no se pudo actualizar desde crud permiso " +e);
         }
-        return 0;       
+        return x;       
     } 
     
     
     //cambio del estado autorizado o denegado (modulo coordinador)
-    public int actualizar_permisoEstado(permisoSG inge){
+    public int actualizar_permisoEstado(permisoSG setget){
+        int x=0;
+        
         try {
-            ps=cnn.prepareStatement("UPDATE permiso SET per_estado='"+inge.getPer_estado()+"', per_autoriza='"+inge.getPer_autoriza()+"', per_fecha_respuesta='"+inge.getPer_fecha_respuesta()+"' "
-                                    + "WHERE  per_ID='"+inge.getPer_ID()+"' ");
+            ps=cnn.prepareStatement("UPDATE permiso SET per_estado='"+setget.getPer_estado()+"', per_autoriza='"+setget.getPer_autoriza()+"', per_fecha_respuesta='"+setget.getPer_fecha_respuesta()+"' "
+                                    + "WHERE  per_ID='"+setget.getPer_ID()+"' ");
             ps.executeUpdate();
             
             crudPermisos crud = new crudPermisos();
-            String resultadoEst = null;
-            crud.procedimientos_historial(inge, resultadoEst);
+            String resultadoEst = "";
+            //JOptionPane.showMessageDialog(null,resultadoEst);
+            crud.procedimientos_historial(setget,resultadoEst);
 
             
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null,"Error" +e);
         }
-        return 0;        
+        return x;        
     }
     
     //cambio del estado imcompleto (modulo seguridad)
     public int actualizar_estado_imcompleto_permiso(int DatoID, permisoSG ing){
         int x=0;
+//        JOptionPane.showMessageDialog(null, "est pasando por aqui el permiso --> vencido");
             try{
                 ps=cnn.prepareStatement("UPDATE permiso SET per_estado='Incompleto' , per_observacion_llegada='Tarde' WHERE per_ID='"+DatoID+"' ");
                 ps.executeUpdate();
                 
                 crudPermisos crud = new crudPermisos();
                 crud.consultarPermiso(ing);
+//                JOptionPane.showMessageDialog(null, "paso a consultar permiso");
                 
                 
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null,"no entro " +e);
+                //JOptionPane.showMessageDialog(null,"no entro " +e);
             }
   
         return x;   
@@ -117,7 +125,7 @@ public class crudPermisos {
                 crud.consultarPermiso(ing);
                 
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null,"no entro " +e);
+                //JOptionPane.showMessageDialog(null,"no entro " +e);
             }
         return x;   
     }
@@ -135,7 +143,7 @@ public class crudPermisos {
                 crud.consultarPermiso(ing);
                 
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null,"no entro " +e);
+                //JOptionPane.showMessageDialog(null,"no entro " +e);
             }
         return x;   
     }
@@ -164,7 +172,7 @@ public class crudPermisos {
         
         try {    
             if(resultadoEst.equals("Vencido")){
-                JOptionPane.showMessageDialog(null, "entro al if del vencido   " +resultadoEst);
+//                JOptionPane.showMessageDialog(null, "entro al if del vencido   " +resultadoEst);
                     ps=cnn.prepareCall("call tipopermiso('Vencido')");
                     ps.executeUpdate();               
             }else{
@@ -176,9 +184,13 @@ public class crudPermisos {
         //si el estado es incompleto
         try {       
             if(resultadoEst.equals("Incompleto") && setget.getPer_estado()==null ){
+//                JOptionPane.showMessageDialog(null, "entro al procedimiento de incompleto");
                     ps=cnn.prepareCall("call tipopermiso('Incompleto')");
-                    ps.executeUpdate();               
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "se completo incompleto");
+                    
             }else{
+//                JOptionPane.showMessageDialog(null, "error no entro al procedimiento incompleto");
             }  
         } catch (Exception e) {
         }
@@ -222,9 +234,9 @@ public class crudPermisos {
                 rs = stmt.executeQuery(SQL);
                 
                 while (rs.next()) {
-                    //JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
+                    JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
                     String resultadoEst =  rs.getString("per_estado");
-                    //JOptionPane.showMessageDialog(null, "value get thanks you :)   ---->" +resultadoEst);
+                    JOptionPane.showMessageDialog(null, "value get thanks you :)   ---->" +resultadoEst);
                     
                     crudPermisos crud = new crudPermisos();
                     crud.procedimientos_historial(ing, resultadoEst);
@@ -248,7 +260,7 @@ public class crudPermisos {
                 }
                 
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null,"no entro " +e);
+                //JOptionPane.showMessageDialog(null,"no entro " +e);
             } 
             
             
@@ -260,16 +272,16 @@ public class crudPermisos {
                 rs = stmt.executeQuery(SQL);
                 
                 while (rs.next()) {
-                    JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
+//                    JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
                     String resultadoEst =  rs.getString("per_estado");
-                    JOptionPane.showMessageDialog(null, "value get thanks you :)   ---->" +resultadoEst);
+//                    JOptionPane.showMessageDialog(null, "value get thanks you :)   ---->" +resultadoEst);
                     
                     crudPermisos crud = new crudPermisos();
                     crud.procedimientos_historial(ing, resultadoEst);
                 }
                 
             }catch(Exception e){
-                JOptionPane.showMessageDialog(null,"no entro " +e);
+                //JOptionPane.showMessageDialog(null,"no entro " +e);
             } 
             
             return x;    
@@ -304,7 +316,7 @@ public class crudPermisos {
             }
             
          }catch(Exception e){
-         JOptionPane.showMessageDialog(null, "PAILAS" +e);
+         //JOptionPane.showMessageDialog(null, "PAILAS" +e);
          }
          
         return 0;

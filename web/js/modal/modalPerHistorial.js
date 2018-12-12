@@ -1,7 +1,7 @@
 //MODAL DE PERMISO-HISTORIAL
 /****modalPerHistorial***/
 $(document).ready(function(){
-    alert ("hola");
+    
     //funcion para añadir un objeto de atributos a mi elemento padre
 
     const agregarAtributos = (miElemento, obj_Atri) => {
@@ -40,7 +40,7 @@ $(document).ready(function(){
             var per = e.target.id.substring(1);
             var perId = document.getElementById("id"+per).value;
             
-            //alert("soy un id" + perId);
+            
 
             $.ajax({
                 url: "servBuscarPermisos_Historial",

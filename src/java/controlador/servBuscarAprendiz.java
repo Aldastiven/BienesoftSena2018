@@ -28,7 +28,7 @@ public class servBuscarAprendiz extends HttpServlet {
         String ventana = request.getParameter("ventana");
         
 //       JOptionPane.showMessageDialog(null, "se toma en el servlet al iniciar  " + "  EL ID: " +docId+  "EL TIPO: " +tipoAprendiz);
-        if(ventana != null && ventana.equals("abrir")) {
+        if(ventana != null && ventana.equals("abrir")) {    
             //BUSCAR DATOS DEL APRENDIZ SELECCIONADO
             consultas con= new consultas();
             ArrayList<aprendizSG> aprendizSena = new ArrayList<>();
@@ -39,21 +39,11 @@ public class servBuscarAprendiz extends HttpServlet {
             aprendizSena = con.consultarAprendizID(Integer.parseInt(docId));
             
             //Guarda datos
-            aprendizSG apr=new aprendizSG();
-            apr = aprendizSena.get(0);
-            
-            //CONSULTAR NOMBRE DEL APRENDIZ
-            consultas con_ap = new consultas();
-            ArrayList<aprendizSG> aprendiz = new ArrayList<>();
-            
-            //Consulta de datos de aprendiz (ID)
-            aprendizSena = con_ap.consultarTablaAprendiz();
-
-            aprendizSG ap = new aprendizSG();
-            ap = aprendiz.get(0);
+            aprendizSG ap=new aprendizSG();
+            ap = aprendizSena.get(0);
             
             //Impresion de datos del permiso
-            JOptionPane.showMessageDialog(null, ap.getApr_email());
+//            JOptionPane.showMessageDialog(null, ap.getApr_email());
             
             out.print(
                     ap.getApr_documento()+ //0

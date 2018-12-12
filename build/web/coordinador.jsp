@@ -76,7 +76,7 @@
                              
             <!----------------------botones de usuario---------------------------------->                 
             
-        <div class="contenedor_btn hide-on-med-and-down"  id="contenedor_btn">
+            <div class=""  id="contenedor_btn" style="display:none;">
             <a href="mi_perfil.jsp">
                 <div class="btn_ver_perfil" id="btn_ver_perfil">
                 ver perfil
@@ -132,7 +132,7 @@
         </div>
 
 <!--***************FOOTER*********************-->
-        <div id="footer_style">
+        <div id="footer_style_1">
             <div id="footer_p_1" >
                 <img id="img_foot_1" src="img_footer/Logo4.png" />
                 <img id="img_foot_2" src="img_footer/Logo1.png" />

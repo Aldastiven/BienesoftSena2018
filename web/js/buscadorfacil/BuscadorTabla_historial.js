@@ -31,7 +31,7 @@ $(document).ready(function(){
         setTimeout(function(){
             var documento = t.target.value;
             if(documento !== "" || t.which === 8) {
-                //alert(8);
+                
                 if(t.which === 8 && $("#documento_key").val().length <=1 ){ 
                     ajaxBuscar(document.getElementById("ComboFiltroHistorial").value,0, document.getElementById("ComboMes").value, document.getElementById("ComboFiltroHistorial").value);
                 }

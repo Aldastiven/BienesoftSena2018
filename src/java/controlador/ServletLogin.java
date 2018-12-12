@@ -129,15 +129,15 @@ private HttpServletResponse pass;
                     }else if(r.equals("Monitor")){
                         response.sendRedirect("monitor.jsp");
                     }else if(r.equals("Seguridad")){
-                        response.sendRedirect("t_permiso_seguridad.jsp");
+                        response.sendRedirect("t_permiso_seguridad.jsp");            
                     }else{
-                        request.getRequestDispatcher("admin.jsp").forward(request, response);
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
                     }
  
                     
 
             } else {
-                request.getRequestDispatcher("f_login.jsp").forward(request, response);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
                 JOptionPane.showMessageDialog(null, "Datos incorrectos");
                 
                 
