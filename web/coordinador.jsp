@@ -19,14 +19,14 @@
 
     <!--estilo footer-->
     <link type="text/css" rel="stylesheet" href="css/footer.css"  media="screen,projection"/>
-
-    <!--estilo menu tajetas-->
-    <link type="text/css" rel="stylesheet" href="css_index_user/cards-prueba.css"  media="screen,projection"/>
     
     <!--stilo para las nuevas tarjetas de menu-->
     <link type="text/css" rel="stylesheet" href="css/Style_Index.css"  media="screen,projection"/>
+    
+   
 
-    <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+      <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
             
             
     <!--importando--->
@@ -56,50 +56,49 @@
             
 <!------------------------------------------------------------------------------------------------------>
 
-            <!--------------------objeto perfil--------------------------------------------------->
+<!--------------------objeto perfil--------------------------------------------------->
 
-        <div class="row contenedor-perfil hide-on-med-and-down">
-            <%
-               HttpSession rnombre=request.getSession();
-               String nom=(String)rnombre.getAttribute("nombre");
-               String fot=(String)rnombre.getAttribute("foto");
-            %>
+            <div class="row contenedor-perfil hide-on-med-and-down">
+                <%
+                   HttpSession rnombre=request.getSession();
+                   String nom=(String)rnombre.getAttribute("nombre");
+                   String fot=(String)rnombre.getAttribute("foto");
+                   int id=(int)rnombre.getAttribute("iden");
+                %>
 
-            <img id="img_foto" class="img_foto" src="<%=fot%>" />
+                <img id="img_foto" class="img_foto" src="<%=fot%>" />
 
-            <div id="cont_name" class="cont_name">
-                   <label id="msg_user" class="msg_user">Coordinador</label>
+                <div id="cont_name" class="cont_name">
+                    <label id="msg_user" class="msg_user">Coordinador</label>
 
-                   <p id="user_text_nombre" class="user_text_nombre"><%=nom%></p>
-            </div>             
-        </div>
-                             
-            <!----------------------botones de usuario---------------------------------->                 
-            
-            <div class=""  id="contenedor_btn" style="display:none;">
-            <a href="mi_perfil.jsp">
-                <div class="btn_ver_perfil" id="btn_ver_perfil">
-                ver perfil
-                <img style="width: 20px;" src="css_index_user/icons/coordinador/btn_user.png" />
+                    <p id="user_text_nombre" class="user_text_nombre"><%=nom%></p>
+                    <p id="user_text_nombre" class="user_text_nombre"><%=id%></p>
                 </div>
-
-            </a>
-
-            <div class="btn_ver_usuarios" id="btn_ver_usuarios">
-                <a href="t_usuario.jsp">
-                    consultar usuarios
-                    <!--<img style="width: 20px;" src="css_index_user/icons/coordinador/btn_users.png" />-->
-                </a>
+                             
+            </div>
+                             
+    <!----------------------botones de usuario---------------------------------->                 
+            
+            <div class="contenedor_btn_apr hide-on-med-and-down"  id="contenedor_btn_apr">
+                <a href="mi_perfil.jsp">
+                    <button type="submit" class="btn_mi_perfil">                        
+                        <img class="img_btn_perfil"  src="css/menus_index/menu_Apr/img_btn_perfil.png">
+                        Mi perfil
+                    </button>
+                </a>                
             </div>
 
-        </div>
 
             <!------------------objeto opciones-------------------------------------------->
             
-            <div class="cont_info"></div>    
+   
             
         <div class="cont_principal">
-
+            
+        <p class="header_titulo"> Menu </p>    
+        <hr class="separator">
+            
+            <div class="cont_center">
                 <a href="t_permiso_coordinador.jsp">
                     <div class="options">
                         <img class="img_option" src="css_index_user/icons/coordinador/menu_permiso.png" /> 
@@ -128,9 +127,10 @@
                         <p class="txt_option">Habitaciones</p>
                     </div>
                 </a>
-
+            </div>
+                
         </div>
-
+            
 <!--***************FOOTER*********************-->
         <div id="footer_style_1">
             <div id="footer_p_1" >

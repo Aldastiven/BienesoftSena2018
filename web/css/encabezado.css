@@ -36,10 +36,7 @@
     margin-bottom: 20px;
     height: 40px;
     padding-bottom: 5px;
-    padding-left: 170px;
-    border-bottom: 2px solid transparent;
-    border-image: linear-gradient(to left, #2dceff 0%, #6af57c 50% ,  #ffa561 90%  );
-    border-image-slice: 1;
+    padding-left: 170px;  
 }
 
 /*boton-normal color*/

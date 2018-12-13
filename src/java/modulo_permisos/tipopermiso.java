@@ -57,7 +57,7 @@ public class tipopermiso {
     //METODO DE INSERCCION DE fechaReal horaReal AL MOMENTO DE LA ACCION
     public boolean metodo_insertpersemana(int id, String fechaReal,String horaReal, String campo1, String campo2){
        
-        JOptionPane.showMessageDialog(null, "entra a metodo_insertpersemana");
+        //JOptionPane.showMessageDialog(null, "entra a metodo_insertpersemana");
         
         if(fechaReal.equals(fechaReal) && horaReal.equals(horaReal) ){
             //FECHA Y HORA DE SALIDA para poder salir y al entrar del cba
@@ -65,7 +65,7 @@ public class tipopermiso {
                 ps = cnn.prepareStatement("UPDATE permiso SET "+campo1+"='"+fechaReal+"' , "+campo2+"='"+horaReal+"'"+
                         " WHERE per_ID='"+id+"' ");
                 ps.executeUpdate();               
-                JOptionPane.showMessageDialog(null, "se esta actualizado el permiso");  
+                //JOptionPane.showMessageDialog(null, "se esta actualizado el permiso");  
                 
                 //Instancia de Fechas y Horas Reales
                 crudPermisos cr = new crudPermisos();

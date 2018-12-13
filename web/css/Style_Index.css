@@ -5,7 +5,68 @@
 @media (min-width: 1281px) {
  /* for dekstop */
  
- .cont_info{
+ /****************contenedor de perfil********/
+.contenedor-perfil{
+    background: white;
+    height: 250px;
+    width: 230px;
+    position: absolute;
+    left: 50px;
+    margin-right: 3px;
+    margin-top: 50px;
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);   
+}
+
+.img_foto{
+    background: rgba(0,0,0,0.10);
+    width: 165px;    
+    margin-left: 30px;
+    margin-top: 10px;
+    height: 150px;
+}
+
+.cont_name{
+    background: whitesmoke;
+    height: 80px;
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(to left, #2dceff 0%, #6af57c 50% ,  #ffa561 90%  );
+    border-image-slice: 1;
+}
+
+.msg_user{
+    margin-left: 10px;
+    color: gray;
+    font-size: 20px;
+}
+
+.user_text_nombre{
+    margin-left: 10px;
+    color: gray;
+    font-size: 15px;
+    margin-top: -5px;
+}
+
+.btn_mi_perfil{
+   background-color: #3498db;
+   width: 200px;
+   height: 50px;
+   color: white;
+   font-size: 20px;
+   border: none;
+   border-bottom: 3px solid #3949ab;
+}
+
+.btn_mi_perfil:hover{
+   box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75); 
+   cursor: pointer;
+}
+
+.img_btn_perfil{
+    width: 20px;
+    margin-right: 10px;
+}
+ 
+  .cont_info{
     background: whitesmoke;
     width: 350px;
     height: 200px;
@@ -14,32 +75,68 @@
     margin-top: 40px;
     margin-right: 30px; 
  } 
-    
+ 
+ 
+ .header_titulo{
+    font-family: 'Lobster',serif;
+    text-align: center;
+    font-size: 40px;
+    position: relative;
+    top: -38px;
+    margin-bottom: -45px;
+    color: #65AEFF;
+ }
+ 
+ .separator{
+     background: #C0C0C9;
+     width: 80%;
+     height: 2px;         
+     border: none;
+ }
+ 
+ .cont_center{
+     background: red;
+     width: 90%;
+     height: auto;
+ }
+ 
 .cont_principal{
     background: whitesmoke;
-    width: 600px;
-    height: 500px;
-    max-height: 450px;
-    float: right;
-    margin-top: 40px;
-    margin-right: 60px; 
+    width: 800px;
+    height: auto;   
+    float: left;
+    margin-top: -10px;
+    margin-left: 300px;
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75); 
 }
+
+.header_titulo{
+    font-family: 'Lobster',serif;
+    text-align: center;
+    font-size: 40px;
+    position: relative;
+    top: -38px;
+    margin-bottom: -45px;
+    color: #65AEFF;
+ }
 
 .options{
     background: white;
-    width: 210px;
-    height: 210px;
-    float: left;
-    border-radius: 500px;
-    margin-top: 10px;
-    margin-left: 60px;
+    width: 40%;
+    height: 175px;
     padding: auto;
+    border-radius: 10px;
+    border-left: 4px solid #C0C0C9; 
+    box-shadow: 0px 2px 5px 0px rgba(181,181,181,1);
+    float: right;
+    margin: 10px 10px 10px 10px;
 }
 
 .options:hover{
-    border-radius: 79px 5px 76px 4px;
     cursor: pointer;
-    border: 2px solid rgb(177, 177, 177);
+    border-left: 5px solid transparent;
+    border-image: linear-gradient(to top, #2dceff 0%, #6af57c 50% ,  #ffa561 90%  );
+    border-image-slice: 1;
 }
 
 
@@ -53,11 +150,29 @@
 
 .txt_option{
     color:#A9A9A9;
-    position: relative;   
+    position: relative; 
+    top: -20px;
     font-size: 28px;
     text-align: center;
     font-family: 'Abel', sans-serif;
 }
+
+.contenedor_btn_apr{
+    width: 230px;
+    height: 50px;
+    text-align: center;
+    position: relative;
+    top: 350px;
+    margin-left: 45px;
+    padding-top: 10px;
+}
+
+
+.btn_ver_perfil{
+    color: rgb(141, 141, 141);
+    font-size: 20px;
+}
+
 
 }
 
@@ -65,6 +180,70 @@
 
 @media only screen and (max-width: 600px) {
   /* For mobile: */
+  
+  /****************contenedor de perfil********/
+/****************contenedor de perfil********/
+.contenedor-perfil{
+    background: white;
+    height: 250px;
+    width: 230px;
+    position: absolute;
+    left: 50px;
+    margin-right: 3px;
+    margin-top: 50px;
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);   
+}
+
+.img_foto{
+    background: rgba(0,0,0,0.10);
+    width: 165px;    
+    margin-left: 30px;
+    margin-top: 10px;
+    height: 150px;
+}
+
+.cont_name{
+    background: whitesmoke;
+    height: 80px;
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(to left, #2dceff 0%, #6af57c 50% ,  #ffa561 90%  );
+    border-image-slice: 1;
+}
+
+.msg_user{
+    margin-left: 10px;
+    color: gray;
+    font-size: 20px;
+}
+
+.user_text_nombre{
+    margin-left: 10px;
+    color: gray;
+    font-size: 15px;
+    margin-top: -5px;
+}
+
+.btn_mi_perfil{
+   background-color: #3498db;
+   width: 200px;
+   height: 50px;
+   color: white;
+   font-size: 20px;
+   border: none;
+   border-bottom: 3px solid #3949ab;
+}
+
+.btn_mi_perfil:hover{
+   box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75); 
+   cursor: pointer;
+}
+
+.img_btn_perfil{
+    width: 20px;
+    margin-right: 10px;
+}
+  
+  
 .cont_principal{
     display:block;
     max-height:500px;

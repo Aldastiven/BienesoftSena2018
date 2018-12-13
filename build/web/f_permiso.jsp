@@ -48,6 +48,8 @@
             <!--estilo materialize.css-->
             <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>    
             
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+            
             <!--importando--->
             <script src="js/jquery.js"></script>
 </head>
@@ -142,7 +144,7 @@
                 <img src="css_index_user/icons/coordinador/vpermiso.png" height="75px"/> 
             </figcaption>
             <div class="prueba">
-                <h1 class="titulonly">REGISTRO PERMISO</h1>
+                <h1 class="titulonly">Registro de Permiso</h1>
             </div>
         </div>
             

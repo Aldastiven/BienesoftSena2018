@@ -95,17 +95,7 @@ public class servBuscarPermisos_Historial extends HttpServlet {
         } else { 
             int doc =Integer.parseInt(request.getParameter("documento")); //Documento aprendiz
             int mes =Integer.parseInt(request.getParameter("mes")); //Mes
-//            JOptionPane.showMessageDialog(null,"Tipo: "+tipObservacion+"Doc: "+doc+"Mes: "+mes);
-            out.print(
-                "<thead class='thead_t'>"+                    
-                    "<tr>"+
-                    "<th id='thead_opt'>ID</th>"+
-                    "<th id='thead_opt'>DOCUMENTO APRENDIZ</th>"+
-                    "<th id='thead_opt'>TIPO DE PERMISO</th>"+
-                    "<th id='thead_opt' class='hide-on-med-and-down'>MOTIVO</th>"+
-                    "<th id='thead_opt' class='hide-on-med-and-down'>FECHA DE CREACION</th>"+                
-                    "</tr>"+
-                "</thead>");
+
 
             ArrayList<permiso_historialSG> lisdat = new ArrayList<>();
             consultas con = new consultas();
@@ -118,21 +108,16 @@ public class servBuscarPermisos_Historial extends HttpServlet {
             int i=0;
             for(i=0; i<lisdat.size(); i++){
                 x = lisdat.get(i);
-
+             
                 out.print(
-                        "<tr>"+
-                            "<form action='ServletPermiso' enctype='multipart/form-data' method='post'>"+
-                                "<td><input id=id"+i+" class='browser-default input_t' id='' readonly type='number' name='t_numerodocumento' value="+x.getHis_per_ID()+"></td>"+
-                                "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getHis_per_Aprendiz_Apr_documento()+"></td>"+
-                                "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getHis_per_tipo()+"></td>"+
-                                "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_moti' value="+x.getHis_per_motivo()+"></td>"+
-                                "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_fechsal' value="+x.getHis_per_fechaCreacion()+"></td>"+
-                                "<td>"+ 
-                                "<div  class='btn-ver-permiso-coordinador'>"+                
-                                "<img id=p"+i+" class='ver' src='icon_acciones/ver.png' style='padding-left: 15px'/>"+     
-                                "</div>"+
-                                "</td>"+        
-                        "</tr>"
+                "<div class='tar_info'>"+
+                    "<p class='tar_input_hidden'>id del aprendiz:</p>"+"<input class='tar_input_doc_apr browser-default' type='text' value="+x.getHis_per_Aprendiz_Apr_documento()+">"+
+                    "<p class='tar_txt_id'>id:</p>"+"<input class='tar_input_id browser-default' type='number' id=id"+i+" value="+x.getHis_per_ID()+">"+                    
+                    "<p class='tar_txt'>Estado:</p>"+"<input class='tar_input browser-default' type='text' value="+x.getHis_per_estado()+">"+
+                    "<p class='tar_txt'>Observacion:</p>"+"<input class='tar_input browser-default' type='text-area' value="+x.getHis_per_observacion_llegada()+">"+
+                    "<hr>"+
+                    "<img id=p"+i+" class='ver' src='icon_acciones/ver.png'/>"+"<p class='txt_ver_mas'> ver mas </p>"+
+                "</div>"
                 );
             }
             

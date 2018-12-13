@@ -96,17 +96,6 @@ public class servBuscarPermisos extends HttpServlet {
 
         } else { 
             int doc=Integer.parseInt(request.getParameter("documento")); //Documento aprendiz
-            out.print(
-                "<thead class='thead_t'>"+                    
-                    "<tr>"+
-                    "<th id='thead_opt'>ID</th>"+
-                    "<th id='thead_opt'>DOCUMENTO APRENDIZ</th>"+
-                    "<th id='thead_opt'>TIPO DE PERMISO</th>"+
-                    "<th id='thead_opt' class='hide-on-med-and-down'>FECHA</th>"+
-                    "<th id='thead_opt' class='hide-on-med-and-down'>FECHA DE SALIDA</th>"+
-                    "<th id='thead_opt'>ACCIONES</th>"+                 
-                    "</tr>"+
-                "</thead>");
 
             ArrayList<permisoSG> lisdat = new ArrayList<>();
             consultas con = new consultas();
@@ -121,20 +110,17 @@ public class servBuscarPermisos extends HttpServlet {
                 x = lisdat.get(i);
 
         out.print(
-                "<tr>"+
-                    "<form action='ServletPermiso' enctype='multipart/form-data' method='post'>"+
-                        "<td><input id=id"+i+" class='browser-default input_t' id='' readonly type='number' name='t_numerodocumento' value="+x.getPer_ID()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getPer_Aprendiz_Apr_documento()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_tipo' value="+x.getPer_tipo()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='text' name='t_moti' value="+x.getPer_fecha_Creacion()+"></td>"+
-                        "<td><input class='hide-on-med-and-down input_t' readonly type='date' name='t_fechsal' value="+x.getPer_fecha_salida()+"></td>"+
-                        "<td>"+ 
-                        "<div  class='btn-ver-permiso-coordinador'>"+                
-                        "<img id=p"+i+" class='ver' src='icon_acciones/ver.png' style='padding-left: 15px'/>"+     
-                        "</div>"+
-                        "</td>"+        
-                "</tr>"
+                "<div class='tar_info'>"+
+                    "<p class='tar_input_hidden'>id del aprendiz:</p>"+"<input class='tar_input_doc_apr browser-default' type='text' value="+x.getPer_Aprendiz_Apr_documento()+">"+
+                    "<p class='tar_txt_id'>id:</p>"+"<input class='tar_input_id browser-default' type='number' id=id"+i+" value="+x.getPer_ID()+">"+                    
+                    "<p class='tar_txt'>Fecha de salida:</p>"+"<input class='tar_input browser-default' type='text' value="+x.getPer_fecha_salida()+">"+
+                    "<p class='tar_txt'>Hora de salida:</p>"+"<input class='tar_input browser-default' type='text-area' value="+x.getPer_hora_Salida()+">"+
+                    "<hr>"+
+                    "<img id=p"+i+" class='ver' src='icon_acciones/ver.png'/>"+"<p class='txt_ver_mas'> ver mas </p>"+
+                "</div>"
         );
+        
+       
             }
 
 

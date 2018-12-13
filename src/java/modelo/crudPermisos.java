@@ -234,9 +234,9 @@ public class crudPermisos {
                 rs = stmt.executeQuery(SQL);
                 
                 while (rs.next()) {
-                    JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
+                    //JOptionPane.showMessageDialog(null,rs.getString("per_estado") + " este es el estado que consultamos CELEBREN  ");
                     String resultadoEst =  rs.getString("per_estado");
-                    JOptionPane.showMessageDialog(null, "value get thanks you :)   ---->" +resultadoEst);
+                    //JOptionPane.showMessageDialog(null, "value get thanks you :)   ---->" +resultadoEst);
                     
                     crudPermisos crud = new crudPermisos();
                     crud.procedimientos_historial(ing, resultadoEst);
@@ -303,7 +303,7 @@ public class crudPermisos {
                
                 String resultadoFechaReal =  rs.getString("per_fecha_ingresoReal");
                 String resultadoHoraReal =  rs.getString("per_hora_ingresoReal");
-                JOptionPane.showMessageDialog(null, "esta es la fecha de ingreso real  " +resultadoFechaReal+ "esta es la hora de ingreso real  "  +  resultadoHoraReal);
+                //JOptionPane.showMessageDialog(null, "esta es la fecha de ingreso real  " +resultadoFechaReal+ "esta es la hora de ingreso real  "  +  resultadoHoraReal);
 
                 
                 if(resultadoFechaReal!=null && resultadoHoraReal!=null){

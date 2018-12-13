@@ -66,7 +66,7 @@ public class Autorizacion {
           if(rs.next()){
                 permiso_historialSG gt = new permiso_historialSG(rs.getInt(1), rs.getInt(2),rs.getString(3) , rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19));
                 permisoid.add(gt);
-                JOptionPane.showMessageDialog(null, gt.getHis_per_ID());
+                //JOptionPane.showMessageDialog(null, gt.getHis_per_ID());
                 
             }
             
@@ -144,30 +144,30 @@ public class Autorizacion {
         //Si el día actual es igual al estipulado
         if(Integer.parseInt(HEap[0]) <= 9){
             HEap[0] = HEap[0].substring(1);
-            JOptionPane.showMessageDialog(null,HEap[0]);
+            //JOptionPane.showMessageDialog(null,HEap[0]);
         }
         if(Integer.parseInt(HEap[1]) <= 9 && Integer.parseInt(HEap[1]) > 0){
             HEap[1] = HEap[1].substring(1);
-            JOptionPane.showMessageDialog(null,HEap[1]);
+            //JOptionPane.showMessageDialog(null,HEap[1]);
         }
         
         //fecha
         if(Integer.parseInt(FEap[2]) <= 9){
             FEap[2] = FEap[2].substring(1);
-            JOptionPane.showMessageDialog(null,"Día: "+FEap[2]);
+            //JOptionPane.showMessageDialog(null,"Día: "+FEap[2]);
         }
         if(Integer.parseInt(FEap[1]) <= 9){
             FEap[1] = FEap[1].substring(1);
-            JOptionPane.showMessageDialog(null,FEap[1]);
+            //JOptionPane.showMessageDialog(null,FEap[1]);
         }
         
         
         
-        JOptionPane.showMessageDialog(null,"Fecha real: "+FR[0]+"-"+FR[1]+"-"+FR[2]);
-        JOptionPane.showMessageDialog(null,"Fecha estipulada: "+FEap[0]+"-"+FEap[1]+"-"+FEap[2]);
+        //JOptionPane.showMessageDialog(null,"Fecha real: "+FR[0]+"-"+FR[1]+"-"+FR[2]);
+        //JOptionPane.showMessageDialog(null,"Fecha estipulada: "+FEap[0]+"-"+FEap[1]+"-"+FEap[2]);
         
-        JOptionPane.showMessageDialog(null,"Hora real: "+HR[0]+":"+HR[1]);
-        JOptionPane.showMessageDialog(null,"Hora estipulada: "+HEap[0]+":"+HEap[1]);
+        //JOptionPane.showMessageDialog(null,"Hora real: "+HR[0]+":"+HR[1]);
+        //JOptionPane.showMessageDialog(null,"Hora estipulada: "+HEap[0]+":"+HEap[1]);
         
         /***************MOSTRANDOR ID *********************/
         

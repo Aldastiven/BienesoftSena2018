@@ -24,7 +24,7 @@
             <link type="text/css" rel="stylesheet" href="css/encabezado.css"  media="screen,projection"/>
 
             <!--estilo modulo busqueda-->
-            <link type="text/css" rel="stylesheet" href="css/modulo_busqueda.css" media="screen,projection"/>
+            <link type="text/css" rel="stylesheet" href="css/modulo_busqueda_1.css" media="screen,projection"/>
             
             <!--estilo de la tabla--> 
             <link type="text/css" rel="stylesheet" href="css/tabla.css"  media="screen,projection"/>
@@ -43,10 +43,15 @@
             
             <!--estilo footer-->
             <link type="text/css" rel="stylesheet" href="css/footer.css"  media="screen,projection"/>
-
+            
             <!--estilo materialize.css-->
             <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 
+            <!--estilo tablas de contenido-->
+            <link type="text/css" rel="stylesheet" href="css/nuevas tablas de contenido/tablas_contenido.css"  media="screen,projection"/>
+
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+            
             <!--importando--->
             <script src="js/jquery.js"></script>
             
@@ -160,14 +165,14 @@
                     <input id="documento_key" class="searchTerm" type="number" name="" placeholder="Buscar documento" class="browser-default"/>
                  
                     <!--combobox--> 
-                    <select id="ComboFiltroHistorial" name="cbx_tipo_per_his" class="browser-default searchTerm">
+                    <select id="ComboFiltroHistorial" name="cbx_tipo_per_his" class="browser-default searchTerm cbx_obser_his">
                         <option value="">Todo</option>
                         <option value="Tarde">Tarde</option>
                         <option value="Temprano">Temprano</option>
                     </select>
                     
                     <!--combobox fechas de permisos x mes--> 
-                    <select id="ComboMes" name="mes_cbx" class="browser-default searchTerm">
+                    <select id="ComboMes" name="mes_cbx" class="browser-default searchTerm cbx_mes_his">
                         <option value="">Todo</option>
                         <option value="1">Enero</option>
                         <option value="2">Febrero</option>
@@ -215,7 +220,7 @@
             <img src="css_index_user/icons/coordinador/vpermiso.png" height="75px"/> 
         </figcaption>
         <div class="prueba">
-            <h1 class="titulohistory">HISTORIAL DE PERMISOS</h1>
+            <h1 class="titulonly">Historial de Permisos</h1>
         </div>
     </div>
       <!--Tabla de historial de permisos-->
@@ -249,8 +254,8 @@
 
     </body>
     
-    <!--***************FOOTER*********************-->
-    <div id="footer_style" style="display: none;">
+         <!--***************FOOTER*********************-->
+       <div id="footer_style_1">
             <div id="footer_p_1" >
                 <img id="img_foot_1" src="img_footer/Logo4.png" />
                 <img id="img_foot_2" src="img_footer/Logo1.png" />
@@ -265,6 +270,8 @@
                 <img id="img_foot_4" src="img_footer/Logo3.png" />
             </div>
         </div>
+        <!------------------------------------------------------------------------------------------------------>    
+        
         <!--buscador-->
         <script src="js/buscadorfacil/BuscadorTabla_historial.js"></script>
 </html>

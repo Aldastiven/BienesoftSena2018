@@ -1,0 +1,107 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+.tar_info{
+    background: whitesmoke;
+    width: 200px;
+    float: left;
+    margin-right: 30px;
+    margin-left: 10px;
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75);
+    margin-top: 10px;
+}
+
+.tar_txt{
+    background: transparent;
+    width: 100%;
+    font-size: 18px;
+    color: #9e9e9e;
+    margin-left: 2px;
+    text-align: left;
+}
+
+.tar_input{
+    background: transparent;
+    width: 50%;
+    margin-top: -35px;
+    margin-right: 2px;
+    float: right;
+    position: relative;
+    top: -5px;
+    text-align: right;
+}
+
+.tar_input_doc_apr{
+    width: 100%;
+    font-size: 18px;
+    color: #9e9e9e;
+    background: transparent;
+}
+
+.tar_input_id{
+    width: 50%;
+    float: right;
+    position: relative;
+    top: -50px;
+    background: transparent;
+}
+
+.tar_txt_id{
+    width: 100%;
+    font-size: 18px;
+    color: #9e9e9e; 
+    text-align: center;
+    background: transparent;
+    position: relative;
+    top: -10px;
+}
+
+.txt_ver_mas{
+    float: right;
+    width: 50%;
+    color: gray;
+    font-size: 15px;
+    position: relative;
+    top: -10px;
+}
+
+.ver{
+    width: 35px;
+    position: relative;
+    left: 60px;
+}
+
+.ver:hover{
+    cursor: pointer;
+}
+
+.tar_input_hidden, .tar_txt_hidden{
+    display: none;
+}
+
+#btn_ver_history{
+    background: #00c853;
+    position: relative;
+    top: 30px;
+    left: 30px;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    border: none;
+}
+
+#btn_ver_history:hover{
+    box-shadow: 0px 2px 5px -1px rgba(0,0,0,0.75); 
+    cursor: pointer;
+}
+
+.img_btn_perfil{
+    width: 20px;
+    margin-right: 10px;
+}

@@ -47,6 +47,11 @@
             <!--estilo materialize.css-->
             <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 
+            
+            <!--estilo tablas de contenido-->
+            <link type="text/css" rel="stylesheet" href="css/nuevas tablas de contenido/tablas_contenido.css"  media="screen,projection"/>
+
+            
             <!--importando--->
             <script src="js/jquery.js"></script>
             
@@ -197,19 +202,24 @@
         
         
         <!--MENU-->
+
+        
         <a href="t_permiso_historial.jsp">
-            <button id="btn_ver_history" type="sumbit">ver historial</button>
+            <button type="submit"  id="btn_ver_history">                        
+                <img class="img_btn_perfil"  src="css/acciones/img_histoico.png">
+                Historial
+            </button>
         </a>
 
   <!--*******************************OBJETO TABLA***************************-->
         
-  <div class="container  l12 m12 s12">
+  <div class="container  l12 m12 s12" style="position: relative; top: -30px;">
     <div class="header_conte">
         <figcaption class="vicon">
             <img src="css_index_user/icons/coordinador/vpermiso.png" height="75px"/> 
         </figcaption>
         <div class="prueba">
-            <h1 class="titulonly">PERMISOS</h1>
+            <h1 class="titulonly">Permisos</h1>
         </div>
     </div>
       
@@ -225,7 +235,7 @@
            
   
 <!--***************FOOTER*********************-->
-        <div id="footer_style" style="display: none;">
+        <div id="footer_style_1">
             <div id="footer_p_1" >
                 <img id="img_foot_1" src="img_footer/Logo4.png" />
                 <img id="img_foot_2" src="img_footer/Logo1.png" />

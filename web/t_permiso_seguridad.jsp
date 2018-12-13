@@ -25,7 +25,7 @@
             <link type="text/css" rel="stylesheet" href="css/encabezado.css"  media="screen,projection"/>
 
             <!--estilo modulo busqueda-->
-            <link type="text/css" rel="stylesheet" href="css/modulo_busqueda.css" media="screen,projection"/>
+            <link type="text/css" rel="stylesheet" href="css/modulo_busqueda_1_1.css" media="screen,projection"/>
             
             <!--estilo de la tabla--> 
             <link type="text/css" rel="stylesheet" href="css/tabla.css"  media="screen,projection"/>
@@ -48,6 +48,10 @@
             <!--estilo materialize.css-->
             <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 
+            <!--estilo tablas de contenido-->
+            <link type="text/css" rel="stylesheet" href="css/nuevas tablas de contenido/tablas_contenido.css"  media="screen,projection"/>
+
+            
             <!--importando--->
             <script src="js/jquery.js"></script>
             
@@ -109,35 +113,8 @@
         <!--------------------------------------------------->
 
         <!--nav secundario (opciones)--->
-        <nav id="nav_menu" class="hide-on-med-and-down" >
-            <a href="coordinador.jsp">
-                <img class="icon-a" src="iconos_nav_bar/home.png"/>
-                <input id="opc_menu_2" type="submit" value="Inicio"/>
-            </a>
-            <a href="t_permiso_coordinador.jsp">
-                <img class="icon-b" src="iconos_nav_bar/permisos.png"/>
-                <input id="opc_menu_2" type="submit" value="Permisos"/>
-            </a>
-
-            <a href="t_aprendiz.jsp">
-                <img class="icon-c" src="iconos_nav_bar/aprendiz.png"/>
-                <input id="opc_menu_2" type="submit" value="Aprendices"/>
-            </a>
-
-            <a href="t_ficha.jsp">
-                <img class="icon-d" src="iconos_nav_bar/fichas.png"/>
-                <input id="opc_menu_2" type="submit" value="Fichas"/>
-            </a>    
-
-            <a href="t_aprendiz_rel_patrocinio.jsp">
-                <img class="icon-e" src="iconos_nav_bar/patrocinio.png"/>
-                <input id="opc_menu_2" type="submit" value="Patrocinio"/>
-            </a>
-
-            <a href="t_habitacion.jsp">
-                <img class="icon-f" src="iconos_nav_bar/habitaciones.png"/>
-                <input id="opc_menu_2" type="submit" value="Habitaciones"/>
-            </a>
+        <nav id="nav_menu" class="hide-on-med-and-down">
+            
         </nav>
         <!--**************************************************************************************************-->
         
@@ -202,7 +179,7 @@
             <img src="css_index_user/icons/coordinador/vpermiso.png" height="75px"/> 
         </figcaption>
         <div class="prueba">
-            <h1 class="titulonly">PERMISOS</h1>
+            <h1 class="titulonly">Permisos</h1>
         </div>
     </div>
     <div id="table"  class="table" >
@@ -210,7 +187,7 @@
         <div id="table_p">
             <table id="datos" class="table_p">
             </table>          
-        </div>>
+        </div>
              
     </div>
 
@@ -219,8 +196,8 @@
 </div>
            
   
-    <!--*********************FOOTER*********************-->
-    <div id="footer_style" style="display: none;">
+<!--***************FOOTER*********************-->
+        <div id="footer_style_1">
             <div id="footer_p_1" >
                 <img id="img_foot_1" src="img_footer/Logo4.png" />
                 <img id="img_foot_2" src="img_footer/Logo1.png" />
@@ -235,6 +212,7 @@
                 <img id="img_foot_4" src="img_footer/Logo3.png" />
             </div>
         </div>
+    <!------------------------------------------------------------------------------------------------------>  
         <!-------------------------------------------------------------------------------------------d
 
     <!--importando funciones para los objetos-->    

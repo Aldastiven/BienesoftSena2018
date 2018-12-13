@@ -133,7 +133,7 @@
             </div>
 
     <!------------------objeto opciones-------------------------------------------->
-    <div class="cont_principal">
+    <div class="cont_principal" style="width: 650px;">
         
         <p class="header_titulo"> Menu </p>    
         <hr class="separator">
